@@ -1,0 +1,53 @@
+{
+ "_source": "Anthropic first-party API list prices, USD per million tokens, from the claude-api skill model table cached 2026-10-06. Cache-write prices use the standard multipliers (5-minute = 1.25x input, 1-hour = 2x input). Haiku 5.5 cache read assumed at 0.1x input (not stated in the source). Haiku 5.5 prices apply to prompts up to 100K tokens. Update this file when prices change; costs are recomputed from it. Sonnet 5 cache read assumed equal to Sonnet 5.5 ($0.20).",
+ "claude-opus-5-5": {
+  "input": 4.0,
+  "output": 20.0,
+  "cache_write_5m": 5.0,
+  "cache_write_1h": 8.0,
+  "cache_read": 0.2
+ },
+ "claude-sonnet-5-5": {
+  "input": 2.0,
+  "output": 10.0,
+  "cache_write_5m": 2.5,
+  "cache_write_1h": 4.0,
+  "cache_read": 0.2
+ },
+ "claude-haiku-5-5": {
+  "input": 0.1,
+  "output": 0.5,
+  "cache_write_5m": 0.125,
+  "cache_write_1h": 0.2,
+  "cache_read": 0.01
+ },
+ "claude-sonnet-5": {
+  "input": 2.0,
+  "output": 10.0,
+  "cache_write_5m": 2.5,
+  "cache_write_1h": 4.0,
+  "cache_read": 0.2
+ },
+ "gpt-6-luna": {
+  "input": 0.1,
+  "output": 0.5,
+  "cache_write_30m": 0.125,
+  "cache_write_12h": 0.25,
+  "cache_read": 0.01
+ },
+ "gpt-6.1-sol": {
+  "input": 2.0,
+  "output": 10.0,
+  "cache_write_30m": 2.5,
+  "cache_write_12h": 5.0,
+  "cache_read": 0.1
+ },
+ "gpt-6-astra": {
+  "input": 10.0,
+  "output": 50.0,
+  "cache_write_30m": 12.5,
+  "cache_write_12h": 25.0,
+  "cache_read": 1.0
+ },
+ "_source_openai": "OpenAI API standard prices, USD per million tokens, as quoted by ChatGPT on 2026-10-25 (citing OpenAI's pricing page and prompt-caching guide); not checked against the page itself."
+}

@@ -1,0 +1,261 @@
+{
+ "_about": "Price per report for every model x arm on the cross-model topics, in USD, with where it comes from.",
+ "eur_usd": 1.1202,
+ "topics": [
+  "S13",
+  "S23",
+  "T3",
+  "T9",
+  "T20"
+ ],
+ "brave_calls": 1308,
+ "brave_calls_outside_rounds": 1,
+ "prices": {
+  "haiku:A": {
+   "usd": 0.21226,
+   "jobs": 25,
+   "source": "Claude Code's reported cost"
+  },
+  "haiku:B": {
+   "usd": 0.644832,
+   "jobs": 25,
+   "source": "Claude Code's reported cost",
+   "rb_usd": 0.0787
+  },
+  "haiku:C": {
+   "usd": 1.148152,
+   "jobs": 25,
+   "source": "Claude Code's reported cost",
+   "rb_usd": 0.0787
+  },
+  "sonnet:A": {
+   "usd": 0.210072,
+   "jobs": 25,
+   "source": "Claude Code's reported cost"
+  },
+  "sonnet:B": {
+   "usd": 1.238996,
+   "jobs": 25,
+   "source": "Claude Code's reported cost",
+   "rb_usd": 0.5582
+  },
+  "sonnet:C": {
+   "usd": 3.113772,
+   "jobs": 25,
+   "source": "Claude Code's reported cost",
+   "rb_usd": 0.5582
+  },
+  "opus:A": {
+   "usd": 0.794484,
+   "jobs": 25,
+   "source": "Claude Code's reported cost"
+  },
+  "opus:B": {
+   "usd": 4.176128,
+   "jobs": 25,
+   "source": "Claude Code's reported cost",
+   "rb_usd": 1.1082
+  },
+  "opus:C": {
+   "usd": 7.289,
+   "jobs": 25,
+   "source": "Claude Code's reported cost",
+   "rb_usd": 1.1082
+  },
+  "haiku-xhigh:B": {
+   "usd": 2.126532,
+   "jobs": 25,
+   "source": "Claude Code's reported cost",
+   "rb_usd": 0.1099
+  },
+  "sol:A": {
+   "usd": 0.139322112,
+   "jobs": 25,
+   "source": "tokens at OpenAI standard prices (pricing.json)"
+  },
+  "sol:B": {
+   "usd": 0.784847072,
+   "jobs": 25,
+   "source": "tokens at OpenAI standard prices (pricing.json)",
+   "rb_usd": 0.43255696
+  },
+  "sol:C": {
+   "usd": 1.3269706719999999,
+   "jobs": 25,
+   "source": "tokens at OpenAI standard prices (pricing.json)",
+   "rb_usd": 0.43255696
+  },
+  "sol-high:B": {
+   "usd": 1.440587104,
+   "jobs": 25,
+   "source": "tokens at OpenAI standard prices (pricing.json)",
+   "rb_usd": 0.43255696
+  },
+  "sol-high:C": {
+   "usd": 1.9244263519999998,
+   "jobs": 25,
+   "source": "tokens at OpenAI standard prices (pricing.json)",
+   "rb_usd": 0.43255696
+  },
+  "astra:A": {
+   "usd": 0.93755544,
+   "jobs": 25,
+   "source": "tokens at OpenAI standard prices (pricing.json)"
+  },
+  "astra:B": {
+   "usd": 4.83819888,
+   "jobs": 25,
+   "source": "tokens at OpenAI standard prices (pricing.json)",
+   "rb_usd": 2.0563768
+  },
+  "astra:C": {
+   "usd": 7.80349992,
+   "jobs": 25,
+   "source": "tokens at OpenAI standard prices (pricing.json)",
+   "rb_usd": 2.0563768
+  },
+  "luna:A": {
+   "usd": 0.0065545384000000005,
+   "jobs": 25,
+   "source": "tokens at OpenAI standard prices (pricing.json)"
+  },
+  "luna:B": {
+   "usd": 0.0338120136,
+   "jobs": 25,
+   "source": "tokens at OpenAI standard prices (pricing.json)",
+   "rb_usd": 0.023124568
+  },
+  "luna:C": {
+   "usd": 0.105573424,
+   "jobs": 25,
+   "source": "tokens at OpenAI standard prices (pricing.json)",
+   "rb_usd": 0.023124568
+  },
+  "luna-xhigh:B": {
+   "usd": 0.0936649112,
+   "jobs": 25,
+   "source": "tokens at OpenAI standard prices (pricing.json)",
+   "rb_usd": 0.043374216
+  },
+  "vibe:A": {
+   "usd": 0.22526467881224005,
+   "jobs": 25,
+   "source": "Mistral console usage, one price per model, EUR at the ECB October 2026 mean"
+  },
+  "vibe:B": {
+   "usd": 0.7136577942903313,
+   "jobs": 25,
+   "source": "Mistral console usage, one price per model, EUR at the ECB October 2026 mean",
+   "rb_usd": 0.10380899101392588
+  },
+  "vibe:C": {
+   "usd": 1.3068002525760394,
+   "jobs": 25,
+   "source": "Mistral console usage, one price per model, EUR at the ECB October 2026 mean",
+   "rb_usd": 0.10380899101392588
+  },
+  "large4:A": {
+   "usd": 0.14304812624977678,
+   "jobs": 25,
+   "source": "Mistral console usage, one price per model, EUR at the ECB October 2026 mean"
+  },
+  "large4:B": {
+   "usd": 0.8508660931330619,
+   "jobs": 25,
+   "source": "Mistral console usage, one price per model, EUR at the ECB October 2026 mean",
+   "rb_usd": 0.09720847118646021
+  },
+  "large4:C": {
+   "usd": 1.1817999330087876,
+   "jobs": 25,
+   "source": "Mistral console usage, one price per model, EUR at the ECB October 2026 mean",
+   "rb_usd": 0.09720847118646021
+  },
+  "glm-flash:A": {
+   "usd": 0.02759450527533149,
+   "jobs": 25,
+   "source": "Mistral console usage, one price per model, EUR at the ECB October 2026 mean"
+  },
+  "glm-flash:B": {
+   "usd": 0.15851393365813668,
+   "jobs": 25,
+   "source": "Mistral console usage, one price per model, EUR at the ECB October 2026 mean",
+   "rb_usd": 0.014629459234222915
+  },
+  "glm-flash:C": {
+   "usd": 0.29927498743241066,
+   "jobs": 24,
+   "source": "Mistral console usage, one price per model, EUR at the ECB October 2026 mean",
+   "rb_usd": 0.014629459234222915
+  },
+  "qwen3.5-9b-think:A": {
+   "usd": 0.017194816618439128,
+   "jobs": 25,
+   "source": "measured GPU energy at EUR 0.20/kWh + Brave API calls at $5/1000",
+   "energy_usd": 0.001969309372062315,
+   "search_usd": 0.015225507246376812
+  },
+  "qwen3.5-9b-think:B": {
+   "usd": 0.05004329054066483,
+   "jobs": 25,
+   "source": "measured GPU energy at EUR 0.20/kWh + Brave API calls at $5/1000",
+   "rb_usd": 0.011224742811347983,
+   "energy_usd": 0.0045043448307661195,
+   "search_usd": 0.03431420289855072
+  },
+  "qwen3.5-9b-think:C": {
+   "usd": 0.04477981074692241,
+   "jobs": 25,
+   "source": "measured GPU energy at EUR 0.20/kWh + Brave API calls at $5/1000",
+   "rb_usd": 0.011224742811347983,
+   "energy_usd": 0.006512749094994716,
+   "search_usd": 0.02704231884057971
+  },
+  "qwen3.5-4b-think-262k:A": {
+   "usd": 0.02280373167395975,
+   "jobs": 25,
+   "source": "measured GPU energy at EUR 0.20/kWh + Brave API calls at $5/1000",
+   "energy_usd": 0.0023943749488135485,
+   "search_usd": 0.0204093567251462
+  },
+  "qwen3.5-4b-think-262k:B": {
+   "usd": 0.11775276837473606,
+   "jobs": 25,
+   "source": "measured GPU energy at EUR 0.20/kWh + Brave API calls at $5/1000",
+   "rb_usd": 0.03799915717594594,
+   "energy_usd": 0.0062799269882638,
+   "search_usd": 0.07347368421052632
+  },
+  "qwen3.5-4b-think-262k:C": {
+   "usd": 0.0857902800980069,
+   "jobs": 25,
+   "source": "measured GPU energy at EUR 0.20/kWh + Brave API calls at $5/1000",
+   "rb_usd": 0.03799915717594594,
+   "energy_usd": 0.008196970875277333,
+   "search_usd": 0.03959415204678363
+  },
+  "gemma-4-12b-guarded:A": {
+   "usd": 0.012080756430025761,
+   "jobs": 24,
+   "source": "measured GPU energy at EUR 0.20/kWh + Brave API calls at $5/1000",
+   "energy_usd": 0.002903124851078393,
+   "search_usd": 0.009177631578947368
+  },
+  "gemma-4-12b-guarded:B": {
+   "usd": 0.038429654624120915,
+   "jobs": 22,
+   "source": "measured GPU energy at EUR 0.20/kWh + Brave API calls at $5/1000",
+   "rb_usd": 0.011909068199395412,
+   "energy_usd": 0.005013409391232679,
+   "search_usd": 0.021507177033492822
+  },
+  "gemma-4-12b-guarded:C": {
+   "usd": 0.046623639936531173,
+   "jobs": 18,
+   "source": "measured GPU energy at EUR 0.20/kWh + Brave API calls at $5/1000",
+   "rb_usd": 0.011909068199395412,
+   "energy_usd": 0.013413402146492483,
+   "search_usd": 0.021301169590643276
+  }
+ }
+}

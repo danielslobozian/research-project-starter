@@ -1,0 +1,6 @@
+topic,validation,B:A mean,C:B mean,C:A mean,B:A sessions,C:B sessions,C:A sessions
+S13,False,1.0,-0.2,0.6,5,5,5
+S23,False,0.2,0.2,0.6,5,5,5
+T3,False,0.2,0.4,0.8,5,5,5
+T9,False,0.8,0.6,1.0,5,5,5
+T20,False,1.0,-1.0,-0.6,5,5,5

@@ -1,0 +1,30 @@
+{
+ "_about": "Inputs of tools/report_prices.py besides pricing.json and the run ledger. Every price is published in USD.",
+ "eur_usd": {
+  "rate": 1.1202,
+  "source": "ECB euro reference rate, USD per EUR, mean of the 22 business days of October 2026 (eurofxref-hist-90d.xml, read 2026-10-31)"
+ },
+ "mistral_console": {
+  "_about": "The Mistral console: usage and cost per billed model for the whole benchmark period (screenshot 2026-10-31 15:54 Paris). Unit prices in EUR per 1M tokens: cached input, input, output. Vibe's own session journals give each session's tokens; the console's usage per model and component scales them.",
+  "billed": {
+   "mistral-vibe-cli-latest": {"label": "Mistral Medium 3.5", "usage_m": [158.94, 11.19, 1.94], "eur_per_m": [0.13, 1.28, 6.38], "cost_eur": 46.90},
+   "mistral-large-4": {"label": "Mistral Large 4, before the price cut (25-26 Oct)", "usage_m": [120.91, 10.48, 2.21], "eur_per_m": [0.12, 1.16, 3.55], "cost_eur": 34.38},
+   "mistral-large-4-0": {"label": "Mistral Large 4, after the price cut (29-30 Oct)", "usage_m": [234.31, 10.83, 4.09], "eur_per_m": [0.06, 0.60, 1.79], "cost_eur": 27.68},
+   "zai-glm-5-3-flash": {"label": "GLM-5.3 Flash", "usage_m": [2190.0, 196.76, 26.27], "eur_per_m": [0.03, 0.13, 0.43], "cost_eur": 92.16},
+   "zai-glm-5-3": {"label": "GLM-5.3 (probes only)", "usage_m": [16.06, 0.35198, 0.23763], "eur_per_m": [0.12, 1.19, 3.74], "cost_eur": 3.22}
+  },
+  "published_price": {
+   "_about": "One price per model: Mistral cut Large 4's price by half during the round; every Large 4 job is priced at the new rate.",
+   "vibe": "mistral-vibe-cli-latest",
+   "large4": "mistral-large-4-0",
+   "glm-flash": "zai-glm-5-3-flash"
+  }
+ },
+ "local": {
+  "_about": "Local models on the lab's RTX 3080 Ti (undervolted, VRAM clock lowered to hold the VRAM at 92 C). Energy is the GPU's measured power (lab-data health samples, every 15 s) over the periods its preset served requests after the Brave Search API was switched on; it is shared across that round's jobs by their duration, so failed attempts are paid by the reports. Search is the calls that actually reached Brave (the lab cache's upstream log), matched to each job's queries.",
+  "eur_per_kwh": 0.20,
+  "brave_usd_per_call": 0.005,
+  "search_namespace": "bench-2026-10-local-brave",
+  "gpu_name": "NVIDIA GeForce RTX 3080 Ti"
+ }
+}

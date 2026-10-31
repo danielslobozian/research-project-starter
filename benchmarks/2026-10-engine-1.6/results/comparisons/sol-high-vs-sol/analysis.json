@@ -1,0 +1,162 @@
+{
+ "items": [
+  "sol-high:B",
+  "sol-high:C",
+  "sol:C",
+  "sol:B"
+ ],
+ "contrasts": {
+  "sol-high:B : sol-high:C": {
+   "topics": 5,
+   "sessions": 25,
+   "mean": 0.9199999999999999,
+   "ci95": [
+    0.8400000000000001,
+    1.0
+   ],
+   "wins": 23,
+   "ties": 2,
+   "losses": 0,
+   "sign_test": {
+    "topics_above_0": 5,
+    "topics_below_0": 0,
+    "p_two_sided": 0.0625
+   },
+   "topic_means": {
+    "S13": 0.8,
+    "S23": 0.8,
+    "T20": 1.0,
+    "T3": 1.0,
+    "T9": 1.0
+   }
+  },
+  "sol-high:B : sol:C": {
+   "topics": 5,
+   "sessions": 25,
+   "mean": 1.0,
+   "ci95": [
+    1.0,
+    1.0
+   ],
+   "wins": 25,
+   "ties": 0,
+   "losses": 0,
+   "sign_test": {
+    "topics_above_0": 5,
+    "topics_below_0": 0,
+    "p_two_sided": 0.0625
+   },
+   "topic_means": {
+    "S13": 1.0,
+    "S23": 1.0,
+    "T20": 1.0,
+    "T3": 1.0,
+    "T9": 1.0
+   }
+  },
+  "sol-high:B : sol:B": {
+   "topics": 5,
+   "sessions": 25,
+   "mean": 0.8400000000000001,
+   "ci95": [
+    0.72,
+    0.96
+   ],
+   "wins": 21,
+   "ties": 4,
+   "losses": 0,
+   "sign_test": {
+    "topics_above_0": 5,
+    "topics_below_0": 0,
+    "p_two_sided": 0.0625
+   },
+   "topic_means": {
+    "S13": 1.0,
+    "S23": 0.6,
+    "T20": 0.8,
+    "T3": 0.8,
+    "T9": 1.0
+   }
+  },
+  "sol-high:C : sol:C": {
+   "topics": 5,
+   "sessions": 25,
+   "mean": 0.8,
+   "ci95": [
+    0.8,
+    0.8
+   ],
+   "wins": 20,
+   "ties": 5,
+   "losses": 0,
+   "sign_test": {
+    "topics_above_0": 5,
+    "topics_below_0": 0,
+    "p_two_sided": 0.0625
+   },
+   "topic_means": {
+    "S13": 0.8,
+    "S23": 0.8,
+    "T20": 0.8,
+    "T3": 0.8,
+    "T9": 0.8
+   }
+  },
+  "sol-high:C : sol:B": {
+   "topics": 5,
+   "sessions": 25,
+   "mean": -0.11999999999999997,
+   "ci95": [
+    -0.52,
+    0.36000000000000004
+   ],
+   "wins": 5,
+   "ties": 12,
+   "losses": 8,
+   "sign_test": {
+    "topics_above_0": 1,
+    "topics_below_0": 3,
+    "p_two_sided": 0.625
+   },
+   "topic_means": {
+    "S13": 0.8,
+    "S23": 0.0,
+    "T20": -0.2,
+    "T3": -0.6,
+    "T9": -0.6
+   }
+  },
+  "sol:C : sol:B": {
+   "topics": 5,
+   "sessions": 25,
+   "mean": -0.8800000000000001,
+   "ci95": [
+    -1.0,
+    -0.72
+   ],
+   "wins": 0,
+   "ties": 3,
+   "losses": 22,
+   "sign_test": {
+    "topics_above_0": 0,
+    "topics_below_0": 5,
+    "p_two_sided": 0.0625
+   },
+   "topic_means": {
+    "S13": -0.6,
+    "S23": -1.0,
+    "T20": -0.8,
+    "T3": -1.0,
+    "T9": -1.0
+   }
+  }
+ },
+ "consistency": {
+  "pair": "K=C,L=B",
+  "against": "v4.1-cross/sol",
+  "same": 21,
+  "softer": 4,
+  "reversed": 0,
+  "missing": 0
+ }
+}

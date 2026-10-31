@@ -1,0 +1,20 @@
+{
+ "_about": "The 15 executions of the edition: runs folder name (runs-<key>), display name, reasoning effort, client and where the model ran. Effort: Claude runs without --effort used Claude Code's effortLevel setting (medium); Codex runs without it used the model's default (gpt-6.1-sol: low; gpt-6-luna, gpt-6-astra: medium); Vibe's thinking level is per model in its config.",
+ "models": {
+  "opus": {"name": "Claude Opus 5.5", "model_id": "claude-opus-5-5", "effort": "medium", "client": "Claude Code", "where": "cloud"},
+  "sonnet": {"name": "Claude Sonnet 5.5", "model_id": "claude-sonnet-5-5", "effort": "medium", "client": "Claude Code", "where": "cloud"},
+  "haiku": {"name": "Claude Haiku 5.5", "model_id": "claude-haiku-5-5", "effort": "medium", "client": "Claude Code", "where": "cloud"},
+  "haiku-xhigh": {"name": "Claude Haiku 5.5", "model_id": "claude-haiku-5-5", "effort": "xhigh", "client": "Claude Code", "where": "cloud"},
+  "sol": {"name": "GPT-6.1 Sol", "model_id": "gpt-6.1-sol", "effort": "low", "client": "Codex", "where": "cloud"},
+  "sol-high": {"name": "GPT-6.1 Sol", "model_id": "gpt-6.1-sol", "effort": "high", "client": "Codex", "where": "cloud"},
+  "astra": {"name": "GPT-6 Astra", "model_id": "gpt-6-astra", "effort": "medium", "client": "Codex", "where": "cloud"},
+  "luna": {"name": "GPT-6 Luna", "model_id": "gpt-6-luna", "effort": "medium", "client": "Codex", "where": "cloud"},
+  "luna-xhigh": {"name": "GPT-6 Luna", "model_id": "gpt-6-luna", "effort": "xhigh", "client": "Codex", "where": "cloud"},
+  "large4": {"name": "Mistral Large 4", "model_id": "mistral-large-4", "effort": "thinking high", "client": "Mistral Vibe", "where": "cloud"},
+  "vibe": {"name": "Mistral Medium 3.5", "model_id": "mistral-medium-3.5", "effort": "Vibe default", "client": "Mistral Vibe", "where": "cloud"},
+  "glm-flash": {"name": "GLM-5.3 Flash", "model_id": "zai-glm-5-3-flash", "effort": "thinking high", "client": "Mistral Vibe", "where": "cloud"},
+  "qwen3.5-9b-think": {"name": "Qwen3.5 9B", "model_id": "Qwen3.5-9B-Q4_K_M", "effort": "thinking on", "client": "OpenCode + llama.cpp", "where": "local GPU"},
+  "qwen3.5-4b-think-262k": {"name": "Qwen3.5 4B", "model_id": "Qwen3.5-4B-Q4_K_M", "effort": "thinking on", "client": "OpenCode + llama.cpp", "where": "local GPU"},
+  "gemma-4-12b-guarded": {"name": "Gemma 4 12B", "model_id": "gemma-4-12b-it-qat-q4_0", "effort": "default", "client": "OpenCode + llama.cpp", "where": "local GPU"}
+ }
+}

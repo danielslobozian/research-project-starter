@@ -1,0 +1,32 @@
+{
+ "items": [
+  "haiku-xhigh:B",
+  "haiku:B"
+ ],
+ "contrasts": {
+  "haiku-xhigh:B : haiku:B": {
+   "topics": 5,
+   "sessions": 25,
+   "mean": 0.8400000000000001,
+   "ci95": [
+    0.6799999999999999,
+    1.0
+   ],
+   "wins": 22,
+   "ties": 2,
+   "losses": 1,
+   "sign_test": {
+    "topics_above_0": 5,
+    "topics_below_0": 0,
+    "p_two_sided": 0.0625
+   },
+   "topic_means": {
+    "S13": 1.0,
+    "S23": 1.0,
+    "T20": 1.0,
+    "T3": 0.6,
+    "T9": 0.6
+   }
+  }
+ }
+}

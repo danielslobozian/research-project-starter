@@ -1,0 +1,128 @@
+{
+ "verdicts": {
+  "B:A": {
+   "MIXED": 2,
+   "win": 23
+  },
+  "C:B": {
+   "win": 6,
+   "loss": 9,
+   "MIXED": 10
+  },
+  "C:A": {
+   "win": 24,
+   "MIXED": 1
+  }
+ },
+ "validation_topics": [
+  "S10",
+  "S11",
+  "S12",
+  "S14",
+  "S17",
+  "S20",
+  "S21",
+  "S24",
+  "S26",
+  "S28",
+  "T8",
+  "T12",
+  "T14",
+  "T19",
+  "T22",
+  "T23",
+  "T26"
+ ],
+ "all_topics": {
+  "B:A": {
+   "topics": 5,
+   "mean": 0.9199999999999999,
+   "ci95": [
+    0.8400000000000001,
+    1.0
+   ],
+   "p_bootstrap_one_sided": 0.0,
+   "sign_test": {
+    "topics_above_0": 5,
+    "topics_below_0": 0,
+    "p_two_sided": 0.0625
+   },
+   "p_holm": 0.0
+  },
+  "C:B": {
+   "topics": 5,
+   "mean": -0.12000000000000002,
+   "ci95": [
+    -0.36,
+    0.12000000000000002
+   ],
+   "p_bootstrap_one_sided": 0.8825,
+   "sign_test": {
+    "topics_above_0": 2,
+    "topics_below_0": 3,
+    "p_two_sided": 1.0
+   },
+   "p_holm": 0.8825
+  },
+  "C:A": {
+   "topics": 5,
+   "mean": 0.96,
+   "ci95": [
+    0.8800000000000001,
+    1.0
+   ],
+   "p_bootstrap_one_sided": 0.0,
+   "sign_test": {
+    "topics_above_0": 5,
+    "topics_below_0": 0,
+    "p_two_sided": 0.0625
+   }
+  }
+ },
+ "without_validation_topics": {
+  "B:A": {
+   "topics": 5,
+   "mean": 0.9199999999999999,
+   "ci95": [
+    0.8400000000000001,
+    1.0
+   ],
+   "p_bootstrap_one_sided": 0.0,
+   "sign_test": {
+    "topics_above_0": 5,
+    "topics_below_0": 0,
+    "p_two_sided": 0.0625
+   },
+   "p_holm": 0.0
+  },
+  "C:B": {
+   "topics": 5,
+   "mean": -0.12000000000000002,
+   "ci95": [
+    -0.36,
+    0.12000000000000002
+   ],
+   "p_bootstrap_one_sided": 0.8825,
+   "sign_test": {
+    "topics_above_0": 2,
+    "topics_below_0": 3,
+    "p_two_sided": 1.0
+   },
+   "p_holm": 0.8825
+  },
+  "C:A": {
+   "topics": 5,
+   "mean": 0.96,
+   "ci95": [
+    0.8800000000000001,
+    1.0
+   ],
+   "p_bootstrap_one_sided": 0.0,
+   "sign_test": {
+    "topics_above_0": 5,
+    "topics_below_0": 0,
+    "p_two_sided": 0.0625
+   }
+  }
+ }
+}

@@ -1,0 +1,132 @@
+{
+ "verdicts": {
+  "B:A": {
+   "win": 247,
+   "MIXED": 20,
+   "loss": 7,
+   "missing": 1
+  },
+  "C:B": {
+   "MIXED": 82,
+   "loss": 91,
+   "win": 101,
+   "missing": 1
+  },
+  "C:A": {
+   "win": 216,
+   "MIXED": 43,
+   "loss": 16
+  }
+ },
+ "validation_topics": [
+  "S10",
+  "S11",
+  "S12",
+  "S14",
+  "S17",
+  "S20",
+  "S21",
+  "S24",
+  "S26",
+  "S28",
+  "T8",
+  "T12",
+  "T14",
+  "T19",
+  "T22",
+  "T23",
+  "T26"
+ ],
+ "all_topics": {
+  "B:A": {
+   "topics": 55,
+   "mean": 0.8754545454545454,
+   "ci95": [
+    0.8245454545454546,
+    0.9227272727272727
+   ],
+   "p_bootstrap_one_sided": 0.0,
+   "sign_test": {
+    "topics_above_0": 55,
+    "topics_below_0": 0,
+    "p_two_sided": 5.551115123125783e-17
+   },
+   "p_holm": 0.0
+  },
+  "C:B": {
+   "topics": 55,
+   "mean": 0.034545454545454546,
+   "ci95": [
+    -0.09090909090909091,
+    0.16
+   ],
+   "p_bootstrap_one_sided": 0.2983,
+   "sign_test": {
+    "topics_above_0": 23,
+    "topics_below_0": 21,
+    "p_two_sided": 0.880395821280672
+   },
+   "p_holm": 0.2983
+  },
+  "C:A": {
+   "topics": 55,
+   "mean": 0.7272727272727273,
+   "ci95": [
+    0.64,
+    0.8072727272727273
+   ],
+   "p_bootstrap_one_sided": 0.0,
+   "sign_test": {
+    "topics_above_0": 53,
+    "topics_below_0": 2,
+    "p_two_sided": 8.554268404736831e-14
+   }
+  }
+ },
+ "without_validation_topics": {
+  "B:A": {
+   "topics": 38,
+   "mean": 0.8723684210526316,
+   "ci95": [
+    0.8105263157894737,
+    0.9289473684210525
+   ],
+   "p_bootstrap_one_sided": 0.0,
+   "sign_test": {
+    "topics_above_0": 38,
+    "topics_below_0": 0,
+    "p_two_sided": 7.275957614183426e-12
+   },
+   "p_holm": 0.0
+  },
+  "C:B": {
+   "topics": 38,
+   "mean": 0.06052631578947369,
+   "ci95": [
+    -0.08421052631578947,
+    0.20526315789473687
+   ],
+   "p_bootstrap_one_sided": 0.2075,
+   "sign_test": {
+    "topics_above_0": 18,
+    "topics_below_0": 13,
+    "p_two_sided": 0.47312965989112854
+   },
+   "p_holm": 0.2075
+  },
+  "C:A": {
+   "topics": 38,
+   "mean": 0.7631578947368421,
+   "ci95": [
+    0.6578947368421053,
+    0.8526315789473684
+   ],
+   "p_bootstrap_one_sided": 0.0,
+   "sign_test": {
+    "topics_above_0": 37,
+    "topics_below_0": 1,
+    "p_two_sided": 2.837623469531536e-10
+   }
+  }
+ }
+}

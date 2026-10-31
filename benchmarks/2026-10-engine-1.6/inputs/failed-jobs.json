@@ -1,0 +1,113 @@
+{
+ "_about": "Jobs whose mandatory result is missing (rule since 2026-10-29: a task whose result is missing has failed). Their reports are left out of every analysis and of the panel: any verdict involving one is dropped.",
+ "jobs": [
+  {
+   "model": "gemma-4-12b-guarded",
+   "topic": "S13",
+   "job": "A5",
+   "reason": "stopped by the runner (runs-gemma-4-12b-guarded/NOTES.md); files left behind are not a delivered report"
+  },
+  {
+   "model": "gemma-4-12b-guarded",
+   "topic": "S13",
+   "job": "C3",
+   "reason": "stopped by the runner (runs-gemma-4-12b-guarded/NOTES.md); files left behind are not a delivered report"
+  },
+  {
+   "model": "gemma-4-12b-guarded",
+   "topic": "S13",
+   "job": "C4",
+   "reason": "stopped by the runner (runs-gemma-4-12b-guarded/NOTES.md); files left behind are not a delivered report"
+  },
+  {
+   "model": "gemma-4-12b-guarded",
+   "topic": "S13",
+   "job": "C5",
+   "reason": "stopped by the runner (runs-gemma-4-12b-guarded/NOTES.md); files left behind are not a delivered report"
+  },
+  {
+   "model": "gemma-4-12b-guarded",
+   "topic": "S23",
+   "job": "B1",
+   "reason": "stopped by the runner (runs-gemma-4-12b-guarded/NOTES.md); files left behind are not a delivered report"
+  },
+  {
+   "model": "gemma-4-12b-guarded",
+   "topic": "S23",
+   "job": "B3",
+   "reason": "stopped by the runner (runs-gemma-4-12b-guarded/NOTES.md); files left behind are not a delivered report"
+  },
+  {
+   "model": "gemma-4-12b-guarded",
+   "topic": "S23",
+   "job": "C2",
+   "reason": "stopped by the runner (runs-gemma-4-12b-guarded/NOTES.md); files left behind are not a delivered report"
+  },
+  {
+   "model": "gemma-4-12b-guarded",
+   "topic": "S23",
+   "job": "C3",
+   "reason": "stopped by the runner (runs-gemma-4-12b-guarded/NOTES.md); files left behind are not a delivered report"
+  },
+  {
+   "model": "gemma-4-12b-guarded",
+   "topic": "S23",
+   "job": "C4",
+   "reason": "stopped by the runner (runs-gemma-4-12b-guarded/NOTES.md); files left behind are not a delivered report"
+  },
+  {
+   "model": "gemma-4-12b-guarded",
+   "topic": "S23",
+   "job": "C5",
+   "reason": "stopped by the runner (runs-gemma-4-12b-guarded/NOTES.md); files left behind are not a delivered report"
+  },
+  {
+   "model": "gemma-4-12b-guarded",
+   "topic": "T20",
+   "job": "B4",
+   "reason": "stopped by the runner (runs-gemma-4-12b-guarded/NOTES.md); files left behind are not a delivered report"
+  },
+  {
+   "model": "glm-flash",
+   "topic": "T3",
+   "job": "C4",
+   "reason": "no report delivered; the grader took screen-time-children-development.checkpoint.md for one (found 2026-10-31)"
+  },
+  {
+   "model": "glm-flash",
+   "topic": "S5",
+   "job": "C5",
+   "reason": "no report delivered; the grader took working-record.md for one (found 2026-10-31)"
+  },
+  {
+   "model": "glm-flash",
+   "topic": "S18",
+   "job": "C2",
+   "reason": "no report delivered; the grader took amyloid-hypothesis-alzheimers.checkpoint.md for one (found 2026-10-31)"
+  },
+  {
+   "model": "glm-flash",
+   "topic": "S19",
+   "job": "C5",
+   "reason": "no report delivered; the grader took mrna-cancer-vaccines.checkpoint.md for one (found 2026-10-31)"
+  },
+  {
+   "model": "glm-flash",
+   "topic": "S20",
+   "job": "B4",
+   "reason": "no report delivered; the grader took notes_batch2.md for one (found 2026-10-31)"
+  },
+  {
+   "model": "glm-flash",
+   "topic": "S22",
+   "job": "C1",
+   "reason": "no report delivered; the grader took amoc-collapse-proximity.checkpoint.md for one (found 2026-10-31)"
+  },
+  {
+   "model": "glm-flash",
+   "topic": "T27",
+   "job": "C3",
+   "reason": "no report delivered; the grader took adult-language-learning.checkpoint.md for one (found 2026-10-31)"
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "items": [
+  "luna-xhigh:B",
+  "luna:C"
+ ],
+ "contrasts": {
+  "luna-xhigh:B : luna:C": {
+   "topics": 5,
+   "sessions": 25,
+   "mean": 0.8,
+   "ci95": [
+    0.48,
+    1.0
+   ],
+   "wins": 21,
+   "ties": 3,
+   "losses": 1,
+   "sign_test": {
+    "topics_above_0": 5,
+    "topics_below_0": 0,
+    "p_two_sided": 0.0625
+   },
+   "topic_means": {
+    "S13": 0.2,
+    "S23": 1.0,
+    "T20": 1.0,
+    "T3": 1.0,
+    "T9": 0.8
+   }
+  }
+ }
+}

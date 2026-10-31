@@ -1,0 +1,133 @@
+{
+ "verdicts": {
+  "B:A": {
+   "win": 233,
+   "loss": 21,
+   "MIXED": 18,
+   "failed job": 1
+  },
+  "C:B": {
+   "MIXED": 73,
+   "loss": 85,
+   "win": 108,
+   "failed job": 7
+  },
+  "C:A": {
+   "win": 220,
+   "MIXED": 21,
+   "loss": 26,
+   "failed job": 6
+  }
+ },
+ "validation_topics": [
+  "S10",
+  "S11",
+  "S12",
+  "S14",
+  "S17",
+  "S20",
+  "S21",
+  "S24",
+  "S26",
+  "S28",
+  "T8",
+  "T12",
+  "T14",
+  "T19",
+  "T22",
+  "T23",
+  "T26"
+ ],
+ "all_topics": {
+  "B:A": {
+   "topics": 55,
+   "mean": 0.78,
+   "ci95": [
+    0.7145454545454545,
+    0.8436363636363636
+   ],
+   "p_bootstrap_one_sided": 0.0,
+   "sign_test": {
+    "topics_above_0": 55,
+    "topics_below_0": 0,
+    "p_two_sided": 5.551115123125783e-17
+   },
+   "p_holm": 0.0
+  },
+  "C:B": {
+   "topics": 55,
+   "mean": 0.08363636363636363,
+   "ci95": [
+    -0.025454545454545455,
+    0.19363636363636363
+   ],
+   "p_bootstrap_one_sided": 0.0659,
+   "sign_test": {
+    "topics_above_0": 29,
+    "topics_below_0": 19,
+    "p_two_sided": 0.19341265286193732
+   },
+   "p_holm": 0.0659
+  },
+  "C:A": {
+   "topics": 55,
+   "mean": 0.7281818181818182,
+   "ci95": [
+    0.6381818181818182,
+    0.8109090909090909
+   ],
+   "p_bootstrap_one_sided": 0.0,
+   "sign_test": {
+    "topics_above_0": 53,
+    "topics_below_0": 2,
+    "p_two_sided": 8.554268404736831e-14
+   }
+  }
+ },
+ "without_validation_topics": {
+  "B:A": {
+   "topics": 38,
+   "mean": 0.7605263157894736,
+   "ci95": [
+    0.6868421052631579,
+    0.8315789473684211
+   ],
+   "p_bootstrap_one_sided": 0.0,
+   "sign_test": {
+    "topics_above_0": 38,
+    "topics_below_0": 0,
+    "p_two_sided": 7.275957614183426e-12
+   },
+   "p_holm": 0.0
+  },
+  "C:B": {
+   "topics": 38,
+   "mean": 0.05921052631578947,
+   "ci95": [
+    -0.08289473684210527,
+    0.20657894736842106
+   ],
+   "p_bootstrap_one_sided": 0.2121,
+   "sign_test": {
+    "topics_above_0": 17,
+    "topics_below_0": 15,
+    "p_two_sided": 0.860050065908581
+   },
+   "p_holm": 0.2121
+  },
+  "C:A": {
+   "topics": 38,
+   "mean": 0.7013157894736842,
+   "ci95": [
+    0.5921052631578947,
+    0.8013157894736842
+   ],
+   "p_bootstrap_one_sided": 0.0,
+   "sign_test": {
+    "topics_above_0": 37,
+    "topics_below_0": 1,
+    "p_two_sided": 2.837623469531536e-10
+   }
+  }
+ }
+}
