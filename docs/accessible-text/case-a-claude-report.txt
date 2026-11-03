@@ -1,0 +1,232 @@
+PLAIN-TEXT READING COPY - Case A - Claude report
+
+This is a presentation derivative extracted from the original report PDF.
+It was not an original model-delivered Markdown or JSON artifact, and it
+does not replace or revise the original report. Research claims, figures,
+references and caveats are reproduced as published, without fact-checking
+or editorial correction.
+
+Original PDF (relative to this file): ../samples/a/claude/chatgpt-memory-long-conversations.pdf
+Original PDF SHA-256: 61427142b19ac6134a6ce73bc3555717a5eef622aa04f8ffc5df22cc97cfbbce
+Original pages: 5
+
+Extraction method: pdftotext -layout. Page boundaries are labeled below.
+The extracted page text is retained unchanged, including line wrapping,
+table spacing, headers/footers and printed page numbers. Text is selectable
+and searchable. Table structure, mathematical notation, emphasis and wrapped
+URLs may need comparison with the original PDF. This reading copy is not a
+fully remediated accessible edition or a tagged PDF.
+
+END OF PRESENTATION NOTE; ORIGINAL EXTRACTED CONTENT FOLLOWS
+
+[Original PDF page 1 of 5]
+How ChatGPT remembers, and whether long conversations
+make it worse
+A structured narrative evidence review · Research ID chatgpt-memory-long-conversations-2026-11 · Searches
+and documentation consulted 3 November 2026 · Product descriptions reflect OpenAI's pages on that date and
+may differ by plan and change later.
+
+The short answer
+ChatGPT does not have one memory but several, and they work very differently. Inside a single
+conversation the model re-reads the conversation text each time it answers, but only as much as fits in
+a limited context window. Across conversations it relies on separate features: saved memories (a short
+“notepad” that OpenAI says is always considered), reference chat history (a selective lookup that
+OpenAI says does not keep every detail), and, inside Projects, project memory plus project files and
+instructions. Which of these are switched on, and which boundaries a Project sets, largely decides what
+can be recalled. This explains, without any malfunction, how a detail from weeks ago can be
+remembered (it was turned into a saved memory) while something important from yesterday is missed
+(it existed only in a past chat that the selective lookup did not bring back).
+On the second question, the research is fairly consistent: across many models, accuracy tends to fall as
+inputs get longer, information in the middle of long inputs is used less reliably, and models perform
+clearly worse when a task is built up over several turns than when it is stated all at once. But the effect
+depends strongly on the kind of task, it is measured mostly in laboratory tests rather than in ChatGPT
+itself, and part of a perceived decline can come from other causes: harder later requests, ordinary
+randomness, and model updates.
+1. The kinds of “memory” and why recall seems inconsistent (Q1)
+The intuitive picture. A language model does not store your conversation inside itself. Every time it
+answers, the app sends it a bundle of text to read: hidden instructions, any memory notes, relevant
+material from files or older chats, and the current conversation. Whatever is in that bundle can
+influence the answer; whatever is not, the model simply cannot see. “Memory” features are different
+ways of deciding what goes into the bundle. The bundle's size is limited and measured in tokens
+(word-pieces; roughly three-quarters of an English word each).
+Mechanism               What it holds              When it is used (per OpenAI) Main limit
+Current conversation    The text of this chat      Every reply, as long as it fits    Window size depends on plan
+(context window)                                                                      and model; very long chats
+                                                                                      exceed it
+Saved memories          Short facts you asked it, Always considered in future         Brief notes, not full records;
+                        or it chose, to remember replies unless deleted; stored       can become stale or
+                                                  separately from chat history        contradictory
+Reference chat history A continually updated       When relevant, if the setting is   Does not remember every
+/ memory summary       synthesis of past chats     on                                 detail; the summary may not
+                                                                                      list everything
+Project files and       Documents and rules        In chats inside that Project       File limits per plan (5, 25 or 40
+instructions            you add to a Project                                          files)
+Project memory          Context from other        Prioritised in Project chats;       No viewable list; boundaries
+                        chats in the same Project needs memory settings on            depend on mode and plan
+
+Documented facts. OpenAI's Memory FAQ (consulted 3 Nov 2026) describes saved memories as
+details you directly told ChatGPT to remember, treated like custom instructions and always considered
+unless deleted; they are kept apart from chat history, so deleting a chat does not delete a memory made
+from it. It describes the newer system as a continually updated synthesis of past chats, shown as a
+“memory summary” that may not include everything ChatGPT remembers, and it advises using saved
+memories for anything that must always be kept, because past-chat reference does not keep every
+detail. Temporary Chats neither use nor create memories. Memory controls sit under Settings ›
+Personalization › Memory (the exact menu path varies by plan and app version), and a “sources” icon
+under a reply can show which memories, chats or files personalised it, though OpenAI says it may not
+
+
+ChatGPT memory and long conversations · evidence review                                                                   1
+
+[Original PDF page 2 of 5]
+show every factor.
+For Projects, OpenAI's help page says each Project has either default or project-only memory.
+Project-only memory ignores your saved memories and other chats outside the Project, but can draw
+on other chats in the same Project. With default memory, outside the Enterprise and Edu plans, Project
+chats can also draw on non-Project conversations. Sharing a Project switches it permanently to
+project-only. Crucially, project memory only works if Reference saved memories and Reference
+chat history are both enabled (on most plans), and there is no list of project memories to inspect; the
+only way to make ChatGPT ignore a chat is to delete it or move it out. Third-party guides from August
+2026 report that eligible unshared Projects can now switch memory mode after creation, which
+conflicts with older wording on the help page; this is unresolved here.
+Why weeks-ago recall can beat yesterday (inference from the documentation, not tested). Several
+documented paths produce exactly the reported pattern. (1) An old detail that became a saved memory
+or entered the memory summary is injected into every chat; a recent detail that lives only in yesterday's
+conversation depends on a selective lookup that may not retrieve it. (2) If “Reference chat history” is
+off, other chats are invisible, even inside a Project, while saved memories still work. (3) A project-only
+Project cannot see chats outside it, and a chat in another Project or a Temporary Chat cannot be
+reached. (4) Within one very long conversation, early material may no longer fit in the window.
+OpenAI does not publish how the lookup ranks what is “relevant”, or exactly what happens when a
+conversation exceeds the window, so the precise cause in a given case cannot be determined from the
+outside.
+Context window size. OpenAI lists different windows by plan and by model type (fast “instant”
+models versus “reasoning” models). Third-party summaries dated 2026 report figures from roughly
+16–54 thousand tokens for instant models on lower plans to 256–400 thousand for reasoning models on
+higher plans, but they disagree with one another and the current OpenAI table could not be retrieved
+directly, so no exact figure is given here.
+2. Do answers really get worse in long conversations? (Q2)
+No published study found here tests the ChatGPT app itself over long real conversations. The evidence
+comes from controlled experiments on models, including several OpenAI models that power or
+powered ChatGPT. Two separate effects are relevant: long input (lots of text in the window) and many
+turns (a task assembled piece by piece).
+Effect A: long inputs
+• Lost in the middle (Liu et al., peer-reviewed, TACL 2024). On question answering over many
+  documents, models used information best when it sat at the start or end of the input and worst when
+  it was in the middle, a U-shaped pattern; accuracy also fell as inputs grew. Tested models date from
+  2023, including GPT-3.5.
+• NoLiMa (Modarressi et al., ICML 2025). When the question does not share wording with the
+  hidden fact, so the model must make a connection rather than spot a matching phrase, 11 of 13
+  models fell below half their short-input score at 32,000 tokens; GPT-4o dropped from 99.3% to
+  69.7%. The authors note newer models such as GPT-4.1 do better, but still decline well before their
+  advertised limits.
+• Length alone (Du et al., EMNLP 2025 Findings). Even when five models could reproduce the
+  needed information perfectly, accuracy on maths, question-answering and coding fell by 13.9% to
+  85% as filler was added, and drops persisted when the filler was blank space.
+• Context Rot (Hong et al., Chroma technical report 2025, not peer-reviewed). Eighteen recent
+  models became less reliable as input grew, even on simple tasks such as repeating text; distracting,
+  similar-looking content made it worse.
+Effect B: many turns
+The most directly relevant study is LLMs Get Lost in Multi-Turn Conversation (Laban et al., arXiv
+preprint 2025; a third-party note lists it as an ICLR 2026 paper, not verified here). Over 200,000
+simulated conversations with 15 models, including GPT-4o, GPT-4.1 and o3, the same tasks revealed
+one piece per turn scored on average 39% lower than when stated in one message. The drop appeared
+
+
+
+ChatGPT memory and long conversations · evidence review                                                 2
+
+[Original PDF page 3 of 5]
+already with two turns. Best-case ability fell only modestly; what grew sharply (+112%) was
+unreliability: the gap between good and bad runs of the same conversation. Models guessed missing
+details early, attempted final answers too soon, and then leaned on their own earlier wrong attempts.
+When all pieces were gathered into one message, performance returned to about 95% of the original.
+Boundary conditions and counterevidence
+ • Not every task degrades. In the same study, a translation task, where each turn adds a separate
+   chunk, showed no drop. Degradation was largest when each new piece changes the whole answer
+   (code, calculations, queries). Literal “find the sentence” tests are near-perfect for modern models;
+   harder reasoning is where length hurts.
+ • Length versus difficulty. The Chroma authors note that longer tasks are often also harder, which
+   makes the pure effect of length difficult to isolate; Du et al. address this but used only five models.
+ • Simulated, not real users. Laban et al. used an AI to play the user and say real conversations are
+   likely messier, so they consider their numbers underestimates; this cannot be checked from the
+   outside.
+ • Models change. Chen, Zaharia and Zou (Harvard Data Science Review 2024) found that GPT-4's
+   accuracy on some tasks fell sharply between March and June 2023 while improving on others. A
+   decline noticed over weeks may reflect an update rather than conversation length.
+Synthesis. The impression that very long chats get worse is supported as a real tendency in models of
+the kind ChatGPT uses, through two mechanisms: crowded, long context and the accumulation of early
+wrong turns. Neither study quantifies how often this happens in everyday ChatGPT use, and plausible
+alternative causes (harder late requests, chance variation that is high in multi-turn settings, and model
+updates) can produce the same impression. A single disappointing answer is weak evidence; a repeated
+pattern on the same kind of task, late in long chats, is more consistent with the research.
+3. Habits the evidence supports (Q3)
+These are conditional options, each tied to its source. None has been tested on ChatGPT end to end.
+If you want…             Option                                               Basis
+A fact kept reliably     Ask ChatGPT explicitly to remember it (saved         OpenAI: saved memories are always
+across chats             memory), or put it in custom or Project              considered; past-chat reference does
+                         instructions or a Project file                       not keep every detail
+To know what is          Check Settings › Personalization › Memory for        OpenAI Memory FAQ and Projects
+switched on              both “Reference saved memories” and                  help page
+                         “Reference chat history”; check the Project's
+                         memory mode; use the sources icon
+Recall across chats in   Keep related chats in the same Project; for          OpenAI Projects help page
+one Project              isolation choose project-only; delete or move
+                         chats you want ignored
+Better answers when a    Ask for a summary of all requirements so far,        Laban et al.: one consolidated
+chat drifts              then start a new chat with that summary as one       message restored ~95%; repeating
+                         complete message                                     information each turn helped partly
+Fewer errors with long   Give only the material that is needed; put key       Liu et al.; Du et al. (reciting evidence
+material                 instructions at the start or end; ask the model to   first helped modestly)
+                         quote the relevant passage first
+To judge whether         Retry the same request in a fresh chat before        Laban et al.: large run-to-run
+quality really fell      concluding                                           variation; Chen et al.: model drift
+
+4. Limitations of this review
+This is a structured narrative review, not a systematic one. OpenAI's help pages describe intended
+behaviour, not measured performance; two key pages blocked automated retrieval and were read
+through search-result extracts and an official mirror, so wording may be incomplete. Current
+context-window figures could not be confirmed from OpenAI and conflicting third-party numbers
+were omitted. Research findings come mainly from API or open models, often older than today's
+ChatGPT models, and from short, structured tasks; applicability to everyday ChatGPT use is inferred.
+
+
+
+ChatGPT memory and long conversations · evidence review                                                                  3
+
+[Original PDF page 4 of 5]
+Because of the strict five-page limit, the review omits other long-context benchmarks, studies of
+mitigation by summarising or compressing chat history, and plan-by-plan differences in Enterprise and
+Edu settings. The requester's own settings and conversations were not examined, as agreed.
+
+
+
+
+ChatGPT memory and long conversations · evidence review                                            4
+
+[Original PDF page 5 of 5]
+References and documentation consulted (accessed 3 November 2026)
+OpenAI. Memory FAQ. help.openai.com/en/articles/8590148 (read via search-result extracts; page blocked automated
+   access).
+OpenAI. How does memory use past conversations. help.openai.com/en/articles/10303002 (search-result extract).
+OpenAI. Projects in ChatGPT. intercom.help/openai/en/articles/10169521-using-projects-in-chatgpt (official
+   help-centre mirror; “updated over 2 weeks ago”).
+Liu, N. F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F. & Liang, P. (2024). Lost in the Middle: How
+   Language Models Use Long Contexts. Transactions of the ACL, 12, 157–173. doi:10.1162/tacl_a_00638.
+   Peer-reviewed.
+Modarressi, A., Deilamsalehy, H., Dernoncourt, F., Bui, T., Rossi, R., Yoon, S. & Schütze, H. (2025). NoLiMa:
+   Long-Context Evaluation Beyond Literal Matching. ICML 2025; arXiv:2502.05167. Peer-reviewed conference
+   paper.
+Du, Y., Tian, M., et al. (2025). Context Length Alone Hurts LLM Performance Despite Perfect Retrieval. Findings of
+   EMNLP 2025, 23281–23298; arXiv:2510.05381. Peer-reviewed; read via abstract and summaries.
+Hong, K., Troynikov, A. & Huber, J. (2025). Context Rot: How Increasing Input Tokens Impacts LLM Performance.
+   Chroma technical report. research.trychroma.com/context-rot. Not peer-reviewed; vendor of retrieval software.
+Laban, P., Hayashi, H., Zhou, Y. & Neville, J. (2025). LLMs Get Lost In Multi-Turn Conversation. arXiv:2505.06120.
+   Preprint (main text read in full); reported elsewhere as ICLR 2026, unverified.
+Chen, L., Zaharia, M. & Zou, J. (2024). How Is ChatGPT's Behavior Changing Over Time? Harvard Data Science
+   Review. doi:10.1162/99608f92.5317da47; arXiv:2307.09009.
+Third-party guides used only for flagged, unverified points (context-window figures; Project memory-mode
+   switching): ai-toolbox.co (Sept 2026), chatai.guide (May 2026), memx.app (Aug 2026), elephas.app (Aug 2026).
+
+
+
+
+ChatGPT memory and long conversations · evidence review                                                               5
