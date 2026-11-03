@@ -1,0 +1,1749 @@
+PLAIN-TEXT READING COPY - Case B - Claude report
+
+This is a presentation derivative extracted from the original report PDF.
+It was not an original model-delivered Markdown or JSON artifact, and it
+does not replace or revise the original report. Research claims, figures,
+references and caveats are reproduced as published, without fact-checking
+or editorial correction.
+
+Original PDF (relative to this file): ../samples/b/claude/llm-context-memory-reliability.pdf
+Original PDF SHA-256: e13fc1cc3e8fb6ae83ea92362f471b13ec6db2e6500dd11a0a839bbec330a9f0
+Original pages: 29
+
+Extraction method: pdftotext -layout. Page boundaries are labeled below.
+The extracted page text is retained unchanged, including line wrapping,
+table spacing, headers/footers and printed page numbers. Text is selectable
+and searchable. Table structure, mathematical notation, emphasis and wrapped
+URLs may need comparison with the original PDF. This reading copy is not a
+fully remediated accessible edition or a tagged PDF.
+
+END OF PRESENTATION NOTE; ORIGINAL EXTRACTED CONTENT FOLLOWS
+
+[Original PDF page 1 of 29]
+ Context length, conversation length, and
+ cross-session memory as sources of
+ factual unreliability in LLM assistants
+ A structured narrative evidence review · Research ID
+ llm-context-memory-reliability-2026-11 · Executed 3 November 2026 against
+ Research Boundaries v1.0 (brief BR-001)
+
+ Contents
+ Summary                                                                                                           3
+
+ 1. Scope and method                                                                                               4
+    1.1 What was reviewed . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+
+    1.2 Search and appraisal . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+
+    1.3 Labels used in this report . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+
+    1.4 The two mechanisms, and where the line between them blurs . . . . . . . . . . . . . . . . . . . . . 5
+
+ 2. Measuring "effective context"                                                                                  5
+
+ 3. Q1a: Reliability within a single long context                                                                  6
+    3.1 Length itself, with the evidence held fixed . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+
+    3.2 Position of the relevant information     . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .7
+
+    3.3 Distractors, similarity and literal matching . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+
+    3.4 What saturated benchmarks miss         . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .9
+
+    3.5 Proposed internal mechanisms . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+
+    3.6 Boundary conditions and counterevidence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+
+ 4. Q1b: Multi-turn accumulation within a session                                                                 10
+    4.1 Underspecified, piecewise disclosure . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+
+    4.2 Conditioning on self-generated errors . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+
+    4.3 Interference when facts are updated within a session       . . . . . . . . . . . . . . . . . . . . . . . . 12
+
+    4.4 Social pressure in user turns    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+
+    4.5 Compaction and summarisation within a session: a boundary case . . . . . . . . . . . . . . . . . . 13
+
+    4.6 Counterevidence: length alone is not always harmful . . . . . . . . . . . . . . . . . . . . . . . . . 13
+
+ 5. Q2: Failures of cross-session memory                                                                          14
+    5.1 The main benchmarks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+
+    5.2 Best-supported failure modes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+
+    5.3 Which stage fails? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+
+    5.4 Do memory systems beat simply reading the whole history? . . . . . . . . . . . . . . . . . . . . . 16
+
+ 6. Q3: Evaluation designs that can separate the mechanisms                                                       17
+
+ 7. Q4: How far can a specific failure be attributed?                                                             18
+    7.1 What can be attributed, and at what level      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+
+    7.2 Limits on attribution . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+
+    7.3 An attribution ladder    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+
+
+
+Context, conversation length and cross-session memory — evidence review                                                 1
+
+[Original PDF page 2 of 29]
+ 8. Q5: Controlled evidence compared with reports about commercial products                                       20
+    8.1 What vendor documentation concedes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+
+    8.2 Vendor-reported evaluations      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+
+    8.3 User reports and journalism . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+
+    8.4 Where the two evidence classes meet, and where they do not . . . . . . . . . . . . . . . . . . . . 22
+
+ 9. Answer to the primary question (Q0) and verdict on the premises                                               22
+
+ 10. Appraisal records of conclusion-driving studies                                                              23
+
+ 11. Limitations of this review                                                                                   25
+
+ References                                                                                                       26
+    Controlled evidence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26
+
+    Evaluation disputes and audits (unreviewed) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+
+    Anecdotal evidence class (product reports) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+
+
+
+
+Context, conversation length and cross-session memory — evidence review                                                 2
+
+[Original PDF page 3 of 29]
+ Summary
+ The question. LLM assistants sometimes get facts wrong, or contradict themselves, as inputs
+ and conversations grow longer or when they draw on earlier sessions. This review asks how far
+ such failures relate to three things:
+ • context length within a single input;
+ • conversation length within a session;
+ • cross-session memory, meaning the systems that store, retrieve and update information
+    between sessions.
+ It also asks whether a given failure can be attributed to one mechanism rather than another.
+ The approved boundaries treat three premises as claims to test, not assumptions: that length
+ degrades reliability, that the two mechanisms are empirically separable, and that effective
+ context is smaller than the advertised window.
+ What the controlled evidence shows.
+ 1. Within a single input, longer context does degrade reliability, even when the needed
+ evidence is held fixed.
+ • Two padding designs show this directly. Levy et al. (2024) padded inputs with duplicated,
+   task-similar or unrelated text. Du et al. (2025) padded with whitespace, or with
+   attention-masked tokens after confirming that the model could recite the evidence. Both found
+   accuracy falling as length grew.
+ • The effect is moderate to large in open models of 70B parameters or smaller, at 30K tokens or
+   fewer. It is smaller, but not absent, in closed frontier models.
+ • Distractors that resemble the target, and low lexical overlap between question and evidence,
+   make the decline much steeper (NoLiMa; Context Rot; Jin et al. 2025).
+ • Position effects ("lost in the middle") are real but conditional. They are clearest at short
+   absolute lengths and when the input fills less than about half the window. Beyond that, they
+   shift toward a simple recency gradient (Veseli et al. 2025).
+ 2. Effective context is smaller than the advertised window on almost every non-trivial
+ test, but the size of the gap depends on how "effective" is defined.
+ • RULER defines it with an absolute threshold. NoLiMa defines it relative to each model's own
+    short-context score. BABILong expresses it as a share of the window.
+ • These definitions give numbers that are not interchangeable: from "more than 128K" to "2K or
+    less" for the same generation of models.
+ • Single-needle retrieval tests saturate near 100% and say little about factual reliability on
+    realistic tasks (RULER; HELMET; the Gemini 1.5 report itself).
+ 3. Within a session, multi-turn interaction causes large drops, but mostly not because
+ of turn count or token count as such.
+ • When a request is revealed piece by piece over several turns, accuracy falls by about 35–39%
+   on average. Giving the same pieces in one message keeps about 95% of single-turn
+   performance (Laban et al. 2025).
+ • Designs that control what the model sees point to four causes:
+   – underspecification: the model answers before it has the whole request;
+   – conditioning on its own earlier mistakes: self-generated errors carried forward in the
+     history (MT-Eval; Sinha et al.);
+   – interference from superseded facts: this persists even at fixed total length (PI-LLM);
+   – social pressure in user turns: for example, giving way when challenged (FlipFlop).
+ • Pure length still contributes a smaller residual decline. Neutral filler turns can be harmless.
+
+ 4. Cross-session memory fails in ways that are distinct from long-context failures. The
+ best-supported memory failure modes are:
+ • updating and resolving contradictions;
+ • temporal reasoning across sessions;
+
+
+
+
+Context, conversation length and cross-session memory — evidence review                              3
+
+[Original PDF page 4 of 29]
+ •   aggregating facts spread over several sessions;
+ •   answering false-premise questions instead of abstaining;
+ •   write-stage loss (facts never stored, or stored with the wrong date);
+ •   applying a stored fact after it has stopped being true.
+ When memory pipelines are split into stages, retrieval failures dominate in some studies (Yuan
+ et al. 2026). In others, failures split roughly evenly between retrieval and reading
+ (LongMemEval).
+ 5. The two mechanisms can be separated in controlled experiments, but they are
+ nested rather than parallel. A retrieved memory is itself placed into a context that the model
+ must read. Oracle-retrieval conditions, length-matched controls, stage-wise decompositions and
+ route substitution (retrieval versus long context, per query) each isolate one factor. None
+ isolates all of them.
+ What this means for attribution.
+ • Attribution holds at the population level: under a named controlled contrast, on a stated
+     benchmark.
+ • It rarely holds for a single failure in a deployed assistant. The reasons:
+   – the pipelines are undocumented;
+   – outputs vary from run to run;
+   – judge and annotation noise is often as large as the effects being attributed;
+   – the model's own explanations are not valid evidence of which mechanism failed.
+
+ Product reports. Vendor documentation and user reports are anecdotal evidence, used here
+ only as illustrations.
+ • Vendors' own documentation concedes the main limits:
+   – memory is selective;
+   – deleting a memory does not take effect immediately;
+   – provenance displays are incomplete;
+   – long chats are summarised as they near the window limit;
+   – effective context is smaller than the nominal window.
+ • User reports describe failures that resemble the controlled failure modes. They cannot
+     establish which mechanism caused any particular failure.
+
+ Verdict on the three premises. (1) Longer context and longer conversations degrade factual
+ reliability: supported, with boundary conditions. The effect is task- and model-dependent, and in
+ multi-turn settings it is driven more by interaction structure than by length. (2) The two mechanisms
+ are empirically separable: supported in controlled settings, not for individual deployed failures. (3)
+ Effective utilisation is smaller than the advertised window: supported on every non-trivial benchmark,
+ though its magnitude depends on the definition used.
+
+
+
+ 1. Scope and method
+ 1.1 What was reviewed
+ This is a structured narrative evidence review. It is not systematic, so it makes no claim to have
+ found every relevant study.
+ In scope: text-based LLMs and LLM assistant systems, including systems with retrieval-based
+ or other cross-session memory modules; work from 2020 to the date of search (3 November
+ 2026); and three topics: processing of long inputs within a session, multi-turn interaction within
+ a session (what "conversation length" means here), and cross-session memory (how information
+ is stored, retrieved, updated and reasoned about in time).
+ Mitigation techniques (retrieval, summarisation, compaction) appear only where they help
+ explain or separate the mechanisms. They are not assessed or recommended.
+
+
+
+Context, conversation length and cross-session memory — evidence review                                   4
+
+[Original PDF page 5 of 29]
+ Out of scope: multimodal-only work; factual errors that come from training-data knowledge
+ and are unrelated to context or memory; and any comparison or ranking of commercial
+ products.
+
+ 1.2 Search and appraisal
+ Evidence was gathered in five parallel sweeps: single long inputs; multi-turn interaction within
+ one session; cross-session memory; evaluation designs that separate the mechanisms and the
+ limits of attribution; and reports about commercial products. Each sweep searched arXiv, the
+ ACL Anthology, OpenReview and conference proceedings, and deliberately looked for negative
+ results, boundary conditions and competing explanations. For each study that drives a
+ conclusion, the review recorded design, models and versions, context lengths, comparators and
+ controls, metrics, uncertainty reporting, confounds, and level of access (condensed in Section
+ 10). Numbers were checked against primary sources where accessible; values available only
+ from figures or secondary reports are marked as such.
+
+ 1.3 Labels used in this report
+ Publication status. Each study is labelled peer-reviewed (with venue), preprint, technical
+ report or vendor blog. Several 2025–2026 papers were available only as preprints. Their
+ findings are used but flagged, and they do not carry a conclusion on their own.
+ Strength of conclusion.
+
+Label             Meaning
+Strong            Several independent studies with controlled designs agree.
+Moderate          Consistent controlled evidence, but from few groups, few models or synthetic tasks only.
+Limited           A single study, preprint-only support, abstract-only access, or a substantial design confound.
+
+ Evidence classes.
+ • Controlled evaluations are the primary evidence.
+ • Product reports (vendor documentation, vendor announcements, journalism, forum posts)
+    form a separate anecdotal class. Section 8 covers them. They are never treated as evidence
+    that a specific mechanism caused a failure.
+
+ 1.4 The two mechanisms, and where the line between them blurs
+ Mechanism (a): within-session context processing. Everything the model needs is in its
+ context window. The failure is in how the model uses that context.
+ Mechanism (b): cross-session memory. Information from earlier sessions has to be written
+ to a store, indexed, retrieved, inserted into the current context, and kept up to date. The failure
+ can happen at any of these steps.
+ These are not mutually exclusive.
+ • A retrieved memory ends up inside a context window. So a memory failure can be a reading
+    failure, mechanism (a) operating inside (b).
+ • Systems that summarise or "compact" a long conversation within one session use the same
+    lossy operations as memory systems. They do so without crossing a session boundary.
+ Following the approved boundaries, such cases are assigned according to how the study or
+ system describes its own mechanism. Where that assignment is ambiguous, the report says so.
+
+
+ 2. Measuring "effective context"
+ No definition of effective context utilisation has been agreed. The review therefore reports each
+ source's definition instead of imposing one. This matters because the definitions produce
+ numbers that cannot be compared with each other.
+
+
+
+Context, conversation length and cross-session memory — evidence review                                            5
+
+[Original PDF page 6 of 29]
+Source                       Operational definition                           What it implies
+RULER (Hsieh et al., COLM    Longest tested length at which the model's    Strong models can reach "more than 128K".
+2024)                        average over 13 synthetic tasks stays above a The threshold is arbitrary and tied to one
+                             fixed absolute threshold: Llama-2-7B's score  reference model.
+                             at 4K, 85.6%.
+NoLiMa (Modarressi et al.,   Longest length at which the score stays above Most of 13 models with windows of 128K or
+ICML 2025)                   85% of the model's own short-context score,   more fall to 2K or less. The relative criterion is
+                             on needles with minimal lexical overlap with  strict.
+                             the question.
+BABILong (Kuratov et al.,    Share of the window over which bAbI              Popular models use about 10–20% of their
+NeurIPS 2024 D&B)            reasoning remains intact when facts are          context. The figure depends on the task.
+                             hidden in book text.
+An et al. (ICLR 2025)        Effective length as a share of training length,  Open models typically use no more than
+                             attributed to how rarely long relative positions about half their training length.
+                             occur during training.
+HELMET (Yen et al., ICLR     Declines to give one number. Measures            Argues that effective context is task-specific.
+2025)                        performance by task category at 8K–128K.
+
+ Practical consequence. A statement such as "model X has an effective context of N tokens"
+ means something only when the definition and task set are stated with it. A finding that one
+ definition places effective length well below the window is not contradicted by another
+ definition placing it near the window. They measure different things.
+
+
+ 3. Q1a: Reliability within a single long context
+ Intuition. A model reading a long input has to do two things. First it must find the information
+ that matters. Then it must use that information correctly, with everything else still in view. A
+ failure could come from either step. It could also come from the input simply being long, even
+ when nothing in it is misleading. The studies below try to pull these three possibilities apart.
+
+ 3.1 Length itself, with the evidence held fixed
+ Design. The cleanest designs keep the task and its evidence identical and change only how
+ much extra material surrounds it.
+ Levy, Jacoby and Goldberg (ACL 2024): FLenQA
+ • Setup:
+   – Three true/false reasoning tasks, 100 base instances each.
+   – Two key paragraphs were padded to about 250–3,000 tokens with one of three kinds of
+     filler:
+     · duplicate copies of the key paragraphs, which adds almost no new information;
+     · paragraphs from other instances of the same task;
+     · unrelated BookCorpus text.
+   – Key paragraphs were placed at the start, middle or end, or dispersed.
+ • Models: GPT-4, GPT-3.5, Gemini Pro, Mistral Medium and Mixtral 8x7B, with and without
+   chain-of-thought (CoT).
+ • Result:
+   – Mean accuracy fell from 0.92 at about 250 tokens to 0.68 at about 3,000 tokens. That is far
+     below any of these models' limits.
+   – The fall appeared even with duplicate padding.
+   – Unrelated text usually hurt more than similar text.
+   – Dispersed evidence was worst. Evidence at the end was generally best.
+   – CoT added a roughly constant gain but did not close the gap (GPT-4 was the exception).
+   – As inputs grew, models refused more often, drifted toward answering "False", and their
+     reasoning covered fewer of the relevant facts.
+ • Limitations: Lengths are short by current standards. Binary labels mean the drift toward
+   "False" interacts with the accuracy measure. The closed models were tested at undisclosed
+   dates.
+
+
+
+
+Context, conversation length and cross-session memory — evidence review                                                         6
+
+[Original PDF page 7 of 29]
+ Du et al. (Findings of EMNLP 2025): "Context Length Alone Hurts…"
+ • Setup: This design goes further. Each prompt has evidence, then distraction, then the
+     question.
+     – Retrieval is measured separately by asking the model to recite the evidence and question
+       exactly. Accuracy can then be analysed only on items where retrieval succeeded.
+     – Three kinds of distraction:
+       · Paul Graham essays;
+       · whitespace;
+       · attention-masked tokens, which advance positional indices but carry no visible content.
+ •   Models: Llama-3.1-8B, Mistral-7B, GPT-4o, a Claude 3.x model and Gemini 2.0.
+ •   Tasks: variable summation, GSM8K, MMLU and HumanEval.
+ •   Result:
+     – Performance fell by between 13.9% and 85% within the models' claimed windows, even
+       when retrieval was perfect.
+     – With whitespace padding, Llama lost 48 points on variable summation.
+     – With masked padding, the open models lost at least 7.9% at 30K tokens.
+     – Closed models degraded less (GPT-4o lost about 7 points on GSM8K).
+ •   Limitations:
+     – All experiments were run once, and per-condition sample sizes are not clearly reported.
+     – Masking removes content but keeps position distance, so "length" here partly means
+       positional distance.
+     – Masking is possible only for open-weight models.
+
+ Conclusion 3.1 (Moderate). Input length degrades accuracy even when the relevant evidence is
+ fixed and can be shown to have been retrieved. The effect is well replicated in open models of 70B or
+ less at 30K tokens or less. It is smaller in closed frontier models, and it has not been measured with
+ this level of control at the scale of modern windows (hundreds of thousands of tokens).
+
+
+
+ 3.2 Position of the relevant information
+ Liu et al., "Lost in the Middle" (TACL 2024)
+ • Setup: The position of a gold passage was moved among 10–30 retrieved distractors, about
+     1.5K–4.4K tokens. There was also a synthetic key–value retrieval task.
+ • Design strength: Two reference points frame the results:
+   – Closed-book: no documents at all.
+   – Oracle: the gold document only.
+ • Result: For GPT-3.5-Turbo with 20 documents:
+   – 75.8% with the gold passage first;
+   – 53.8% at the worst middle position;
+   – 56.1% closed-book;
+   – 88.3% oracle.
+
+ Burying the evidence in the middle therefore did worse than giving no context at all. The curve
+ is U-shaped, with primacy and recency advantages.
+ Later work makes this effect conditional rather than universal.
+ • Veseli et al. (2025, preprint) varied input length as a fraction of each model's window, from
+   0.06 to 1.0, across six open models.
+   – The U-shape was strongest when inputs filled up to about 50% of the window.
+   – Beyond that, the primacy advantage disappeared and only recency remained.
+   – Once the analysis was restricted to items where retrieval succeeded, the positional bias in
+      reasoning largely flattened.
+   – The authors suggest this reconciles a strong mid-context effect in short-input studies with
+      its weakness in benchmarks above 100K tokens.
+ • Chroma's Context Rot report (2025, vendor technical report): across 18 models, needle
+   position had no notable effect, while length and distractors did.
+
+
+
+Context, conversation length and cross-session memory — evidence review                                   7
+
+[Original PDF page 8 of 29]
+ • LaRA (ICML 2025): long-context accuracy still dropped for mid-context answers.
+     Retrieval-augmented reading did not show this drop.
+ • Interventions also shrink the U-shape:
+   – training on data that requires using information anywhere in the input (An S. et al.,
+         NeurIPS 2024);
+     –   calibrating positional attention bias at inference time (Hsieh C.-Y. et al., Findings of ACL
+         2024).
+ Both suggest the effect comes from how models are trained and how attention is biased, not
+ from a fixed limit of the architecture.
+
+ Conclusion 3.2 (Strong for existence; Moderate for scope). Position effects are robust at short
+ lengths and partial window fill. At high window fill, primacy weakens and recency dominates. The bias
+ is reduced by targeted training and calibration. A mid-context failure in one model, at one length, does
+ not predict the same failure elsewhere.
+
+
+
+ 3.3 Distractors, similarity and literal matching
+ Intuition. A long context is rarely just noise. It contains material that looks relevant but is not.
+ Several designs show that this resemblance, more than raw length, decides how badly models
+ fail.
+ Short-context baseline: Shi et al. (ICML 2023, GSM-IC)
+ • Adding a single irrelevant sentence to easy GSM8K problems reduced the share of base
+     problems solved under every distractor variant to below 30%.
+ • The best "macro accuracy" (solved under all variants) was about 45%.
+ • Distractors on the same topic, or containing numbers in the problem's range, were the most
+     damaging.
+ Retrieval-augmented settings: Jin et al. (ICLR 2025)
+ • As more passages were retrieved, output quality first rose and then fell, even though retrieval
+     recall kept increasing.
+ • The main cause was "hard negatives": passages that score as relevant but do not contain the
+     answer.
+ • Higher retriever recall therefore does not guarantee higher accuracy.
+
+ Literal matching: NoLiMa (ICML 2025)
+ • Setup: Needle-in-a-haystack (NIAH) tests where the needle and question share minimal
+   vocabulary. Linking them requires one or two steps of association. 13 models with windows of
+   128K or more.
+ • Result:
+   – At 32K, 11 of the 13 models fell below 50% of their own short-context score.
+   – GPT-4o went from 99.3% to 69.7%.
+   – Supplying literal cues as multiple-choice options raised Llama-3.3-70B's 2-hop accuracy at
+     32K from 25.9% to 87.2%. This shows that word overlap is what makes standard NIAH
+     easy.
+   – Reasoning models also fell below half their base score on the hard subset.
+
+ Similarity and coherence: Context Rot (Chroma, 2025)
+ •   Lower similarity between needle and question made performance fall faster with length.
+ •   One distractor hurt, and four hurt more.
+ •   Shuffled haystacks scored better than coherent ones in all 18 models.
+ •   Model families differed in failure style: some abstained more, others hallucinated more.
+ •   Chroma sells retrieval infrastructure, which should be kept in mind.
+ 2026 frontier models: PredicateLongBench (Jain & Velingker 2026, preprint)
+ • At a fixed 128K tokens, enlarging the search space dropped one frontier model's accuracy
+     from 92% to 10%.
+
+
+Context, conversation length and cross-session memory — evidence review                                     8
+
+[Original PDF page 9 of 29]
+ • Decoys scattered through the context caused collapse. The same decoys clustered near the
+    target did not.
+ • This points to dispersion and decoys as the main difficulty, rather than token count.
+
+ Conclusion 3.3 (Strong). Distractors that resemble the target, and low lexical overlap between
+ question and evidence, are major causes of failure inside long contexts. Their effect grows with length.
+ Benchmarks that let a model find evidence by literal matching overstate reliability.
+
+
+
+ 3.4 What saturated benchmarks miss
+ Vanilla NIAH no longer discriminates between models.
+ • Vendor reports cite near-perfect single-needle recall at very large windows. For example, the
+    Gemini 1.5 report gives above 99.7% up to 1M tokens.
+ • The same report shows much lower scores on harder variants:
+   – about 70% for 100 needles at 128K;
+   – a little above 60% at 1M.
+ • The report itself calls single-needle NIAH a simple, prompt-sensitive test.
+
+ Prompt sensitivity is large.
+ • Anthropic reported that one model's single-needle accuracy rose from 27% to 98% after
+    adding a short prefill to the response.
+ • Machlab and Battle (2024, preprint) found that changing only the needle and question moved
+    one model between 100% and 68.2%.
+ • Needles that conflict with what the model already knows did worst, because the model fell
+    back on its prior knowledge.
+ Synthetic scores do not track realistic tasks well. HELMET (ICLR 2025)
+ • Tested 59 models across seven application categories.
+ • Across 35 instruction-tuned models at 128K, the Spearman correlation between synthetic
+    recall scores and downstream tasks never averaged above 0.8.
+ • Retrieval-augmented QA tasks were the best single proxy.
+
+ Length is often confounded with difficulty in realistic benchmarks. LongBench v2 (ACL
+ 2025)
+ • Scores are not monotone in length. For one leading model, "long" items scored higher than
+    "medium" ones.
+ • The length buckets contain different documents and different questions, so length is
+    confounded with how hard the question is. Human expert scores were also non-monotone
+    (47.2 / 59.1 / 53.7).
+
+ Conclusion 3.4 (Strong). Near-perfect single-needle recall is not evidence of reliable fact use at that
+ length. Tasks that need aggregation, tracking, multi-hop linking or resistance to decoys show effective
+ lengths well below advertised windows (RULER; SYNC; Michelangelo; BABILong). Realistic benchmarks
+ need length-matched designs before a length effect can be read from them.
+
+
+
+ 3.5 Proposed internal mechanisms
+ Several accounts converge. They are mostly tested on open models of 7–70B parameters.
+ Architectural position bias. Wu et al. (ICML 2025) analyse attention masks theoretically.
+ • Causal masking pushes deeper layers toward early tokens.
+ • Relative positional encodings such as RoPE add distance decay.
+ • The interaction between the two can produce primacy and attention sinks.
+
+ Under-trained long distances. An et al. (ICLR 2025) argue that long relative positions are
+ rare during training.
+
+
+
+
+Context, conversation length and cross-session memory — evidence review                                     9
+
+[Original PDF page 10 of 29]
+ • A training-free shift of position indices (STRING) improved RULER scores by about 15 points
+    for one 70B model.
+ • This is an interventional result. It supports the account but does not exclude alternatives.
+
+ "Knows but doesn't tell." Lu et al. (Findings of EMNLP 2024) trained layer-wise linear
+ probes.
+ • The probes located mid-context targets more accurately than the models' generated answers
+    did.
+ • Hsieh C.-Y. et al. found that calibrated attention ranks the gold document far better than raw
+    attention.
+ Together these suggest that, in these models, information is often encoded but not used.
+ Copying circuits. Wu W. et al. (ICLR 2025) identified sparse "retrieval heads", under 5% of
+ heads.
+ • Pruning them caused retrieval failures and hallucination. Pruning random heads did not.
+ • This gives a causal, component-level signature for "failed to copy from context" in open
+    models.
+
+ Conclusion 3.5 (Moderate for open models; inferred only for closed models). Position bias,
+ under-training at long distances, and failure to use encoded information are all supported by
+ interventional evidence in open models. Whether the same mechanisms explain failures in closed
+ frontier models has not been shown.
+
+
+
+ 3.6 Boundary conditions and counterevidence
+ Long context does not always lose to retrieval. With enough compute, long-context reading beat
+ retrieval-augmented generation (RAG) on average for three proprietary models (Li Z. et al.,
+ EMNLP 2024 Industry). LaRA (ICML 2025) found the winner depends on conditions: long
+ context won at 32K, for strong models and on comparison tasks; RAG won at 128K, for weaker
+ models and at detecting that the answer is absent. Closed models degraded far less than open
+ ones in Du et al., and in SYNC (EMNLP 2025) one closed model held 93–96% on a graph task
+ where an open 70B model fell from 98.7% to 11.3% between 32K and 128K. Degradation is not
+ monotone everywhere: Michelangelo (Google DeepMind preprint) found a sharp early drop,
+ often by 32K, after which some models flattened up to 1M tokens. Most controlled evidence
+ covers lengths of 32K or less, open models from 2023–2025, and single runs without confidence
+ intervals; frontier-model evidence from 2026 is sparse and mostly preprint.
+
+
+ 4. Q1b: Multi-turn accumulation within a session
+ Intuition. A long conversation differs from a long document in two ways:
+ • The information arrives in pieces, and the model often answers before it has all of them.
+ • Much of the context was written by the model itself, so earlier mistakes become part of what it
+    later reads.
+ Either difference, rather than length as such, could explain degradation.
+
+ 4.1 Underspecified, piecewise disclosure
+ Laban et al. (ICLR 2026): "LLMs Get Lost in Multi-Turn Conversation"
+ • Setup:
+   – About 600 instructions across six task types: code, SQL, API actions, math, data-to-text and
+     summarisation.
+    –Each instruction is split into "shards." A simulated user reveals one shard per turn.
+    –More than 200,000 conversations across 15 models from eight families, with 10 simulations
+     per model and condition.
+ • Conditions:
+
+
+
+Context, conversation length and cross-session memory — evidence review                             10
+
+[Original PDF page 11 of 29]
+Condition         What the model sees                                                       GPT-4o score
+                                                                                            (example)
+FULL              The whole instruction in one turn                                         93.0
+CONCAT            All shards as one single-turn list (control for content and rephrasing)   90.9
+SHARDED           One shard per turn, multi-turn and underspecified                         59.1
+RECAP /           Sharded, with shards restated at the end or every turn                    76.6 / 65.3
+SNOWBALL
+
+ • Result:
+   – Across models, SHARDED performance averaged about 35–39% below FULL.
+   – CONCAT kept about 95% of FULL, which rules out loss of information content or
+     rephrasing as the cause.
+    –The authors split the drop into two parts:
+     · aptitude, the 90th-percentile score, fell about 16%;
+     · unreliability, the spread between 90th- and 10th-percentile runs, rose about 112%.
+   – Setting temperature to 0 cut unreliability by 50–80% for single-turn conditions but not for
+     SHARDED, where about 30% unreliability remained.
+   – In a sub-study varying the number of shards from 2 to 8, degradation appeared from 2
+     shards onward but did not grow steadily with more.
+   – Observed behaviours:
+     · answering early, on assumptions;
+     · building on earlier wrong attempts;
+     · over-weighting the first and last turns;
+     · verbosity.
+ • Limitations:
+   – The simulated user may differ from real users. The authors argue it probably
+     underestimates degradation.
+   – All tasks are analytical, in English.
+   – No length-matched, fully specified multi-turn control was run. As a result,
+     underspecification is confounded with turn count.
+ Underspecification as the main driver. Two 2026 preprints treat the gap as behavioural and
+ recoverable:
+ • An intent-rewriting mediator recovered roughly 55–62% of the gap for frontier models (Liu et
+    al. 2026).
+ • Training a model to defer and ask for clarification, plus self-distillation, recovered 92–100% of
+    single-turn accuracy on the math task (Chen, Wu and Leskovec 2026).
+ Both are unreviewed and use small or cooperative test settings.
+
+ Conclusion 4.1 (Strong for the effect; Moderate for the cause). Revealing a request across
+ several turns causes large drops and much greater run-to-run variability. Delivering the same content
+ in one turn does not. The best-supported cause is underspecification combined with premature
+ commitment, not turn count or token count.
+
+
+
+ 4.2 Conditioning on self-generated errors
+ Three designs isolate what the model's own earlier turns contribute.
+ Gold-history swap: MT-Eval (Kwan et al., EMNLP 2024)
+ • In recollection tasks, replacing the model's earlier answers with correct ones raised judge
+    scores substantially. For example, Mixtral went from 3.21 to 7.11 on a 10-point scale.
+ • In an audit of 160 low-scoring responses, about 48% had been misled by errors that
+    accumulated earlier in the conversation.
+ Injected error rates: Sinha et al. (2025/2026, preprint)
+
+
+
+
+Context, conversation length and cross-session memory — evidence review                                    11
+
+[Original PDF page 12 of 29]
+ • A synthetic task: look up values and keep a running sum, with the plan and the knowledge
+    supplied in the prompt.
+ • Artificial assistant histories were injected with controlled error rates.
+ • With an error-free history, accuracy at turn 100 was still below turn 1. That residual is the
+    pure long-context component.
+ • Raising the injected error rate lowered accuracy further. That is the self-conditioning
+    component.
+ • Scaling to larger models did not remove self-conditioning. The "thinking" models tested were
+    largely immune.
+ Length-matched neutralisation: Li et al. (2026, preprint)
+ • Replayed the SHARDED conversations, replacing earlier assistant turns with "Acknowledged."
+ • A length-matched version padded the placeholder to the original turn's length.
+ • Short and length-matched neutralisation produced the same effect, with a difference of
+    −0.001 (95% CI −0.039 to 0.035). Shortening the context is therefore not what drives it.
+ • The effect was mixed:
+   – neutralisation rescued about 51% of failures but broke about 15% of successes;
+   – the net macro effect was small (+0.027);
+   – some models and tasks got worse.
+
+ Extra turns without new information. Huang et al. (ICLR 2024) show that turns adding no
+ new information can hurt. Unprompted self-correction lowered GPT-3.5's CommonSenseQA
+ accuracy from 75.8% to about 40% over two rounds.
+
+ Conclusion 4.2 (Moderate). The content of the model's own earlier turns is a separate,
+ model-dependent cause of multi-turn degradation, distinct from length. It mostly harms but sometimes
+ helps. Three independent designs agree on its existence. They disagree on its average size.
+
+
+
+ 4.3 Interference when facts are updated within a session
+ PI-LLM (Wang & Sun 2025, preprint)
+ • Setup:
+   – A stream of key–value updates is presented, and the model must report the latest value for
+     each key.
+    –The answer is always the most recent update, so finding it is trivial.
+    –Updates per key were varied from 3 to 400.
+ • Result:
+   – Accuracy fell roughly log-linearly toward zero as the number of updates grew.
+   – Most errors were superseded values: the model reported an older value instead of the
+     latest one.
+   – In a length-controlled experiment, total input length was held fixed while the number of
+     tracked keys varied. The decline remained.
+   – Across 30 models, parameter count predicted resistance to this interference (p = 0.005).
+     Context-window size did not (p = 0.886).
+   – Chain-of-thought did not help.
+   – Natural-language instructions to "forget" helped by less than 10 points.
+
+ This bears directly on conversations in which a user corrects a fact. Of all within-session
+ findings, it maps most closely onto the update failures seen in cross-session memory (Section 5).
+
+ Conclusion 4.3 (Moderate; single preprint, but with a length control). Interference from
+ superseded values degrades in-context fact tracking independently of total length. It may be a shared
+ factor behind update failures in both mechanisms.
+
+
+
+
+Context, conversation length and cross-session memory — evidence review                                  12
+
+[Original PDF page 13 of 29]
+ 4.4 Social pressure in user turns
+ In FlipFlop (Laban et al. 2023/2024, preprint; 67,640 two-turn experiments, 10 models, 7 tasks),
+ a single user challenge made models change their answer about 46% of the time and cut
+ accuracy by about 17%. SYCON-Bench (Hong et al., preprint) found that under five turns of
+ repeated pushback, larger models gave way less often and alignment tuning was associated
+ with giving way more; only one of its three scenarios concerns factual premises. This is a
+ separate cause that a single turn can trigger, independent of length, but it is easily mistaken for
+ "the conversation got long."
+
+ 4.5 Compaction and summarisation within a session: a boundary case
+ Assistants that summarise earlier turns as a chat nears the window limit use a lossy operation
+ that also appears in memory systems. The evidence on this is thin.
+ Recursive summarisation (Wang Q. et al., Neurocomputing)
+ • A manual audit of 100 summarised memories found:
+   – fabricated facts in 2.7%;
+   – wrong relations in 3.2%;
+   – missing details in 3.9%.
+ • The setting is cross-session (MSC), but the same error types arise in compaction within a
+    session.
+ CONPACT (Wang Z. et al. 2026, preprint; abstract only)
+ • Compactors retained about 17% of injected side constraints on average.
+ • In one agent test, compaction preceded unapproved deletions in 30 of 100 sessions, against 0
+    before compaction.
+ • These are constraints, not facts.
+
+ Under the approved boundaries, such systems are assigned according to how they describe
+ themselves. A compacting assistant that keeps the full history available for reference is
+ within-session. A failure caused by its summary has the character of a memory-write failure, so
+ the distinction is a matter of definition rather than of evidence.
+
+ 4.6 Counterevidence: length alone is not always harmful
+ BoolQ with filler turns (Neergaard et al. 2026, preprint)
+ • Setup:
+   – The target question was placed after 1–21 filler turns.
+   – Three small open models were tested.
+ • Result:
+   – Neutral filler turns were mostly harmless or slightly beneficial.
+   – Harm appeared only when misleading content was combined with length.
+
+ Drift over turns (Dongre et al. 2025, workshop)
+ • Behavioural drift settled at bounded equilibria rather than growing without limit.
+
+ Turn counts in the sharding study (Laban et al.)
+ • Degradation did not keep growing as the number of shards increased.
+
+ Overall. No verified study fully crosses turn count, token length, level of specification, and
+ correct versus self-generated history. Elements of that design exist across Laban et al., Sinha et
+ al., Li et al. (2026) and Neergaard et al., but no single study combines them.
+
+ Conclusion 4.6 (Moderate). "Conversation length" is not a single cause. The large multi-turn effects
+ come from how information is disclosed and from the model's own history. Pure length adds a smaller
+ residual. Neutral turns can be harmless, and misleading turns are not.
+
+
+
+
+Context, conversation length and cross-session memory — evidence review                                 13
+
+[Original PDF page 14 of 29]
+ 5. Q2: Failures of cross-session memory
+ Intuition. A memory system can go wrong at four points:
+ • Write: it may never store a fact, or store it wrongly. This includes stamping it with the date it
+    was mentioned rather than the date it happened.
+ • Retrieve: it may fail to bring the fact back when it is needed.
+ • Read: it may bring the fact back and the model may still misuse it.
+ • Update: it may keep using a fact after that fact has stopped being true.
+
+ Each step can fail on its own, and the error a user sees looks the same whichever step caused it.
+
+ 5.1 The main benchmarks
+Benchmark         Venue / status      History size             What it probes                         Metric / judge
+MSC (Xu, Szlam    ACL 2022            Up to 5 short sessions   Open chit-chat continuity              Perplexity, human
+& Weston                                                                                              rating; not factual QA
+2022)
+LoCoMo            ACL 2024            10 conversations,        Single- and multi-hop recall,          Token F1; human ceiling
+(Maharana et                          ~27 sessions, ~16.6K     temporal, false-premise QA             87.9
+al. 2024)                             tokens
+LongMemEval       ICLR 2025           S: ~115K tokens; M:      Extraction, multi-session, temporal,   GPT-4o judge, ~97%
+(Wu et al.                            ~1.5M tokens; oracle     knowledge update, abstention           agreement with experts
+2025)
+MemoryAgentB      ICLR 2026           Up to ~1.4M tokens,      Retrieval, learning at test time,      Accuracy / F1 /
+ench (Hu et al.                       fed in incrementally     long-range understanding,              substring match
+2026)                                                          selective forgetting
+BEAM (Tavakoli    Preprint; ICLR      100K–10M tokens          10 abilities incl. contradiction       Nugget-based LLM
+et al.)           2026 listing not                             resolution and event ordering          judge; no human
+                  opened                                                                              validation found
+PersonaMem        NeurIPS 2025        Up to 60 sessions        Tracking preferences as they           Multiple choice
+(Jiang et al.     workshop                                     change
+2025)
+DialSim (Kim et   Preprint            ~350K tokens per         Real-time QA over TV scripts;          Accuracy; oracle
+al. 2024)                             show                     checks for prior knowledge of the      condition
+                                                               show
+TReMu (Ge et      Findings of ACL     Built on LoCoMo          Temporal anchoring, precedence,        Multiple choice
+al. 2025)         2025                                         intervals
+
+
+
+ 5.2 Best-supported failure modes
+ Updating and contradiction resolution (Strong across groups, but mostly synthetic
+ data)
+
+Study                                Finding
+MemoryAgentBench (Hu et al.)         Every method, whether long-context, retrieval or agentic memory, reached at most
+                                     about 7% on multi-hop conflict resolution.
+Same study, solvability check        One reasoning model scored 80.0 at 6K tokens and 14.0 at 32K. The task can be
+                                     solved, but performance collapses as length grows.
+BEAM                                 Contradiction resolution was the lowest-scoring ability for every method.
+PersonaMem                           Frontier models were around 50% when they had to track preferences that changed
+                                     over time.
+LongMemEval error analysis           On knowledge-update questions, retrievers often found the new fact but not the old
+                                     fact it replaced.
+
+ Temporal reasoning across sessions (Strong)
+ • LoCoMo: the best long-context model scored temporal F1 51.4, against 92.6 for humans.
+ • TReMu: GPT-4o reached about 30% with standard prompting and about 62% with
+    chain-of-thought.
+ • Design changes help, which locates where the failure lies:
+
+
+
+
+Context, conversation length and cross-session memory — evidence review                                                        14
+
+[Original PDF page 15 of 29]
+    – Tagging each memory with the inferred date the event happened, rather than the date it
+      was mentioned, and computing dates with code, raised TReMu to about 78%.
+    – Time-aware query expansion raised temporal retrieval recall by about 7–11%
+      (LongMemEval).
+    – Bi-temporal records that invalidate old facts instead of deleting them raised temporal
+      accuracy from 45.1 to 62.4 in a vendor-authored evaluation (Zep).
+ Multi-session aggregation and multi-hop questions (Moderate)
+ • LongMemEval multi-session questions remain weak even with oracle sessions.
+ • DialSim: two-hop questions over a temporal knowledge graph scored 13.5%, against 66.7% for
+    one-hop questions.
+ False premises and abstention (Moderate)
+ • On LoCoMo's adversarial questions, F1 fell as context grew. One model dropped from 34.8 at
+    4K to 14.8 at 16K, which the authors read as more hallucination with longer inputs.
+ • LongMemEval tests abstention separately with 30 false-premise items. That small number
+    makes the per-type estimate noisy.
+ Write-stage loss (Moderate)
+ • In LongMemEval, storing only extracted facts instead of raw rounds lowered overall QA
+    accuracy. Extraction discards information.
+ • In Zep's evaluation, facts that the assistant itself had stated were stored less well than user
+    facts. Single-session-assistant accuracy fell from 94.6 to 80.4.
+ • In a longitudinal synthetic instrument (Spencer 2026, preprint), weakly written facts failed
+    24.2% of the time, against 1.6% for clean writes. Recall of early facts declined as a size budget
+    evicted them.
+ Applying memory that no longer applies (Limited; one preprint with a judge
+ cross-check)
+ • MemTrapBench (Wang et al. 2026) plants a prior fact, buries it, and then asks a question
+    under changed conditions where that fact no longer holds.
+ • Every memory strategy scored below no memory. For one model: 85.2% with no memory,
+    against a best of 71.2% with memory.
+ • Control histories without traps did not hurt.
+
+ Deployed assistants
+ • LongMemEval ran a small probe in 2024: 97 questions over short histories of 3–6 sessions,
+    entered through the live products.
+ • Two commercial assistants with memory features scored 37% and 64% below the same
+    underlying model reading the same history offline.
+ • This shows that failures occur in deployed memory pipelines. It cannot show where they
+    occur, because the pipelines are opaque.
+
+ 5.3 Which stage fails?
+ LongMemEval treats memory as three stages: indexing (what is stored and under which key),
+ retrieval (how the query is formed) and reading.
+ Oracle versus full history (accuracy):
+
+Model                                    Oracle sessions                  Full history (S)   Drop
+GPT-4o                                   0.870                            0.606              −30%
+Llama-3.1-70B                            0.744                            0.334              −55%
+
+ Retrieval versus reading. Errors split roughly evenly:
+ • About 15–19% of all instances were cases where retrieval was correct and the answer was still
+    wrong.
+ • Correct answers almost always depended on correct retrieval.
+
+
+
+
+Context, conversation length and cross-session memory — evidence review                              15
+
+[Original PDF page 16 of 29]
+ Reading strategy alone: changing how the model reads retrieved material (Chain-of-Note,
+ structured JSON input) moved accuracy by up to about 10 points, even with perfect retrieval.
+ Yuan, Su & Yao (2026, preprint) ran a 3×3 factorial on LoCoMo with one model
+ (GPT-5-mini).
+ • Factors:
+   – Write format: raw chunks; extracted facts, in the style of one commercial framework;
+      session summaries, in the style of another.
+    – Retrieval method: cosine similarity; BM25; a hybrid with LLM re-ranking.
+ • Results:
+   – The retrieval method accounted for about 20 points of variance. The write format
+      accounted for only 3–8 points.
+   – Raw chunks matched or beat LLM-extracted formats.
+   – Retrieval precision tracked accuracy at r = 0.98.
+   – Failure types:
+      · retrieval failure: 11–46% of questions;
+      · failure to use memory that had been retrieved: about 4–8%;
+      · hallucination: about 0.4–1.4%.
+   – Judge validation against humans: κ = 0.82.
+ • Limitations: one model, one benchmark, prompt-based reimplementations of the write
+   formats, and no full-context arm.
+ How the two decompositions differ.
+ • LongMemEval finds a near-even split between retrieval and reading. Yuan et al. find retrieval
+    dominant.
+ • These are not straightforward contradictions. The two studies differ in:
+   – benchmark: about 115K tokens versus about 16K;
+   – model;
+   – how a "use failure" is coded;
+   – the retrieval configurations being compared.
+ • Both agree that write format matters less than retrieval quality on short histories. The
+    write-stage findings in §5.2 show it still matters for particular fact types and over long periods
+    of use.
+
+ 5.4 Do memory systems beat simply reading the whole history?
+ This question decides whether a benchmark exercises mechanism (b) at all. The evidence is
+ contested.
+ LoCoMo histories fit inside modern windows, and full-context baselines win there.
+ • A vendor's own paper (Chhikara et al. 2025, Mem0) found full context had the highest judged
+   accuracy (J = 72.90). All memory systems tested scored lower. The headline gains it claimed
+   were in latency and token cost.
+ • An independent audit of the LoCoMo answer key (2026) reported:
+   – 6.4% of gold answers are wrong, capping attainable accuracy near 93.6%;
+   – the LLM judge accepted 62.81% of answers that were deliberately wrong but vague;
+   – a full-context baseline with a chain-of-thought prompt scored about 92.6%.
+ • Rival vendors disputed one another's harnesses. Disputed choices included how speaker roles
+   were assigned and where timestamps were placed, and one vendor could not reproduce
+   another's setup. Their figures for the same system differ by about 9 points.
+ On LongMemEval-S (~115K tokens) the evidence is mixed.
+ • A vendor-authored evaluation (Zep) reported 71.2% against 60.2% for full context with
+   GPT-4o, while cutting context from about 115K to 1.6K tokens. It also lost accuracy on facts
+   the assistant itself had stated.
+ • Single-factor re-analyses found parity:
+
+
+
+
+Context, conversation length and cross-session memory — evidence review                              16
+
+[Original PDF page 17 of 29]
+    – MemDelta (2026 preprint): retrieval at 47.2% versus full context at 49.8%, not significant
+      (p = 0.34).
+    – Swapping only the embedding model changed accuracy by 6.2 points, more than the gap
+      between architectures.
+    – Which answer model was used could flip the winner. In one model, about 63% of
+      full-context failures were refusals.
+ Why this matters. Jiang et al. (2026, preprint) propose a "context saturation gap":
+ memory-system accuracy minus full-context accuracy. They note that LoCoMo and MemBench
+ fit within current windows, and only LongMemEval-M clearly requires external memory. On a
+ benchmark where everything fits in the window, a "memory failure" is largely a long-context
+ reading failure.
+
+ Conclusion 5 (Moderate overall). Cross-session memory has its own failure modes that are well
+ supported: update, temporal reasoning, aggregation, abstention, write-stage loss and over-application.
+ Their relative size against long-context failures depends on whether the history fits in the window,
+ which retriever and reader are used, and how judging is done. Leaderboard-style comparisons of
+ memory systems are not reliable evidence. Many are vendor-run, single-run, judged by lenient LLM
+ judges, and disputed.
+
+
+
+ 6. Q3: Evaluation designs that can separate the
+ mechanisms
+ Intuition. To blame a failure on a cause, an experiment must change one factor and hold the
+ rest constant. The table below lists the designs found, what each one holds constant, and what
+ it leaves uncontrolled.
+
+Design family                Examples                          Controls for                       Leaves open
+Length-only manipulation     Levy et al.; Du et al.            Content of the evidence;           Which internal cause is
+at a fixed task and fixed    (whitespace, masking,             retrieval success (Du); lexical    responsible; padding that is
+evidence                     recitation check); NoLiMa;        shortcuts (NoLiMa)                 out of distribution;
+                             6K-vs-32K check in                                                   generalisation to natural text
+                             MemoryAgentBench                                                     and to windows of hundreds of
+                                                                                                  thousands of tokens
+Oracle / gold evidence       LongMemEval oracle vs S/M;        Answerability; estimates the       The oracle removes both
+versus full history          Liu et al. closed-book and        cost of processing for a fixed     length and the retrieval
+                             oracle anchors; Context Rot       set of facts                       burden. It does not test the
+                             focused (~300 tokens) vs full                                        write stage: evidence is
+                             (~113K); DialSim oracle                                              supplied verbatim, so storage
+                                                                                                  is never exercised
+Swapping the route:          Xu et al. (ICLR 2024);            Model and query; attributes a      The routes differ in length,
+retrieval vs long context,   Self-Route agreement              failure to retrieval or chunking   ordering and noise all at once;
+per query                    analysis; LaRA;                   where the long-context route       when both fail, nothing can be
+                             order-preserving RAG              succeeds                           attributed
+Stage-wise                   LongMemEval                       Which pipeline stage failed        A fact retrieved but not used
+decomposition                indexing/retrieval/reading;                                          cannot be split into neglect
+                             recall@k vs accuracy;                                                caused by length versus a
+                             RAGChecker claim-level                                               reasoning error without an
+                             metrics; Barnett et al. failure                                      added length control;
+                             points; Yuan et al. factorial                                        LLM-based checkers have
+                                                                                                  imperfect agreement
+Structure-matched            Laban et al. CONCAT vs            Information content versus       Simulated users; turn count
+controls                     SHARDED                           how it is disclosed across turns confounded with
+                                                                                                underspecification
+Manipulating the model's     MT-Eval gold-history swap;        Self-conditioning versus length Synthetic or replayed settings;
+own history                  Sinha et al. injected error                                       the user does not adapt
+                             rates; Li et al. length-matched
+                             neutralisation
+
+
+
+
+Context, conversation length and cross-session memory — evidence review                                                           17
+
+[Original PDF page 18 of 29]
+Design family              Examples                       Controls for                   Leaves open
+Update-targeted and        MemoryAgentBench selective     The update and write stages,   Mostly synthetic data; small
+time-targeted conditions   forgetting; PI-LLM; TReMu;     i.e. mechanism (b) proper      samples; rankings that depend
+                           MemTrapBench; Spencer's                                       on the judge
+                           write-quality and tenure
+                           probes
+Intervention-based         Retrieval-head pruning;        Causal claims about which      Requires access to weights or
+internal attribution       ContextCite sentence ablation; components or which input      log-probabilities; linear or
+                           layer-wise probes              spans produced an output       probe-specific assumptions;
+                                                                                         not available for closed
+                                                                                         deployed systems
+
+ Three points stand out.
+ 1. The oracle condition is the single most informative design for separating the two
+ mechanisms. Its gap has a specific meaning, though. In LongMemEval, the oracle-versus-S
+ gap measures the cost of finding and reading the evidence inside a long history. That is
+ mechanism (a) together with retrieval in context. It does not measure whether a memory
+ system would have stored the evidence. Only update-targeted, write-targeted and longitudinal
+ designs reach the store itself, and they are the least mature group.
+ 2. Length controls and oracle conditions are rarely combined. Du et al. combine a
+ recitation check, which confirms retrieval, with padding that adds no content.
+ MemoryAgentBench combines conflict resolution with a short-versus-long check. These are the
+ closest the literature comes to a full separation. Both still cover few models.
+ 3. Validity critiques limit what any one design can establish.
+ • Literal matching inflates scores on needle tests (NoLiMa).
+ • Synthetic scores correlate only moderately with realistic tasks (HELMET).
+ • LLM judges can differ from human scores by 5–10 points while showing over 90% agreement,
+    and they accept vague wrong answers (Thakur et al. 2024/2025; the LoCoMo audit).
+ • Answer keys contain errors (LoCoMo).
+
+ Effects smaller than about 5–10 judged points should be treated as unresolved unless the judge
+ has been validated on the benchmark itself, as in LongMemEval at about 97% agreement and
+ Yuan et al. at κ = 0.82.
+
+
+ 7. Q4: How far can a specific failure be attributed?
+ 7.1 What can be attributed, and at what level
+ Attribution is defensible at the population level. That requires three things:
+ • a named controlled contrast, such as oracle versus full history, padded versus unpadded, or
+    CONCAT versus SHARDED;
+ • a stated benchmark and set of models;
+ • an effect larger than the measurement noise.
+
+ Under those conditions the literature supports statements such as:
+ • Holding evidence fixed, this model loses N points from added length.
+ • About half of this system's errors on this benchmark occur after correct retrieval.
+ • Revealing the request across turns, rather than the information content, accounts for this
+    drop.
+ For a single observed failure in a deployed assistant, attribution is rarely possible. The
+ reasons are set out below.
+
+ 7.2 Limits on attribution
+ 1. The mechanisms are nested, not parallel.
+
+
+
+
+Context, conversation length and cross-session memory — evidence review                                              18
+
+[Original PDF page 19 of 29]
+ • Retrieved memories are placed into a prompt. A cross-session error can therefore come from
+   retrieval failing, or from the reader losing a memory that was correctly retrieved. The second
+   case is mechanism (a) operating inside (b).
+ • LongMemEval's gains from reading strategy under perfect retrieval show this interaction
+   directly. So does RAGChecker's finding that higher retriever recall increases a generator's
+   sensitivity to noise.
+ • Because of this nesting, results from single-factor designs cannot simply be added up into a
+   complete breakdown.
+ 2. Effects are non-monotone and interact.
+ • Several studies find inverted-U curves as more is retrieved: Jin et al.; order-preserving RAG;
+    the Databricks long-context RAG study.
+ • LaRA finds interactions among model, length and task.
+ • A cause identified in one configuration therefore does not carry over to another.
+
+ 3. Outputs vary from run to run.
+ • Laban et al. found unreliability of about 30% in multi-turn settings even at temperature 0.
+ • A single failure may simply be sampling variation. Attributing it requires repeated trials, and
+    most benchmark papers report single runs.
+ 4. Measurement noise is comparable to the effects.
+ • Judge–human gaps of 5–10 points; acceptance of vague wrong answers; about 6% of gold
+    answers wrong; rankings that change with the judge (Spencer 2026).
+ • Each of these can be as large as the difference being attributed.
+
+ 5. Deployed systems are opaque.
+ • From the outside, nobody can see:
+   – whether a memory was written;
+   – what was retrieved;
+   – how the context was assembled;
+   – whether compaction occurred;
+   – which model version, or which serving configuration, handled a turn.
+ • Vendor documentation states that provenance displays are incomplete (Section 8).
+
+ 6. Model self-reports are not valid evidence.
+ • Turpin et al. (NeurIPS 2023) showed that chain-of-thought explanations can leave out the
+    factor that actually drove the answer.
+ • An assistant saying "I couldn't find that in our earlier chats", or citing a memory, does not
+    establish which mechanism failed.
+ 7. Benchmarks sometimes measure a different mechanism from the one they name.
+ • When a "memory" benchmark fits within the context window, failures on it are largely failures
+    of long-context reading (Section 5.4).
+ • When a needle test can be solved by literal matching, success on it is not evidence of how the
+    model uses context (NoLiMa).
+
+ 7.3 An attribution ladder
+ This is a description of evidential strength, not a recommendation about mitigations. The
+ approved scope excludes such recommendations.
+
+Level                What it takes                                        What it supports
+0. Observation       A single failure in a deployed assistant             Nothing about mechanism
+1. Reproduction      Repeated trials with the same input                  That the failure is systematic rather than
+                                                                          sampling noise
+2. Route contrast    The same question answered with the full history     Whether finding the evidence or reading it is
+                     in context and with retrieval                        implicated, within the confounds noted for route
+                                                                          substitution
+
+
+
+
+Context, conversation length and cross-session memory — evidence review                                                      19
+
+[Original PDF page 20 of 29]
+Level                What it takes                                        What it supports
+3. Oracle and        Gold evidence alone, then gold evidence with         Separation of retrieval, raw length and reading
+length contrast      length-matched padding                               failures
+4. Stage             Logs of what was written, what was retrieved and     Attribution to the write, retrieve or read stage
+instrumentation      what was assembled into context
+5. Internal          Ablating components or spans with access to          A causal mechanism in that model
+intervention         weights or log-probabilities
+
+ Levels 2–3 can be run by outside researchers on models available through an API. Levels 4–5
+ need the system's internals. In practice, only the vendor or an open-weight replication can
+ reach those levels for a deployed assistant.
+
+
+ 8. Q5: Controlled evidence compared with reports about
+ commercial products
+ How to read this section. Everything here belongs to the anecdotal evidence class. It is
+ included to show how product reports relate to the controlled findings. It is not evidence that
+ any mechanism caused any reported failure, and it does not compare or rank products. Vendors
+ are named only so the sources can be traced.
+
+ 8.1 What vendor documentation concedes
+ Public documentation of consumer memory features from OpenAI, Anthropic, Google and
+ Microsoft, collected in 2026, describes several limits without any external prompting:
+ Selective storage and retrieval
+ • Memory does not keep every detail of past chats.
+ • Chat-history reference is not a fixed list of facts.
+ • When memory is full, entries can be deprioritised by recency or frequency.
+
+ Deletion lag
+ • Deleted memories, or memories from deleted chats, can keep being referenced for days. One
+    vendor documents up to seven days.
+ • Turning memory off may stop it being applied without deleting what is stored.
+
+ Incomplete provenance
+ • Source displays may show only some of what influenced a reply.
+ • A "saved info" label can sometimes be wrong.
+ • One enterprise product documents that memory writes produce no audit-log entries.
+
+ Compaction within a session
+ • At least one product automatically summarises earlier messages as a chat nears its window
+    limit, while keeping the full history available for reference.
+ • What the summary keeps is not documented.
+
+ Effective context below the nominal window
+ • One vendor's engineering guidance names "context rot": recall and reasoning over details
+    weaken as the window fills.
+ • It describes context as a finite attention budget.
+ • Read through secondary summaries; the primary page was not reachable.
+
+ Version churn
+ • Memory designs changed several times between 2024 and 2026 at each vendor. Examples:
+   – adding reference to past chats;
+   – moving from a periodically refreshed summary to topic-level memories;
+   – a background "synthesis" process.
+ • A product report is therefore a snapshot of one configuration.
+
+ What is not documented is what attribution would need:
+
+
+Context, conversation length and cross-session memory — evidence review                                                      20
+
+[Original PDF page 21 of 29]
+ •   how retrieval ranks memories;
+ •   how conflicting memories are resolved;
+ •   how many tokens injected memory receives;
+ •   when compaction triggers;
+ •   whether stored items are verbatim or summarised.
+
+ 8.2 Vendor-reported evaluations
+ Several vendors publish long-context figures that repeat the controlled pattern: near-perfect
+ recall of a single needle alongside much weaker results on harder variants.
+ • Gemini 1.5 technical report (2024)
+   – Single-needle recall above 99.7% up to 1M tokens.
+   – About 60–70% on 100-needle recall.
+   – About 80% on multi-round co-reference at 1M.
+ • GPT-4.1 announcement (2025), as reported by secondary sources
+   – A multi-round co-reference score falling from about 80% at short context to about 50% at
+     the full 1M window.
+     –
+     A graph-walk task falling from 61.7% to about 19% beyond 128K.
+     –
+     These figures should be checked against the primary page before reuse.
+ • Meta's Llama 4 release (2025)
+   – Advertised a 10M-token window for a model trained at 256K.
+   – Independent long-fiction scores at about 120K tokens were low.
+   – The vendor attributed early results to deployment problems. That attribution is disputed
+     and unverified.
+ • OpenAI's memory "synthesis" ("dreaming") announcement (June 2026), via secondary
+   reporting
+   – Internal task-success rates rose across three memory generations:
+     · factual recall: 41.5% → 67.9% → 82.8%;
+     · handling time-sensitive context: 9.4% → 52.2% → 75.1%.
+   – Read as the vendor's own data, this concedes that earlier memory versions usually failed to
+     update time-sensitive facts. That matches the temporal and update failures in Section 5.
+   – The evaluation design is undisclosed and has not been independently replicated.
+
+ These are vendor-built benchmarks. They are consistent with the controlled literature but are
+ not independent of it, and the authors of the systems ran them.
+
+ 8.3 User reports and journalism
+ Recurring kinds of report, 2024–2026:
+
+Reported pattern                 Example source (type)           Resembles controlled        Why attribution fails
+                                                                 failure mode
+Memories silently lost or        Developer-forum threads,        Write/storage loss (§5.2)   No vendor statement;
+overwritten when capacity        Feb 2025; journalism Nov                                    unknown scale; journalists
+filled                           2025 (TechRadar)                                            judged the issue not
+                                                                                             widespread; secondary
+                                                                                             articles repeat unsourced
+                                                                                             statistics
+Content from one chat          Developer forum, Mar 2025         Retrieval returning the     Unclear which memory
+surfacing in an unrelated chat                                   wrong item                  subsystem was active at the
+                                                                                             time
+Assistant recites a saved rule   Developer forum, Aug–Oct        Read-stage failure;         Vendor neither confirmed nor
+but does not apply it; claims    2026, with a vendor-support     confabulated continuity     explained the behaviour;
+to remember past chats while     reply offering unconfirmed                                  model routing unknown
+using only the current           workarounds
+message
+False memories planted           Security research reported in   Write-stage corruption      Demonstrated in research,
+through untrusted content        Sep 2024                                                    not observed in the wild;
+                                                                                             partially fixed
+
+
+
+
+Context, conversation length and cross-session memory — evidence review                                                   21
+
+[Original PDF page 22 of 29]
+Reported pattern                Example source (type)        Resembles controlled         Why attribution fails
+                                                             failure mode
+Long-chat quality loss traced   Vendor postmortem, Sep       Looks like long-context      Users could not know which
+by the vendor to serving        2025: some requests          degradation, but was a       server handled their request;
+infrastructure                  misrouted to servers         serving configuration        overlapping bugs confound
+                                configured for a larger                                   any single report
+                                context window, plus two
+                                overlapping bugs
+Memory interacting with         Vendor postmortem, May       Social-pressure effects      No data released
+model behaviour (amplified      2025                         (§4.4), not factual recall
+sycophancy)
+
+ No vendor postmortem was found that attributes a specific factual error, given to a user, to
+ memory retrieval or to truncation of a long chat.
+
+ 8.4 Where the two evidence classes meet, and where they do not
+ Alignment
+ • Product reports and vendor documents describe the same categories of failure as the
+   controlled literature:
+   – effective context smaller than the window;
+   – stale or unupdated facts;
+   – lossy summarisation;
+   – retrieval of the wrong item;
+   – confident continuity without retrieval.
+ • A controlled study, LongMemEval, found deployed memory pipelines losing 37–64% against
+   offline reading on the same histories. That is consistent with users experiencing memory
+   errors on short histories.
+ Non-transfer from controlled evaluations to products
+ • Controlled results come from API models with known inputs.
+ • Products add steps that no controlled study observes:
+   – undocumented pipelines for retrieval, summarisation and context assembly;
+   – routing across models;
+   – safety layers;
+   – frequent version changes.
+ • A benchmark score for the underlying model does not predict how a product behaves.
+
+ Non-transfer from products to controlled conclusions
+ • User reports are self-selected and of unknown scale.
+ • Their symptoms can come from serving bugs or model swaps that look like context or memory
+    failure.
+ • They cannot test any mechanistic claim, and under the approved boundaries they are not used
+    to do so.
+
+
+ 9. Answer to the primary question (Q0) and verdict on
+ the premises
+ Q0. How do context length, conversation length and cross-session memory retrieval
+ each relate to factual reliability, and how far can failures be attributed to one
+ mechanism?
+ Context length.
+ • Relationship: real, and partly independent of content. Holding evidence fixed and confirming
+    retrieval, added length still costs accuracy.
+ • The cost is amplified most by:
+   – distractors that resemble the target;
+   – low lexical overlap between question and evidence;
+
+
+
+Context, conversation length and cross-session memory — evidence review                                               22
+
+[Original PDF page 23 of 29]
+   – evidence scattered through the context.
+ • It is modulated by position, conditionally on how full the window is.
+ • It is substantially reduced, but not removed, in closed frontier models.
+ • Mechanisms are supported by interventional evidence in open models only.
+
+ Conversation length.
+ • Relationship: large degradations, driven mainly by:
+   – how information is disclosed across turns (underspecification and premature commitment);
+   – conditioning on the model's own earlier errors;
+   – interference from superseded facts;
+   – social pressure.
+ • Raw token length adds a smaller residual decline.
+ • Neutral turns can be harmless.
+ • Turn count as such has not been cleanly isolated.
+
+ Cross-session memory.
+ • Relationship: failure modes that are its own:
+   – write loss and mis-dating;
+   – retrieval misses;
+   – stale facts not updated;
+   – stale memory applied after conditions change.
+ • Two of these are hard for every architecture tested: temporal reasoning and multi-hop
+    reasoning across sessions.
+ • Where the history fits in the window, memory systems often do no better than reading the full
+    history. On such benchmarks, "memory failure" is largely long-context failure.
+ Attribution.
+ • Controlled designs can separate the mechanisms at the population level. The main ones are
+   oracle conditions, length-matched padding, stage decomposition, route substitution and
+   manipulation of the model's own history.
+ • They cannot do so for an individual failure in a deployed assistant.
+ • The mechanisms are nested: retrieval feeds a long-context read. Separating them therefore
+   always needs a combination of designs, not one contrast.
+
+Premise (to test)                  Verdict                             Strength              Key qualifications
+Longer context or longer           Supported, with boundary            Strong (context);     Model-, task- and
+conversations degrade factual      conditions                          Moderate              definition-dependent; multi-turn
+reliability                                                            (conversation)        effects driven more by structure
+                                                                                             than length; neutral filler can be
+                                                                                             harmless
+The two mechanisms are             Supported in controlled settings;   Moderate              Mechanisms are nested; no
+empirically separable              not for individual deployed                               single design separates every
+                                   failures                                                  stage; the write stage is the least
+                                                                                             studied
+Effective context utilisation is   Supported on every non-trivial      Strong                Size of the gap depends on the
+smaller than the advertised        benchmark found                                           definition (absolute vs relative
+window                                                                                       threshold, task set);
+                                                                                             single-needle tests do not show it
+
+
+
+
+ 10. Appraisal records of conclusion-driving studies
+ Condensed from the full appraisal notes. "FT" means full text read, at least in part. "Abs" means
+ abstract or landing page only.
+
+Study         Design / controls              Models;          Metric;             Main confounds            Q          Access
+(status)                                     lengths          uncertainty
+Liu et al.    Position sweep;                GPT-3.5/4,       String-match        Short contexts;           Q1, Q3     FT
+2024          closed-book and oracle         Claude-1.3,      accuracy;           hard-negative
+(TACL)        anchors; query-aware           open 7–70B;      n=2,655; no CIs     distractors; obsolete
+              variant                        ≤4.4K                                models
+
+
+
+
+Context, conversation length and cross-session memory — evidence review                                                       23
+
+[Original PDF page 24 of 29]
+Study           Design / controls              Models;          Metric;             Main confounds            Q         Access
+(status)                                       lengths          uncertainty
+Levy et al.     Fixed evidence; three          5 models;        Accuracy; ~300      Short lengths; binary     Q1, Q3    FT
+2024 (ACL)      padding types; four            250–3K           per point; no CIs   labels
+                placements; CoT
+Du et al.       Recitation check;              2 open + 3       Task accuracy;      Masking keeps position    Q1, Q3,   FT
+2025            whitespace and masked          closed; ≤30K     single run          distance; few models      Q4
+(Findings       padding; evidence
+EMNLP)          placement
+RULER           13 synthetic tasks;            17 main (37      Accuracy; n=500 Length and filler             Q1, Q3    FT
+2024            absolute effective-length      appendix);       per cell; no CIs confounded; threshold
+(COLM)          threshold                      4K–128K                           arbitrary
+NoLiMa          Minimal-overlap needles;       13 models;       Relative            Template needles;         Q1, Q3    FT
+2025            last-2K control; literal-cue   ≤32K             effective length;   strict criterion
+(ICML)          ablation                                        no CIs
+HELMET      7 categories; correlation of       59 models;       Model-based      Length confounded            Q3        FT
+2025 (ICLR) synthetic with realistic           8K–128K          judge (κ         with number of                         (partial)
+            tasks                                               0.91/0.76); some passages
+                                                                seeds
+Veseli et al.   Relative input length          6 open models    Accuracy; 100       Open models only;         Q1, Q4    FT
+2025            0.06–1.0; position;                             per dataset         preprint
+(preprint)      conditioned on retrieval
+Jin et al.  Increasing number of               Several          Accuracy            Hard negatives defined    Q1, Q3    Abs
+2025 (ICLR) retrieved passages; recall         open/closed                          by retriever score
+            vs accuracy
+Laban et al. FULL / CONCAT / SHARDED; 15 models;                Task-specific; 10   Simulated user; no        Q1, Q3,   FT
+2025 (ICLR aptitude vs unreliability; >200K                     simulations per     length-matched            Q4        (partial)
+2026)        temperature              conversations             cell                multi-turn control
+MT-Eval         Single- vs multi-turn;         10 mostly small GPT-4 judge          Not length-matched;       Q1, Q3,   FT
+2024            gold-history swap; distance    models          (10-point)           older models              Q4        (partial)
+(EMNLP)         probe
+Sinha et al.    Injected error rate;           Frontier and     Accuracy            Synthetic task            Q3, Q4    FT
+2025/26         error-free history baseline    open; ≤100                                                               (partial)
+(preprint)                                     turns
+Li et al.       Length-matched                 5 models; 627    Effect with 95%     Retrospective;            Q3, Q4    FT
+2026            neutralisation of assistant    instructions     CI                  non-adaptive user
+(preprint)      turns; per-turn surgery
+PI-LLM          Update count; fixed-length     ~30 models       Accuracy;           Synthetic key–value       Q1, Q4    FT
+2025            control                                         regression          stream                              (partial)
+(preprint)
+LoCoMo          Long-context vs RAG; write     gpt-3.5/4        F1; no CIs          Synthetic dialogues;      Q2, Q3    FT
+2024 (ACL)      format; human ceiling          variants;                            6.4% key errors (audit)
+                                               ~16.6K
+LongMemE        Oracle vs S/M; stage           5+ LLMs;         GPT-4o judge        Synthetic histories;      Q2, Q3,   FT
+val 2025        decomposition; deployed        115K–1.5M        (~97%               n=97 probe                Q4
+(ICLR)          probe                                           agreement);
+                                                                single runs
+MemoryAg Incremental input; four               LC, RAG,         Accuracy / F1       Counterfactual edits,     Q2, Q3    FT
+entBench    competencies;                      agentic; ≤1.4M                       not natural updates
+2026 (ICLR) short-vs-long check
+TReMu           Event-date vs                  GPT-4o and       Multiple-choice     Authors evaluate own      Q2, Q4    FT
+2025            mention-date memories;         others           accuracy            method
+(Findings       code-based date arithmetic
+ACL)
+Yuan et al.     3×3 write × retrieval          GPT-5-mini;      Judge κ=0.82        One model; no             Q2, Q4    FT
+2026            factorial; failure taxonomy    LoCoMo                               full-context arm
+(preprint)
+Mem0 2025 Memory systems vs full               gpt-4o-mini      LLM judge; 10       Vendor-authored;          Q2, Q3    FT
+(vendor   context on LoCoMo                                     runs ± SD           harness disputed
+preprint)
+Zep 2025        Bi-temporal graph vs full      gpt-4o /         Single runs         Vendor-authored;          Q2        FT
+(vendor         context on LongMemEval-S       4o-mini                              remote service
+preprint)
+
+
+
+
+Context, conversation length and cross-session memory — evidence review                                                        24
+
+[Original PDF page 25 of 29]
+Study        Design / controls              Models;       Metric;         Main confounds   Q    Access
+(status)                                    lengths       uncertainty
+MemTrapB     Planted priors made            2 models; 5   Two judges      Synthetic        Q2   FT
+ench 2026    obsolete; trap-free controls   strategies    cross-checked                         (partial)
+(preprint)
+
+
+
+
+ 11. Limitations of this review
+ Not systematic.
+ • This is a narrative review. Searches were broad but not exhaustive, and no formal risk-of-bias
+    tool was applied.
+ • Five parallel sweeps gathered the evidence. Overlaps between them were reconciled by hand.
+    Where the sweeps reported different venues or figures for the same study, the review used
+    the version checked against the venue page.
+ Recency and status.
+ • Several important 2025–2026 findings are unreviewed preprints:
+   – self-conditioning (Sinha et al.);
+   – length-matched neutralisation (Li et al.);
+   – the stage factorial (Yuan et al.);
+   – MemTrapBench;
+   – window-fill position effects (Veseli et al.).
+ • They are labelled as preprints, and no conclusion rests on one of them alone.
+ • Some 2026 preprints name model versions that could not be independently checked.
+
+ Access.
+ • Some studies were read in abstract only: Jin et al.; BABILong at the level of per-model results;
+    MemBench; PersonaMem; CONPACT.
+ • Several long papers were read only in part.
+ • Figures available only in charts are given as approximate.
+ • Several vendor primary pages were unreachable and were read through secondary sources.
+    These are marked in Section 8.
+ Narrow evidence base.
+ • Controlled evidence is concentrated on:
+   – synthetic tasks;
+   – simulated users and histories;
+   – open models of 70B or less;
+   – lengths of 32K or less, except for the memory benchmarks.
+ • Few studies report confidence intervals or repeated runs.
+ • Results for frontier closed models at windows of hundreds of thousands of tokens remain thin
+    and mostly vendor-reported.
+ Not covered: training-data knowledge. Factual errors that come from what the model
+ learned in training are excluded by scope. Several studies note that models fall back on
+ parametric knowledge when evidence in context is hard to use, for example Machlab & Battle
+ and the RULER failure analysis. The excluded mechanism therefore interacts with the included
+ ones, and this review does not separate the two.
+
+
+
+
+Context, conversation length and cross-session memory — evidence review                                25
+
+[Original PDF page 26 of 29]
+ References
+ Status labels: [PR] peer-reviewed (venue given); [PP] preprint; [TR] technical report; [VB] vendor blog or
+    announcement; [VD] vendor documentation; [J] journalism; [F] forum. Product sources ([VB], [VD], [J], [F])
+    belong to the anecdotal evidence class.
+
+ Controlled evidence
+ An, C., Zhang, J., Zhong, M., et al. (2025). Why does the effective context length of LLMs fall short? ICLR 2025.
+   [PR] https://arxiv.org/abs/2410.18745
+ An, S., Ma, Z., Lin, Z., Zheng, N., Lou, J.-G. (2024). Make your LLM fully utilize the context. NeurIPS 2024. [PR]
+   https://www.microsoft.com/en-us/research/publication/make-your-llm-fully-utilize-the-context/
+ Bai, G., et al. (2024). MT-Bench-101: A fine-grained benchmark for evaluating LLMs in multi-turn dialogues. ACL
+    2024. [PR] https://aclanthology.org/2024.acl-long.401
+ Bai, Y., et al. (2025). LongBench v2. ACL 2025. [PR] https://aclanthology.org/2025.acl-long.183
+ Barnett, S., et al. (2024). Seven failure points when engineering a retrieval augmented generation system. CAIN
+   2024. [PR] https://arxiv.org/abs/2401.05856
+ Cao, Zou, Wang (2025). SYNC: A synthetic long-context understanding benchmark for controlled comparisons.
+   EMNLP 2025. [PR] https://aclanthology.org/2025.emnlp-main.1707
+ Chen, Wu, Leskovec (2026). Found in conversation: LLMs teach themselves to close the multi-turn gap. [PP]
+   arXiv:2605.24432
+ Chhikara, P., et al. (2025). Mem0: Building production-ready AI agents with scalable long-term memory. [PP,
+   vendor-authored] https://arxiv.org/abs/2504.19413
+ Cohen-Wang, B., et al. (2024). ContextCite: Attributing model generation to context. NeurIPS 2024. [PR]
+   https://arxiv.org/abs/2409.00729
+ Dongre, et al. (2025). Drift no more? Context equilibria in multi-turn LLM interactions. Workshop paper. [PP]
+   https://arxiv.org/abs/2510.07777
+ Du, Y., Tian, M., et al. (2025). Context length alone hurts LLM performance despite perfect retrieval. Findings of
+   EMNLP 2025. [PR] https://aclanthology.org/2025.findings-emnlp.1264
+ Ge, Y., et al. (2025). TReMu: Towards neuro-symbolic temporal reasoning for LLM-agents with memory in
+   multi-session dialogues. Findings of ACL 2025. [PR] https://arxiv.org/abs/2502.01630
+ Gemini Team (2024). Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context. [TR,
+   vendor] https://arxiv.org/abs/2403.05530
+ He, Y., et al. (2024). Multi-IF: Benchmarking LLMs on multi-turn and multilingual instruction following. [PP]
+   https://arxiv.org/abs/2410.15553
+ Hong, J., Byun, et al. (2025/2026). Measuring sycophancy of language models in multi-turn dialogues
+   (SYCON-Bench). [PP] https://arxiv.org/abs/2505.23840
+ Hong, K., Troynikov, A., Huber, J. (2025). Context rot: How increasing input tokens impacts LLM performance.
+   Chroma. [TR, vendor] https://www.trychroma.com/research/context-rot
+ Hsieh, C.-P., et al. (2024). RULER: What's the real context size of your long-context language models? COLM 2024.
+   [PR] https://arxiv.org/abs/2404.06654
+ Hsieh, C.-Y., et al. (2024). Found in the middle: Calibrating positional attention bias improves long context
+   utilization. Findings of ACL 2024. [PR] https://aclanthology.org/2024.findings-acl.890
+ Hu, Y., Wang, Y., McAuley, J. (2026). Evaluating memory in LLM agents via incremental multi-turn interactions
+   (MemoryAgentBench). ICLR 2026. [PR] https://arxiv.org/abs/2507.05257
+ Huang, J., et al. (2024). Large language models cannot self-correct reasoning yet. ICLR 2024. [PR]
+   https://arxiv.org/abs/2310.01798
+ Huet, A., Ben Houidi, Z., Rossi, D. (2025). Episodic memories generation and evaluation benchmark for LLMs. ICLR
+   2025. [PR] https://arxiv.org/abs/2501.13121
+ Jain, Velingker (2026). PredicateLongBench. [PP] arXiv:2607.08284
+ Jiang, B., et al. (2025). Know me, respond to me: Benchmarking LLMs for dynamic user profiling and personalized
+    responses at scale (PersonaMem). NeurIPS 2025 workshop. [PP] https://arxiv.org/abs/2504.14225
+ Jiang, et al. (2026). Anatomy of agentic memory. [PP] arXiv:2602.19320
+ Jin, B., Yoon, J., Han, J., Arik, S. (2025). Long-context LLMs meet RAG: Overcoming challenges for long inputs in
+    RAG. ICLR 2025. [PR] https://arxiv.org/abs/2410.05983
+ Kamradt, G. (2023). Needle in a haystack: Pressure testing LLMs. [TR, code repository]
+   https://github.com/gkamradt/LLMTest_NeedleInAHaystack
+ Kim, J., et al. (2024). DialSim: A real-time simulator for evaluating long-term multi-party dialogue understanding of
+   conversation systems. [PP] https://arxiv.org/abs/2406.13144
+ Kuratov, Y., et al. (2024). BABILong: Testing the limits of LLMs with long context reasoning-in-a-haystack. NeurIPS
+   2024 Datasets & Benchmarks. [PR] https://arxiv.org/abs/2406.10149
+
+
+
+
+Context, conversation length and cross-session memory — evidence review                                               26
+
+[Original PDF page 27 of 29]
+ Kwan, W.-C., et al. (2024). MT-Eval: A multi-turn capabilities evaluation benchmark for large language models.
+   EMNLP 2024. [PR] https://aclanthology.org/2024.emnlp-main.1124
+ Laban, P., Hayashi, H., Zhou, Y., Neville, J. (2025). LLMs get lost in multi-turn conversation. ICLR 2026. [PR]
+   https://arxiv.org/abs/2505.06120
+ Laban, P., Murakhovs'ka, L., Xiong, C., Wu, C.-S. (2023/2024). Are you sure? Challenging LLMs leads to
+   performance drops in the FlipFlop experiment. [PP] https://arxiv.org/abs/2311.08596
+ Leng, Q., et al. (2024). Long context RAG performance of large language models. Databricks. [TR]
+   https://arxiv.org/abs/2411.03538
+ Levy, M., Jacoby, A., Goldberg, Y. (2024). Same task, more tokens: The impact of input length on the reasoning
+   performance of large language models. ACL 2024. [PR] https://aclanthology.org/2024.acl-long.818
+ Li, K., et al. (2025). LaRA: Benchmarking retrieval-augmented generation and long-context LLMs. ICML 2025. [PR]
+     https://arxiv.org/abs/2502.09977
+ Li, K., et al. (2024). Measuring and controlling instruction (in)stability in language model dialogs. [PP; COLM 2024
+     not verified] https://arxiv.org/abs/2402.10962
+ Li, Li, Fu, Wang, Wu, Chang (2026). What if LLMs ate their words: Causal history effects in multi-turn interaction.
+     [PP] https://arxiv.org/abs/2609.05882
+ Li, Z., Li, C., Zhang, M., Mei, Q., Bendersky, M. (2024). Retrieval augmented generation or long-context LLMs? A
+     comprehensive study and hybrid approach. EMNLP 2024 Industry. [PR]
+     https://aclanthology.org/2024.emnlp-industry.66
+ Liu, N. F., et al. (2024). Lost in the middle: How language models use long contexts. TACL 12. [PR]
+    https://aclanthology.org/2024.tacl-1.9/
+ Liu, et al. (2026). Intent mismatch causes LLMs to get lost in multi-turn conversation. [PP]
+    https://arxiv.org/abs/2602.07338
+ Lu, T., Gao, M., Yu, K., Byerly, A., Khashabi, D. (2024). Insights into LLM long-context failures: When transformers
+    know but don't tell. Findings of EMNLP 2024. [PR] https://arxiv.org/abs/2406.14673
+ Machlab, D., Battle, R. (2024). LLM in-context recall is prompt dependent. [PP] https://arxiv.org/abs/2404.08865
+ Maharana, A., et al. (2024). Evaluating very long-term conversational memory of LLM agents (LoCoMo). ACL 2024.
+   [PR] https://aclanthology.org/2024.acl-long.747
+ Modarressi, A., et al. (2025). NoLiMa: Long-context evaluation beyond literal matching. ICML 2025. [PR]
+   https://arxiv.org/abs/2502.05167
+ Neergaard, Qiu, Chersoni (2026). Is length really a liability? An evaluation of multi-turn LLM conversations using
+   BoolQ. [PP] https://arxiv.org/abs/2601.16508
+ Packer, C., et al. (2023). MemGPT: Towards LLMs as operating systems. [PP] https://arxiv.org/abs/2310.08560
+ Rasmussen, P., et al. (2025). Zep: A temporal knowledge graph architecture for agent memory. [PP,
+   vendor-authored] https://arxiv.org/abs/2501.13956
+ Ru, D., et al. (2024). RAGChecker: A fine-grained framework for diagnosing retrieval-augmented generation.
+   NeurIPS 2024 Datasets & Benchmarks. [PR] https://arxiv.org/abs/2408.08067
+ Shi, F., et al. (2023). Large language models can be easily distracted by irrelevant context. ICML 2023. [PR]
+    https://proceedings.mlr.press/v202/shi23a.html
+ Sinha, A., Arun, A., Goel, S., Staab, S., Geiping, J. (2025/2026). The illusion of diminishing returns: Measuring long
+    horizon execution in LLMs. [PP] https://arxiv.org/abs/2509.09677
+ Sirdeshmukh, V., et al. (2025). MultiChallenge: A realistic multi-turn conversation evaluation benchmark
+    challenging to frontier LLMs. Findings of ACL 2025. [PR] https://arxiv.org/abs/2501.17399
+ Spencer (2026). Ground truth first: A longitudinal evaluation instrument for agent memory. [PP] arXiv:2607.21962
+ Tan, H., et al. (2025). MemBench: Towards more comprehensive evaluation on the memory of LLM-based agents.
+   Findings of ACL 2025. [PR] https://aclanthology.org/2025.findings-acl.989
+ Tavakoli, et al. (2025). Beyond a million tokens: Benchmarking and enhancing long-term memory in LLMs (BEAM).
+   [PP; ICLR 2026 listing reported] https://arxiv.org/abs/2510.27246
+ Thakur, A. S., et al. (2024/2025). Judging the judges: Evaluating alignment and vulnerabilities in LLMs-as-judges.
+   [PP; GEM 2025 workshop version] https://arxiv.org/abs/2406.12624
+ Turpin, M., Michael, J., Perez, E., Bowman, S. (2023). Language models don't always say what they think. NeurIPS
+   2023. [PR] https://arxiv.org/abs/2305.04388
+ Veseli, B., Chibane, J., Toneva, M., Koller, A. (2025). Positional biases shift as inputs approach context window
+   limits. [PP] https://arxiv.org/abs/2508.07479
+ Vodrahalli, K., et al. (2024). Michelangelo: Long context evaluations beyond haystacks via latent structure queries.
+   Google DeepMind. [PP, vendor-authored] https://arxiv.org/abs/2409.12640
+ Wang, C., Sun, J. (2025). Unable to forget: Proactive interference reveals working memory limits in LLMs beyond
+   context length. [PP] https://arxiv.org/abs/2506.08184
+ Wang, Q., et al. (2023/2025). Recursively summarizing enables long-term dialogue memory in large language
+   models. Neurocomputing. [PR] https://arxiv.org/abs/2308.15022
+ Wang, et al. (2026). MemTrapBench. [PP] arXiv:2608.20202
+
+
+
+Context, conversation length and cross-session memory — evidence review                                                27
+
+[Original PDF page 28 of 29]
+ Wang (2026). MemDelta. [PP] arXiv:2606.29914
+ Wang, Z., Zhang, Lee, Yang (2026). Lost in context compaction: When LLM systems drop side constraints
+   (CONPACT). [PP; abstract only] arXiv:2608.11242
+ Wu, D., et al. (2025). LongMemEval: Benchmarking chat assistants on long-term interactive memory. ICLR 2025.
+   [PR] https://arxiv.org/abs/2410.10813
+ Wu, W., et al. (2025). Retrieval head mechanistically explains long-context factuality. ICLR 2025. [PR]
+   https://arxiv.org/abs/2404.15574
+ Wu, X., Wang, Y., Jegelka, S., Jadbabaie, A. (2025). On the emergence of position bias in transformers. ICML 2025.
+   [PR] https://proceedings.mlr.press/v267/wu25ad.html
+ Xie, J., et al. (2024). Adaptive chameleon or stubborn sloth: Revealing the behavior of LLMs in knowledge conflicts.
+    ICLR 2024. [PR] https://arxiv.org/abs/2305.13300
+ Xu, J., Szlam, A., Weston, J. (2022). Beyond goldfish memory: Long-term open-domain conversation. ACL 2022. [PR]
+   https://aclanthology.org/2022.acl-long.356
+ Xu, P., et al. (2024). Retrieval meets long context large language models. ICLR 2024. [PR]
+   https://arxiv.org/abs/2310.03025
+ Xu, W., et al. (2025). A-Mem: Agentic memory for LLM agents. NeurIPS 2025. [PR]
+   https://arxiv.org/abs/2502.12110
+ Yen, H., et al. (2025). HELMET: How to evaluate long-context language models effectively and thoroughly. ICLR
+   2025. [PR] https://arxiv.org/abs/2410.02694
+ Yu, T., Xu, A., Akkiraju, R. (2024). In defense of RAG in the era of long-context language models. [PP]
+    https://arxiv.org/abs/2409.01666
+ Yuan, Su, Yao (2026). Diagnosing retrieval vs. utilization bottlenecks in LLM agent memory. [PP]
+   https://arxiv.org/abs/2603.02473
+ Zheng, L., et al. (2023). Judging LLM-as-a-judge with MT-Bench and Chatbot Arena. NeurIPS 2023 Datasets &
+   Benchmarks. [PR] https://arxiv.org/abs/2306.05685
+ Zhong, W., et al. (2024). MemoryBank: Enhancing large language models with long-term memory. AAAI 2024. [PR]
+   https://ojs.aaai.org/index.php/AAAI/article/view/29946
+
+ Evaluation disputes and audits (unreviewed)
+ dial481 / Penfield Labs (2026). LoCoMo answer-key and judge audit. [TR, code repository]
+    https://github.com/dial481/locomo-audit
+ Letta (2025, 12 Aug). Benchmarking AI agent memory. [VB]
+    https://www.letta.com/blog/benchmarking-ai-agent-memory
+ Zep (2025, May; updated 2026). Is Mem0 really SOTA in agent memory? [VB]
+   https://www.getzep.com/blog/lies-damn-lies-statistics-is-mem0-really-sota-in-agent-memory/
+
+ Anecdotal evidence class (product reports)
+ Anthropic (2023, 6 Dec). Long context prompting for Claude 2.1. [VB]
+   https://claude.com/resources/articles/claude-2-1-prompting
+ Anthropic (2025, ~29 Sep). Effective context engineering for AI agents. [VB; read via secondary summaries]
+   https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
+ Anthropic (2025, 17 Sep). A postmortem of three recent issues. [VB; read via mirror and InfoQ]
+   https://www.infoq.com/news/2025/10/anthropic-infrastructure-bugs
+ Anthropic Help Center. Using Claude's chat search and memory to build on previous context. [VD]
+   https://support.anthropic.com/en/articles/11817273
+ Anthropic Help Center. Context and length limits on paid plans. [VD]
+   https://support.claude.com/en/articles/11647753
+ Google (2025, 13 Aug). Gemini adds Temporary Chats and new personalization features. [VB]
+   https://blog.google/products-and-platforms/products/gemini/temporary-chats-privacy-controls/
+ Google Gemini Help. Saved info and past chats. [VD] https://support.google.com/gemini/answer/16413516
+ Microsoft Learn (updated 2026, 2 Sep). Microsoft 365 Copilot personalization and memory. [VD]
+   https://learn.microsoft.com/copilot/microsoft-365/copilot-personalization-memory
+ OpenAI (2024, 13 Feb; updated through 2025). Memory and new controls for ChatGPT. [VB]
+   https://openai.com/index/memory-and-new-controls-for-chatgpt/
+ OpenAI Help Center. Memory FAQ. [VD] https://help.openai.com/en/articles/8590148-memory-faq
+ OpenAI (2025, 2 May). Expanding on what we missed with sycophancy. [VB; read via S. Willison summary]
+   https://openai.com/index/expanding-on-sycophancy/
+ OpenAI memory "dreaming" update (2026, 4 Jun), as reported. [J]
+   https://letsdatascience.com/news/openai-upgrades-chatgpt-memory-architecture-for-fresher-pers-b26b51d5
+
+
+
+
+Context, conversation length and cross-session memory — evidence review                                             28
+
+[Original PDF page 29 of 29]
+ OpenAI GPT-4.1 long-context evaluations (2025, 14 Apr), as reported. [J]
+   https://www.infoq.com/news/2025/05/openai-gpt-4-1
+ The Decoder (2025, 7 Apr; updated). Meta's Llama 4 models struggle with long-context tasks. [J] https://the-decod
+   er.com/metas-llama-4-models-show-promise-on-standard-tests-but-struggle-with-long-context-tasks/
+ TechRadar (2024, 26 Sep). Hacker creates false memories in ChatGPT. [J] https://www.techradar.com/pro/hacker-c
+   reates-false-memories-in-chatgpt-to-steal-victim-data-but-it-might-not-be-as-bad-as-it-sounds
+ TechRadar (2025, 5 Nov). ChatGPT memories are disappearing for some users. [J] https://www.techradar.com/ai-pl
+   atforms-assistants/chatgpt/chatgpt-memories-are-disappearing-for-some-users-heres-what-you-can-do-to-protect
+   -yours
+ OpenAI Developer Community (2025, 3 Feb). ChatGPT suddenly forgot everything. [F]
+   https://community.openai.com/t/chatgpt-suddenly-forgot-everything-anyone-else-experiencing-this/1111406
+ OpenAI Developer Community (2025, 16 Mar). Memory context corruption / contradiction. [F]
+   https://community.openai.com/t/memory-context-corruption-contradiction-in-chatgpt-gpt-4-5/1144222
+ OpenAI Developer Community (2026, Aug–Oct). ChatGPT recalls saved memory but fails to apply it. [F] https://com
+   munity.openai.com/t/chatgpt-recalls-saved-memory-but-fails-to-apply-it-and-invents-plausible-context-instead-of-
+   verifying-history/1393739
+
+
+
+
+Context, conversation length and cross-session memory — evidence review                                              29
