@@ -14,6 +14,7 @@ REPO_URL = "https://github.com/danielslobozian/research-project-starter"
 NAV = [
     ("index.html", "Overview"),
     ("engine.html", "Research engine"),
+    ("guide.html", "Guide"),
     ("demos.html", "Live examples"),
     ("benchmark.html", "Benchmark"),
 ]

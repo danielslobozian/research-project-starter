@@ -7,6 +7,8 @@ the other root pages). The live-examples page has its own builder, tools/build_c
 
 from __future__ import annotations
 
+import re
+import subprocess
 from pathlib import Path
 
 from site_shell import REPO_URL, page
@@ -243,6 +245,25 @@ the earlier ones; it does not replace them.</p></div>
 """
 
 
+GUIDE_SOURCE = DOCS.parent / "research-project-guide.md"
+
+
+def guide_page() -> str:
+    """The guide's Markdown (the repository copy) rendered into the site frame."""
+    body = subprocess.run(
+        ["pandoc", "--from", "markdown", "--to", "html", "--shift-heading-level-by=1", str(GUIDE_SOURCE)],
+        check=True, capture_output=True, text=True).stdout
+    body = re.sub(r'href="https://danielslobozian\.github\.io/research-project-starter/([a-z]+\.html)"', r'href="\1"', body)
+    return (
+        f'<section class="page-hero"><div class="container"><div class="eyebrow">Design guide · v{ENGINE}</div>'
+        '<h1>Why the engine <span class="serif accent">works</span> as it does.</h1>'
+        '<p class="lead">The design choices behind the two projects, the reader questions, approval, evidence and '
+        f'delivery. Also available as <a class="link-inline" href="{FILES_URL}/research-project-guide.md">Markdown</a>.</p>'
+        '</div></section>'
+        f'<section class="section white"><div class="container readable guide-body">{body}</div></section>'
+    )
+
+
 def main() -> None:
     benchmark_description = (f"Benchmark editions of the Research Project Starter; engine {ENGINE} has not been "
                              "measured yet. The October 2026 edition measured engine 1.6.")
@@ -250,13 +271,17 @@ def main() -> None:
                                          encoding="utf-8")
     description = ("Two projects for ChatGPT, Claude or Mistral Vibe: agree the research and issue a Research "
                    "Boundaries file, then research from it and keep the answer with its evidence and limits.")
+    guide_description = (f"The design rationale of engine {ENGINE}: two projects, reader questions, reader context, "
+                         "approval, evidence and delivery, with sources.")
+    (DOCS / "guide.html").write_text(page("guide.html", "Design guide", guide_description, guide_page()),
+                                     encoding="utf-8")
     (DOCS / "index.html").write_text(page("index.html", "Research that remembers its boundaries", description, INDEX),
                                      encoding="utf-8")
     engine_description = (f"How the two projects of engine {ENGINE} work, how to install them in ChatGPT, Claude or "
                           "Mistral Vibe, and their limits.")
     (DOCS / "engine.html").write_text(page("engine.html", "Research engine", engine_description, ENGINE_PAGE),
                                       encoding="utf-8")
-    print("wrote docs/index.html, engine.html and benchmark.html; now run: python tools/site_versions.py switcher")
+    print("wrote docs/index.html, engine.html, guide.html and benchmark.html; now run: python tools/site_versions.py switcher")
 
 
 if __name__ == "__main__":

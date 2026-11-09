@@ -2389,3 +2389,42 @@ table caption {
 
 }
 
+
+/* Design guide: long-form text rendered from research-project-guide.md. */
+.guide-body {
+  max-width: 760px;
+}
+.guide-body h2 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  margin: 2.2em 0 .5em;
+  line-height: 1.2;
+}
+.guide-body h3 {
+  font-size: 1.2rem;
+  margin: 1.8em 0 .4em;
+}
+.guide-body h4 {
+  font-size: 1rem;
+  margin: 1.6em 0 .3em;
+}
+.guide-body a {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  overflow-wrap: anywhere;
+}
+.guide-body blockquote {
+  margin: 0 0 1.2em;
+  padding: 10px 16px;
+  border-left: 3px solid var(--line);
+  color: var(--muted);
+}
+.guide-body table {
+  display: block;
+  overflow-x: auto;
+  margin: 1.2em 0;
+}
+.guide-body code {
+  font-size: .9em;
+  overflow-wrap: anywhere;
+}
