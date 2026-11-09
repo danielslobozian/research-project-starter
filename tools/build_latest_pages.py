@@ -224,7 +224,30 @@ Explanatory follow-up questions about a delivered report can be answered within 
 """
 
 
+BENCHMARK_PAGE = f"""
+<section class="page-hero"><div class="container"><div class="eyebrow">Benchmark · engine v{ENGINE}</div>
+<h1>Not yet <span class="serif accent">measured.</span></h1>
+<p class="lead">No benchmark edition has measured engine {ENGINE} yet. Until one does, its behaviour is shown by the
+<a class="link-inline" href="demos.html">recorded cases</a>: one run per case and app, described, not scored.</p></div></section>
+
+<section class="section white" id="editions"><div class="container">
+<div class="section-head"><div class="eyebrow">Editions</div><h2>Every edition<br/><span class="serif">stays published.</span></h2>
+<p class="lead">An edition is immutable and names the engine version it measured. A new edition is added beside
+the earlier ones; it does not replace them.</p></div>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>Edition</th><th>Engine</th><th>What it compared</th><th>Results</th></tr></thead><tbody>
+<tr><td>October 2026</td><td>1.6</td><td>An informal question, research from the RB alone, and research with the full protocol, across 15 model configurations, judged pairwise by one LLM judge.</td>
+<td><a class="link-inline" href="{BENCHMARK_1_6}">Read the edition →</a><br/><a class="link-inline" href="{REPO_URL}/tree/main/benchmarks/2026-10-engine-1.6">Raw data ↗</a></td></tr>
+</tbody></table></div>
+<p class="micro">Results of one edition do not carry over to a later engine version: 1.7b.10 changed how the research is agreed and carried out.</p>
+</div></section>
+"""
+
+
 def main() -> None:
+    benchmark_description = (f"Benchmark editions of the Research Project Starter; engine {ENGINE} has not been "
+                             "measured yet. The October 2026 edition measured engine 1.6.")
+    (DOCS / "benchmark.html").write_text(page("benchmark.html", "Benchmark", benchmark_description, BENCHMARK_PAGE),
+                                         encoding="utf-8")
     description = ("Two projects for ChatGPT, Claude or Mistral Vibe: agree the research and issue a Research "
                    "Boundaries file, then research from it and keep the answer with its evidence and limits.")
     (DOCS / "index.html").write_text(page("index.html", "Research that remembers its boundaries", description, INDEX),
@@ -233,7 +256,7 @@ def main() -> None:
                           "Mistral Vibe, and their limits.")
     (DOCS / "engine.html").write_text(page("engine.html", "Research engine", engine_description, ENGINE_PAGE),
                                       encoding="utf-8")
-    print("wrote docs/index.html and docs/engine.html; now run: python tools/site_versions.py switcher")
+    print("wrote docs/index.html, engine.html and benchmark.html; now run: python tools/site_versions.py switcher")
 
 
 if __name__ == "__main__":
