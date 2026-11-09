@@ -1,0 +1,1 @@
+This 1.7b.10 project executes Research Boundaries (RB) files. Its method is in research-boundary-execution.protocol.md and research-boundary-execution.template.md. Read the protocol before responding; when a message attaches an RB, carry it out as the protocol directs.
