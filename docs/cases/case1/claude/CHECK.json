@@ -1,0 +1,66 @@
+{
+ "case": 1,
+ "app": "claude",
+ "results": [
+  {
+   "check": "one RB file",
+   "result": "PASS",
+   "detail": "screen-time-developing-brain.rb.md"
+  },
+  {
+   "check": "Markdown source",
+   "result": "PASS",
+   "detail": "screen-time-developing-brain.md"
+  },
+  {
+   "check": "RB protocol_version 1.7b.10",
+   "result": "PASS",
+   "detail": "1.7b.10"
+  },
+  {
+   "check": "RB approval_status set",
+   "result": "PASS",
+   "detail": "approved"
+  },
+  {
+   "check": "section 8 has Purpose/use",
+   "result": "PASS",
+   "detail": "Deciding household rules for tablet and TV use (how much, what kind of content, and when), with results framed as conditional options rather than instructions."
+  },
+  {
+   "check": "section 8 has Reader context",
+   "result": "PASS",
+   "detail": "A child aged 6, living in France."
+  },
+  {
+   "check": "section 8 Purpose/use matches the card",
+   "result": "PASS",
+   "detail": "expected one of ['decid', 'rule']; got: Deciding household rules for tablet and TV use (how much, what kind of content, and when), with results framed as conditional options rather than instructions."
+  },
+  {
+   "check": "section 8 Reader context matches the card",
+   "result": "PASS",
+   "detail": "expected one of ['6', 'six']; got: A child aged 6, living in France."
+  },
+  {
+   "check": "reader format HTML delivered",
+   "result": "PASS",
+   "detail": "screen-time-developing-brain.html"
+  },
+  {
+   "check": "HTML self-contained: screen-time-developing-brain.html",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "report language en",
+   "result": "PASS",
+   "detail": "en words 1051, fr words 57"
+  },
+  {
+   "check": "no requester details in the report",
+   "result": "PASS",
+   "detail": ""
+  }
+ ]
+}

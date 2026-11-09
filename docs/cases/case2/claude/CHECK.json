@@ -1,0 +1,76 @@
+{
+ "case": 2,
+ "app": "claude",
+ "results": [
+  {
+   "check": "one RB file",
+   "result": "PASS",
+   "detail": "daily-step-counts-health.rb.md"
+  },
+  {
+   "check": "Markdown source",
+   "result": "PASS",
+   "detail": "daily-step-counts-health.md"
+  },
+  {
+   "check": "RB protocol_version 1.7b.10",
+   "result": "PASS",
+   "detail": "1.7b.10"
+  },
+  {
+   "check": "RB approval_status set",
+   "result": "PASS",
+   "detail": "approved"
+  },
+  {
+   "check": "section 8 has Purpose/use",
+   "result": "PASS",
+   "detail": "preparing a 10-minute talk to colleagues and answering their questions afterwards, including a short set of likely audience questions with evidence-based answers"
+  },
+  {
+   "check": "section 8 has Reader context",
+   "result": "PASS",
+   "detail": "mostly sedentary office workers aged roughly 25 to 60"
+  },
+  {
+   "check": "section 8 Purpose/use matches the card",
+   "result": "PASS",
+   "detail": "expected one of ['talk', 'explain', 'present']; got: preparing a 10-minute talk to colleagues and answering their questions afterwards, including a short set of likely audience questions with evidence-based answers"
+  },
+  {
+   "check": "section 8 Audience/prior knowledge matches the card",
+   "result": "PASS",
+   "detail": "expected one of ['colleague']; got: a presenter who reads health news but not research papers, and about 40 office colleagues who are not health specialists; an interested non-specialist reading level"
+  },
+  {
+   "check": "reader format PDF delivered",
+   "result": "PASS",
+   "detail": "daily-step-counts-health.pdf"
+  },
+  {
+   "check": "PDF pages numbered: daily-step-counts-health.pdf",
+   "result": "PASS",
+   "detail": "7/7"
+  },
+  {
+   "check": "PDF bookmarks: daily-step-counts-health.pdf",
+   "result": "PASS",
+   "detail": "1"
+  },
+  {
+   "check": "PDF no near-empty page: daily-step-counts-health.pdf",
+   "result": "PASS",
+   "detail": "0"
+  },
+  {
+   "check": "report language en",
+   "result": "PASS",
+   "detail": "en words 486, fr words 8"
+  },
+  {
+   "check": "no requester details in the report",
+   "result": "PASS",
+   "detail": ""
+  }
+ ]
+}

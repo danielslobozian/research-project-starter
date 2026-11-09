@@ -1,0 +1,61 @@
+{
+ "case": 5,
+ "app": "mistral",
+ "results": [
+  {
+   "check": "one RB file",
+   "result": "PASS",
+   "detail": "heat-pumps-cold-climates.rb.md"
+  },
+  {
+   "check": "Markdown source",
+   "result": "PASS",
+   "detail": "heat-pumps-cold-climates.md"
+  },
+  {
+   "check": "RB protocol_version 1.7b.10",
+   "result": "PASS",
+   "detail": "1.7b.10"
+  },
+  {
+   "check": "RB approval_status set",
+   "result": "PASS",
+   "detail": "approved"
+  },
+  {
+   "check": "section 8 has Purpose/use",
+   "result": "PASS",
+   "detail": "\u00e9clairer une d\u00e9cision personnelle d'installation de chauffage ; le rapport formule des options conditionnelles li\u00e9es aux preuves, sans prescrire de d\u00e9cision (valeur suppos\u00e9e)."
+  },
+  {
+   "check": "section 8 has Reader context",
+   "result": "PASS",
+   "detail": "aucun contexte de lecteur sp\u00e9cifique ; les donn\u00e9es fran\u00e7aises sont mises en avant lorsqu'elles existent (voir section 4)."
+  },
+  {
+   "check": "section 9 records assumptions",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "reader format HTML delivered",
+   "result": "PASS",
+   "detail": "heat-pumps-cold-climates.html"
+  },
+  {
+   "check": "HTML self-contained: heat-pumps-cold-climates.html",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "report language fr",
+   "result": "PASS",
+   "detail": "en words 16, fr words 818"
+  },
+  {
+   "check": "no requester details in the report",
+   "result": "PASS",
+   "detail": ""
+  }
+ ]
+}

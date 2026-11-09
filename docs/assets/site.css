@@ -1577,6 +1577,31 @@ a:focus-visible,button:focus-visible {
   color: #96604b;
 }
 
+.model-dot.mistral {
+  background: #ffe7cc;
+  color: #a2541a;
+}
+
+.demo-insight.stacked {
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.demo-insight.stacked p {
+  margin: 0;
+}
+
+.case-profile {
+  margin: 28px 0;
+  align-items: start;
+}
+
+.case-profile th[scope="row"] {
+  width: 34%;
+  text-align: left;
+  vertical-align: top;
+}
+
 .result-label {
   font: 770 .69rem ui-monospace,monospace;
   color: #556977;

@@ -1,0 +1,146 @@
+{
+  "_about": "One run per case per app, 9 November 2026, engine 1.7b.10. Read by tools/build_cases_page.py together with cases.json and each run's CHECK.json. A null link means the conversation is not published.",
+  "date": "2026-11-09",
+  "apps": {
+    "chatgpt": {"name": "ChatGPT", "dot": "gpt", "letter": "G"},
+    "claude": {"name": "Claude", "dot": "claude", "letter": "C"},
+    "mistral": {"name": "Mistral Vibe", "dot": "mistral", "letter": "M"}
+  },
+  "outcomes": {
+    "full": "Followed the engine",
+    "direct": "Answered directly",
+    "failed": "Delivered an unreadable file"
+  },
+  "runs": [
+    {
+      "case": 1, "app": "chatgpt", "model": "GPT-6 Thinking", "outcome": "full",
+      "generation": "Asked four open reader questions with defaults and waited; the answers were not taken as approval. The child's age went into the reader context, but also narrowed the scope to ages 5 to 7.",
+      "execution": "HTML and Markdown report: 9 A4 pages of body, 26 references, no figures. It opens with what the evidence means for family rules and stays impersonal (\"families in France\"). 12.6 minutes, 15 web calls.",
+      "check_notes": {"no requester details in the report": "False positive: the flagged words are the title of a cited French source (\"Votre enfant et les écrans\"), not a personal detail."},
+      "generation_link": "https://chatgpt.com/share/6af1c167-5838-83ed-b161-062faad92ba5",
+      "execution_link": "https://chatgpt.com/share/6af1c86b-7898-83eb-a860-744afce74baf"
+    },
+    {
+      "case": 1, "app": "claude", "model": "Claude Opus 5.5", "outcome": "full",
+      "generation": "Asked four open reader questions with defaults and waited. The brief kept ages 3 to 12, weighted 5 to 8, and kept the child's age as reader context (\"say where age-6 evidence is thin\").",
+      "execution": "HTML and Markdown report: 13 A4 pages of body, 54 references, figures with their data. 56 distinct web searches; claims were rechecked against the sources and two overstatements corrected before delivery.",
+      "check_notes": {},
+      "generation_link": "https://claude.ai/share/077e2ed4-910b-4e12-8637-2aff0be199af",
+      "execution_link": null
+    },
+    {
+      "case": 1, "app": "mistral", "model": "GLM-5 (glm-5-latest-short)", "outcome": "full",
+      "generation": "Asked four reader questions, but in Vibe's multiple-choice popup (the app's own instructions require it); the answers were typed in the free field. Some of its working notes leaked into the reply. The brief kept ages 0 to 18, weighted 4 to 12, with the child's age as reader context.",
+      "execution": "HTML and Markdown report: 26 references, figures, French guidance included. It reported that it could not render the report or measure its pages.",
+      "check_notes": {"HTML self-contained: screen-time-child-brains.html": "Not written by the model: Mistral's file hosting appended a Cloudflare analytics script to the downloaded HTML. The script is removed from the copy published here."},
+      "generation_link": null,
+      "execution_link": null
+    },
+    {
+      "case": 2, "app": "chatgpt", "model": "GPT-6 Thinking", "outcome": "direct",
+      "generation": "Answered the question in chat in about 4 seconds: no reader questions, no brief, no Research Boundaries file. The project's instructions were apparently not read.",
+      "execution": null,
+      "check_notes": {},
+      "generation_link": "https://chatgpt.com/share/6af1db9e-2e80-83eb-87ae-625db79e0318",
+      "execution_link": null
+    },
+    {
+      "case": 2, "app": "claude", "model": "Claude Sonnet 5.5", "outcome": "full",
+      "generation": "Asked four open reader questions with defaults. The first brief assumed HTML and 10 pages; one correction (a PDF, about 15 minutes of reading) fixed it. The colleagues' situation also became scope: under-25s were excluded.",
+      "execution": "A 7-page PDF with a Markdown copy, built for the talk: the likely audience questions come with answers. 14 web searches, 15 references; the context was compacted during the run.",
+      "check_notes": {},
+      "generation_link": "https://claude.ai/share/2ab50825-78b3-4aee-91be-01306ec72af7",
+      "execution_link": "https://claude.ai/share/91b089e1-3311-4351-a563-3e0a78898f6d"
+    },
+    {
+      "case": 2, "app": "mistral", "model": "GLM-5 (glm-5-latest-short)", "outcome": "direct",
+      "generation": "Answered the question in chat after two web searches: no reader questions, no brief. Its reasoning never mentions the project's instructions.",
+      "execution": null,
+      "check_notes": {},
+      "generation_link": null,
+      "execution_link": null
+    },
+    {
+      "case": 3, "app": "chatgpt", "model": "GPT-6 Pro", "outcome": "full",
+      "generation": "Asked three open reader questions with defaults. The brief made the \"55%\" claim a mandatory check and asked for wording the manager can be given; large existing codebases shaped the scope slightly.",
+      "execution": "HTML and Markdown report with a manager-facing summary first and a section of suggested wording. It shows that 55.8% is a reduction in completion time among developers who finished the task, not a 55.8% increase in work rate. 31.1 minutes, 12 references, no figures.",
+      "check_notes": {},
+      "generation_link": "https://chatgpt.com/share/6af1f788-d0b0-83ed-a923-c9133f2c5dfc",
+      "execution_link": "https://chatgpt.com/share/6af20107-a2f8-83eb-8529-e2bab0bd6df2"
+    },
+    {
+      "case": 3, "app": "claude", "model": "Claude Fable 5.1", "outcome": "direct",
+      "generation": "Answered directly with a cited summary. It judged the project's instruction to read the protocol a prompt injection, because the app delivered it inside a tool result, and did not act on it. This is how the app and model handled the instructions, not something in the protocol.",
+      "execution": null,
+      "check_notes": {},
+      "generation_link": null,
+      "execution_link": null
+    },
+    {
+      "case": 3, "app": "mistral", "model": "GLM-5 (glm-5-latest-short)", "outcome": "full",
+      "generation": "Read the whole protocol, then asked four reader questions in the multiple-choice popup. The brief set full statistical depth, with large existing codebases as the main setting and greenfield or novice studies as contrast.",
+      "execution": "HTML and Markdown report with an effect-size figure and 14 references. It traces the 55% to Peng et al. 2023 (freelancers writing a small HTTP server from scratch, 55.8%, 95% CI 21–89%).",
+      "check_notes": {},
+      "generation_link": null,
+      "execution_link": null
+    },
+    {
+      "case": 4, "app": "chatgpt", "model": "GPT-6 Thinking", "outcome": "full",
+      "generation": "Asked one question: which region. The opening says \"regional\" without naming one, and the protocol allows that question when evidence differs by place. It answered with no preference and the brief used international evidence.",
+      "execution": "An 8-page PDF, references included, within the strict 10-page limit, with a Markdown copy. 15.4 minutes, 28 web calls; the rendered pages were inspected as images.",
+      "check_notes": {},
+      "generation_link": "https://chatgpt.com/share/6af1e914-5960-83eb-ac16-13f99c2e80a6",
+      "execution_link": "https://chatgpt.com/share/6af1ef09-2c70-83eb-91d4-9e359ad27be6"
+    },
+    {
+      "case": 4, "app": "claude", "model": "Claude Opus 5.5", "outcome": "full",
+      "generation": "Asked two questions: the region (with access to low-carbon power and storage) and the size of the funding. The second is a scope question beyond the four reader topics.",
+      "execution": "A 9-page PDF with 7 bookmarks and a figure with its data, within the 10-page limit, and a Markdown copy.",
+      "check_notes": {},
+      "generation_link": "https://claude.ai/share/537c629f-df9a-4704-9c08-9224fe33adcd",
+      "execution_link": "https://claude.ai/share/1d8025ff-5a48-4a29-a12a-dc37cbca3544"
+    },
+    {
+      "case": 4, "app": "mistral", "model": "GLM-5 (glm-5-latest-short)", "outcome": "failed",
+      "generation": "Read the whole protocol and asked one question (the region) in the popup. Its reasoning names the cause of the popups: Vibe's own instructions require multiple-choice questions.",
+      "execution": "Vibe has no PDF library and cannot render PDFs, so it wrote the 8-page PDF by hand. Its font objects are malformed: most readers show blank pages. The Markdown copy is intact.",
+      "check_notes": {
+        "PDF pages numbered: direct-air-capture-scale.pdf": "Caused by the malformed fonts: the reader extracts no text.",
+        "PDF no near-empty page: direct-air-capture-scale.pdf": "Caused by the malformed fonts: the reader extracts no text."
+      },
+      "generation_link": null,
+      "execution_link": null
+    },
+    {
+      "case": 5, "app": "chatgpt", "model": "GPT-6 Instant", "outcome": "direct",
+      "generation": "Answered directly in French in about 10 seconds, ending with three questions of its own for a personal estimate. No reader questions, no brief.",
+      "execution": null,
+      "check_notes": {},
+      "generation_link": "https://chatgpt.com/share/6af1df38-a73c-83eb-a296-a56f894fb601",
+      "execution_link": null
+    },
+    {
+      "case": 5, "app": "claude", "model": "Claude Haiku 5.5", "outcome": "direct",
+      "generation": "Answered directly in French and offered a deeper analysis with sources. No reader questions, no brief.",
+      "execution": null,
+      "check_notes": {},
+      "generation_link": "https://claude.ai/share/b6afe168-688f-4716-bd0e-68904451f656",
+      "execution_link": null
+    },
+    {
+      "case": 5, "app": "mistral", "model": "GLM-5 (glm-5-latest-short)", "outcome": "full",
+      "generation": "Followed the engine in French, with four questions in the popup. Every answer was \"skip\"; the Research Boundaries file records each skipped point as an assumption, as the protocol requires.",
+      "execution": "HTML and Markdown report in French, about 5,650 words of body, with three figures: field data from ADEME 2025 at the centre, French costs and a break-even estimate.",
+      "check_notes": {},
+      "generation_link": null,
+      "execution_link": null
+    }
+  ],
+  "comparisons": {
+    "1": "All three followed the engine: open reader questions first, then a brief. Claude and Mistral kept the child's age as reader context; ChatGPT also narrowed the scope to it. Claude's report is the longest and most referenced; ChatGPT's has no figures.",
+    "2": "Only Claude produced a report. ChatGPT at Medium and Mistral answered the question directly, as if it were a quick factual one, without reading the project's instructions.",
+    "3": "ChatGPT Pro and Mistral both traced the \"55% faster\" claim to its source and explained why it does not transfer to experienced developers on large codebases. Claude Fable 5.1 at Max refused the project instructions as a suspected injection.",
+    "4": "All three asked for the region, which the opening leaves open, then delivered PDFs within 10 pages. Mistral's PDF cannot be read in most viewers; its Markdown copy can.",
+    "5": "Only Mistral followed the engine, in French, and recorded the skipped answers as assumptions. ChatGPT Instant and Claude Haiku at Low answered directly."
+  }
+}

@@ -1,0 +1,12 @@
+series,median_steps_per_day,hazard_ratio_all_cause_mortality,ci_low,ci_high,reference_note,source
+Paluch 2022 (15 cohorts; 47471 adults),3553,1.00,,,lowest quartile (reference),Lancet Public Health 2022 abstract
+Paluch 2022 (15 cohorts; 47471 adults),5801,0.60,0.51,0.71,vs lowest quartile,Lancet Public Health 2022 abstract
+Paluch 2022 (15 cohorts; 47471 adults),7842,0.55,0.49,0.62,vs lowest quartile,Lancet Public Health 2022 abstract
+Paluch 2022 (15 cohorts; 47471 adults),10901,0.47,0.39,0.57,vs lowest quartile,Lancet Public Health 2022 abstract
+Lee 2019 (16741 women; mean age 72),2718,1.00,,,lowest quartile (reference),JAMA Intern Med 2019 abstract and Table 3 Model 2
+Lee 2019 (16741 women; mean age 72),4363,0.59,0.47,0.75,vs lowest quartile,JAMA Intern Med 2019 abstract and Table 3 Model 2
+Lee 2019 (16741 women; mean age 72),5905,0.54,0.41,0.72,vs lowest quartile,JAMA Intern Med 2019 abstract and Table 3 Model 2
+Lee 2019 (16741 women; mean age 72),8442,0.42,0.30,0.60,vs lowest quartile,JAMA Intern Med 2019 abstract and Table 3 Model 2
+Saint-Maurice 2020 (4840 adults 40+),4000,1.00,,,4000 steps/day (reference),JAMA 2020 abstract
+Saint-Maurice 2020 (4840 adults 40+),8000,0.49,0.44,0.55,vs 4000 steps/day,JAMA 2020 abstract
+Saint-Maurice 2020 (4840 adults 40+),12000,0.35,0.28,0.45,vs 4000 steps/day,JAMA 2020 abstract

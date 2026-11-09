@@ -1,0 +1,12 @@
+label,value_t_per_year,group,year_or_basis,source_key
+"Orca, best year",1000,measured,"journalistic reconstruction from registry and accounts, best year to 2024",heimildin
+"Mammoth, first half of 2026 doubled (net)",1350,measured,"company-reported net removal, 675 t in H1 2026 annualised (own calculation)",winss
+"Deep Sky Alpha",3000,design,"design capacity, started August 2025",eenews-alpha
+"Orca",4000,design,"nominal capacity",iea2022
+"Mammoth",36000,design,"nameplate, 72 containers",winss
+"Stratos (not yet operating)",500000,design,"design capacity",decarbonfuse-stratos
+"IPCC median for 2050",20000000,scenario,"C1-C3 median 0.02 Gt/yr; 5-95% range 0-1.74 Gt/yr",ipcc12
+"Model median for 2050, current pledges",60000000,scenario,"NDC scenario, preprint",chiani
+"IEA Net Zero, 2030",80000000,scenario,"Net Zero Roadmap 2023",iea2023
+"Model median for 2050, long-term strategies",390000000,scenario,"LTS scenario, preprint",chiani
+"IEA Net Zero, 2050",1041000000,scenario,"Net Zero Roadmap 2023",iea2023

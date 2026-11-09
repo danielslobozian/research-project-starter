@@ -1,0 +1,81 @@
+{
+ "case": 4,
+ "app": "claude",
+ "results": [
+  {
+   "check": "one RB file",
+   "result": "PASS",
+   "detail": "direct-air-capture-regional-pilots.rb.md"
+  },
+  {
+   "check": "Markdown source",
+   "result": "PASS",
+   "detail": "direct-air-capture-regional-pilots.md"
+  },
+  {
+   "check": "RB protocol_version 1.7b.10",
+   "result": "PASS",
+   "detail": "1.7b.10"
+  },
+  {
+   "check": "RB approval_status set",
+   "result": "PASS",
+   "detail": "approved"
+  },
+  {
+   "check": "section 8 has Purpose/use",
+   "result": "PASS",
+   "detail": "Support a recommendation to the committee on whether to fund DAC pilots. The report sets out the conditions under which funding is or is not justified, rather than issuing a flat instruction."
+  },
+  {
+   "check": "section 8 has Reader context",
+   "result": "PASS",
+   "detail": "Assumed: no specific region, with the report showing which local conditions change the answer; a modest budget that cannot pay for a commercial-scale plant alone."
+  },
+  {
+   "check": "section 8 Purpose/use matches the card",
+   "result": "PASS",
+   "detail": "expected one of ['recommend', 'fund', 'decid']; got: Support a recommendation to the committee on whether to fund DAC pilots. The report sets out the conditions under which funding is or is not justified, rather than issuing a flat instruction."
+  },
+  {
+   "check": "section 8 Audience/prior knowledge matches the card",
+   "result": "PASS",
+   "detail": "expected one of ['committee']; got: Members of a regional climate committee who know climate basics but not engineering."
+  },
+  {
+   "check": "reader format PDF delivered",
+   "result": "PASS",
+   "detail": "direct-air-capture-regional-pilots.pdf"
+  },
+  {
+   "check": "PDF pages numbered: direct-air-capture-regional-pilots.pdf",
+   "result": "PASS",
+   "detail": "9/9"
+  },
+  {
+   "check": "PDF bookmarks: direct-air-capture-regional-pilots.pdf",
+   "result": "PASS",
+   "detail": "7"
+  },
+  {
+   "check": "PDF no near-empty page: direct-air-capture-regional-pilots.pdf",
+   "result": "PASS",
+   "detail": "0"
+  },
+  {
+   "check": "PDF within 10 pages +25% (all pages, references included): direct-air-capture-regional-pilots.pdf",
+   "result": "PASS",
+   "detail": "9 pages; body pages need reading"
+  },
+  {
+   "check": "report language en",
+   "result": "PASS",
+   "detail": "en words 541, fr words 10"
+  },
+  {
+   "check": "no requester details in the report",
+   "result": "PASS",
+   "detail": ""
+  }
+ ]
+}

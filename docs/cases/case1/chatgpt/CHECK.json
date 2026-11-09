@@ -1,0 +1,66 @@
+{
+ "case": 1,
+ "app": "chatgpt",
+ "results": [
+  {
+   "check": "one RB file",
+   "result": "PASS",
+   "detail": "screen-time-child-development.rb.md"
+  },
+  {
+   "check": "Markdown source",
+   "result": "PASS",
+   "detail": "screen-time-child-development.md"
+  },
+  {
+   "check": "RB protocol_version 1.7b.10",
+   "result": "PASS",
+   "detail": "1.7b.10"
+  },
+  {
+   "check": "RB approval_status set",
+   "result": "PASS",
+   "detail": "approved"
+  },
+  {
+   "check": "section 8 has Purpose/use",
+   "result": "PASS",
+   "detail": "Make informed family rules for tablet and television use, especially how much, what content, and when, for a six-year-old child."
+  },
+  {
+   "check": "section 8 has Reader context",
+   "result": "PASS",
+   "detail": "Parent of one child aged six living in France; general evidence should be interpreted for this age and setting, with French guidance considered."
+  },
+  {
+   "check": "section 8 Purpose/use matches the card",
+   "result": "PASS",
+   "detail": "expected one of ['decid', 'rule']; got: Make informed family rules for tablet and television use, especially how much, what content, and when, for a six-year-old child."
+  },
+  {
+   "check": "section 8 Reader context matches the card",
+   "result": "PASS",
+   "detail": "expected one of ['6', 'six']; got: Parent of one child aged six living in France; general evidence should be interpreted for this age and setting, with French guidance considered."
+  },
+  {
+   "check": "reader format HTML delivered",
+   "result": "PASS",
+   "detail": "screen-time-child-development.html"
+  },
+  {
+   "check": "HTML self-contained: screen-time-child-development.html",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "report language en",
+   "result": "PASS",
+   "detail": "en words 669, fr words 28"
+  },
+  {
+   "check": "no requester details in the report",
+   "result": "FAIL",
+   "detail": "Votre enfant"
+  }
+ ]
+}

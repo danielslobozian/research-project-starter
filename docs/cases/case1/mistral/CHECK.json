@@ -1,0 +1,66 @@
+{
+ "case": 1,
+ "app": "mistral",
+ "results": [
+  {
+   "check": "one RB file",
+   "result": "PASS",
+   "detail": "screen-time-child-brains.rb.md"
+  },
+  {
+   "check": "Markdown source",
+   "result": "PASS",
+   "detail": "screen-time-child-brains.md"
+  },
+  {
+   "check": "RB protocol_version 1.7b.10",
+   "result": "PASS",
+   "detail": "1.7b.10"
+  },
+  {
+   "check": "RB approval_status set",
+   "result": "PASS",
+   "detail": "approved"
+  },
+  {
+   "check": "section 8 has Purpose/use",
+   "result": "PASS",
+   "detail": "decide family rules for a child's tablet and television use: how much, what content, and when."
+  },
+  {
+   "check": "section 8 has Reader context",
+   "result": "PASS",
+   "detail": "a parent of one child of about six, living in France."
+  },
+  {
+   "check": "section 8 Purpose/use matches the card",
+   "result": "PASS",
+   "detail": "expected one of ['decid', 'rule']; got: decide family rules for a child's tablet and television use: how much, what content, and when."
+  },
+  {
+   "check": "section 8 Reader context matches the card",
+   "result": "PASS",
+   "detail": "expected one of ['6', 'six']; got: a parent of one child of about six, living in France."
+  },
+  {
+   "check": "reader format HTML delivered",
+   "result": "PASS",
+   "detail": "screen-time-child-brains.html"
+  },
+  {
+   "check": "HTML self-contained: screen-time-child-brains.html",
+   "result": "FAIL",
+   "detail": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092"
+  },
+  {
+   "check": "report language en",
+   "result": "PASS",
+   "detail": "en words 999, fr words 18"
+  },
+  {
+   "check": "no requester details in the report",
+   "result": "PASS",
+   "detail": ""
+  }
+ ]
+}

@@ -1,0 +1,250 @@
+{
+ "_about": "Hand-run cases for engine 1.7b.10 (2026-11-09). One run per case per app. The opening message is sent verbatim; every later answer comes from the profile card.",
+ "engine": "1.7b.10",
+ "rules_for_the_user": [
+  "Send the opening message exactly as written, as the first message of a new chat in the generation project.",
+  "Answer only what the assistant asks, using the card's facts, in a few plain words. Do not volunteer card facts it did not ask about.",
+  "If it asks something the card does not cover, answer \"No preference.\"",
+  "If the brief gets a card fact wrong, correct it once, in one sentence. Otherwise reply \"approved\".",
+  "Download every file the generation chat gives (the RB) and every file the execution chat gives.",
+  "In the execution project, open a new chat, attach the RB, and send it with no text.",
+  "Share both conversations (public link) and note the links in the run log."
+ ],
+ "cases": [
+  {
+   "id": 1,
+   "title": "A parent deciding family rules",
+   "topic_ref": "T3",
+   "order": 1,
+   "pilot": true,
+   "settings": {
+    "chatgpt": "High",
+    "claude": "Opus 5.5 · High",
+    "mistral": "Thinking"
+   },
+   "opening": "Is screen time actually bad for kids' brains or is it a moral panic?",
+   "card": [
+    [
+     "What you know about the subject",
+     "No science background. You know everyday words like \"screen time\"; terms like \"neuroimaging\" or \"cohort study\" are new to you."
+    ],
+    [
+     "What the report is for",
+     "To decide your family's rules for tablet and TV: how much, what kind of content, and when."
+    ],
+    [
+     "Who reads it",
+     "You alone."
+    ],
+    [
+     "Your situation",
+     "You have one child, aged 6. You live in France."
+    ],
+    [
+     "Format and length",
+     "Reading on your phone. No length preference."
+    ],
+    [
+     "Language",
+     "English."
+    ]
+   ],
+   "expect": {
+    "reader_questions": true,
+    "reader_format": "html",
+    "language": "en",
+    "section8": {
+     "Purpose/use": [
+      "decid",
+      "rule"
+     ],
+     "Reader context": [
+      "6",
+      "six"
+     ]
+    },
+    "max_pdf_pages": null,
+    "section9_assumptions": false
+   },
+   "tests": "The situation (child's age) becomes reader context, not a scope restriction; the decision purpose makes the report lead with what the evidence implies for family rules; no personal details in the report. Same question as benchmark topic T3."
+  },
+  {
+   "id": 2,
+   "title": "A talk for colleagues",
+   "topic_ref": "T9",
+   "order": 2,
+   "settings": {
+    "chatgpt": "Medium",
+    "claude": "Sonnet 5.5 · Medium",
+    "mistral": "Thinking"
+   },
+   "opening": "Do you really need 10,000 steps a day?",
+   "card": [
+    [
+     "What you know about the subject",
+     "The basics: you read health news, but not research papers."
+    ],
+    [
+     "What the report is for",
+     "To prepare a 10-minute talk to your office colleagues and answer their questions afterwards."
+    ],
+    [
+     "Who reads it",
+     "You, and you will share it with about 40 office colleagues; they are not health specialists."
+    ],
+    [
+     "Your situation",
+     "Office workers, mostly sitting, aged roughly 25 to 60."
+    ],
+    [
+     "Format and length",
+     "A PDF you can send around. Short enough to read in about 15 minutes."
+    ],
+    [
+     "Language",
+     "English."
+    ]
+   ],
+   "expect": {
+    "reader_questions": true,
+    "reader_format": "pdf",
+    "language": "en",
+    "section8": {
+     "Purpose/use": [
+      "talk",
+      "explain",
+      "present"
+     ],
+     "Audience/prior knowledge": [
+      "colleague"
+     ]
+    },
+    "max_pdf_pages": null,
+    "section9_assumptions": false
+   },
+   "tests": "Readers differ from the requester; the explain-to-others purpose gives reusable explanations and examples; PDF output."
+  },
+  {
+   "id": 3,
+   "title": "An expert checking a claim",
+   "topic_ref": "S1",
+   "order": 5,
+   "settings": {
+    "chatgpt": "Pro",
+    "claude": "Fable 5.1 · Max",
+    "mistral": "Thinking"
+   },
+   "opening": "Do AI coding assistants actually make experienced developers faster, or does it just feel that way?",
+   "card": [
+    [
+     "What you know about the subject",
+     "Senior backend developer, 15 years of experience. Comfortable with statistics (effect sizes, confidence intervals, randomised trials)."
+    ],
+    [
+     "What the report is for",
+     "To check a claim your manager quoted, that AI assistants make developers \"55% faster\", and to cite the sources back to them."
+    ],
+    [
+     "Who reads it",
+     "You, and you will pass it to your manager, who is technical but not a researcher."
+    ],
+    [
+     "Your situation",
+     "Experienced developers working on large existing codebases, not new small projects."
+    ],
+    [
+     "Format and length",
+     "HTML is fine. No length preference."
+    ],
+    [
+     "Language",
+     "English."
+    ]
+   ],
+   "expect": {
+    "reader_questions": true,
+    "reader_format": "html",
+    "language": "en",
+    "section8": {
+     "Purpose/use": [
+      "check",
+      "cite",
+      "verif",
+      "claim"
+     ],
+     "Reader context": [
+      "codebase",
+      "existing",
+      "experienced"
+     ]
+    },
+    "max_pdf_pages": null,
+    "section9_assumptions": false
+   },
+   "tests": "Expert depth without simplification; the check-and-cite purpose states each conclusion with its exact support and limits; the situation (large existing codebases) as reader context."
+  },
+  {
+   "id": 4,
+   "title": "Everything given upfront",
+   "topic_ref": "S23",
+   "order": 4,
+   "settings": {
+    "chatgpt": "Extra High",
+    "claude": "Opus 5.5 · Extra",
+    "mistral": "Thinking"
+   },
+   "opening": "I brief a regional climate committee: they know climate basics but not engineering. I must recommend whether to fund direct-air-capture pilots. PDF, 10 pages max. Can direct air capture of CO2 work at a scale that matters?",
+   "card": [
+    [
+     "Everything",
+     "Already in the opening message. If asked anything else, answer \"No preference.\""
+    ]
+   ],
+   "expect": {
+    "reader_questions": false,
+    "reader_format": "pdf",
+    "language": "en",
+    "section8": {
+     "Purpose/use": [
+      "recommend",
+      "fund",
+      "decid"
+     ],
+     "Audience/prior knowledge": [
+      "committee"
+     ]
+    },
+    "max_pdf_pages": 10,
+    "section9_assumptions": false
+   },
+   "tests": "The skip rule: no reader questions, straight to the brief; the page limit."
+  },
+  {
+   "id": 5,
+   "title": "French, no answers",
+   "topic_ref": "T16",
+   "order": 3,
+   "settings": {
+    "chatgpt": "Instant",
+    "claude": "Haiku 5.5 · Low",
+    "mistral": "Thinking"
+   },
+   "opening": "Est-ce que les pompes a chaleur valent le coup dans un climat froid ?",
+   "card": [
+    [
+     "Every reader question",
+     "Answer only: \"skip\"."
+    ]
+   ],
+   "expect": {
+    "reader_questions": true,
+    "reader_format": "html",
+    "language": "fr",
+    "section8": {},
+    "max_pdf_pages": null,
+    "section9_assumptions": true
+   },
+   "tests": "Language (brief, RB and report in French); unanswered points take the defaults and are recorded as assumptions."
+  }
+ ]
+}

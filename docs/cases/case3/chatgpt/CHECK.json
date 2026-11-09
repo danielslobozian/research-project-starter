@@ -1,0 +1,66 @@
+{
+ "case": 3,
+ "app": "chatgpt",
+ "results": [
+  {
+   "check": "one RB file",
+   "result": "PASS",
+   "detail": "ai-coding-assistants-productivity.rb.md"
+  },
+  {
+   "check": "Markdown source",
+   "result": "PASS",
+   "detail": "ai-coding-assistants-productivity.md"
+  },
+  {
+   "check": "RB protocol_version 1.7b.10",
+   "result": "PASS",
+   "detail": "1.7b.10"
+  },
+  {
+   "check": "RB approval_status set",
+   "result": "PASS",
+   "detail": "approved"
+  },
+  {
+   "check": "section 8 has Purpose/use",
+   "result": "PASS",
+   "detail": "Check the \u201c55% faster\u201d claim, judge how far its supporting evidence applies to the target setting, and provide source-backed wording and citations suitable for discussing the claim with a technical manager."
+  },
+  {
+   "check": "section 8 has Reader context",
+   "result": "PASS",
+   "detail": "Professional backend development on large existing codebases; no particular workplace, language, repository, or assistant is specified."
+  },
+  {
+   "check": "section 8 Purpose/use matches the card",
+   "result": "PASS",
+   "detail": "expected one of ['check', 'cite', 'verif', 'claim']; got: Check the \u201c55% faster\u201d claim, judge how far its supporting evidence applies to the target setting, and provide source-backed wording and citations suitable for discussing the claim with a technical manager."
+  },
+  {
+   "check": "section 8 Reader context matches the card",
+   "result": "PASS",
+   "detail": "expected one of ['codebase', 'existing', 'experienced']; got: Professional backend development on large existing codebases; no particular workplace, language, repository, or assistant is specified."
+  },
+  {
+   "check": "reader format HTML delivered",
+   "result": "PASS",
+   "detail": "ai-coding-assistants-productivity.html"
+  },
+  {
+   "check": "HTML self-contained: ai-coding-assistants-productivity.html",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "report language en",
+   "result": "PASS",
+   "detail": "en words 569, fr words 4"
+  },
+  {
+   "check": "no requester details in the report",
+   "result": "PASS",
+   "detail": ""
+  }
+ ]
+}

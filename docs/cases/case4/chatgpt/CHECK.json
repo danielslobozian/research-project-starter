@@ -1,0 +1,81 @@
+{
+ "case": 4,
+ "app": "chatgpt",
+ "results": [
+  {
+   "check": "one RB file",
+   "result": "PASS",
+   "detail": "direct-air-capture-scalability.rb.md"
+  },
+  {
+   "check": "Markdown source",
+   "result": "PASS",
+   "detail": "direct-air-capture-scalability.md"
+  },
+  {
+   "check": "RB protocol_version 1.7b.10",
+   "result": "PASS",
+   "detail": "1.7b.10"
+  },
+  {
+   "check": "RB approval_status set",
+   "result": "PASS",
+   "detail": "approved"
+  },
+  {
+   "check": "section 8 has Purpose/use",
+   "result": "PASS",
+   "detail": "Inform a committee recommendation on whether and under what conditions to fund regional DAC pilots, including evidence thresholds, safeguards, trade-offs, and funding implications."
+  },
+  {
+   "check": "section 8 has Reader context",
+   "result": "PASS",
+   "detail": "A regional public-funding decision without a specified location; use international evidence and indicate which conclusions would require local verification. Do not assume a country, region, regulatory framework, or particular DAC project."
+  },
+  {
+   "check": "section 8 Purpose/use matches the card",
+   "result": "PASS",
+   "detail": "expected one of ['recommend', 'fund', 'decid']; got: Inform a committee recommendation on whether and under what conditions to fund regional DAC pilots, including evidence thresholds, safeguards, trade-offs, and funding implications."
+  },
+  {
+   "check": "section 8 Audience/prior knowledge matches the card",
+   "result": "PASS",
+   "detail": "expected one of ['committee']; got: Members of a regional climate committee who understand climate science and mitigation basics but are not engineering specialists."
+  },
+  {
+   "check": "reader format PDF delivered",
+   "result": "PASS",
+   "detail": "direct-air-capture-scalability.pdf"
+  },
+  {
+   "check": "PDF pages numbered: direct-air-capture-scalability.pdf",
+   "result": "PASS",
+   "detail": "8/8"
+  },
+  {
+   "check": "PDF bookmarks: direct-air-capture-scalability.pdf",
+   "result": "PASS",
+   "detail": "1"
+  },
+  {
+   "check": "PDF no near-empty page: direct-air-capture-scalability.pdf",
+   "result": "PASS",
+   "detail": "0"
+  },
+  {
+   "check": "PDF within 10 pages +25% (all pages, references included): direct-air-capture-scalability.pdf",
+   "result": "PASS",
+   "detail": "8 pages; body pages need reading"
+  },
+  {
+   "check": "report language en",
+   "result": "PASS",
+   "detail": "en words 347, fr words 2"
+  },
+  {
+   "check": "no requester details in the report",
+   "result": "PASS",
+   "detail": ""
+  }
+ ]
+}

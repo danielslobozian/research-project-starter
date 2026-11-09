@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Do AI coding assistants speed up experienced developers? — Research report</title>
+<style>
+  @page {
+    size: A4;
+    margin: 25mm;
+  }
+  html {
+    font-size: 11pt;
+  }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.15;
+    color: #1a1a1a;
+    background: #f5f4f1;
+    margin: 0;
+    padding: 2rem 1rem;
+  }
+  .page {
+    background: #ffffff;
+    max-width: 160mm;
+    margin: 0 auto;
+    padding: 25mm 25mm 25mm 25mm;
+    box-sizing: border-box;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.15);
+  }
+  @media print {
+    body { background: #ffffff; padding: 0; }
+    .page { box-shadow: none; max-width: none; margin: 0; padding: 0; }
+  }
+  h1 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.55rem;
+    line-height: 1.2;
+    margin: 0 0 0.6rem 0;
+  }
+  .subtitle {
+    font-style: italic;
+    color: #444;
+    margin: 0 0 0.4rem 0;
+  }
+  .metaline {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 0.78rem;
+    color: #666;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.4rem;
+  }
+  h2 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.15rem;
+    margin-top: 1.6rem;
+    margin-bottom: 0.5rem;
+    break-after: avoid;
+  }
+  h3 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 0.95rem;
+    margin-top: 1.2rem;
+    margin-bottom: 0.4rem;
+    break-after: avoid;
+  }
+  p { margin: 0.5rem 0; }
+  ul, ol { margin: 0.4rem 0 0.6rem 0; padding-left: 1.4rem; }
+  li { margin: 0.25rem 0; }
+  a { color: #1f4e79; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  sup.cite a, a.cite {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 0.68em;
+    vertical-align: super;
+    color: #1f4e79;
+    text-decoration: none;
+    line-height: 1;
+    margin-left: 1px;
+  }
+  a.cite:hover { text-decoration: underline; }
+  .figure {
+    margin: 1rem 0;
+    break-inside: avoid;
+  }
+  .figure svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .figcaption {
+    font-size: 0.82rem;
+    color: #444;
+    line-height: 1.3;
+    margin-top: 0.4rem;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.78rem;
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 1.25;
+    margin: 0.8rem 0 1rem 0;
+  }
+  th, td {
+    border: 1px solid #999;
+    padding: 0.32rem 0.45rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #eceff3; font-weight: bold; }
+  tr { break-inside: avoid; }
+  .refentry {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    margin-bottom: 0.55rem;
+    padding-left: 0.2rem;
+  }
+  .refentry h3 {
+    font-size: 0.85rem;
+    margin: 0.8rem 0 0.15rem 0;
+  }
+  .identification {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 0.8rem;
+    color: #333;
+    border-top: 1px solid #ccc;
+    margin-top: 1.6rem;
+    padding-top: 0.6rem;
+  }
+  .questions li { margin: 0.35rem 0; }
+  blockquote {
+    margin: 0.5rem 0 0.5rem 1rem;
+    padding-left: 0.8rem;
+    border-left: 3px solid #bbb;
+    color: #333;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<h1>Do AI coding assistants speed up experienced developers? What controlled evidence measures, and where &ldquo;55% faster&rdquo; comes from</h1>
+<p class="subtitle">A structured narrative review of randomized and large-sample studies, 2022&ndash;2026</p>
+<p class="metaline">Language: English &middot; Finalized: 2026-11-09</p>
+
+<h2>Summary</h2>
+<p>The widely quoted &ldquo;55% faster&rdquo; figure is real but narrow: it comes from one controlled experiment in which freelance developers, average about six years of experience, implemented a small HTTP server from scratch, and the group with GitHub Copilot finished in 71 minutes versus 161 minutes without it (a 55.8% reduction, 95% CI 21&ndash;89%). Code quality was not measured, and the study&rsquo;s own analysis found the largest gains for <em>less</em> experienced developers. Across the broader evidence, measured effects vary systematically: enterprise field experiments at Microsoft, Accenture, and a Fortune 100 firm find about 26% more completed tasks per week among adopters (junior-skewed; not time per task), a Google trial on a complex enterprise task found about 21% faster completion (a wide confidence interval that includes no effect), and the only randomized trial of experienced experts working in their own large, mature open-source repositories found they were 19% <em>slower</em> with early-2025 AI tools. Newer (late-2025) tools show point estimates in the positive direction in a follow-up study, but selection effects make that evidence weak. Perceived speed systematically exceeds measured speed &mdash; in the expert trial, developers believed AI made them 20% faster while it made them 19% slower. The 55% claim is not supported as a general statement about experienced developers on large existing codebases; measured, quality-adjusted net gains at that scale have not been demonstrated.</p>
+
+<!-- RESEARCH_BODY_START -->
+
+<h2>Scope, questions, and concepts</h2>
+<p>This review examines AI coding assistants of the large-language-model era (roughly 2022 onward), such as GitHub Copilot, Cursor, and comparable tools: systems that suggest or generate code inline, in chat, or through agents. The primary population is experienced professional software developers; results from students and novices appear only as contrast. The priority setting is large or existing codebases; new, small, or greenfield projects appear as contrast. Outcomes are <em>measured</em> productivity: task completion time, throughput from instrumented telemetry, and quality-adjusted net outcomes such as defects, rework, and maintenance cost. Self-reported productivity is examined as a separate phenomenon, not accepted as a productivity measurement. Tool-versus-tool recommendations, job-market effects, and general AI writing assistance are out of scope.</p>
+<p>The review answers one primary and three secondary questions:</p>
+<ul class="questions">
+  <li id="q0-questions"><strong>Q0.</strong> Do AI coding assistants measurably increase the productivity of experienced developers, and does the evidence support the widely quoted &ldquo;55% faster&rdquo; claim?</li>
+  <li id="q1-questions"><strong>Q1.</strong> What is the provenance of the &ldquo;55% faster&rdquo; figure &mdash; which study, what population, what task, what measurement?</li>
+  <li id="q2-questions"><strong>Q2.</strong> How do measured effects vary by developer experience and by codebase size and maturity?</li>
+  <li id="q3-questions"><strong>Q3.</strong> What explains gaps between perceived and measured productivity (self-report versus instrumentation, review and rework costs, defect rates)?</li>
+</ul>
+<p>Three concepts recur. A <em>randomized controlled trial (RCT)</em> assigns the intervention (AI access) by chance, so differences in outcome are causally attributable to the intervention rather than to who chose to use the tool; it is the strongest single-study design but answers only for the population and task studied. An <em>effect size</em> here is a percentage change in some measured outcome (time, task counts); a <em>95% confidence interval (CI)</em> is the range within which the true effect plausibly lies given the sample &mdash; a wide interval means the study pinpoints the direction only loosely, and an interval crossing zero means &ldquo;no effect&rdquo; has not been ruled out. Finally, <em>throughput</em> (counts of pull requests, commits, or builds) and <em>speed</em> (time per task) are different outcomes: producing 26% more pull requests per week is not the same as finishing each task 26% faster, because output counts can rise through smaller tasks, more code per change, or more attempts, without more value delivered. No study below measures all of these at once, which is why their results are reported side by side, not pooled.</p>
+
+<h2>How this review was done</h2>
+<p>This is a structured narrative evidence review, not a systematic review: studies were identified, appraised, and synthesized without claiming exhaustive coverage. Searches (2026-11-09) targeted the provenance of the 55% figure, randomized and controlled trials with measured outcomes, large-sample telemetry studies, negative results, and criticism or follow-ups of each key study; press coverage was used only to locate primary sources. Primary sources (preprints, an author-hosted working-paper PDF, a peer-reviewed conference paper, vendor research reports, and announcement posts carrying survey findings) were opened and read; remembered knowledge was not treated as inspected evidence. The most decision-relevant studies are controlled trials with measured outcomes: one small controlled experiment <a class="cite" href="#ref-1">[1]</a>, three enterprise field experiments analyzed together <a class="cite" href="#ref-2">[2]</a>, one enterprise RCT <a class="cite" href="#ref-3">[3]</a>, and two randomized trials on experienced open-source developers <a class="cite" href="#ref-4">[4]</a><a class="cite" href="#ref-5">[5]</a>, complemented by a large survey-plus-telemetry case study <a class="cite" href="#ref-6">[6]</a><a class="cite" href="#ref-7">[7]</a>, a security user study <a class="cite" href="#ref-8">[8]</a>, industry code-change telemetry <a class="cite" href="#ref-9">[9]</a>, and two annual DevOps survey programs <a class="cite" href="#ref-10">[10]</a><a class="cite" href="#ref-11">[11]</a>. Searching stopped when repeated query families returned only studies already assessed or clearly irrelevant; that is a stopping judgement, not proof of coverage. Access limits are listed under Limitations.</p>
+
+<h2 id="q1">Q1: Where the &ldquo;55% faster&rdquo; figure comes from</h2>
+<p>The figure traces to a controlled experiment run by GitHub and Microsoft researchers from May 15 to June 20, 2022, published as a preprint in February 2023 (Peng, Kalliamvakou, Cihon, and Demirer) <a class="cite" href="#ref-1">[1]</a>. Its path into general circulation ran through GitHub&rsquo;s own blog, which reported in 2022 that &ldquo;developers who used GitHub Copilot completed the task significantly faster&ndash;55% faster than the developers who didn&rsquo;t use GitHub Copilot,&rdquo; and through enterprise marketing that repeated &ldquo;helps developers code up to 55% faster&rdquo; <a class="cite" href="#ref-12">[12]</a><a class="cite" href="#ref-13">[13]</a>.</p>
+<p>What the experiment actually measured, in its own terms:</p>
+<ul>
+  <li><strong>Population.</strong> 95 developers recruited through the freelancing platform Upwork, randomly split into 45 treated and 50 control; 35 completed the task and survey. Most were aged 25&ndash;34, located in India and Pakistan, with median yearly income of $10,000&ndash;$19,999 and an average of six years of coding experience; about 45% were self-employed (Study Design; Figure 5; as summarized in <a class="cite" href="#ref-3">[3]</a>).</li>
+  <li><strong>Task.</strong> Implement an HTTP server in JavaScript &ldquo;as quickly as possible,&rdquo; starting from a skeleton repository, with correctness defined as passing 12 automated tests. Completion time ran from repository creation to the first commit passing all tests. This is a small, self-contained, greenfield task &mdash; not work on a large existing codebase.</li>
+  <li><strong>Result.</strong> Treated developers completed the task in 71.17 minutes on average versus 160.89 minutes for controls: a 55.8% reduction in completion time, p = 0.0017, 95% CI 21%&ndash;89% (Results, Figure 6). Four slow outliers, all in the control group, inflate the raw gap; the authors report the result is robust to dropping them.</li>
+  <li><strong>Success and quality.</strong> The treated group passed the tests at a 7 percentage point higher rate (78% vs 70% in GitHub&rsquo;s summary), not statistically significant (95% CI &minus;0.11 to 0.25) <a class="cite" href="#ref-1">[1]</a><a class="cite" href="#ref-12">[12]</a>. Code quality, security, and maintainability were not assessed &mdash; the authors state this explicitly as a limitation (Discussion).</li>
+  <li><strong>Who gained most.</strong> Developers with <em>less</em> professional experience, those coding more hours per day, and older developers benefited most (Table 1, heterogeneous effects).</li>
+</ul>
+<p><strong>Appraisal.</strong> As a small randomized experiment on one task, the study is internally credible: randomization was real, time was measured by repository telemetry rather than self-report, and the confidence interval excludes zero. But the number &ldquo;55%&rdquo; is a task-level speed effect for a mixed freelance population on a self-contained exercise, with a wide confidence interval (21&ndash;89%) and no quality measurement. The authors themselves flag that it does not examine collaboration on large projects and does not examine code quality (Discussion). It is the apparent leading source of the manager-style claim, but it does not establish that experienced developers on existing codebases get 55% faster. <strong>Q1 is answered</strong>: the figure exists, is honestly computed, and is narrow in what it measures.</p>
+
+<h2 id="q0">Q0 and Q2: What controlled studies measure, and how effects vary</h2>
+<p>Every study below measured something different; the pattern across them is the finding. Measured effects shrink as three things increase: the developer&rsquo;s experience and familiarity with the code, the size and maturity of the codebase, and the realism of the quality bar. The studies are summarized in Table 1; Figure 1 compares the four studies that measured <em>time per task</em> on a common axis.</p>
+
+<div class="figure">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 460" role="img" aria-labelledby="fig-title fig-sub">
+  <title id="fig-title">Figure 1. Change in task completion time with an AI coding assistant, five studies</title>
+  <desc id="fig-sub">Horizontal chart of measured change in task completion time. Negative values mean faster (less time). Bars show 95% confidence intervals; dots show point estimates.</desc>
+  <rect x="0" y="0" width="880" height="460" fill="#ffffff"/>
+  <text x="20" y="28" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#111111">Measured change in task completion time with an AI assistant</text>
+  <text x="20" y="48" font-family="Helvetica, Arial, sans-serif" font-size="12.5" fill="#444444">Negative = faster (less time). Dots are point estimates; bars are 95% confidence intervals. All effects are measured, not self-reported.</text>
+  <line x1="573" y1="58" x2="573" y2="366" stroke="#888888" stroke-width="1" stroke-dasharray="5,4"/>
+  <text x="573" y="52" font-family="Helvetica, Arial, sans-serif" font-size="11.5" fill="#666666" text-anchor="middle">no change</text>
+  <text x="90" y="80" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#111111">Peng et al. 2023 &#8212; freelance developers, new small task (n=95): <tspan font-weight="bold">&#8722;56% time</tspan> (95% CI &#8722;89% to &#8722;21%)</text>
+  <line x1="95" y1="100" x2="461" y2="100" stroke="#5b7fa6" stroke-width="6" opacity="0.45"/>
+  <line x1="95" y1="90" x2="95" y2="110" stroke="#5b7fa6" stroke-width="2"/>
+  <line x1="461" y1="90" x2="461" y2="110" stroke="#5b7fa6" stroke-width="2"/>
+  <circle cx="271" cy="100" r="7" fill="#1f4e79"/>
+  <text x="90" y="144" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#111111">Paradis et al. 2024 &#8212; Google engineers, everyday work (n=96): <tspan font-weight="bold">&#8722;21% time</tspan> (95% CI &#8722;40% to +3%, not significant)</text>
+  <line x1="360" y1="164" x2="589" y2="164" stroke="#5b7fa6" stroke-width="6" opacity="0.45"/>
+  <line x1="360" y1="154" x2="360" y2="174" stroke="#5b7fa6" stroke-width="2"/>
+  <line x1="589" y1="154" x2="589" y2="174" stroke="#5b7fa6" stroke-width="2"/>
+  <circle cx="461" cy="164" r="7" fill="#1f4e79"/>
+  <text x="90" y="208" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#111111">METR early 2025 &#8212; experts, own mature repositories (n=16 devs): <tspan font-weight="bold">+19% time</tspan> (95% CI +2% to +39%)</text>
+  <line x1="583" y1="228" x2="780" y2="228" stroke="#5b7fa6" stroke-width="6" opacity="0.45"/>
+  <line x1="583" y1="218" x2="583" y2="238" stroke="#5b7fa6" stroke-width="2"/>
+  <line x1="780" y1="218" x2="780" y2="238" stroke="#5b7fa6" stroke-width="2"/>
+  <circle cx="674" cy="228" r="7" fill="#a63d40"/>
+  <text x="90" y="272" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#111111">METR late 2025 &#8212; returning issues (n=57 devs): <tspan font-weight="bold">&#8722;18% time</tspan> (95% CI &#8722;38% to +9%)</text>
+  <line x1="366" y1="292" x2="621" y2="292" stroke="#5b7fa6" stroke-width="6" opacity="0.45"/>
+  <line x1="366" y1="282" x2="366" y2="302" stroke="#5b7fa6" stroke-width="2"/>
+  <line x1="621" y1="282" x2="621" y2="302" stroke="#5b7fa6" stroke-width="2"/>
+  <circle cx="477" cy="292" r="7" fill="#1f4e79"/>
+  <text x="90" y="336" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#111111">METR late 2025 &#8212; new issues, same developers: <tspan font-weight="bold">&#8722;4% time</tspan> (95% CI &#8722;15% to +9%)</text>
+  <line x1="493" y1="356" x2="621" y2="356" stroke="#5b7fa6" stroke-width="6" opacity="0.45"/>
+  <line x1="493" y1="346" x2="493" y2="366" stroke="#5b7fa6" stroke-width="2"/>
+  <line x1="621" y1="346" x2="621" y2="366" stroke="#5b7fa6" stroke-width="2"/>
+  <circle cx="552" cy="356" r="7" fill="#1f4e79"/>
+  <line x1="90" y1="378" x2="790" y2="378" stroke="#333333" stroke-width="1.5"/>
+  <g font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">
+    <line x1="143" y1="373" x2="143" y2="383" stroke="#333333" stroke-width="1"/>
+    <text x="143" y="397">&#8722;80%</text>
+    <line x1="254" y1="373" x2="254" y2="383" stroke="#333333" stroke-width="1"/>
+    <text x="254" y="397">&#8722;60%</text>
+    <line x1="360" y1="373" x2="360" y2="383" stroke="#333333" stroke-width="1"/>
+    <text x="360" y="397">&#8722;40%</text>
+    <line x1="467" y1="373" x2="467" y2="383" stroke="#333333" stroke-width="1"/>
+    <text x="467" y="397">&#8722;20%</text>
+    <line x1="573" y1="373" x2="573" y2="383" stroke="#333333" stroke-width="1"/>
+    <text x="573" y="397">0</text>
+    <line x1="679" y1="373" x2="679" y2="383" stroke="#333333" stroke-width="1"/>
+    <text x="679" y="397">+20%</text>
+    <line x1="785" y1="373" x2="785" y2="383" stroke="#333333" stroke-width="1"/>
+    <text x="785" y="397">+40%</text>
+  </g>
+  <text x="300" y="416" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#666666">&#8592; faster (less time)</text>
+  <text x="720" y="416" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#666666" text-anchor="end">slower (more time) &#8594;</text>
+  <text x="20" y="442" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#666666">Note: blue dots lie left of the zero line (faster); the red dot (METR early 2025) lies right of it (slower). Confidence intervals that cross the zero line are not statistically significant.</text>
+  <text x="20" y="456" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#666666">Sources: refs [1], [3], [7], [8] of the report bibliography. Peng et al. is the experiment behind the &#8220;55% faster&#8221; claim.</text>
+</svg>
+<p class="figcaption"><em>Figure 1. Measured change in task completion time with AI assistance. Negative (left) = faster; the dashed line is no effect. Points are the studies&rsquo; main estimates (regression-adjusted where provided); bars are 95% confidence intervals. Populations, tasks, tools, and tool generations differ, so these are not replications of one another and are not pooled. Sources: Peng et al. 2023 (Figure 6); Paradis et al. 2024 (Section VI-B, Model 2); METR 2025 (Becker et al., core result); METR 2026 update (returning and newly recruited developer estimates).</em></p>
+</div>
+
+<p>Table 1. Key studies and what each measured.</p>
+<table>
+<thead>
+<tr><th>Study</th><th>Design</th><th>Population</th><th>Setting</th><th>Measured outcome</th><th>Main result (95% CI)</th></tr>
+</thead>
+<tbody>
+<tr><td>Peng et al. 2023 <a class="cite" href="#ref-1">[1]</a></td><td>Controlled experiment (randomized)</td><td>95 Upwork freelancers, avg 6 yrs experience; 35 completed</td><td>Small greenfield task (HTTP server in JS)</td><td>Task completion time</td><td>55.8% faster (21&ndash;89%); success +7pp, NS</td></tr>
+<tr><td>Cui et al. 2025 <a class="cite" href="#ref-2">[2]</a></td><td>3 enterprise field experiments (randomized access)</td><td>4,867 developers at Microsoft, Accenture, Fortune 100 firm</td><td>Ordinary daily work</td><td>Weekly completed tasks (PRs); commits; builds</td><td>PRs +26.08% (SE 10.3%); commits +13.55%; builds +38.38%</td></tr>
+<tr><td>Paradis et al. 2024 <a class="cite" href="#ref-3">[3]</a></td><td>RCT</td><td>96 full-time Google engineers</td><td>Complex enterprise task, unfamiliar existing code</td><td>Time on task</td><td>Raw: 96 vs 114 min (p=.038); adjusted: ~21% faster (CI &minus;40% to +3%, p=.086)</td></tr>
+<tr><td>METR 2025 <a class="cite" href="#ref-4">[4]</a></td><td>RCT (issue-level)</td><td>16 experienced open-source maintainers, mature repos (avg 1M+ lines)</td><td>Own repositories, real issues</td><td>Implementation time</td><td>19% slower (CI: 2&ndash;39% slower)</td></tr>
+<tr><td>METR 2026 update <a class="cite" href="#ref-5">[5]</a></td><td>RCT (issue-level), selection-limited</td><td>57 open-source developers, more diverse repos</td><td>Own repositories, late-2025 tools</td><td>Implementation time</td><td>Returning: ~18% faster (38% faster to 9% slower); new: ~4% faster (15% faster to 9% slower)</td></tr>
+<tr><td>Ziegler et al. 2022/2024 <a class="cite" href="#ref-6">[6]</a><a class="cite" href="#ref-7">[7]</a></td><td>Survey + IDE telemetry (no experiment)</td><td>2,047 Copilot users (technical preview)</td><td>Everyday use</td><td>Perceived productivity vs usage metrics</td><td>Best predictor (acceptance rate) correlates &rho;=0.24</td></tr>
+<tr><td>DORA 2024/2025 <a class="cite" href="#ref-10">[10]</a><a class="cite" href="#ref-11">[11]</a></td><td>Annual surveys (correlational)</td><td>~39,000 (2024); ~5,000 (2025) technology professionals</td><td>Organizational</td><td>Self-reported adoption vs delivery metrics</td><td>2024: 25% higher AI adoption &#8596; &minus;1.5% throughput, &minus;7.2% stability; 2025: throughput relation positive, stability still negative</td></tr>
+</tbody>
+</table>
+
+<p><strong>Where gains are large.</strong> The 55.8% result is the top of the measured range, and it came from a greenfield task solved from scratch &mdash; precisely the setting where code generation replaces the slowest part of the work (writing from nothing) and there is no existing system to understand <a class="cite" href="#ref-1">[1]</a>. In ordinary enterprise work, the pooled analysis of three randomized field experiments at Microsoft, Accenture, and a Fortune 100 electronics manufacturer (4,867 developers) estimated that <em>using</em> GitHub Copilot raised weekly completed pull requests by 26.08% (SE 10.3%) for adopters, with commits up 13.55% and builds up 38.38% <a class="cite" href="#ref-2">[2]</a> (Results). These are real, randomized-access designs, but the outcome is a count, not a time saving: more pull requests per week can reflect faster work, more but smaller tasks, or more verbose code &mdash; the authors themselves note that a less optimistic reading of the build-count increase is possible, and the companion analysis finds <em>no</em> improvement in build success rate, which was slightly negative at Accenture <a class="cite" href="#ref-2">[2]</a>.</p>
+<p><strong>Experience modifies the effect &mdash; in the same direction in every study that measured it.</strong> At Microsoft, short-tenure developers increased output by 27&ndash;39% while long-tenure developers gained 8&ndash;13% (not always statistically significant); junior employees showed the same pattern, and short-tenure developers were also 9.4 percentage points more likely to adopt (81.6% vs 72.1%) <a class="cite" href="#ref-2">[2]</a> (Section on heterogeneity). In the original 55% experiment, less experienced developers benefited most <a class="cite" href="#ref-1">[1]</a>. In Google&rsquo;s RCT, seniority and daily coding hours predicted speed regardless of AI, and the AI advantage was statistically fragile once those factors were controlled: raw means were 96 minutes with AI versus 114 without (t-test p = .038), but the adjusted estimate was 21% faster with a 95% CI spanning 40% faster to 3% <em>slower</em> (p = .086) <a class="cite" href="#ref-3">[3]</a> (Section VI). The Google task is instructive for this review&rsquo;s readers: experienced engineers, an unfamiliar but well-tooled enterprise codebase, a realistic definition of done (build and test) &mdash; and a modest, imprecise gain.</p>
+<p><strong>Where the measured effect turned negative.</strong> The randomized trial most relevant to experienced developers on large existing codebases &mdash; METR&rsquo;s 2025 study of 16 open-source experts (median about ten years of experience) maintaining their own repositories, averaging over 1 million lines of code, on 246 real issues (~2 hours each) &mdash; found AI-allowed issues took 19% longer (95% CI: 2&ndash;39% slower), using primarily Cursor with Claude 3.5/3.7 Sonnet, the frontier coding tools of early 2025 <a class="cite" href="#ref-4">[4]</a>. The slowdown was not an artifact of low-quality submissions: developers&rsquo; pull requests in both conditions met their normal standards (style, tests, documentation), and the result survived robustness checks the authors ran against differential task dropping, non-compliance, and alternative estimators <a class="cite" href="#ref-4">[4]</a>. The paper&rsquo;s factor analysis attributes the result to five things: developers overestimated AI&rsquo;s usefulness; the developers were unusually fast because they knew their repositories; the repositories were large and complex; AI output was unreliable (developers accepted under 44% of generations and made major clean-up edits); and the repositories carried implicit context and tacit knowledge the tools could not access <a class="cite" href="#ref-4">[4]</a> (Appendix C.1). In other words, the same expertise and codebase maturity that define this review&rsquo;s reader population are the factors the study identifies as eliminating the AI advantage for that cohort.</p>
+<p><strong>The tool generation matters, and the newest evidence is genuinely weaker.</strong> METR&rsquo;s follow-up (from August 2025, 57 developers, 143 repositories, 800+ tasks, using late-2025 agentic tools) found point estimates in the opposite direction: about 18% <em>faster</em> for the ten returning developers (95% CI from 38% faster to 9% slower) and about 4% faster for newly recruited developers on more diverse, smaller, less mature repositories (95% CI from 15% faster to 9% slower) <a class="cite" href="#ref-5">[5]</a>. However, METR itself judges this dataset an unreliable signal: 30&ndash;50% of participating developers admitted withholding tasks they did not want to do without AI, recruitment increasingly missed developers unwilling to work without AI, and time reporting broke down when developers ran multiple agents concurrently <a class="cite" href="#ref-5">[5]</a>. METR&rsquo;s own reading is that developers were probably more helped by early-2026 tools than by early-2025 tools, but that the data provide only weak evidence about the size &mdash; and the earlier 19% slowdown result &ldquo;no longer reflects the current impact&rdquo; without being replaced by a comparably clean estimate <a class="cite" href="#ref-5">[5]</a>.</p>
+<p><strong>Answering Q0.</strong> The measured evidence does not support &ldquo;AI assistants make developers 55% faster&rdquo; as a general claim, and it does not support it specifically for experienced developers on large existing codebases. What the evidence supports is: large speedups (up to ~55%) on small, self-contained, greenfield tasks; a moderate, imprecisely estimated speedup (~21%, CI &minus;40% to +3%) for experienced engineers on a complex enterprise task in an unfamiliar but well-supported codebase; a moderate throughput gain (~26% more completed tasks) in enterprise settings that is concentrated among less experienced and shorter-tenure developers and is not quality-adjusted; and a 19% slowdown for experts in their own large, mature repositories with early-2025 tools. No study demonstrates a quality-adjusted <em>net</em> productivity gain of anything close to 55% for any population; the studies that measure time do not measure quality, and the studies that measure output counts do not measure time or value per unit. <strong>Confidence: moderate</strong> &mdash; the pattern is consistent across independent teams and designs, but each cell of the experience-by-setting grid contains at most one randomized study, and the tool landscape is changing faster than the literature.</p>
+<p id="q2"><strong>Answering Q2.</strong> Measured gains decrease with developer experience, familiarity with the code, and codebase maturity. Novice-adjacent populations and greenfield tasks sit at the top of the range (55.8% time; +27&ndash;39% output for short-tenure developers); experienced developers on unfamiliar-but-well-tooled enterprise code sit in the middle (~21%, statistically fragile); experts on large, mature, familiar codebases sat at the bottom &mdash; negative with early-2025 tools &mdash; and the late-2025 measurements on similar but more diverse repositories returned to small positive point estimates that selection effects prevent reading precisely <a class="cite" href="#ref-1">[1]</a><a class="cite" href="#ref-2">[2]</a><a class="cite" href="#ref-3">[3]</a><a class="cite" href="#ref-4">[4]</a><a class="cite" href="#ref-5">[5]</a>. <strong>Confidence: moderate</strong>, with the experience gradient better supported (consistent in four studies) than the codebase-maturity gradient (one direct study plus indirect signals).</p>
+
+<h2 id="q3">Q3: Why perceived speed exceeds measured productivity</h2>
+<p>The most direct evidence is a roughly 40-percentage-point perception gap inside a randomized trial: before the METR study, its expert developers forecast AI would make them 24% faster; after finishing the work, they believed it had made them 20% faster; the instruments showed they were 19% slower <a class="cite" href="#ref-4">[4]</a>. This gap is not a peculiarity of one survey question. A large case study pairing survey responses with IDE telemetry (2,047 Copilot users matched to usage data, by the tool&rsquo;s own developers) found that the <em>best</em> behavioral predictor of perceived productivity &mdash; the rate at which shown suggestions are accepted &mdash; correlated only &rho; = 0.24 with self-reported productivity, leaving, in the authors&rsquo; words, &ldquo;considerable unexplained variance,&rdquo; and they caution explicitly that &ldquo;user-perceived productivity is also not necessarily actual productivity&rdquo; <a class="cite" href="#ref-6">[6]</a>. The same study reports that junior developers both report larger gains and accept more suggestions <a class="cite" href="#ref-7">[7]</a>. Earlier user-study evidence points the same way: a controlled comparison of Copilot against IntelliCode found no significant correlation between task completion times and participants&rsquo; survey responses <a class="cite" href="#ref-6">[6]</a>, and the original usability study of Copilot found no significant improvement in completion time or success rate while most participants still preferred it &mdash; the classic preference-versus-performance split <a class="cite" href="#ref-14">[14]</a>.</p>
+<p>Several mechanisms explain the gap:</p>
+<ol>
+  <li><strong>Self-reports measure a counterfactual the respondent cannot observe.</strong> &ldquo;How much faster did AI make you?&rdquo; asks a developer to re-run an unrunnable experiment. The systematic error is upward: in METR&rsquo;s data the error was about 20 points against a measured &minus;19% <a class="cite" href="#ref-4">[4]</a>; in a security user study, 47 participants with an AI assistant wrote significantly less secure code than the control group <em>and were more likely to believe they had written secure code</em> <a class="cite" href="#ref-8">[8]</a> &mdash; overconfidence about output quality, not just speed.</li>
+  <li><strong>Output counts inflate while value does not.</strong> Weekly pull requests, commits, and builds all rose in the enterprise field experiments (+26.08%, +13.55%, +38.38%) without any measured improvement in build success <a class="cite" href="#ref-2">[2]</a>. METR&rsquo;s authors make the same point about benchmarks and telemetry generally: code can be more verbose but functionally equivalent, and work can be split into more, smaller tasks, raising counts while total work is unchanged <a class="cite" href="#ref-4">[4]</a>.</li>
+  <li><strong>Costs move downstream, outside the measurement window.</strong> Industry-scale code-change telemetry (211 million changed lines, 2020&ndash;2024, commercial and large open-source repositories) found trends consistent with displaced cost: &ldquo;moved&rdquo; (refactored) lines fell from 24.8% of changed lines in 2021 to 9.5% in 2024; within-commit copy/paste rose from 8.4% to 12.3% and, for the first time on record, exceeded moved lines; commits containing blocks of five or more duplicated lines increased roughly eight-fold during 2024; and churn (lines reverted or re-edited within two weeks) rose from about 3.3% of changes in 2021 to 5.7% in 2024 <a class="cite" href="#ref-9">[9]</a>. These are correlational time trends from vendor research, not causal estimates &mdash; AI adoption is the obvious but unproven driver &mdash; but duplicated and churned code are exactly the currencies in which a speedup today is repaid as review time, bug fixes, and maintenance later.</li>
+  <li><strong>Organizational telemetry shows the same asymmetry.</strong> The 2024 DORA survey program (&asymp;39,000 professionals) estimated that a 25% increase in AI adoption was accompanied by a 1.5% <em>decrease</em> in delivery throughput and a 7.2% <em>decrease</em> in delivery stability, even while self-reported individual benefits (documentation quality, code quality, review speed) were positive <a class="cite" href="#ref-10">[10]</a>. The 2025 DORA survey (~5,000 professionals, 90% AI adoption, over 80% believing AI increased their productivity) reversed the throughput relationship to positive but still found a negative relationship with delivery stability, describing AI as an accelerator that &ldquo;can expose weaknesses downstream&rdquo; without robust control systems <a class="cite" href="#ref-11">[11]</a>. These are survey-based correlations, not experiments, and the two years&rsquo; throughput signs disagree &mdash; treat them as context, not proof.</li>
+</ol>
+<p><strong>Answering Q3.</strong> The perception gap is well documented and multiply caused: developers cannot observe the counterfactual and systematically overestimate AI&rsquo;s contribution; instruments that count output record inflation, not value; and quality, review, and maintenance costs land downstream of the tasks being timed, in currencies (churn, duplication, instability, build failures) that no experimental study yet links end-to-end. Where studies do measure the same developer&rsquo;s belief and behavior at once, belief exceeds measurement by about 20&ndash;40 percentage points <a class="cite" href="#ref-4">[4]</a><a class="cite" href="#ref-6">[6]</a><a class="cite" href="#ref-8">[8]</a>. <strong>Confidence: moderate-high</strong> on the existence of the gap (direct randomized measurement plus converging independent evidence), <strong>low-to-moderate</strong> on the size of the downstream quality cost (correlational evidence only).</p>
+
+<h2>What this means for experienced developers on large existing codebases</h2>
+<p>Read as a decision aid, the evidence is conditional, not for-or-against:</p>
+<ul>
+  <li><strong>The 55% figure should not be used for planning.</strong> It describes one small greenfield task with a freelance population and no quality measurement, with a confidence interval of 21&ndash;89% <a class="cite" href="#ref-1">[1]</a>. Quoting it as an expected team-level speedup for senior engineers on a mature codebase attributes to it a population and setting it explicitly did not test (its own authors say so).</li>
+  <li><strong>Expect gains, where they exist, in the single digits to low tens of percent.</strong> That is the realistic range from the enterprise RCT (~21%, imprecise) and enterprise throughput experiments (+26% tasks, junior-skewed, quality-unadjusted) <a class="cite" href="#ref-2">[2]</a><a class="cite" href="#ref-3">[3]</a> &mdash; and the expert trial is a reminder that for maintainers who know their codebase better than any tool does, the measured effect was negative with early-2025 tools <a class="cite" href="#ref-4">[4]</a>.</li>
+  <li><strong>The most favorable settings are the ones senior teams have least of</strong>: new code, unfamiliar code, boilerplate-heavy work, and less experienced colleagues ramping up. There, generation replaces the slowest human activity. The least favorable measured setting was deep expertise in a large, mature, high-standards codebase.</li>
+  <li><strong>Watch the net, not the keystrokes.</strong> The studies agree that output counts rise even when value does not <a class="cite" href="#ref-2">[2]</a><a class="cite" href="#ref-4">[4]</a>, and the correlational telemetry points to churn and duplication as the likely repayment channel <a class="cite" href="#ref-9">[9]</a><a class="cite" href="#ref-10">[10]</a>. Teams adopting these tools for experienced developers should instrument what the experiments could not: rework rate, change failure rate, review latency and effort, and duplicated-block growth, before and after adoption.</li>
+  <li><strong>Tool generation and learning effects are real.</strong> Every number above is a snapshot of a tool generation and a learning curve; the late-2025 point estimates are more favorable than early-2025 ones, though the clean measurement broke down at exactly the moment adoption became near-universal <a class="cite" href="#ref-5">[5]</a><a class="cite" href="#ref-11">[11]</a>. Any headline number &mdash; including this report&rsquo;s &mdash; has a short shelf life.</li>
+</ul>
+
+<h2>Limitations</h2>
+<p>This review inherits its studies&rsquo; limits. Each cell of the experience-by-setting comparison rests on at most one randomized study; no study measures long-horizon, quality-adjusted net productivity; and several key sources have interests at stake: the 55% experiment, the survey-telemetry study, and the enterprise marketing are by the tool&rsquo;s vendor (GitHub/Microsoft); the Google RCT and DORA surveys are by Google; GitClear sells code-quality tooling; METR is a nonprofit but designed its study for AI-risk research purposes. Replication across independent teams exists only for the direction of the experience gradient, not for any single effect size. Access limits: the published Management Science version of the field-experiment analysis was paywalled, so the inspected text is the authors&rsquo; February 2025 working paper (matching results were cross-checked against the published article&rsquo;s abstract); the CACM version of the survey-telemetry study was blocked to automated access, so the inspected text is the same team&rsquo;s open MAPS 2022 preprint plus the article&rsquo;s publisher abstract; the Copilot usability study was appraised from its abstract and citing sources; DORA findings were inspected from the announcement posts carrying the survey results rather than the full report PDFs. Perceived-vs-measured statements are strongest where they come from within-subject randomized measurement. Evidence after early 2026 is not covered; tool capabilities are moving quickly enough that effect sizes may date faster than they can be published.</p>
+
+<h2>Conclusion</h2>
+<p>Asked whether AI coding assistants measurably speed up experienced developers, the measured answer is: it depends, systematically &mdash; and the widely quoted 55% is the most favorable number in the entire evidence base, produced under the conditions least like experienced work on a large existing codebase. The single number closest to this review&rsquo;s reader profile &mdash; randomized measurement of expert maintainers in their own million-line repositories &mdash; was a 19% slowdown with early-2025 tools, with developer beliefs running about 40 points in the opposite direction; newer tools have moved the point estimates toward modest gains that current study designs are too contaminated by selection to pin down. For a senior backend engineer on a mature codebase, the honest summary of controlled evidence is: modest, uncertain speedups on well-bounded or unfamiliar work; no demonstrated speedup, and early measured slowdowns, on expert work in deeply familiar code; perceived gains that consistently overstate measured ones; and unresolved evidence that quality and maintenance costs migrate downstream. The &ldquo;55% faster&rdquo; claim should be cited, if at all, with its provenance attached: one experiment, one small task, freelancers, speed only, 2022 tools.</p>
+
+<h2>References</h2>
+
+<!-- RESEARCH_BODY_END -->
+
+<div class="refentry"><h3 id="ref-1">[1] Peng, S., Kalliamvakou, E., Cihon, P., and Demirer, M. (2023). &ldquo;The Impact of AI on Developer Productivity: Evidence from GitHub Copilot.&rdquo; arXiv preprint arXiv:2302.06590 (cs.SE). Inspected: full arXiv HTML v1 (study design; Figures 5&ndash;6; Table 1; Results; Discussion). DOI: 10.48550/arXiv.2302.06590. <a href="https://arxiv.org/abs/2302.06590">https://arxiv.org/abs/2302.06590</a></h3></div>
+
+<div class="refentry"><h3 id="ref-2">[2] Cui, Z., Demirer, M., Jaffe, S., Musolff, L., Peng, S., and Salz, T. (2025). &ldquo;The Effects of Generative AI on High-Skilled Work: Evidence from Three Field Experiments with Software Developers.&rdquo; Published in Management Science (DOI: 10.1287/mnsc.2025.00535); inspected text: authors&rsquo; working-paper PDF, February 2025 (MIT Economics), full text. Access limit: published version paywalled; draft inspected and key figures cross-checked against the published article&rsquo;s abstract. <a href="https://economics.mit.edu/sites/default/files/inline-files/draft_copilot_experiments.pdf">https://economics.mit.edu/sites/default/files/inline-files/draft_copilot_experiments.pdf</a></h3></div>
+
+<div class="refentry"><h3 id="ref-3">[3] Paradis, E., Grey, K., Madison, Q., Nam, D., Macvean, A., Meimand, V., Zhang, N., Ferrari-Church, B., and Chandra, S. (2024). &ldquo;How much does AI impact development speed? An enterprise-based randomized controlled trial.&rdquo; arXiv:2410.12944 (cs.SE); also ICSE-SEIP 2025. Inspected: full arXiv HTML v3 (Sections IV&ndash;VI; Table III). DOI: 10.48550/arXiv.2410.12944. <a href="https://arxiv.org/abs/2410.12944">https://arxiv.org/abs/2410.12944</a></h3></div>
+
+<div class="refentry"><h3 id="ref-4">[4] Becker, J., Rush, N., Barnes, B., and Rein, D. (2025). &ldquo;Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity.&rdquo; METR, July 10, 2025; arXiv:2507.09089. Inspected: METR blog post (full text) and arXiv paper PDF (abstract; core results; Appendix C.1 factor analysis; Table 3). DOI: 10.48550/arXiv.2507.09089. <a href="https://arxiv.org/abs/2507.09089">https://arxiv.org/abs/2507.09089</a> and <a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/">https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/</a></h3></div>
+
+<div class="refentry"><h3 id="ref-5">[5] Becker, J., Rush, N., Cunningham, T., Rein, D., and Mahamud, K. (2026). &ldquo;We are Changing our Developer Productivity Experiment Design.&rdquo; METR blog, February 24, 2026. Inspected: full text (late-2025 estimates; selection effects; design change). <a href="https://metr.org/blog/2026-02-24-uplift-update/">https://metr.org/blog/2026-02-24-uplift-update/</a></h3></div>
+
+<div class="refentry"><h3 id="ref-6">[6] Ziegler, A., Kalliamvakou, E., Simister, S., Sittampalam, G., Li, X. A., Rice, A., Rifkin, D., and Aftandilian, E. (2022). &ldquo;Productivity Assessment of Neural Code Completion.&rdquo; MAPS 2022 (6th ACM SIGPLAN Int. Symposium on Machine Programming). Inspected: full arXiv HTML (Sections 3&ndash;4; correlation &rho;=0.24; n=2,047 of 17,420 invited). arXiv:2205.06537. DOI: 10.1145/3520312.3534864. <a href="https://arxiv.org/abs/2205.06537">https://arxiv.org/abs/2205.06537</a></h3></div>
+
+<div class="refentry"><h3 id="ref-7">[7] Ziegler, A., Kalliamvakou, E., Li, X. A., Rice, A., Rifkin, D., Simister, S., Sittampalam, G., and Aftandilian, E. (2024). &ldquo;Measuring GitHub Copilot&rsquo;s Impact on Productivity.&rdquo; Communications of the ACM 67(3):54&ndash;63. Access limit: full text blocked to automated access; key claims (acceptance rate as best predictor; junior developers report higher gains and accept more) verified via the publisher&rsquo;s abstract and article excerpts, consistent with the inspected preprint [6]. DOI: 10.1145/3633453. <a href="https://cacm.acm.org/research/measuring-github-copilots-impact-on-productivity/">https://cacm.acm.org/research/measuring-github-copilots-impact-on-productivity/</a></h3></div>
+
+<div class="refentry"><h3 id="ref-8">[8] Perry, N., Srivastava, M., Kumar, D., and Boneh, D. (2023). &ldquo;Do Users Write More Insecure Code with AI Assistants?&rdquo; ACM CCS 2023. Inspected: full arXiv HTML v3 (abstract; Section 4; Section 5; 47 participants: 33 AI, 14 control). arXiv:2211.03622. DOI: 10.1145/3576915.3623157. <a href="https://arxiv.org/abs/2211.03622">https://arxiv.org/abs/2211.03622</a></h3></div>
+
+<div class="refentry"><h3 id="ref-9">[9] Harding, W. (2025). &ldquo;AI Copilot Code Quality: Evaluating 2024&rsquo;s Increased Defect Rate with Data.&rdquo; GitClear / Alloy.dev research report, February 2025. Inspected: report PDF (211M changed lines 2020&ndash;2024; code-operation tables; churn and duplication findings). Vendor research; correlational time-trend data, not a causal study. <a href="https://www.gitclear.com/ai_assistant_code_quality_2025_research">https://www.gitclear.com/ai_assistant_code_quality_2025_research</a></h3></div>
+
+<div class="refentry"><h3 id="ref-10">[10] Google Cloud / DORA (2024). &ldquo;Announcing the 2024 DORA report.&rdquo; Inspected: full announcement post (&minus;1.5% throughput, &minus;7.2% stability per 25% AI-adoption increase; positive individual-level associations). Survey-based correlational findings. <a href="https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report">https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report</a></h3></div>
+
+<div class="refentry"><h3 id="ref-11">[11] Google Cloud / DORA (2025). &ldquo;Announcing the 2025 DORA Report: State of AI-assisted Software Development.&rdquo; Inspected: full announcement post (90% adoption; positive throughput relationship, negative stability relationship; ~5,000 respondents). Survey-based correlational findings. <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report</a></h3></div>
+
+<div class="refentry"><h3 id="ref-12">[12] Kalliamvakou, E. (2022). &ldquo;Research: quantifying GitHub Copilot&rsquo;s impact on developer productivity and happiness.&rdquo; GitHub Blog. Inspected: full post (55% faster; 95 developers; 1h11m vs 2h41m; p=.0017; 78% vs 70% success). <a href="https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/">https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/</a></h3></div>
+
+<div class="refentry"><h3 id="ref-13">[13] Ya Gao and GitHub Customer Research (2024). &ldquo;Research: Quantifying GitHub Copilot&rsquo;s impact in the enterprise with Accenture.&rdquo; GitHub Blog, May 13, 2024. Inspected: full post (&ldquo;helps developers code up to 55% faster&rdquo; reused in enterprise marketing; Accenture RCT description). <a href="https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-in-the-enterprise-with-accenture/">https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-in-the-enterprise-with-accenture/</a></h3></div>
+
+<div class="refentry"><h3 id="ref-14">[14] Vaithilingam, P., Zhang, T., and Glassman, E. L. (2022). &ldquo;Expectation vs. Experience: Evaluating the Usability of Code Generation Tools Powered by Large Language Models.&rdquo; CHI EA 2022. Access limit: full text not inspected (blocked to automated access); described on the basis of the publisher abstract and the citing analysis in [6]. DOI: 10.1145/3491101.3519665. <a href="https://dl.acm.org/doi/10.1145/3491101.3519665">https://dl.acm.org/doi/10.1145/3491101.3519665</a></h3></div>
+
+<p class="identification">Research ID: ai-assistants-developer-speed-2026-11 &middot; Report 1.0 &middot; Scope: ai-assistants-developer-speed.rb.md &middot; Protocol 1.7b.10</p>
+
+</div>
+</body>
+</html>
