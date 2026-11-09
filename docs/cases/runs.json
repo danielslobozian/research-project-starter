@@ -33,8 +33,8 @@
       "generation": "Asked four reader questions, but in Vibe's multiple-choice popup (the app's own instructions require it); the answers were typed in the free field. Some of its working notes leaked into the reply. The brief kept ages 0 to 18, weighted 4 to 12, with the child's age as reader context.",
       "execution": "HTML and Markdown report: 26 references, figures, French guidance included. It reported that it could not render the report or measure its pages.",
       "check_notes": {"HTML self-contained: screen-time-child-brains.html": "Not written by the model: Mistral's file hosting appended a Cloudflare analytics script to the downloaded HTML. The script is removed from the copy published here."},
-      "generation_link": null,
-      "execution_link": null
+      "generation_link": "https://chat.mistral.ai/work/3264606a-fdac-4c94-8b37-39a499a9941d",
+      "execution_link": "https://chat.mistral.ai/work/dc79cd10-569d-453b-bfb5-d091e5fca4c0"
     },
     {
       "case": 2, "app": "chatgpt", "model": "GPT-6 Thinking", "outcome": "direct",
@@ -57,7 +57,7 @@
       "generation": "Answered the question in chat after two web searches: no reader questions, no brief. Its reasoning never mentions the project's instructions.",
       "execution": null,
       "check_notes": {},
-      "generation_link": null,
+      "generation_link": "https://chat.mistral.ai/work/951bb8fa-582e-4635-9276-562752ac252a",
       "execution_link": null
     },
     {
@@ -81,8 +81,8 @@
       "generation": "Read the whole protocol, then asked four reader questions in the multiple-choice popup. The brief set full statistical depth, with large existing codebases as the main setting and greenfield or novice studies as contrast.",
       "execution": "HTML and Markdown report with an effect-size figure and 14 references. It traces the 55% to Peng et al. 2023 (freelancers writing a small HTTP server from scratch, 55.8%, 95% CI 21–89%).",
       "check_notes": {},
-      "generation_link": null,
-      "execution_link": null
+      "generation_link": "https://chat.mistral.ai/work/6baf4a05-615b-47bb-a59e-a70ba92eae3e",
+      "execution_link": "https://chat.mistral.ai/work/8bba69d7-222d-4aa9-8510-23508d46fa58"
     },
     {
       "case": 4, "app": "chatgpt", "model": "GPT-6 Thinking", "outcome": "full",
@@ -108,8 +108,8 @@
         "PDF pages numbered: direct-air-capture-scale.pdf": "Caused by the malformed fonts: the reader extracts no text.",
         "PDF no near-empty page: direct-air-capture-scale.pdf": "Caused by the malformed fonts: the reader extracts no text."
       },
-      "generation_link": null,
-      "execution_link": null
+      "generation_link": "https://chat.mistral.ai/work/ebe07f78-17e9-4d4a-a6e5-416350a0f1f3",
+      "execution_link": "https://chat.mistral.ai/work/0aab219b-b83e-4a96-9921-372c0b00a79d"
     },
     {
       "case": 5, "app": "chatgpt", "model": "GPT-6 Instant", "outcome": "direct",
@@ -132,8 +132,8 @@
       "generation": "Followed the engine in French, with four questions in the popup. Every answer was \"skip\"; the Research Boundaries file records each skipped point as an assumption, as the protocol requires.",
       "execution": "HTML and Markdown report in French, about 5,650 words of body, with three figures: field data from ADEME 2025 at the centre, French costs and a break-even estimate.",
       "check_notes": {},
-      "generation_link": null,
-      "execution_link": null
+      "generation_link": "https://chat.mistral.ai/work/f534d9b4-9b16-4090-a402-da2809af64ad",
+      "execution_link": "https://chat.mistral.ai/work/d14c9dc3-ba98-4109-bb65-9a89fba78578"
     }
   ],
   "comparisons": {
