@@ -102,7 +102,7 @@
     },
     {
       "case": 4, "app": "mistral", "model": "GLM-5 (glm-5-latest-short)", "outcome": "failed",
-      "generation": "Read the whole protocol and asked one question (the region) in the popup. Its reasoning names the cause of the popups: Vibe's own instructions require multiple-choice questions.",
+      "generation": "Read the whole protocol and asked one question (the region) in the popup. After the answer \"No preference\", its reasoning picked France from the location the app supplies, but the brief and the Research Boundaries file stayed region-free. Its reasoning also names the cause of the popups: Vibe's own instructions require multiple-choice questions.",
       "execution": "Vibe has no PDF library and cannot render PDFs, so it wrote the 8-page PDF by hand. Its font objects are malformed: most readers show blank pages. The Markdown copy is intact.",
       "check_notes": {
         "PDF pages numbered: direct-air-capture-scale.pdf": "Caused by the malformed fonts: the reader extracts no text.",
