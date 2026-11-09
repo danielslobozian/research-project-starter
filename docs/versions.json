@@ -1,0 +1,19 @@
+{
+  "site_url": "https://danielslobozian.github.io/research-project-starter/",
+  "repository": "danielslobozian/research-project-starter",
+  "fallbacks": {
+    "benchmark-2026-10.html": "benchmark.html"
+  },
+  "versions": [
+    {
+      "name": "1.7b.10",
+      "dir": "",
+      "tag": "v1.7b.10"
+    },
+    {
+      "name": "1.6",
+      "dir": "v1.6",
+      "tag": "v1.6"
+    }
+  ]
+}

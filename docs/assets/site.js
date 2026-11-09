@@ -145,3 +145,17 @@ if (table && filters) {
     if (status) status.textContent = `Showing all ${rows.length} configurations.`;
   }
 }
+
+// Close the version menu on Escape or on a click elsewhere; it works without this too.
+try {
+  const menus = [...document.querySelectorAll('details.version-switch')];
+  document.addEventListener('click', event => {
+    for (const menu of menus) if (!menu.contains(event.target)) menu.open = false;
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    for (const menu of menus) if (menu.open) { menu.open = false; menu.querySelector('summary').focus(); }
+  });
+} catch {
+  // The menu stays a plain disclosure.
+}

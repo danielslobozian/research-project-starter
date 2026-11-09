@@ -1,0 +1,73 @@
+/* Version menu and banner, written into every page by tools/site_versions.py.
+   Self-contained: some archived pages do not load site.css. */
+.version-switch, .version-bar, .version-banner {
+  --vs-ink: #142027; --vs-muted: #62717a; --vs-line: #dce5e8; --vs-surface: #fff;
+  --vs-paper: #f7f8f6; --vs-blue: #3255e7; --vs-blue-soft: #e9eeff; --vs-warn: #ffd9b9;
+  font-family: system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  line-height: 1.4;
+}
+.version-switch a, .version-banner a { color: inherit; }
+.version-switch {
+  position: relative;
+  font-size: .85rem;
+  font-weight: 640;
+}
+.version-switch summary {
+  list-style: none;
+  cursor: pointer;
+  border: 1px solid #cbd8df;
+  border-radius: 9px;
+  padding: 7px 12px;
+  color: var(--vs-ink);
+  background: var(--vs-surface);
+  white-space: nowrap;
+}
+.version-switch summary::-webkit-details-marker { display: none; }
+.version-switch summary::after { content: " ▾"; color: var(--vs-muted); }
+.version-switch[open] summary::after { content: " ▴"; }
+.version-switch ul {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  z-index: 60;
+  min-width: 170px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: var(--vs-surface);
+  border: 1px solid var(--vs-line);
+  border-radius: 10px;
+  box-shadow: 0 20px 70px rgba(18,36,45,.09);
+}
+.version-switch li a {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 36px;
+  padding: 7px 10px;
+  border: 0;
+  border-radius: 7px;
+  color: var(--vs-ink);
+}
+.version-switch li a:hover { background: var(--vs-blue-soft); color: var(--vs-blue); }
+.version-switch li a[aria-current="true"] { color: var(--vs-blue); }
+.version-tag { color: var(--vs-muted); font-weight: 510; }
+.version-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 16px;
+  background: var(--vs-paper);
+  border-bottom: 1px solid var(--vs-line);
+  font-family: system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+}
+.version-banner {
+  padding: 10px 16px;
+  text-align: center;
+  background: var(--vs-warn);
+  color: var(--vs-ink);
+  font-size: .92rem;
+}
+.version-banner a { text-decoration: underline; font-weight: 640; }
+@media (max-width: 760px) {
+  .version-switch ul { right: auto; left: 0; }
+}
