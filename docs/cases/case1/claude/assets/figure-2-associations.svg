@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" role="img" aria-labelledby="f2t f2d" font-family="Helvetica, Arial, 'Liberation Sans', 'DejaVu Sans', sans-serif">
+<title id="f2t">Pooled links between screen measures and language or thinking skills</title>
+<desc id="f2d">Dots and bars show pooled correlations with 95% confidence intervals for children mostly under six. Screen time, background TV and programme viewing sit left of zero; educational programmes and adult co-use sit right of zero. All values are between minus 0.19 and plus 0.16.</desc>
+<rect width="720" height="400" fill="#fcfcfb"/>
+<rect x="420.0" y="44" width="80.0" height="296" fill="#efeee8"/>
+<line x1="300.0" x2="300.0" y1="44" y2="340" stroke="#d9d7d0" stroke-width="1"/>
+<text x="300.0" y="358" text-anchor="middle" font-size="12" fill="#52514e">−0.4</text>
+<line x1="340.0" x2="340.0" y1="44" y2="340" stroke="#d9d7d0" stroke-width="1"/>
+<text x="340.0" y="358" text-anchor="middle" font-size="12" fill="#52514e">−0.3</text>
+<line x1="380.0" x2="380.0" y1="44" y2="340" stroke="#d9d7d0" stroke-width="1"/>
+<text x="380.0" y="358" text-anchor="middle" font-size="12" fill="#52514e">−0.2</text>
+<line x1="420.0" x2="420.0" y1="44" y2="340" stroke="#d9d7d0" stroke-width="1"/>
+<text x="420.0" y="358" text-anchor="middle" font-size="12" fill="#52514e">−0.1</text>
+<line x1="460.0" x2="460.0" y1="44" y2="340" stroke="#8a8984" stroke-width="1.5"/>
+<text x="460.0" y="358" text-anchor="middle" font-size="12" fill="#52514e">0</text>
+<line x1="500.0" x2="500.0" y1="44" y2="340" stroke="#d9d7d0" stroke-width="1"/>
+<text x="500.0" y="358" text-anchor="middle" font-size="12" fill="#52514e">+0.1</text>
+<line x1="540.0" x2="540.0" y1="44" y2="340" stroke="#d9d7d0" stroke-width="1"/>
+<text x="540.0" y="358" text-anchor="middle" font-size="12" fill="#52514e">+0.2</text>
+<line x1="580.0" x2="580.0" y1="44" y2="340" stroke="#d9d7d0" stroke-width="1"/>
+<text x="580.0" y="358" text-anchor="middle" font-size="12" fill="#52514e">+0.3</text>
+<line x1="620.0" x2="620.0" y1="44" y2="340" stroke="#d9d7d0" stroke-width="1"/>
+<text x="620.0" y="358" text-anchor="middle" font-size="12" fill="#52514e">+0.4</text>
+<text x="460" y="378" text-anchor="middle" font-size="12.5" fill="#1f1f1c">Correlation (r)</text>
+<text x="300.0" y="22" font-size="12" fill="#52514e">← lower scores</text>
+<text x="620.0" y="22" text-anchor="end" font-size="12" fill="#52514e">higher scores →</text>
+<text x="460.0" y="38" text-anchor="middle" font-size="11.5" fill="#52514e">shaded band: below “small” (under 0.1 either way)</text>
+<text x="16" y="66" font-size="13.5" font-weight="700" fill="#1f1f1c">Language</text>
+<text x="16" y="224" font-size="13.5" font-weight="700" fill="#1f1f1c">Thinking skills</text>
+<g><title>Language: Time on screens: r = -0.14 (95% CI -0.18 to -0.10). Madigan 2020; 38 studies</title>
+<rect x="0" y="72" width="720" height="28" fill="transparent"/>
+<text x="28" y="90" font-size="13" fill="#1f1f1c">Time on screens</text>
+<line x1="388.0" x2="420.0" y1="86" y2="86" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="404.0" cy="86" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<text x="638" y="90" font-size="13" fill="#1f1f1c">−0.14</text>
+</g>
+<g><title>Language: Background TV: r = -0.19 (95% CI -0.33 to -0.05). Madigan 2020; 5 studies</title>
+<rect x="0" y="102" width="720" height="28" fill="transparent"/>
+<text x="28" y="120" font-size="13" fill="#1f1f1c">Background TV</text>
+<line x1="328.0" x2="440.0" y1="116" y2="116" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="384.0" cy="116" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<text x="638" y="120" font-size="13" fill="#1f1f1c">−0.19</text>
+</g>
+<g><title>Language: Educational programmes: r = +0.13 (95% CI +0.02 to +0.24). Madigan 2020; 13 studies</title>
+<rect x="0" y="132" width="720" height="28" fill="transparent"/>
+<text x="28" y="150" font-size="13" fill="#1f1f1c">Educational programmes</text>
+<line x1="468.0" x2="556.0" y1="146" y2="146" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="512.0" cy="146" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<text x="638" y="150" font-size="13" fill="#1f1f1c">+0.13</text>
+</g>
+<g><title>Language: Watching with an adult: r = +0.16 (95% CI +0.07 to +0.24). Madigan 2020; 12 studies</title>
+<rect x="0" y="162" width="720" height="28" fill="transparent"/>
+<text x="28" y="180" font-size="13" fill="#1f1f1c">Watching with an adult</text>
+<line x1="488.0" x2="556.0" y1="176" y2="176" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="524.0" cy="176" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<text x="638" y="180" font-size="13" fill="#1f1f1c">+0.16</text>
+</g>
+<g><title>Thinking skills: Programme viewing: r = -0.16 (95% CI -0.24 to -0.08). Mallawaarachchi 2024; 14 studies</title>
+<rect x="0" y="230" width="720" height="28" fill="transparent"/>
+<text x="28" y="248" font-size="13" fill="#1f1f1c">Programme viewing</text>
+<line x1="364.0" x2="428.0" y1="244" y2="244" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="396.0" cy="244" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<text x="638" y="248" font-size="13" fill="#1f1f1c">−0.16</text>
+</g>
+<g><title>Thinking skills: Background TV: r = -0.10 (95% CI -0.18 to -0.02). Mallawaarachchi 2024; 8 studies</title>
+<rect x="0" y="260" width="720" height="28" fill="transparent"/>
+<text x="28" y="278" font-size="13" fill="#1f1f1c">Background TV</text>
+<line x1="388.0" x2="452.0" y1="274" y2="274" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="420.0" cy="274" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<text x="638" y="278" font-size="13" fill="#1f1f1c">−0.10</text>
+</g>
+<g><title>Thinking skills: Using screens with an adult: r = +0.14 (95% CI +0.03 to +0.25). Mallawaarachchi 2024; 8 studies</title>
+<rect x="0" y="290" width="720" height="28" fill="transparent"/>
+<text x="28" y="308" font-size="13" fill="#1f1f1c">Using screens with an adult</text>
+<line x1="472.0" x2="560.0" y1="304" y2="304" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="516.0" cy="304" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<text x="638" y="308" font-size="13" fill="#1f1f1c">+0.14</text>
+</g>
+<text x="638" y="48" font-size="12" fill="#52514e">r</text>
+</svg>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f8f6"><meta name="description" content="The design rationale of engine 1.7b.10: two projects, reader questions, reader context, approval, evidence and delivery, with sources."><title>Design guide — Research Project Starter</title><link rel="stylesheet" href="assets/site.css"><script defer src="assets/site.js"></script><meta property="og:type" content="website"><meta property="og:site_name" content="Research Project Starter"><meta property="og:title" content="Design guide — Research Project Starter"><meta property="og:description" content="The design rationale of engine 1.7b.10: two projects, reader questions, reader context, approval, evidence and delivery, with sources."><meta property="og:url" content="https://danielslobozian.github.io/research-project-starter/guide.html"><meta property="og:image" content="https://danielslobozian.github.io/research-project-starter/assets/social/overview.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Research Project Starter — clear questions, reusable research"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Design guide — Research Project Starter"><meta name="twitter:description" content="The design rationale of engine 1.7b.10: two projects, reader questions, reader context, approval, evidence and delivery, with sources."><meta name="twitter:image" content="https://danielslobozian.github.io/research-project-starter/assets/social/overview.png"><meta name="author" content="Daniel Slobozian"><link rel="canonical" href="https://danielslobozian.github.io/research-project-starter/guide.html"><link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link href="assets/version-switch.css" rel="stylesheet"/></head><body id="top">
+<a class="skip-link" href="#main">Skip to main content</a><header class="nav"><nav class="nav-inner" aria-label="Main navigation"><a class="brand" href="index.html"><span class="brand-icon" aria-hidden="true"><span>R/</span></span><span>Research Project Starter<span class="brand-sub">A method for AI-assisted research</span></span></a><div class="nav-items"><a href="index.html">Overview</a><a href="engine.html">Research engine</a><a href="guide.html" aria-current="page">Guide</a><a href="demos.html">Live examples</a><a href="benchmark.html">Benchmark</a><!-- version-switch --><details class="version-switch"><summary aria-label="Engine version 1.7b.10, choose another">v1.7b.10</summary><ul><li><a href="guide.html" aria-current="true">1.7b.10 <span class="version-tag">latest</span></a></li><li><a href="v1.6/engine.html">1.6</a></li></ul></details><!-- /version-switch --><a class="nav-gh" href="https://github.com/danielslobozian/research-project-starter" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in a new tab)">GitHub ↗</a></div></nav></header>
+<main id="main" tabindex="-1">
+<section class="page-hero"><div class="container"><div class="eyebrow">Design guide · v1.7b.10</div><h1>Why the engine <span class="serif accent">works</span> as it does.</h1><p class="lead">The design choices behind the two projects, the reader questions, approval, evidence and delivery. Also available as <a class="link-inline" href="https://github.com/danielslobozian/research-project-starter/blob/v1.7b.10/research-project-guide.md">Markdown</a>.</p></div></section><section class="section white"><div class="container readable guide-body"><h2 id="summary">Summary</h2>
+<blockquote>
+<p>This guide was written with Claude Opus 5.5.</p>
+</blockquote>
+<p>Research Project Starter 1.7b.10 is two sets of project instructions
+for a hosted assistant such as ChatGPT, Claude or Mistral Vibe. The
+<strong>generation project</strong> agrees a research question with you
+and issues a <strong>Research Boundaries (RB)</strong> file. The
+<strong>execution project</strong> takes that file and researches it,
+and delivers a report to read, its Markdown source and the unchanged
+RB.</p>
+<p>This guide explains the design choices behind that workflow: why the
+work is split into two projects, why the first reply asks about the
+reader, how a reader’s situation differs from the research scope, what
+approval means, how the research keeps the evidence that carries the
+answer, and what the delivered files promise. It is explanatory only.
+The two protocols are the contract the models follow; this guide cannot
+override them. How to install and use the projects is on the <a
+href="engine.html">engine
+page</a>.</p>
+<h2 id="two-projects-one-contract">1. Two projects, one contract</h2>
+<p>Deciding <em>what</em> to investigate and investigating it are
+different jobs with different risks. While the question is being agreed,
+the risk is that early findings shape the scope: a model that has
+already read three studies tends to draft a brief around them. While the
+research runs, the risk is the opposite: that inconvenient findings
+quietly narrow the question.</p>
+<p>The engine separates the two jobs into two projects joined by one
+file:</p>
+<ul>
+<li>The generation project may run a handful of searches to learn a
+field’s vocabulary or to check that an interpretation is coherent, but
+it does not appraise sources or report findings. It ends when you
+approve a brief and it issues the RB. It never researches.</li>
+<li>The execution project never interviews you, approves anything or
+edits the RB. It treats the RB as the scope: contrary findings are
+reported, not used to change the question. A change of questions,
+corpus, mandatory cases or exclusions needs a new RB from the generation
+project.</li>
+</ul>
+<p>The RB is the only thing passed between them. That makes the
+agreement inspectable: anyone holding the RB can see what the research
+was meant to answer, without the conversation that produced it. It also
+makes the research portable: the RB can be run in another app or by
+another model.</p>
+<p>Inside the execution project, one assistant does everything in one
+continuous conversation: research, writing, rendering, checking and
+delivery. It does not hand work to other agents or models. This keeps
+one working record of what was read and why, and avoids losing evidence
+at handoffs between stages.</p>
+<h2 id="asking-about-the-reader-first">2. Asking about the reader
+first</h2>
+<p>A report is written for someone and for a use. The same evidence on
+screen time serves a parent setting family rules differently from a
+researcher checking a meta-analysis. Before 1.7b.10 the brief asked
+about the reader in passing, next to the format, and the model usually
+fell back to a generic reader.</p>
+<h3 id="a-dedicated-first-turn">2.1 A dedicated first turn</h3>
+<p>On a new topic, the first reply is a short message of questions and
+nothing else: no brief, no scope, no findings. It asks only about points
+that are still unknown <strong>and</strong> would change the report:</p>
+<ol type="1">
+<li>the reader’s starting point: what they already know of the subject
+and its vocabulary;</li>
+<li>the use: what the report should let them do (decide, understand,
+explain to others, check or cite a claim);</li>
+<li>the readers: the person asking alone, or others, and who they
+are;</li>
+<li>the situation, only where it changes which evidence applies (a
+country, an age group, a setting).</li>
+</ol>
+<p>Models can recognise that a request is ambiguous and still answer it
+directly instead of asking; clarifying an ambiguous information need is
+a known weak point of language models. <a href="#ref-1">[1]</a> <a
+href="#ref-2">[2]</a> A question that is optional inside a longer reply
+is easy to skip, so the engine makes the questions the whole first turn
+and requires the model to stop after them.</p>
+<p>The turn is skipped when the request already answers every point that
+matters, when you waive it, when you continue an earlier topic in the
+same conversation, or when you revise an existing brief or RB.</p>
+<h3 id="few-open-questions-each-with-a-default">2.2 Few, open questions,
+each with a default</h3>
+<p>Every question costs the reader attention. In a randomised study of
+AI-assisted interviews, follow-up probing produced more specific
+answers, but about doubled the length of the conversation and shifted
+the respondents’ experience slightly for the worse. <a
+href="#ref-3">[3]</a> The engine therefore asks at most four questions,
+only those whose answer would change the report, in plain words. The
+number four is a design choice: the evidence shows that questions have a
+cost, not where the optimum lies.</p>
+<p>Each question states the assumption the model will use if it stays
+unanswered, and one word, “skip”, accepts them all. You can answer some,
+all or none. The assumptions reach the RB as assumptions, so a later
+reader can tell what you said from what was assumed.</p>
+<p>The questions are open. Offered answers shape answers: the range and
+the order of response options change what people report. <a
+href="#ref-4">[4]</a> <a href="#ref-5">[5]</a> A list such as “decide /
+understand / cite” would steer the reader toward the listed uses, so the
+protocol forbids presenting the uses, or any other list, as options to
+pick from.</p>
+<h3 id="answers-are-not-approval">2.3 Answers are not approval</h3>
+<p>A reply to the reader questions leads to a brief, never to an RB,
+even if it says “approved”: you have not seen a brief yet. The brief
+then shows the reader lines in plain words, marks assumed values, and
+says that they will be recorded in the RB.</p>
+<h2 id="reader-context-is-not-scope">3. Reader context is not scope</h2>
+<p>The situation answer needs care, because it can do two different
+things.</p>
+<p>Most often it only changes which evidence is most applicable. A
+parent of a six-year-old in France asking about screen time still
+benefits from evidence on other ages and countries; the report should
+say where evidence for that age is thin and what French guidance says.
+The engine records this as <strong>reader context</strong> in RB section
+8. The execution project uses it to decide which evidence is discussed
+as most applicable and where limits matter; it does not narrow the
+search or remove evidence.</p>
+<p>Sometimes the situation should restrict the research: “only studies
+from France”, “only children under ten”. That is a scope decision. The
+engine shows it as a proposed boundary in the brief, and it becomes
+scope only when you approve it.</p>
+<p>The recorded cases show why the distinction is written down. In three
+runs, a situation answer drifted into the scope (an age band of 5 to 7,
+the exclusion of under-25s) instead of staying reader context. The
+protocol says it should not; the cases show that models still do it, so
+the brief is the place to catch it before approval.</p>
+<p>Personal details are recorded only as far as they change the report,
+impersonally and without names (“a parent of a child of about six”). The
+RB is a file you may share, and the report should be readable by
+anyone.</p>
+<h2 id="truthful-approval-preserved-versions">4. Truthful approval,
+preserved versions</h2>
+<h3 id="approval-covers-what-you-saw">4.1 Approval covers what you
+saw</h3>
+<p>Each proposed brief has an identifier (<code>BR-001</code>, then
+<code>BR-002</code> for a revision). Approval refers to one brief, and
+the RB records which one was approved and on what basis. The RB may add
+headings, identifiers and faithful operational detail; it may not add a
+research question, a mandatory comparison, an evidence restriction or a
+deliverable that you did not see.</p>
+<p>A reply that changes the scope is applied directly only when it is
+unambiguous and can be written into the RB word for word. Anything that
+would need interpretation is shown again as a new brief, and needs one
+more confirmation.</p>
+<p>If you waive approval (“skip the brief”), the RB is issued with the
+status <code>assumptions-not-explicitly-approved</code>. A waiver allows
+the work to proceed; it never becomes a recorded approval.</p>
+<h3 id="issued-files-do-not-change">4.2 Issued files do not change</h3>
+<p>An issued RB is kept byte for byte. A scope revision is a new RB file
+with its own version and a pointer to the one it supersedes. A corrected
+report is a new report version (<code>topic.v1.1.md</code> with matching
+reading copies). Scope versions and report versions are counted
+separately, because a corrected figure in a report does not change what
+the research was meant to answer.</p>
+<h2 id="research-the-questions-keep-the-evidence">5. Research the
+questions, keep the evidence</h2>
+<h3 id="investigate-the-questions-not-the-document">5.1 Investigate the
+questions, not the document</h3>
+<p>The execution project works from the RB’s questions. Each one closes
+with a supported answer, an investigated inconclusive result, or a
+disclosed evidence gap, after consequential counter-evidence has been
+considered. A failed retrieval is recorded as an access limit, never as
+proof that evidence does not exist. Normal closure also needs a reason
+why further searching within the scope would not add materially useful
+evidence; research stopped by a limit is labelled incomplete, with the
+unfinished questions named.</p>
+<p>Evidence that drives a conclusion is appraised in context: what was
+tested, on whom or on what system, against what comparison, with what
+outcome, magnitude and uncertainty, and how far it applies to the
+reader’s setting. A citation being present is not the same as the cited
+source supporting the claim; the two are checked separately. <a
+href="#ref-6">[6]</a></p>
+<h3 id="adapt-the-explanation-not-the-evidence">5.2 Adapt the
+explanation, not the evidence</h3>
+<p>Writing for a reader invites simplification, and simplification can
+quietly drop the estimate, the denominator or the qualification that
+carries an answer. The execution protocol keeps one working record of
+decisive estimates, assumptions, conflicts and inspected source
+locations, and writes the report from it. Adapting to the reader changes
+how much is explained, in what order and with what vocabulary; it does
+not change which consequential evidence survives. The
+<strong>purpose</strong> decides what the reader meets first (a
+decision, an explanation for others, a claim to check and cite); the
+<strong>reader context</strong> decides which evidence is discussed as
+most applicable.</p>
+<h3 id="reconcile-once-then-deliver">5.3 Reconcile once, then
+deliver</h3>
+<p>Before delivery, the claims that drive conclusions are rechecked
+against the inspected source locations, the questions are checked for
+coverage, and the delivered files are checked against each other. The
+reporting borrows items from scoping-review guidance (objectives,
+eligibility, sources, search, limitations) without claiming compliance
+with it. <a href="#ref-7">[7]</a></p>
+<h2 id="what-you-receive">6. What you receive</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>File</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>topic.html</code> or <code>topic.pdf</code></td>
+<td>The reading copy: self-contained HTML by default, PDF when the RB
+asks for one. Numbered citations link to an anchored bibliography with
+inspectable source locations.</td>
+</tr>
+<tr>
+<td><code>topic.md</code></td>
+<td>The same content in Markdown, labelled as source for tools, not as
+the reading copy.</td>
+</tr>
+<tr>
+<td><code>topic.rb.md</code></td>
+<td>The unmodified RB the research followed.</td>
+</tr>
+<tr>
+<td><code>topic-research-package.zip</code></td>
+<td>All public files with their figures, when the report has any.</td>
+</tr>
+</tbody>
+</table>
+<p>The body length is measured in a fixed A4 reference layout (11-point
+text, 25 mm margins). When that render is not possible in the app, the
+delivery says “Substantive body page count: unverified” instead of
+claiming compliance.</p>
+<p>Every delivery states two separate outcomes: whether the
+<strong>research</strong> is complete or constrained-incomplete, and
+whether the <strong>delivery</strong> is complete or partial (a missing
+format, an exceeded limit, a substitute reading copy). It also lists
+which checks were performed and which were not.</p>
+<h2 id="apps-differ">7. Apps differ</h2>
+<p>The same instructions meet different hosts. Before relying on web
+access, file creation, code, PDF production or visual inspection, each
+project checks what the app actually provides and names a fallback for
+what it lacks: an HTML reading copy when PDF fails, inline substitutes
+when files cannot be created, an explicit “not performed” for checks the
+app cannot do. The execution project rechecks its own app; capabilities
+do not carry over from the generation project.</p>
+<p>The recorded cases add what the protocol cannot control:</p>
+<ul>
+<li>On lighter settings (ChatGPT Medium and Instant, Claude Haiku at
+Low) a simple-looking question was answered directly, without the
+engine.</li>
+<li>Claude Fable 5.1 at Max judged the project instructions a prompt
+injection, because the app delivered them inside a tool result.</li>
+<li>Mistral Vibe turns questions into multiple-choice popups, which
+works against open questions: type your own answer in the free field.
+Vibe cannot render PDFs, so ask for HTML reading copies.</li>
+</ul>
+<h2 id="limitations">8. Limitations</h2>
+<p>Project instructions are a request to the model; the app and the
+model decide whether to follow them. In the recorded cases, five of
+fifteen runs answered directly instead.</p>
+<p>The checks are done by the same assistant that did the research, and
+are reported as performed or not performed. They are not independent
+verification of the findings.</p>
+<p>The October 2026 benchmark measured engine 1.6. Version 1.7b.10 has
+not been benchmarked: its reader questions and its execution project are
+shown by the recorded cases, not measured. The sources cited here are
+background for the design choices, not experiments validating this
+engine.</p>
+<h2 id="glossary">Glossary</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning in this guide</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brief</td>
+<td>The proposal shown for approval before an RB exists, identified as
+<code>BR-001</code>, <code>BR-002</code>, and so on.</td>
+</tr>
+<tr>
+<td>Evidence gap</td>
+<td>Adequate support was not found in the stated search; not proof that
+support does not exist.</td>
+</tr>
+<tr>
+<td>Purpose/use</td>
+<td>What the reader will do with the report; it decides what the report
+leads with.</td>
+</tr>
+<tr>
+<td>Reader context</td>
+<td>The reader’s situation where it makes some evidence more applicable;
+it shapes emphasis, not scope.</td>
+</tr>
+<tr>
+<td>Reading copy</td>
+<td>The HTML or PDF meant to be read; the Markdown is source for
+tools.</td>
+</tr>
+<tr>
+<td>Reference layout</td>
+<td>The fixed A4 rendering used to measure the body length.</td>
+</tr>
+<tr>
+<td>Research Boundaries (RB)</td>
+<td>The standalone file defining the agreed research and its
+deliverable.</td>
+</tr>
+<tr>
+<td>Waiver</td>
+<td>Your instruction to proceed without approving a brief; the RB then
+records assumptions, not approval.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bibliography">Bibliography</h2>
+<h4 id="ref-1">[1] CLAMBER</h4>
+<p>Tong Zhang, Peixin Qin, Yang Deng, Chen Huang, Wenqiang Lei, Junhong
+Liu, Dingnan Jin, Hongru Liang, and Tat-Seng Chua. 2024. <em>CLAMBER: A
+Benchmark of Identifying and Clarifying Ambiguous Information Needs in
+Large Language Models</em>. ACL 2024, pp. 10746–10766. Used for its
+general finding that clarifying ambiguous information needs is a weak
+point of language models.</p>
+<p><a href="https://aclanthology.org/2024.acl-long.578/"
+class="uri">https://aclanthology.org/2024.acl-long.578/</a> · DOI: <a
+href="https://doi.org/10.18653/v1/2024.acl-long.578"
+class="uri">https://doi.org/10.18653/v1/2024.acl-long.578</a></p>
+<h4 id="ref-2">[2] Knowing but Not Showing</h4>
+<p>Jinyan Su and Claire Cardie. 2026. <em>Knowing but Not Showing: LLMs
+Recognize Ambiguity but Rarely Ask Clarifying Questions</em>. Preprint,
+arXiv:2605.25284v1, §§3–4. Used for the gap between recognising
+ambiguity and asking about it; its answering condition instructed direct
+answers, so it does not show an intrinsic inability to ask.</p>
+<p><a href="https://arxiv.org/abs/2605.25284v1"
+class="uri">https://arxiv.org/abs/2605.25284v1</a></p>
+<h4 id="ref-3">[3] AI-Assisted Conversational Interviewing</h4>
+<p>S. Barari, J. Angbazo, N. Wang, L. M. Christian, E. Dean, Z.
+Slowinski, and B. Sepulvado. 2026. <em>AI-Assisted Conversational
+Interviewing: Effects on Data Quality and Respondent Experience</em>.
+Survey Research Methods 20(2), 161–180. Used for the trade-off between
+more specific answers and longer, slightly less pleasant conversations;
+its cap of one probe per question is a tested condition, not an
+optimum.</p>
+<p><a href="https://doi.org/10.18148/srm/2026.v20i2.8624"
+class="uri">https://doi.org/10.18148/srm/2026.v20i2.8624</a></p>
+<h4 id="ref-4">[4] The Range of Response Alternatives</h4>
+<p>Norbert Schwarz, Fritz Strack, Gesine Müller, and Brigitte Chassein.
+1988. <em>The Range of Response Alternatives May Determine the Meaning
+of the Question: Further Evidence on Informative Functions of Response
+Alternatives</em>. Social Cognition 6(2), 107–117. Used for the finding
+that offered response ranges change what people consider.</p>
+<p><a href="https://doi.org/10.1521/soco.1988.6.2.107"
+class="uri">https://doi.org/10.1521/soco.1988.6.2.107</a></p>
+<h4 id="ref-5">[5] Response-Order Effects</h4>
+<p>Jon A. Krosnick and Duane F. Alwin. 1987. <em>An Evaluation of a
+Cognitive Theory of Response-Order Effects in Survey Measurement</em>.
+Public Opinion Quarterly 51(2), 201–219. Used for primacy effects of
+offered answer lists.</p>
+<p><a href="https://doi.org/10.1086/269029"
+class="uri">https://doi.org/10.1086/269029</a></p>
+<h4 id="ref-6">[6] Enabling Large Language Models to Generate Text with
+Citations</h4>
+<p>Tianyu Gao, Howard Yen, Jiatong Yu, and Danqi Chen. 2023.
+<em>Enabling Large Language Models to Generate Text with Citations</em>.
+EMNLP 2023, pp. 6465–6488. Used for the distinction between a correct
+answer and a citation that supports it.</p>
+<p><a href="https://aclanthology.org/2023.emnlp-main.398/"
+class="uri">https://aclanthology.org/2023.emnlp-main.398/</a> · DOI: <a
+href="https://doi.org/10.18653/v1/2023.emnlp-main.398"
+class="uri">https://doi.org/10.18653/v1/2023.emnlp-main.398</a></p>
+<h4 id="ref-7">[7] PRISMA-ScR checklist</h4>
+<p>PRISMA. <em>Preferred Reporting Items for Systematic reviews and
+Meta-Analyses extension for Scoping Reviews: Checklist</em>. 2019. Used
+as reporting guidance, not as evidence that this workflow meets the full
+standard.</p>
+<p><a href="https://www.prisma-statement.org/scoping"
+class="uri">https://www.prisma-statement.org/scoping</a></p>
+</div></section>
+</main><footer class="footer"><div class="container footer-inner"><div><a class="brand" href="index.html"><span class="brand-icon"><span>R/</span></span><span>Research Project Starter</span></a><p>Open research methodology. Built and maintained by Daniel Slobozian. Apache 2.0.</p><p class="micro">Benchmark editions are immutable; each names the engine version it measured.</p></div><div class="footer-links"><a href="engine.html">Research engine</a><a href="guide.html">Guide</a><a href="demos.html">Live examples</a><a href="benchmark.html">Benchmark</a><a href="https://github.com/danielslobozian/research-project-starter" target="_blank" rel="noopener noreferrer" aria-label="Source (opens in a new tab)">Source ↗</a><a class="back-top" href="#top">Back ↑</a></div></div></footer></body></html>

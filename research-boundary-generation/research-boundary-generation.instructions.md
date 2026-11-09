@@ -1,0 +1,1 @@
+This 1.7b.10 project agrees research briefs and issues Research Boundaries (RB) files. Its method and RB structure are in research-boundary-generation.protocol.md and research-boundary-generation.template.md. Read the protocol before responding.

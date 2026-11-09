@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 460" width="880" height="460" role="img" aria-labelledby="fig-title fig-sub">
+  <title id="fig-title">Figure 1. Change in task completion time with an AI coding assistant, five studies</title>
+  <desc id="fig-sub">Horizontal chart of measured change in task completion time. Negative values mean faster (less time). Bars show 95% confidence intervals; dots show point estimates.</desc>
+
+  <rect x="0" y="0" width="880" height="460" fill="#ffffff"/>
+
+  <text x="20" y="28" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#111111">Measured change in task completion time with an AI assistant</text>
+  <text x="20" y="48" font-family="Helvetica, Arial, sans-serif" font-size="12.5" fill="#444444">Negative = faster (less time). Dots are point estimates; bars are 95% confidence intervals. All effects are measured, not self-reported.</text>
+
+  <!-- Plot frame: x(v) = 90 + (v + 90) * 5.3077 ; v from -90 to +40 -->
+
+  <!-- Zero reference line -->
+  <line x1="573" y1="58" x2="573" y2="366" stroke="#888888" stroke-width="1" stroke-dasharray="5,4"/>
+  <text x="573" y="52" font-family="Helvetica, Arial, sans-serif" font-size="11.5" fill="#666666" text-anchor="middle">no change</text>
+
+  <!-- Row 1: Peng et al. 2023 -->
+  <text x="90" y="80" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#111111">Peng et al. 2023 — freelance developers, new small task (n=95): <tspan font-weight="bold">&#8722;56% time</tspan> (95% CI &#8722;89% to &#8722;21%)</text>
+  <line x1="95" y1="100" x2="461" y2="100" stroke="#5b7fa6" stroke-width="6" opacity="0.45"/>
+  <line x1="95" y1="90" x2="95" y2="110" stroke="#5b7fa6" stroke-width="2"/>
+  <line x1="461" y1="90" x2="461" y2="110" stroke="#5b7fa6" stroke-width="2"/>
+  <circle cx="271" cy="100" r="7" fill="#1f4e79"/>
+
+  <!-- Row 2: Paradis et al. 2024 -->
+  <text x="90" y="144" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#111111">Paradis et al. 2024 — Google engineers, everyday work (n=96): <tspan font-weight="bold">&#8722;21% time</tspan> (95% CI &#8722;40% to +3%, not significant)</text>
+  <line x1="360" y1="164" x2="589" y2="164" stroke="#5b7fa6" stroke-width="6" opacity="0.45"/>
+  <line x1="360" y1="154" x2="360" y2="174" stroke="#5b7fa6" stroke-width="2"/>
+  <line x1="589" y1="154" x2="589" y2="174" stroke="#5b7fa6" stroke-width="2"/>
+  <circle cx="461" cy="164" r="7" fill="#1f4e79"/>
+
+  <!-- Row 3: METR early 2025 -->
+  <text x="90" y="208" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#111111">METR early 2025 — experts, own mature repositories (n=16 devs): <tspan font-weight="bold">+19% time</tspan> (95% CI +2% to +39%)</text>
+  <line x1="583" y1="228" x2="780" y2="228" stroke="#5b7fa6" stroke-width="6" opacity="0.45"/>
+  <line x1="583" y1="218" x2="583" y2="238" stroke="#5b7fa6" stroke-width="2"/>
+  <line x1="780" y1="218" x2="780" y2="238" stroke="#5b7fa6" stroke-width="2"/>
+  <circle cx="674" cy="228" r="7" fill="#a63d40"/>
+
+  <!-- Row 4: METR late 2025, returning issues -->
+  <text x="90" y="272" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#111111">METR late 2025 — returning issues (n=57 devs): <tspan font-weight="bold">&#8722;18% time</tspan> (95% CI &#8722;38% to +9%)</text>
+  <line x1="366" y1="292" x2="621" y2="292" stroke="#5b7fa6" stroke-width="6" opacity="0.45"/>
+  <line x1="366" y1="282" x2="366" y2="302" stroke="#5b7fa6" stroke-width="2"/>
+  <line x1="621" y1="282" x2="621" y2="302" stroke="#5b7fa6" stroke-width="2"/>
+  <circle cx="477" cy="292" r="7" fill="#1f4e79"/>
+
+  <!-- Row 5: METR late 2025, new issues -->
+  <text x="90" y="336" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#111111">METR late 2025 — new issues, same developers: <tspan font-weight="bold">&#8722;4% time</tspan> (95% CI &#8722;15% to +9%)</text>
+  <line x1="493" y1="356" x2="621" y2="356" stroke="#5b7fa6" stroke-width="6" opacity="0.45"/>
+  <line x1="493" y1="346" x2="493" y2="366" stroke="#5b7fa6" stroke-width="2"/>
+  <line x1="621" y1="346" x2="621" y2="366" stroke="#5b7fa6" stroke-width="2"/>
+  <circle cx="552" cy="356" r="7" fill="#1f4e79"/>
+
+  <!-- Axis -->
+  <line x1="90" y1="378" x2="790" y2="378" stroke="#333333" stroke-width="1.5"/>
+  <g font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">
+    <line x1="143" y1="373" x2="143" y2="383" stroke="#333333" stroke-width="1"/>
+    <text x="143" y="397">&#8722;80%</text>
+    <line x1="254" y1="373" x2="254" y2="383" stroke="#333333" stroke-width="1"/>
+    <text x="254" y="397">&#8722;60%</text>
+    <line x1="360" y1="373" x2="360" y2="383" stroke="#333333" stroke-width="1"/>
+    <text x="360" y="397">&#8722;40%</text>
+    <line x1="467" y1="373" x2="467" y2="383" stroke="#333333" stroke-width="1"/>
+    <text x="467" y="397">&#8722;20%</text>
+    <line x1="573" y1="373" x2="573" y2="383" stroke="#333333" stroke-width="1"/>
+    <text x="573" y="397">0</text>
+    <line x1="679" y1="373" x2="679" y2="383" stroke="#333333" stroke-width="1"/>
+    <text x="679" y="397">+20%</text>
+    <line x1="785" y1="373" x2="785" y2="383" stroke="#333333" stroke-width="1"/>
+    <text x="785" y="397">+40%</text>
+  </g>
+  <text x="300" y="416" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#666666">&#8592; faster (less time)</text>
+  <text x="720" y="416" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#666666" text-anchor="end">slower (more time) &#8594;</text>
+
+  <text x="20" y="442" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#666666">Note: blue dots lie left of the zero line (faster); the red dot (METR early 2025) lies right of it (slower). Confidence intervals that cross the zero line are not statistically significant.</text>
+  <text x="20" y="456" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#666666">Sources: refs [1], [3], [7], [8] of the report bibliography. Peng et al. is the experiment behind the &#8220;55% faster&#8221; claim.</text>
+</svg>

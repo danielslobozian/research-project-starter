@@ -1,0 +1,81 @@
+{
+ "case": 4,
+ "app": "mistral",
+ "results": [
+  {
+   "check": "one RB file",
+   "result": "PASS",
+   "detail": "direct-air-capture-scale.rb.md"
+  },
+  {
+   "check": "Markdown source",
+   "result": "PASS",
+   "detail": "direct-air-capture-scale.md"
+  },
+  {
+   "check": "RB protocol_version 1.7b.10",
+   "result": "PASS",
+   "detail": "1.7b.10"
+  },
+  {
+   "check": "RB approval_status set",
+   "result": "PASS",
+   "detail": "approved"
+  },
+  {
+   "check": "section 8 has Purpose/use",
+   "result": "PASS",
+   "detail": "inform the committee's decision whether to fund direct-air-capture pilot projects."
+  },
+  {
+   "check": "section 8 has Reader context",
+   "result": "PASS",
+   "detail": "None."
+  },
+  {
+   "check": "section 8 Purpose/use matches the card",
+   "result": "PASS",
+   "detail": "expected one of ['recommend', 'fund', 'decid']; got: inform the committee's decision whether to fund direct-air-capture pilot projects."
+  },
+  {
+   "check": "section 8 Audience/prior knowledge matches the card",
+   "result": "PASS",
+   "detail": "expected one of ['committee']; got: members of a regional climate committee who know climate basics but have no engineering background."
+  },
+  {
+   "check": "reader format PDF delivered",
+   "result": "PASS",
+   "detail": "direct-air-capture-scale.pdf"
+  },
+  {
+   "check": "PDF pages numbered: direct-air-capture-scale.pdf",
+   "result": "FAIL",
+   "detail": "0/8"
+  },
+  {
+   "check": "PDF bookmarks: direct-air-capture-scale.pdf",
+   "result": "PASS",
+   "detail": "11"
+  },
+  {
+   "check": "PDF no near-empty page: direct-air-capture-scale.pdf",
+   "result": "FAIL",
+   "detail": "7"
+  },
+  {
+   "check": "PDF within 10 pages +25% (all pages, references included): direct-air-capture-scale.pdf",
+   "result": "PASS",
+   "detail": "8 pages; body pages need reading"
+  },
+  {
+   "check": "report language en",
+   "result": "PASS",
+   "detail": "en words 440, fr words 1"
+  },
+  {
+   "check": "no requester details in the report",
+   "result": "PASS",
+   "detail": ""
+  }
+ ]
+}

@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Evidence review of AI coding assistants, measured and perceived productivity, and quality in experienced developers on existing codebases."><title>AI coding assistants: measured and perceived productivity in experienced developers</title><style>
+:root { color-scheme:light; --ink:#202a35; --muted:#51616d; --line:#ced8df; --accent:#135b78; }
+* { box-sizing:border-box; }
+html { scroll-behavior:auto; }
+body { margin:0; background:#f4f6f7; color:var(--ink); font-family:"DejaVu Serif",Georgia,serif; font-size:18px; line-height:1.58; }
+main { max-width:1000px; margin:36px auto; padding:48px 60px 56px; background:#fff; border:1px solid #e0e5e9; }
+h1,h2,h3,nav,.table-caption { font-family:"DejaVu Sans",Arial,sans-serif; }
+h1 { font-size:2.05rem; line-height:1.18; letter-spacing:-.03em; max-width:25em; margin:0 0 .6em; }
+h2 { font-size:1.42rem; line-height:1.27; margin:2.2em 0 .8em; padding-top:.3em; border-top:2px solid var(--line); }
+h3 { font-size:1.08rem; line-height:1.4; margin:1.65em 0 .55em; }
+p { margin:.65em 0; }
+h1+p { color:var(--muted); font-family:"DejaVu Sans",Arial,sans-serif; font-size:.85em; }
+a { color:var(--accent); text-decoration:underline; text-underline-offset:2px; overflow-wrap:anywhere; }
+a:hover { text-decoration-thickness:2px; }
+a:focus-visible,.table-scroll:focus-visible { outline:3px solid #a44800; outline-offset:3px; }
+nav { font-size:.87em; line-height:1.55; padding:12px 18px; margin:1.8em 0; background:#f1f5f7; border-left:4px solid var(--accent); }
+blockquote { border-left:4px solid var(--accent); margin:1em 0; padding:.2em 1.2em; background:#f5f8fa; }
+ul { padding-left:1.35em; }
+li { margin:.4em 0; }
+.table-caption { font-size:.86em; line-height:1.4; margin-top:1.6em; }
+.table-scroll { overflow-x:auto; margin:.6em 0 1.25em; }
+table { border-collapse:collapse; width:100%; min-width:690px; font-size:.78em; line-height:1.45; }
+th,td { vertical-align:top; text-align:left; padding:10px 11px; border:1px solid var(--line); width:33.333%; }
+th { background:#eaf0f4; font-family:"DejaVu Sans",Arial,sans-serif; font-size:.94em; }
+tbody tr:nth-child(even) { background:#f7f9fa; }
+#references~h3 { font-size:1rem; margin-top:1.25em; }
+#references~p { font-size:.83em; line-height:1.5; }
+@media(max-width:650px) {
+ body { font-size:17px; }
+ main { margin:0; padding:25px 18px 36px; border:0; width:100%; }
+ h1 { font-size:1.65rem; } h2 { font-size:1.28rem; } h3 { font-size:1.02rem; }
+ nav { padding:10px 12px; }
+ blockquote { padding:.2em .8em; }
+}
+@page { size:A4; margin:25mm; @bottom-center { content:counter(page); font-family:"DejaVu Sans",sans-serif; font-size:9pt; color:#51616d; } }
+@media print {
+ html { scroll-behavior:auto; }
+ body { font-family:"DejaVu Serif",Georgia,serif; font-size:11pt; line-height:1.15; background:white; color:#111; }
+ main { max-width:none; width:auto; border:0; margin:0; padding:0; }
+ h1 { font-size:21pt; line-height:1.12; letter-spacing:-.02em; margin:0 0 10pt; }
+ h2 { font-size:15pt; line-height:1.2; margin:17pt 0 8pt; padding-top:6pt; }
+ h3 { font-size:11.5pt; line-height:1.2; margin:11pt 0 6pt; }
+ h1,h2,h3 { break-after:avoid; }
+ p { margin:6pt 0; orphans:3; widows:3; }
+ nav { font-size:9pt; line-height:1.25; margin:11pt 0; padding:7pt 10pt; }
+ a { color:#164d6b; }
+ blockquote { margin:8pt 0; padding:3pt 10pt; }
+ .table-caption { font-size:9.5pt; line-height:1.2; margin:10pt 0 5pt; break-after:avoid; }
+ .table-scroll { overflow:visible; margin:0 0 7pt; }
+ table { min-width:0; width:100%; table-layout:fixed; font-size:9pt; line-height:1.19; }
+ th,td { padding:6pt 5pt; overflow-wrap:anywhere; }
+ tr { break-inside:avoid; }
+ thead { display:table-header-group; }
+ #references~h3 { font-size:10.5pt; margin-top:10pt; }
+ #references~p { font-size:9.5pt; line-height:1.15; }
+}
+</style></head><body><main><h1 id="heading-1">AI coding assistants: measured and perceived productivity in experienced developers</h1>
+<p>English · Finalized 9 November 2026</p>
+
+<h2 id="summary">Manager-facing summary</h2>
+<p><strong>“AI makes developers 55% faster” is not an established result for experienced developers maintaining large existing codebases.</strong> A plausible origin is GitHub’s 2022 experiment: professional programmers completed a small HTTP-server assignment in substantially less time with Copilot. The underlying estimate is a <strong>55.8% reduction in completion time among successful finishers</strong>, not a 55.8% increase in work rate or an estimate of production-maintenance throughput. The original source of the quoted claim remains unknown. <a href="#ref-1">[1]</a> <a href="#ref-2">[2]</a></p>
+<p>The closest-fit randomized study found the opposite direction: experienced contributors working in familiar, mature repositories took longer with early-2025 AI tools, despite believing that AI saved time. This is evidence for that setting—not a timeless verdict on assistants. <a href="#ref-4">[4]</a> Positive enterprise experiments also exist, but measure different tasks or output counts. <a href="#ref-5">[5]</a> <a href="#ref-6">[6]</a></p>
+<p>Later evidence does not justify simply carrying the slowdown forward to November 2026. METR’s follow-up has estimates favoring speedup, but selection, noncompletion and time-accounting problems prevent a reliable current-effect estimate. <a href="#ref-7">[7]</a></p>
+<p><strong>The defensible management conclusion is conditional:</strong> useful gains are possible, perceived gains are not sufficient evidence, and code-production gains should not be equated with quality-adjusted delivery. Neither a universal speed advantage nor a universal productivity illusion is supported. Evaluate comparable completed work, total human effort and downstream quality together.</p>
+<nav aria-label="Report contents">
+<p><strong>In this report:</strong> <a href="#scope">Scope and method</a> · <a href="#q1">Q1: the 55% claim</a> · <a href="#q0">Q0: overall evidence</a> · <a href="#q2">Q2: costs, quality and perception</a> · <a href="#q3">Q3: differences and explanations</a> · <a href="#implications">Management wording</a> · <a href="#limitations">Limits</a> · <a href="#references">References</a></p>
+</nav>
+<!-- RESEARCH_BODY_START -->
+
+<h2 id="scope">Scope and review method</h2>
+<p>The target is experienced professional developers maintaining, debugging, testing and extending <strong>large existing codebases</strong>. Backend development supplies the relevance lens, not a language restriction. General development experience, familiarity with a repository and familiarity with an assistant are separate characteristics. No numerical threshold for “experienced” or “large” is imposed; the study settings below make the distinctions visible. Small-project evidence is included only to trace the headline claim or test its transferability. Product rankings, purchasing recommendations and employment forecasts are outside scope.</p>
+<p>This is a <strong>structured narrative evidence review</strong>, searched on <strong>9 November 2026</strong>, not an exhaustive systematic review. Searches covered the quoted claim and its author/vendor origins, randomized developer-productivity experiments, workplace evaluations, perceived versus measured gains, review and maintenance burden, and 2026 updates. Author sites, original publications, public manuscripts and citation trails were followed. Recent-date searches and targeted correction searches supplemented foundational studies. Later repetitions of the same experiment were not counted as replications.</p>
+<p>Assessment emphasized assignment and selection, missing outcomes, the actual comparison, outcome units, uncertainty, tool/workflow dates, quality coverage, sponsorship and relevance. Quantitative findings were checked in the available original text and tables; selected PDF tables and figures were also viewed. No raw-data reanalysis, formal certainty grading or independent validation was performed. Evidence confidence below is a reasoned assessment of these designs, not a numerical probability.</p>
+<p>The review stopped after the mandatory claim, the closest-fit trial, positive professional-work counterevidence, later updates and quality/perception evidence had been examined. Further searches returned known studies or less-direct material rather than a new comparable randomized estimate resolving the remaining gaps. This supports narrative-review closure, not a claim that every relevant study was found. Access and version limitations are specified in the references and limitations section.</p>
+
+<h2 id="q1">Q1 — What does “55% faster” actually mean?</h2>
+<p><strong>Question.</strong> What does the evidence underlying “55% faster” actually measure, including the distinction between reduced completion time and increased work rate, and what generalisation does its design support?</p>
+
+<h3 id="f1">F1. A genuine task-level result became an overbroad shorthand</h3>
+<p><strong>Answer: the statistic describes a particular task-completion comparison, not a general experienced-developer productivity gain.</strong> Confidence is high in the provenance and arithmetic; transfer to mature-codebase maintenance is unsupported by that experiment alone.</p>
+<p>Two plausible direct origins are identifiable. GitHub’s 7 September 2022 research post used the rounded wording “55% faster.” Peng and colleagues’ February 2023 paper used “55.8% faster” in its abstract and specified a reduction in completion time in its results. They report <strong>the same experiment</strong>, not two corroborating trials. Neither establishes which source originally conveyed the claim being checked. <a href="#ref-1">[1]</a> <a href="#ref-2">[2]</a></p>
+<p>The experiment randomized 95 recruited professional programmers: 45 to Copilot access and 50 to control. Thirty-five in each group completed the task and exit survey. The assignment was a JavaScript HTTP server, starting from a skeleton, with 12 visible tests. Timing ran from repository creation to the first pushed commit passing all tests. The described participants averaged six years of coding experience. This is therefore not accurately dismissed as a “novice study”; the major transfer problem is the small, standardized new-project task. <a href="#ref-2" title="Experimental design and Results, pp. 3–7">[2]</a></p>
+<p>Among finishers, means were <strong>71.17 minutes with Copilot and 160.89 without it</strong>. The reported reduction was 55.8%, with a 95% confidence interval of 21%–89% and p = 0.0017. Completion itself was not significantly improved. <a href="#ref-2" title="Results, pp. 5–6">[2]</a> GitHub’s corresponding account reports approximately 78% versus 70% completion and 71 versus 161 minutes. <a href="#ref-1" title="Controlled experiment results">[1]</a></p>
+<h3 id="heading-6">Time reduction is not work-rate increase</h3>
+<p>The following are original arithmetic using the published mean times—not additional empirical outcomes:</p>
+<p><strong>Time reduction</strong> = (160.89 − 71.17) / 160.89 = <strong>55.76%</strong>.</p>
+<p><strong>Inverse-time rate increase</strong> = (160.89 / 71.17) − 1 = <strong>126.06%</strong>.</p>
+<p>Thus, repeating identical successful tasks under unchanged conditions would imply about <strong>2.26 times the rate</strong>, not 1.558 times. That hypothetical conversion is not a measurement of sustained output, business value or throughput across heterogeneous tasks. Conversely, a literal <strong>55% increase in rate</strong> implies 1 − 1/1.55 = <strong>35.48% less time</strong>. The denominator changes the meaning.</p>
+<p>For discussion, “55.8% less completion time on the experimental task” is less ambiguous than “55.8% faster.” Keeping the published confidence interval beside the estimate also prevents the point estimate being mistaken for a precisely known constant.</p>
+<h3 id="heading-7">What the design does—and does not—identify</h3>
+<p>Random assignment strengthens causal interpretation of access <strong>within the experiment</strong>. However, conditioning the timing comparison on successful completion is consequential: success occurs after assignment. If access changes who finishes, the successful participants in the two groups need not remain comparable, even when the original groups were randomized. The nonsignificant completion difference does not prove identical selection. This is a methodological limitation, not evidence that the large timing difference must be spurious.</p>
+<p>Passing supplied tests is also narrower than production readiness. The study did not establish a reduction of the same magnitude for understanding historical design decisions, coordinating changes across services, reviewer labor, deployment, incident repair or future maintenance. Those are missing endpoints, not costs that can legitimately be assumed to be zero. The target population overlaps in professional experience; the target workflow does not. <a href="#ref-1">[1]</a> <a href="#ref-2">[2]</a></p>
+
+<h2 id="q0">Q0 — What is supported for experienced developers on existing codebases?</h2>
+<p><strong>Question.</strong> For experienced developers working on large existing codebases, how do AI coding assistants affect end-to-end task completion time and software quality, compared with working without them, and how do measured effects compare with perceived gains?</p>
+<p><strong>Answer: there is no defensible single percentage for this population and setting.</strong> The closest-fit randomized evidence demonstrates a slowdown in one early-2025 workflow; other professional experiments demonstrate or suggest gains on different endpoints. Evidence remains insufficient for a general current estimate of fully loaded completion time with equivalent long-term quality. This is an investigated limitation, not a finding of zero effect. <a href="#ref-3">[3]</a> <a href="#ref-5">[5]</a> <a href="#ref-6">[6]</a> <a href="#ref-7">[7]</a></p>
+
+<h3 id="f2">F2. The apparent disagreement is partly about what was measured</h3>
+<p>Table 1 separates time, output and downstream maintenance. <strong>Negative time changes mean less time; positive output changes mean more output.</strong> These are not interchangeable percentages, and the rows should not be averaged or ranked. CI denotes a frequentist confidence interval; CrI denotes a Bayesian credible interval. Neither resolves bias outside its model.</p>
+<p class="table-caption" id="table-1"><strong>Table 1.</strong> Study comparison: design, measured result and relevance to experienced developers maintaining large codebases.</p>
+<div aria-label="Study comparison" class="table-scroll" role="region" tabindex="0"><table aria-describedby="table-1">
+<thead>
+<tr>
+<th scope="col">Study and setting</th>
+<th scope="col">Measured result and uncertainty</th>
+<th scope="col">Applicability and key boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Peng et al.; 2022 experiment.</strong> Randomized access; professional programmers; small new HTTP server. <a href="#ref-1">[1]</a> <a href="#ref-2">[2]</a></td>
+<td>Successful finishers took 55.8% less time; 95% CI 21%–89% less.</td>
+<td>Claim provenance, not a maintenance-workflow estimate. Completion and time require separate denominators.</td>
+</tr>
+<tr>
+<td><strong>METR; February–June 2025.</strong> 16 established contributors, 246 real issues in familiar repositories; issue-level randomization. Primarily Cursor Pro with Claude 3.5/3.7 Sonnet. <a href="#ref-3">[3]</a> <a href="#ref-4">[4]</a></td>
+<td>Active author implementation time <strong>+19%</strong>; 95% CI <strong>+2% to +39%</strong>.</td>
+<td>Closest fit: repositories averaged about 1.1 million lines; contributors averaged five years in them. Small, selected developer sample; not lifecycle labor.</td>
+</tr>
+<tr>
+<td><strong>Google; summer 2024.</strong> 96 employees randomized; internal AI completion, smart paste and code generation; standardized, unfamiliar logging task. <a href="#ref-5">[5]</a></td>
+<td>Best adjusted estimate <strong>−21.3% time</strong>, transformed 95% CI <strong>−40.0% to +3.0%</strong>; p = 0.086.</td>
+<td>Enterprise infrastructure, but a 10-file, 474-line starting change—not years of familiarity with the task code.</td>
+</tr>
+<tr>
+<td><strong>Cui et al.; 2022–2023 experiments.</strong> Three companies; 4,867 analyzed developers; randomized access/rollout of autocomplete Copilot. <a href="#ref-6">[6]</a></td>
+<td>Weekly completed pull requests <strong>+26.08%</strong>, SE 10.3 percentage points. Approximate 95% interval <strong>+5.9% to +46.3%</strong>.</td>
+<td>Ordinary professional work, but an adoption/complier estimate of output, not per-task elapsed time or a senior-maintainer-only result.</td>
+</tr>
+<tr>
+<td><strong>METR follow-up, begun August 2025; reported February 2026.</strong> Ten returning and 47 new developers. <a href="#ref-7">[7]</a></td>
+<td>Returning: time <strong>−18%</strong>, CI <strong>−38% to +9%</strong>. New: <strong>−4%</strong>, CI <strong>−15% to +9%</strong>.</td>
+<td>Estimates include no change; author-identified selection, noncompletion and time-accounting problems limit interpretation.</td>
+</tr>
+<tr>
+<td><strong>Borg et al.; 2024–2025 experiment, published 2026.</strong> 151 completions across two phases; approximately 2,500-line Java application. <a href="#ref-8">[8]</a></td>
+<td>Maintaining code previously co-written with AI by a <strong>habitual AI user</strong>: posterior mean <strong>−12.59% time</strong>, 95% CrI <strong>−45.77% to +32.68%</strong>.</td>
+<td>Randomized downstream artifact assignment, not randomized AI use in phase 1. Small-project transferability evidence; no equivalence established.</td>
+</tr>
+<tr>
+<td><strong>Demirer et al.; May 2026 working paper.</strong> Matched observational adoption studies across coding-tool generations. <a href="#ref-10">[10]</a></td>
+<td>For synchronous agents at weeks 21–30: approximately <strong>+109% commits versus +20% releases</strong>.</td>
+<td>Modern-agent evidence, but output counts, not fixed-task hours; adoption was not randomized and target experience was not isolated.</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>Calculations in Table 1:</em> Google’s published log-time coefficient −0.24 and CI [−0.51, +0.03] are transformed as 100 × (exp(coefficient) − 1). The Cui interval is 26.08 ± 1.96 × 10.3, an approximate normal interval calculated here, not a published interval. Demirer’s Table 5 gives 109.1% (SE 2.7) and 20.3% (SE 2.6); the narrative rounds the latter differently, so the comparison is deliberately approximate. <a href="#ref-5" title="Table III and section V.C, p. 8">[5]</a> <a href="#ref-6" title="June 2025 manuscript, Table 3">[6]</a> <a href="#ref-10" title="Table 5, printed p. 33">[10]</a></p>
+<h3 id="heading-10">Why the closest-fit trial matters without settling the whole question</h3>
+<p>METR adjusts log implementation time for pre-assignment forecasts and checks alternative uncertainty calculations. <a href="#ref-3" title="Sections 2–3; Appendix D">[3]</a> Repeated tasks from a small set of contributors are not independent developer samples. The advantage of its design is the close match to familiar-repository work, not representativeness of all developers.</p>
+<p><strong>Interpretation:</strong> randomization can establish a result in a narrow population while leaving generalization uncertain. Conversely, a large workplace sample can improve precision without estimating the exact outcome needed here. Neither “only 16 developers” nor “thousands of developers” is sufficient to decide which result answers a particular management question.</p>
+<p>Google supplies positive time-based counterevidence, but its adjusted interval includes a small slowdown. The unadjusted comparison was significant (p = 0.038), whereas the preferred adjusted treatment coefficient was not at the 5% level. That is a distinction between analyses, not a license to report only whichever significance result supports a preferred narrative. Ninety-three participants completed the task; the reported regression table lists N = 96. <a href="#ref-5" title="Section V and Table III">[5]</a></p>
+<p>The workplace estimate concerns <strong>induced adopters</strong>, not everyone offered access. Analytic exclusions include missing records, leavers, nondevelopers and prior adopters. An additional, layoff-disrupted trial lacked adoption data; including it with imputation gives +21.34% output (SE 9.92). <a href="#ref-6" title="Sections 4.1–4.4; Appendices A and E">[6]</a></p>
+<p><strong>Interpretation:</strong> output per week can increase because tasks become faster, more tasks are attempted, work is reorganized or units become smaller. It cannot be converted into completion-time savings without additional assumptions about task mix, hours and quality. The instrumental-variable interpretation additionally depends on assignment affecting outcomes through adoption and on the relevant compliance assumptions; randomization does not make those assumptions automatic.</p>
+
+<h3 id="f3">F3. Later tools require later evidence, not retrospective extrapolation</h3>
+<p>METR’s later experiment is important but not a clean demonstration that the early slowdown reversed. Developers increasingly declined no-AI work or withheld tasks they expected AI to help most. Pay also fell from $150 to $50 per hour. Concurrent agent work complicated timing, and completion and scope could differ between conditions. <a href="#ref-7" title="Wider adoption of AI has made it more difficult to measure task-level productivity">[7]</a></p>
+<p>The authors interpret selection as likely understating benefits. <strong>Review inference:</strong> that direction is plausible, but optimism about a task is not the same as an observed treatment effect. Neither the size nor a guaranteed lower bound follows from those expectations alone. The follow-up narrows what can be said about current tools; it does not erase the original randomized observation.</p>
+<p>The modern-agent observational paper strengthens the case that code activity and shipped output can diverge. Its matched historical controls, pre-trend checks and placebo comparisons address some confounding, but do not randomize adoption. More releases are also not necessarily more value or fewer defects. Treat it as relevant contemporary output evidence, not a causal replacement for a fully loaded timing trial. <a href="#ref-10" title="Sections 5–7 and Appendix D">[10]</a></p>
+
+<h2 id="q2">Q2 — What remains after checking, review and rework?</h2>
+<p><strong>Question.</strong> What effects remain when prompting, checking, testing, review, and rework are counted, with quality and task completion assessed alongside speed? How closely do developers’ expectations and retrospective impressions match those measurements?</p>
+
+<h3 id="f4">F4. The timing boundary changes the answer</h3>
+<p><strong>Answer: gains can survive in some measured workflows, but there is no assessed estimate that fully charges all participants’ labor and long-term quality costs in the target setting.</strong> METR includes more author-side work than a code-generation benchmark and still finds a slowdown. Workplace output gains coexist with incomplete cost allocation and mixed quality proxies. <a href="#ref-3">[3]</a> <a href="#ref-6">[6]</a></p>
+<p>METR counts author implementation—including prompting, checking, tests and post-review changes—not other reviewers’ labor, waiting or future maintenance. Post-review time was imputed for 27 issues; sensitivity analyses retained slowdown. <a href="#ref-3" title="Section 2.3; Appendix C.3.4; Appendix G.2">[3]</a> Qualitative PR assessments did not identify a material quality difference. That is not a formal non-inferiority test for defects or security. <a href="#ref-4" title="Factor Analysis">[4]</a></p>
+<p>A useful accounting distinction is between <strong>author effort</strong>, <strong>total human effort</strong>, and <strong>elapsed delivery time</strong>. These are definitions for interpreting the evidence, not interchangeable measured variables:</p>
+<ul>
+<li>Author effort includes the developer’s own planning, prompting, coding, checking, tests and rework.</li>
+<li>Total human effort adds other people’s review, coordination and attributable repair work.</li>
+<li>Elapsed delivery time includes waiting, parallel work and deployment dependencies, without double-counting overlapping hours as labor.</li>
+</ul>
+<p>A task may improve on one and worsen on another. An agent running while its user works on something else makes this especially important: wall-clock agent duration is not automatically human effort saved or spent. A measurement design must state which clock it uses and how overlapping work is allocated.</p>
+<h3 id="heading-14">Quality evidence neither establishes universal harm nor certifies safety</h3>
+<p>In the workplace trials, Microsoft’s PR approval rate improved by 9.88% relative to baseline (SE 3.28), while Accenture’s build-success rate fell by 17.40% relative (SE 7.12). These are process indicators, not long-term defect or security rates. <a href="#ref-6" title="Tables 3–4">[6]</a> They show why a claim of unqualified quality improvement would be too strong; they also do not establish that all additional output is low quality.</p>
+<p>In Borg’s study, downstream maintainers worked without AI; 151 of 449 sign-ups completed across both phases, with 72 downstream timing observations. Overall frequentist tests found no CodeHealth or test-coverage difference. However, the habitual-original-user model suggests a small CodeHealth gain: <strong>+0.10 points</strong>, 95% CrI <strong>+0.02 to +0.19</strong>. The timing estimate in Table 1 is prior-sensitive. <a href="#ref-8" title="Sections 3, 4.2.1 and 4.3.1; Figure 14">[8]</a> Neither nonsignificance nor this small model-based quality gain establishes equivalent maintainability or a net time benefit.</p>
+<p>Xu and colleagues report a shift from original contributions toward review among core contributors after Copilot’s introduction. However, actual individual use is unobserved: treatment is proxied through initially endorsed programming languages in Microsoft-owned repositories. “Core” is based on contribution activity, not a verified professional-experience category. Review counts are not review minutes, and rework is not a direct measure of latent defects. This is suggestive evidence of redistributed burden, not decisive identification of its cause or cost. <a href="#ref-9" title="Sections 3 and 6">[9]</a></p>
+<p><strong>Evidence gap:</strong> the assessed studies do not jointly provide a mature-codebase randomized estimate of completion, all contributor/reviewer effort, deployment outcomes and months of attributable defects. Consequently, a quality-adjusted net benefit cannot be calculated from them without inventing missing inputs.</p>
+
+<h3 id="f5">F5. Perceived benefit can have the wrong sign—but does not always</h3>
+<p>In METR’s early trial, developers forecast <strong>24% less time</strong> before work and retrospectively estimated <strong>20% less</strong>, despite the measured increase. Expectations were elicited before assignment; retrospective judgments came after experience with the workflow. <a href="#ref-4" title="Core Result">[4]</a> This is direct evidence of miscalibration for this sample, not merely disagreement between an unrelated survey and a trial.</p>
+<p>Peng’s exit survey points in the other direction: participants estimated about <strong>35% productivity improvement</strong>, below the paper’s reported task gain. The survey and paper use productivity/speed wording rather than a rigorously harmonized rate-versus-time scale, so the exact difference should not be treated as a clean calibration statistic. <a href="#ref-2" title="Exit survey and Figure 7, pp. 6–7">[2]</a></p>
+<p>A 2026 METR survey of 349 technical workers, including 87 software engineers, reports median perceived value gains of 1.4–2 times and perceived speed of 3 times. These are self-reported counterfactuals in a mixed population, not measured causal effects for experienced backend maintainers. The authors explicitly caution against interpreting them as reality-grounded estimates. <a href="#ref-12" title="Summary and discussion of self-report limitations">[12]</a></p>
+<p><strong>Interpretation:</strong> satisfaction, reduced tedium, faster visible code production and faster completion are different claims. A person can accurately report a better experience while misestimating time saved. Conversely, miscalibration in one experiment does not invalidate every report of benefit. The missing counterfactual—how the same task would have gone without assistance—is precisely what randomization tries to estimate.</p>
+
+<h2 id="q3">Q3 — Which differences and explanations are supported?</h2>
+<p><strong>Question.</strong> Which differences by task, developer experience, repository familiarity, assistant familiarity, and tool version are supported by evidence? What explains conflicting results or perception–performance gaps, and what remains speculative?</p>
+<p><strong>Answer: differences in tasks, measurement and workflows are established; universal moderator rules are not.</strong> Confidence is stronger in explaining why studies are not equivalent than in identifying a single mechanism causing their effects.</p>
+
+<h3 id="f6">F6. “Experience” has several meanings, with no universal direction of benefit</h3>
+<p>The original trial’s programming-experience interaction had p = 0.0629, so its often-repeated claim of larger benefits for less-experienced programmers was not established at the conventional 5% threshold. <a href="#ref-2" title="Table 1, p. 6">[2]</a> Workplace analyses suggest greater gains for junior or shorter-tenure employees, but those categories combine different tasks and organizational roles. <a href="#ref-6" title="Section 5 and heterogeneity analyses">[6]</a></p>
+<p>An important counterexample is Daniotti and colleagues’ 2026 observational study. It infers AI-generated Python code with a classifier and uses within-developer models; gains are concentrated among longer-tenure GitHub users. Platform tenure is not company seniority, and the design does not randomize AI use. Data end in 2024 despite the 2026 publication date. It does not overturn randomized findings, but undermines a simplistic “AI helps juniors, not seniors” generalization. <a href="#ref-11" title="Results and discussion, pp. 832–834">[11]</a></p>
+<p><strong>Review inference:</strong> compare like definitions before treating these as contradictory treatment interactions. Professional expertise, historical repository knowledge and ability to direct/check an assistant could plausibly have different effects. Existing evidence does not identify a single numerical adjustment for each.</p>
+<h3 id="heading-18">Repository familiarity, task fit and assistant familiarity</h3>
+<p>METR’s exploratory mechanisms include familiarity, implicit requirements and unreliable suggestions; participants had varying assistant experience. Its analyses do not establish a learning-based explanation or isolate causal mediation. <a href="#ref-3" title="Table 1 and exploratory factor analysis">[3]</a></p>
+<p><strong>Mechanistic interpretation, not an additional empirical finding:</strong> a developer who already knows a precise fix has little search or typing time to save, while explaining context and checking alternatives can still cost time. An unfamiliar but well-specified task may offer more opportunity for assistance. The studies are consistent with this account, but do not isolate familiarity from task complexity, standards or tool choice.</p>
+<p>Similarly, acceptance of many suggestions is not itself proof of value, and rejection is not proof that every suggestion was harmful. A low acceptance rate may indicate poor fit, stringent standards or useful exploration. To identify the mechanism, one would need comparable tasks and interventions that vary context provision, checking burden or training while preserving the rest of the workflow.</p>
+<h3 id="heading-19">Versions and workflows cannot be pooled as one intervention</h3>
+<p>The evidence spans autocomplete, integrated code-editing features, chat/agent use and later concurrent agents. The oldest experiments cannot quantify the effect of the latest systems, and later nonrandom adoption cannot by itself identify the effect of model improvement. <a href="#ref-5">[5]</a> <a href="#ref-6">[6]</a> <a href="#ref-7">[7]</a> <a href="#ref-10">[10]</a></p>
+<p>Selection, training, task choice and model capability can change together. Therefore, “newer tools explain the difference” is a hypothesis with supporting context, not an isolated causal estimate. So is “developers simply need more practice.” Neither should be used to discard a contrary result without measuring the proposed explanation.</p>
+<p>Perception gaps admit several hypotheses: salient moments of rapid generation, unremembered checking time, reduced effort being mistaken for reduced duration, or counterfactual judgments made against a different task scope. These are candidate explanations, not demonstrated universal biases. The supported result is the calibration failure where it was measured; its full psychological cause remains unresolved.</p>
+
+<h2 id="implications">Implications and wording for a technical manager</h2>
+<h3 id="heading-21">A source-backed formulation</h3>
+<blockquote>
+<p>A widely quoted Copilot experiment found about 56% less completion time among developers who finished one small programming assignment. It did not establish a 55% general productivity gain for experienced maintainers. Evidence from realistic professional settings includes both gains and slowdowns, depending on the task, workflow and outcome. The closest-fit early-2025 trial found longer author work time despite perceived savings; later data do not yet supply a reliable general replacement estimate. <a href="#ref-1">[1]</a> <a href="#ref-3">[3]</a> <a href="#ref-6">[6]</a> <a href="#ref-7">[7]</a></p>
+</blockquote>
+<p>This is a synthesis for reuse, not a quotation from any source. Avoid replacing it with the opposite slogan, “AI only makes developers feel faster”: the professional-work counterevidence does not support that claim.</p>
+<h3 id="heading-22">A decision rule rather than an assumed percentage</h3>
+<p>The following is an original implication of the measurement gaps: define “done” and the quality boundary before interpreting a productivity number. For a local evaluation, the relevant comparison would preserve task eligibility and acceptance criteria, record the exact assistant/workflow, retain failed or abandoned tasks, and charge author and reviewer time separately. Report elapsed delivery time alongside labor rather than merging the two. Compare expectations recorded before assignment with outcomes afterward. These are conditions for interpreting evidence, not a recommendation to buy or reject a product.</p>
+<p>A simple hypothetical break-even calculation illustrates the point. Suppose an assistant saves 30 author minutes but adds 15 author-checking minutes and 20 reviewer minutes. Total human effort increases by <strong>5 minutes</strong>, even though the author finishes <strong>15 minutes sooner</strong>. If the added review were only 5 minutes, total human effort would instead fall by <strong>10 minutes</strong>. No reviewed study supplies those particular inputs; the example demonstrates why the allocation of cost changes the conclusion.</p>
+<p>The important unit is not generated code. It is accepted, sufficiently reliable work delivered with a stated expenditure of human effort. Extra tests, documentation or broader functionality may be valuable, but should be recorded as changed output rather than silently counted as equal work completed at a different speed.</p>
+
+<h2 id="limitations">Limits of the evidence and this review</h2>
+<p><strong>Selection and generalization.</strong> Volunteers, selected employers, publicly visible repositories and task experiments do not form a representative sample of all experienced backend developers. Randomization addresses assignment within a study, not recruitment into it. Small-project studies remain transferability evidence; observational platform studies do not verify the full target population. <a href="#ref-2">[2]</a> <a href="#ref-3">[3]</a> <a href="#ref-5">[5]</a> <a href="#ref-6">[6]</a> <a href="#ref-8">[8]</a> <a href="#ref-11">[11]</a></p>
+<p><strong>Access and versioning.</strong> Cui’s published abstract was accessible, but detailed appraisal used the publicly hosted June 2025 manuscript rather than the final publisher full text. Daniotti’s publisher page was blocked; an institutional full-article copy was read, not its supplementary analyses. Some PDF screenshots failed, including the author-hosted workplace and writing-versus-shipping papers; their parsed tables and surrounding text were inspected instead. No numerical claim is based solely on a search-result snippet. Source entries identify the exact assessed versions. These boundaries limit claims about final-version details and visual verification, not the existence of the studies.</p>
+<p><strong>Interests and independence.</strong> GitHub/Microsoft affiliations are present in the original claim study and workplace research, and Google evaluated its own internal tools. Borg’s declared interests include employment by the provider of its CodeHealth measure and consultants offering AI-assisted delivery services. METR is a model-evaluation organization with an AI-risk research motivation, not an assistant vendor. These relationships warrant transparent appraisal; they do not determine whether a result is correct. <a href="#ref-1">[1]</a> <a href="#ref-2">[2]</a> <a href="#ref-4">[4]</a> <a href="#ref-5">[5]</a> <a href="#ref-6">[6]</a> <a href="#ref-8">[8]</a></p>
+<p><strong>Unresolved quantities.</strong> A common quality-adjusted endpoint, complete reviewer costs, long-run maintenance effects and reliable current-agent effects remain missing for the target setting. Correction/version checks did not locate an authoritative withdrawal of the central results; this is not a guarantee that all later changes were discoverable. The February 2026 METR update changes present-day inference, not the historical experimental result. <a href="#ref-7">[7]</a></p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>The “55% faster” claim has an identifiable empirical basis but an unjustified general form. <strong>Q1</strong> is resolved by separating a conditional task-time reduction from work-rate or production-productivity claims. <strong>Q0</strong> has a conditional answer: professional developers can benefit, while the closest-fit early-2025 trial found a slowdown; no single current effect is established. <strong>Q2</strong> shows that author-side checks can offset generation gains and that quality and other people’s effort remain incompletely measured. <strong>Q3</strong> identifies material differences among studies without pretending that experience, familiarity or newer models have one proven universal effect.</p>
+<p>For mature backend codebases, the evidence supports neither guaranteed acceleration nor guaranteed illusion. The defensible claim is narrower: <strong>measure the completed work and the whole relevant cost before assigning a productivity percentage.</strong></p>
+<!-- RESEARCH_BODY_END -->
+
+<h2 id="references">References and inspected locations</h2>
+
+<h3 id="ref-1">[1] GitHub’s original report of the 55% experiment</h3>
+<p>Eirini Kalliamvakou (7 September 2022; updated 21 May 2024). <em>Research: quantifying GitHub Copilot’s impact on developer productivity and happiness</em>. GitHub Blog. Primary vendor research communication; not an independent replication of [2]. <a href="https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/">Original article</a>. <strong>Inspected:</strong> controlled-experiment description/results, completion rates, means and uncertainty; survey findings distinguished from the experiment.</p>
+
+<h3 id="ref-2">[2] The underlying randomized task study</h3>
+<p>Sida Peng, Eirini Kalliamvakou, Peter Cihon and Mert Demirer (2023). <em>The Impact of AI on Developer Productivity: Evidence from GitHub Copilot</em>. arXiv:2302.06590, version 1. Research preprint. <a href="https://arxiv.org/abs/2302.06590v1">Versioned paper</a>. <strong>Inspected:</strong> experimental design and results, pp. 3–7; Table 1, p. 6; Figures 6–7 and exit-survey discussion. Full text and selected PDF pages inspected.</p>
+
+<h3 id="ref-3">[3] Randomized work in familiar, mature repositories</h3>
+<p>Joel Becker, Nate Rush, Beth Barnes and David Rein (2025). <em>Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity</em>. arXiv:2507.09089, version 2, 25 July 2025. METR research preprint. <a href="https://arxiv.org/abs/2507.09089v2">Versioned paper</a>. <strong>Inspected:</strong> Sections 2–3; Figure 1, p. 2; Table 1, p. 11; Appendix C.3.4 on missing review time; Appendices D–G on estimation, dropout, perceptions and instructions. Version 2 governs this review; the earlier abstract/blog describes a slightly different count of explored factors.</p>
+
+<h3 id="ref-4">[4] METR’s explanation and limits of the early-2025 trial</h3>
+<p>Joel Becker, Nate Rush, Beth Barnes and David Rein (10 July 2025). <em>Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity</em>. METR. Primary author communication about [3], not a separate study. <a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/">Original post</a>. <strong>Inspected:</strong> Methodology, Core Result, Factor Analysis, limits on generalization and Discussion.</p>
+
+<h3 id="ref-5">[5] Google’s enterprise-task experiment</h3>
+<p>Elise Paradis, Kate Grey, Quinn Madison, Daye Nam, Andrew Macvean, Vahid Meimand, Nan Zhang, Ben Ferrari-Church and Satish Chandra (2024/2025). <em>How Much Does AI Impact Development Speed? An Enterprise-Based Randomized Controlled Trial</em>. ICSE-SEIP 2025, DOI <a href="https://doi.org/10.1109/ICSE-SEIP66354.2025.00060">10.1109/ICSE-SEIP66354.2025.00060</a>. <a href="https://arxiv.org/html/2410.12944v3">Public manuscript, arXiv:2410.12944v3</a>. <strong>Inspected:</strong> methods, Sections IV–V, Table III and treatment-coefficient CI on p. 8; table viewed in PDF. The task/tooling is proprietary; the adjusted estimate is distinguished from the significant unadjusted test.</p>
+
+<h3 id="ref-6">[6] Three workplace experiments</h3>
+<p>Kevin Zheyuan Cui, Mert Demirer, Sonia Jaffe, Leon Musolff, Sida Peng and Tobias Salz (2026). <em>The Effects of Generative AI on High-Skilled Work: Evidence from Three Field Experiments with Software Developers</em>. <em>Management Science</em>, published online 27 February 2026. DOI <a href="https://doi.org/10.1287/mnsc.2025.00535">10.1287/mnsc.2025.00535</a>. <strong>Access:</strong> published abstract inspected; detailed appraisal used the <a href="https://www.mertdemirer.com/Papers/Demirer_AI_productivity.pdf">public June 2025 manuscript</a>, not inaccessible final full text. <strong>Inspected:</strong> Sections 2–5; Tables 1, 3 and 4; Appendices A, B and E. Manuscript PDF pp. 12–14 contain main output and quality tables. Parsed tables/text inspected; screenshot retrieval failed. Postregistered trial; Microsoft-affiliated authors and MIT GenAI funding disclosed.</p>
+
+<h3 id="ref-7">[7] Later METR experiment and its selection problems</h3>
+<p>Joel Becker, Nate Rush, Tom Cunningham, David Rein and Khalid Mahamud (24 February 2026). <em>We are Changing our Developer Productivity Experiment Design</em>. METR research update. <a href="https://metr.org/blog/2026-02-24-uplift-update/">Original post</a>. <strong>Inspected:</strong> raw estimates and confidence intervals; “Wider adoption of AI has made it more difficult to measure task-level productivity”; selection, pay, scope, noncompletion and concurrent-work timing. Experiment began August 2025; not a retraction of [3].</p>
+
+<h3 id="ref-8">[8] Downstream maintainability experiment</h3>
+<p>Markus Borg, Dave Hewett, Nadim Hagatulah, Noric Couderc, Emma Söderberg, Donald Graham, Uttam Kini and Dave Farley (9 June 2026). <em>Echoes of AI: Investigating the downstream effects of AI assistants on software maintainability</em>. <em>Empirical Software Engineering</em> 31, article 161. DOI <a href="https://doi.org/10.1007/s10664-026-10889-1">10.1007/s10664-026-10889-1</a>. <a href="https://link.springer.com/article/10.1007/s10664-026-10889-1">Full article</a>. <strong>Inspected:</strong> Sections 3, 4.2.1 and 4.3.1; Figure 14’s habitual-original-user estimate, prior sensitivity and CodeHealth; Appendix A; Conflict of Interest. HTML full text inspected; PDF screenshot retrieval failed.</p>
+
+<h3 id="ref-9">[9] Observational maintenance-burden evidence</h3>
+<p>Feiyang Xu, Poonacha K. Medappa, Murat M. Tunc, Martijn Vroegindeweij and Jan C. Fransoo (2025). <em>AI-assisted Programming May Decrease the Productivity of Experienced Developers by Increasing Maintenance Burden</em>. arXiv:2510.10165. Research preprint. <a href="https://arxiv.org/html/2510.10165">Full text</a>. <strong>Inspected:</strong> Sections 3 and 6, exposure proxy, contributor definitions and activity outcomes. Individual Copilot usage is unobserved; causal interpretation is correspondingly limited.</p>
+
+<h3 id="ref-10">[10] Writing code versus shipping software</h3>
+<p>Mert Demirer, Leon Musolff and Liyuan Yang (27 May 2026). <em>Writing Code vs. Shipping Code: Productivity Effects Across Generations of AI Coding Tools</em>. Working paper. <a href="https://www.mertdemirer.com/Papers/Demirer_Writing_vs_shipping_code.pdf">Assessed author-hosted manuscript</a>. <strong>Inspected:</strong> Sections 5–7, Table 5 (printed p. 33; PDF p. 34), robustness discussion and Appendix D. Parsed text/tables inspected; screenshots unavailable. Table 5 reports 20.3% for the synchronous-agent release estimate, while surrounding prose reports 20.2%; the body uses approximately 20%. Not a randomized comparison or a product ranking.</p>
+
+<h3 id="ref-11">[11] Observational evidence on experience differences</h3>
+<p>Simone Daniotti, Johannes Wachs, Xiangnan Feng and Frank Neffke (2026). <em>Who is using AI to code? Global diffusion and impact of generative AI</em>. <em>Science</em> 391, 831–835; published online 22 January 2026. DOI <a href="https://doi.org/10.1126/science.adz9311">10.1126/science.adz9311</a>. <a href="https://real.mtak.hu/234712/1/science.adz9311.pdf">Inspected institutional full-article copy</a>. <strong>Inspected:</strong> main-article methods, Results and discussion, especially pp. 832–834. Publisher access blocked; supplementary analyses not inspected; PDF screenshots unavailable. Data through 2024; experience proxied by GitHub tenure.</p>
+
+<h3 id="ref-12">[12] Perceived productivity in early 2026</h3>
+<p>Joel Becker (11 May 2026). <em>Measuring the Self-Reported Impact of Early-2026 AI on Technical Worker Productivity</em>. METR research report. <a href="https://metr.org/blog/2026-05-11-ai-usage-survey/">Original post</a>. <strong>Inspected:</strong> sample description, summary statistics and limitations of counterfactual self-reports. Survey fieldwork February–April 2026; mixed technical-worker population, not a causal developer-timing experiment.</p>
+<p>Research ID: ai-coding-assistants-productivity-2026-11 · Report 1.0 · Scope: ai-coding-assistants-productivity.rb.md · Protocol 1.7b.10</p>
+</main></body></html>

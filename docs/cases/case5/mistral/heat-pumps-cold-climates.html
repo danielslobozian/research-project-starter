@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pompes à chaleur en climat froid : performances réelles, rentabilité et conditions de choix</title>
+<style>
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: Georgia, 'Times New Roman', 'Liberation Serif', serif; font-size: 11pt; line-height: 1.15;
+  color: #1a1a2e; margin: 0; background: #ffffff; }
+@media screen { body { background: #e9e9ec; } .page { background: #ffffff; max-width: 210mm; margin: 18px auto;
+  padding: 25mm; box-shadow: 0 2px 10px rgba(0,0,0,.22); } }
+@page { size: A4; margin: 25mm; }
+h1 { font-size: 19pt; line-height: 1.25; margin: 0 0 .4em; }
+h2 { font-size: 14pt; margin: 1.7em 0 .5em; break-after: avoid; page-break-after: avoid; }
+h3 { font-size: 12pt; margin: 1.35em 0 .4em; break-after: avoid; page-break-after: avoid; }
+h3.ref-title { font-size: 10.5pt; margin: 1.3em 0 .2em; }
+p { margin: .55em 0; text-align: justify; }
+p.subtitle { font-size: 11.5pt; color: #40404a; margin: .2em 0; text-align: left; }
+p.meta { font-size: 10pt; color: #555; margin-bottom: 1em; text-align: left; }
+hr { border: 0; border-top: 1px solid #b5b5bd; margin: 1.4em 0; }
+a { color: #1a5fb4; text-decoration: none; overflow-wrap: break-word; }
+a.cite { font-size: .9em; }
+p.finding { background: #f0f5fb; border-left: 3px solid #1a5fb4; padding: .55em .75em; margin: 1em 0; text-align: left; }
+p.finding strong { color: #123c66; }
+p.question { background: #eef4ee; border-left: 3px solid #1a7a3d; padding: .55em .75em; margin: 1em 0; text-align: left; }
+p.question strong { color: #1a5a31; }
+p.answer { border-left: 3px solid #e66100; padding: .35em 0 .35em .75em; margin: 1em 0; text-align: left; }
+figure { margin: 1.1em 0; text-align: center; break-inside: avoid; page-break-inside: avoid; }
+figure svg { width: 100%; height: auto; max-width: 660px; }
+p.figcaption, p.tablecaption { font-size: 9.5pt; color: #45454f; margin: .45em 0 1.1em; text-align: left; }
+table.data { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: .9em 0; break-inside: avoid; page-break-inside: avoid; }
+table.data th, table.data td { border: 1px solid #b8c0ca; padding: .35em .5em; text-align: left; vertical-align: top; line-height: 1.25; }
+table.data th { background: #edf0f4; }
+table.data tbody tr:nth-child(even) { background: #f7f9fb; }
+ul, ol { margin: .55em 0; padding-left: 1.5em; }
+li { margin: .3em 0; text-align: justify; }
+p.refnote { font-size: 9.5pt; color: #3a3a42; margin: .15em 0 1em; text-align: left; }
+p.identification { font-size: 9.5pt; color: #555; border-top: 1px solid #b5b5bd; padding-top: .7em;
+  margin-top: 2em; text-align: left; }
+</style>
+</head>
+<body>
+<div class="page">
+<h1>Pompes à chaleur en climat froid : performances réelles, rentabilité et conditions de choix</h1>
+
+<p class="subtitle">Revue de preuves pour le chauffage résidentiel — données françaises mises en avant</p>
+
+<p class="meta">Langue : français · Date de finalisation : 9 novembre 2026</p>
+
+<h2 id="resume">Résumé</h2>
+
+<p>Une pompe à chaleur reste performante et rentable en climat froid, à des conditions précises. Le coefficient de performance (COP) baisse continûment quand il fait plus froid : les modèles « climat froid » récents maintiennent une puissance proche du nominal et un COP ≥ 1,75 à −15 °C en laboratoire, et les prototypes du programme américain DOE atteignent COP ≥ 2,4 avec 100 % de puissance à −15 °C <a class="cite" href="#ref-5">[5]</a> <a class="cite" href="#ref-6">[6]</a>. Sur le terrain, la campagne française ADEME mesure un COP annuel moyen de 2,9 (air/eau, maisons individuelles), les bonnes installations dépassant 4 — mais un tiers des installations sont améliorables par des réglages ou une pose soignée <a class="cite" href="#ref-1">[1]</a> <a class="cite" href="#ref-3">[3]</a>. Il n'existe pas de seuil de température en dessous duquel la pompe « ne vaut plus le coup » : même entre −15 et −30 °C, les COP mesurés vont de 1,0 à 2,5 (moyenne ≈ 1,5) <a class="cite" href="#ref-7">[7]</a>. En France, aux tarifs de novembre 2026, la pompe à chaleur produit le kWh de chaleur le moins cher avec le bois bûche : environ 0,069 €/kWh utile contre ≈ 0,17 € pour le gaz et ≈ 0,21 € pour le fioul (calcul d'après les tarifs cités) — elle bat le gaz dès un COP ≈ 1,2. L'appoint de secours n'est systématique qu'au-delà du point d'équilibre, et son coût réel reste faible si l'installation est bien dimensionnée <a class="cite" href="#ref-9">[9]</a>. Enfin, les émissions de gaz à effet de serre sont réduites d'un facteur 8 à 10 par rapport aux chaudières fioul ou gaz en France <a class="cite" href="#ref-3">[3]</a>, et d'au moins 20 % partout dans le monde, fuites de fluide frigorigène comprises <a class="cite" href="#ref-14">[14]</a>.</p>
+
+<hr>
+
+<!-- RESEARCH_BODY_START -->
+
+<h2 id="scope">1. Périmètre et concepts</h2>
+
+<p>Cette étude examine le chauffage des bâtiments résidentiels en climat froid, avec un intérêt particulier pour la plage +7 °C à −25 °C, pour les pompes à chaleur air-air et air-eau — y compris les modèles dits « climat froid » — comparées au gaz, au fioul, au chauffage électrique direct et au bois. Les pompes à chaleur géothermiques servent de point de comparaison. Les données françaises sont mises en avant quand elles existent, sans exclure les travaux nord-américains, nordiques et allemands, qui offrent les mesures de terrain les plus documentées en climat froid. Sont exclus : les bâtiments tertiaires et industriels, la climatisation comme usage principal, les catalogues d'aides pays par pays et la conception de politique publique.</p>
+
+<p>Quatre notions suffisent pour suivre les preuves :</p>
+
+<ul><li><strong>COP (coefficient de performance)</strong> : rapport entre la chaleur restituée et l'électricité consommée. Un COP de 3 signifie : 3 kWh de chaleur pour 1 kWh d'électricité. Il dépend de la température extérieure (la « source froide » se raréfie), de la température de l'eau envoyée dans les radiateurs, et de la machine.</li><li><strong>SCOP / SPF</strong> : le COP « de saison », c'est-à-dire la moyenne pondérée sur tout l'hiver. Le SCOP est la valeur d'étiquette européenne (calculée sur un climat type) ; le SPF désigne la même idée mesurée sur le terrain. L'écart entre les deux est un fil conducteur de ce rapport.</li><li><strong>Température de base</strong> : la température extérieure de référence du site pour dimensionner un chauffage (minima nocturnes observés sur 30 ans, atteints plusieurs jours par an). En France métropolitaine, elle va de −2 °C sur certaines côtes à −15 °C en Alsace-Lorraine, et descend encore avec l'altitude : −19 °C à Briançon (1 200 m), jusqu'à −29 °C dans les hautes vallées <a class="cite" href="#ref-26">[26]</a>. C'est le froid « officiel » contre lequel un installateur dimensionne.</li><li><strong>Point d'équilibre et appoint</strong> : quand il fait froid, la puissance d'une pompe à chaleur baisse tandis que les besoins du logement augmentent. La température où la pompe ne peut plus couvrir seule le besoin est le point d'équilibre. En dessous, un <strong>appoint</strong> prend le relais : résistance électrique, chaudière ou poêle existant. Le <strong>dégivrage</strong> (inversion temporaire du cycle pour faire fondre le givre de l'échangeur extérieur) consomme de l'énergie et réduit brièvement la chaleur disponible.</li></ul>
+
+<h2 id="methode">2. Méthode et base de preuves</h2>
+
+<p>Il s'agit d'une revue narrative structurée, non exhaustive et non systématique. Les sources retenues sont des mesures de terrain instrumentées (campagne ADEME/Enertech sur 100 pompes à chaleur françaises <a class="cite" href="#ref-1">[1]</a> ; 77 pompes suivies quatre ans par Fraunhofer ISE <a class="cite" href="#ref-9">[9]</a> ; 8 foyers du Minnesota suivis par le Center for Energy and Environment <a class="cite" href="#ref-8">[8]</a> ; 22 sites du programme DOE <a class="cite" href="#ref-6">[6]</a>), des essais et spécifications de laboratoire (NEEP <a class="cite" href="#ref-5">[5]</a>, DOE <a class="cite" href="#ref-7">[7]</a>), des revues documentaires publiées (Nordsyn pour les pays nordiques <a class="cite" href="#ref-11">[11]</a>), des documents d'agences publiques (ADEME, IEA, RTE) et des relevés de prix français de novembre 2026. Les affirmations commerciales ne sont retenues que confrontées à des mesures indépendantes ; une brochure constructeur est citée uniquement comme affirmation d'industrie <a class="cite" href="#ref-12">[12]</a>.</p>
+
+<p>Les prix et fourchettes de coûts proviennent, faisant état de leur nature, de comparateurs commerciaux français inspectés en novembre 2026 ; ils servent d'ordres de grandeur datés, pas de devis. Les calculs économiques de ce rapport sont des calculs originaux transparents : chaque input est cité et les opérations sont montrées. Les accès partiels sont signalés (le rapport ADEME complet de 227 pages n'a été consulté que par sa table des matières et via les synthèses officielles de l'agence ; l'avis ADEME complet est derrière un formulaire de courriel). La recherche s'arrête lorsque les familles de requêtes (performances mesurées, économie du chauffage, bilan environnemental, tarifs français) n'ont plus produit que des sources déjà connues ou redondantes — les données indépendantes en dessous de −25 °C étant rares, cette limite est traitée comme une frontière de preuve, pas comme une absence de résultat.</p>
+
+<h2 id="q1">3. Performances entre +7 °C et −25 °C</h2>
+
+<h3>3.1 Une dégradation continue, pas un seuil</h3>
+
+<p class="finding" id="f1"><strong>F1 — Le COP baisse de façon continue entre +7 °C et −25 °C ; aucun seuil physique ne fait décrocher la pompe à chaleur, mais la pente s'accentue sous −8 °C.</strong></p>
+
+<p>Les mesures convergent sur une décroissance régulière. En laboratoire, la spécification américaine « climat froid » de NEEP exige COP ≥ 1,75 à −15 °C — son point d'essai le plus froid ; les points d'essai réglementaires sont +8 °C et −8 °C, auxquels les minima exigés pour les systèmes VRF sont respectivement COP ≥ 3,40 et ≥ 2,25 <a class="cite" href="#ref-5">[5]</a>. La revue de dix études menée pour le programme DOE situe les COP des technologies existantes entre 1,0 et 2,5 (moyenne ≈ 1,5) sur la plage −15 °C à −30 °C ; les modèles « climat froid » du marché affichent 1,75 à 2,25 à −15 °C <a class="cite" href="#ref-7">[7]</a>. Sur le terrain, la validation DOE de 22 prototypes dans des foyers américains et canadiens donne un COP médian de 1,9 dans la tranche −18 à −15 °C (hors appoint et dégivrage), avec des médianes de 1,6 à 2,7 sous −1 °C <a class="cite" href="#ref-6">[6]</a>. Dans le Minnesota, les COP constructeur mesurés à −8 °C correspondaient, à l'erreur de mesure près, aux valeurs de terrain <a class="cite" href="#ref-8">[8]</a>.</p>
+
+<p class="finding" id="f2"><strong>F2 — La puissance restituée est le véritable enjeu du froid : les modèles standard décrochent tôt, les modèles « climat froid » maintiennent leur puissance jusqu'à −15 °C, puis déclinent vers −25 °C.</strong></p>
+
+<p>Une pompe standard perd de sa puissance dès +4 °C et ne fournit plus qu'une fraction de sa capacité nominale en dessous de −10 °C, ce qui impose un appoint précoce <a class="cite" href="#ref-6">[6]</a>. Les spécifications « climat froid » attaquent ce point : le programme DOE impose 100 % de la puissance nominale à −15 °C et un fonctionnement garanti jusqu'à −23 °C (cut-out), avec une option à −29 °C ; NEEP exige un compresseur à capacité variable et publie les courbes de puissance jusqu'à la plus basse température cataloguée par le fabricant <a class="cite" href="#ref-5">[5]</a> <a class="cite" href="#ref-7">[7]</a>. Mitsubishi Electric revendique pour sa gamme « Hyper Heating » 100 % de puissance jusqu'à −15 °C et un fonctionnement jusqu'à −25 °C, la courbe constructeur montrant environ 50 à 75 % de puissance à −25 °C — affirmation d'industrie, cohérente avec les exigences ci-dessus mais non vérifiée indépendamment à cette température <a class="cite" href="#ref-12">[12]</a>.</p>
+
+<p>La figure 1 rassemble ces plages : entre −15 et −30 °C, une pompe à chaleur délivre encore 1,0 à 2,5 kWh de chaleur par kWh d'électricité — moins qu'en climat doux, mais nettement plus qu'une résistance électrique (COP = 1).</p>
+
+<figure class="figure" role="figure" aria-label="Figure 1 : COP mesurés ou exigés par les spécifications, en fonction de la température extérieure. Synthèse des sources citées dans le texte ; chaque plage est attribuée à sa source.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" role="img" aria-labelledby="fig1-t fig1-d">
+  <title id="fig1-t">COP selon la température extérieure : exigences de spécifications, mesures de terrain et revue de la littérature</title>
+  <desc id="fig1-d">Plages de COP relevées à +8, −8, −15 °C et sur la plage −15 à −30 °C. À +8 °C : exigence NEEP VFP ≥ 3,40. À −8 °C : exigence ≥ 2,25. À −15 °C : plage 1,75 à 2,40 avec médiane de terrain 1,9. De −15 à −30 °C : plage 1,0 à 2,5, moyenne environ 1,5. Lignes de repère à COP 1 et COP 3.</desc>
+  <rect width="900" height="640" fill="#ffffff"/>
+  <text x="30" y="42" font-family="Georgia, 'Times New Roman', serif" font-size="21" font-weight="bold" fill="#1a1a2e">COP selon la température extérieure : exigences, mesures, revue</text>
+
+  <!-- gridlines -->
+  <g stroke="#d9d9d9" stroke-width="1">
+    <line x1="150" y1="90" x2="150" y2="520"/><line x1="292" y1="90" x2="292" y2="520"/>
+    <line x1="434" y1="90" x2="434" y2="520"/><line x1="576" y1="90" x2="576" y2="520"/>
+    <line x1="718" y1="90" x2="718" y2="520"/><line x1="860" y1="90" x2="860" y2="520"/>
+  </g>
+  <!-- reference lines -->
+  <line x1="292" y1="80" x2="292" y2="530" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="296" y="92" font-family="Arial, sans-serif" font-size="12.5" fill="#c0392b">COP = 1 : niveau d'une résistance électrique</text>
+  <line x1="576" y1="80" x2="576" y2="530" stroke="#7d6608" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="580" y="92" font-family="Arial, sans-serif" font-size="12.5" fill="#7d6608">COP = 3 : SCOP d'étiquette typique</text>
+
+  <!-- axis labels -->
+  <g font-family="Arial, sans-serif" font-size="14" fill="#333" text-anchor="middle">
+    <text x="150" y="548">0</text><text x="292" y="548">1</text><text x="434" y="548">2</text>
+    <text x="576" y="548">3</text><text x="718" y="548">4</text><text x="860" y="548">5</text>
+  </g>
+  <text x="505" y="580" font-family="Arial, sans-serif" font-size="14" fill="#333" text-anchor="middle">COP (kWh de chaleur par kWh d'électricité)</text>
+  <line x1="150" y1="520" x2="860" y2="520" stroke="#333" stroke-width="1.5"/>
+
+  <!-- row labels -->
+  <g font-family="Arial, sans-serif" font-size="15" fill="#1a1a2e" text-anchor="end">
+    <text x="138" y="150">+8 °C</text>
+    <text x="138" y="240">−8 °C</text>
+    <text x="138" y="335">−15 °C</text>
+    <text x="138" y="445">−15 à −30 °C</text>
+  </g>
+
+  <!-- +7/+8 : exigence NEEP VRF >= 3.40 -->
+  <line x1="633" y1="145" x2="712" y2="145" stroke="#1a5fb4" stroke-width="7"/>
+  <polygon points="712,139 724,145 712,151" fill="#1a5fb4"/>
+  <text x="640" y="132" font-family="Arial, sans-serif" font-size="13.5" fill="#1a5fb4">exigence NEEP (VRF) ≥ 3,40</text>
+
+  <!-- -8 : exigence NEEP VRF >= 2.25 -->
+  <line x1="470" y1="235" x2="549" y2="235" stroke="#1a5fb4" stroke-width="7"/>
+  <polygon points="549,229 561,235 549,241" fill="#1a5fb4"/>
+  <text x="477" y="222" font-family="Arial, sans-serif" font-size="13.5" fill="#1a5fb4">exigence NEEP (VRF) ≥ 2,25</text>
+
+  <!-- -15 : plage 1.75-2.40, median field 1.9 -->
+  <rect x="398" y="318" width="93" height="26" rx="4" fill="#1a5fb4" opacity="0.85"/>
+  <polygon points="420,320 429,331 420,342 411,331" fill="#e66100" stroke="#7a3d00" stroke-width="1"/>
+  <text x="500" y="335" font-family="Arial, sans-serif" font-size="13.5" fill="#1a5fb4">exigences NEEP ≥ 1,75 / DOE ≥ 2,40 ; marché 1,75-2,25</text>
+  <text x="392" y="368" font-family="Arial, sans-serif" font-size="13" fill="#e66100">losange : médiane terrain (PNNL, −15 à −18 °C) ≈ 1,9</text>
+
+  <!-- -15 to -30 : revue 1.0-2.5 mean 1.5 -->
+  <rect x="292" y="428" width="213" height="26" rx="4" fill="#1a5fb4" opacity="0.85"/>
+  <polygon points="363,430 372,441 363,452 354,441" fill="#e66100" stroke="#7a3d00" stroke-width="1"/>
+  <text x="516" y="441" font-family="Arial, sans-serif" font-size="13.5" fill="#1a5fb4">revue de 10 études : 1,0 à 2,5</text>
+  <text x="516" y="460" font-family="Arial, sans-serif" font-size="13" fill="#e66100">losange : moyenne ≈ 1,5</text>
+
+  <text x="30" y="620" font-family="Arial, sans-serif" font-size="12.5" fill="#666">Sources détaillées dans le texte : spécifications NEEP et DOE, validation de terrain PNNL, étude Minnesota, revue Wan &amp; Hwang (2023).</text>
+</svg>
+</figure>
+
+<p class="figcaption"><strong>Figure 1.</strong> COP en fonction de la température extérieure, d'après les sources inspectées : exigences de spécifications (NEEP, DOE), mesures de terrain (PNNL, Minnesota), revue de la littérature (Wan &amp; Hwang) et courbe constructeur (Mitsubishi, puissance seulement). Sources : <a class="cite" href="#ref-5">[5]</a> <a class="cite" href="#ref-6">[6]</a> <a class="cite" href="#ref-7">[7]</a> <a class="cite" href="#ref-8">[8]</a> <a class="cite" href="#ref-12">[12]</a>. La ligne pointillée COP = 1 marque le niveau d'une résistance électrique.</p>
+
+<h3>3.2 Sur une saison : le SCOP d'étiquette surestime souvent le terrain</h3>
+
+<p class="finding" id="f3"><strong>F3 — Sur une saison de chauffe, les SPF mesurés en climat froid s'étagent de ≈ 1,9 à 3,4 pour les machines air, contre des SCOP d'étiquette souvent ≥ 4.</strong></p>
+
+<p>La campagne française ADEME (100 maisons, remplacement de chaudières gaz ou fioul, une année complète de mesures) aboutit à un COP annuel moyen de 2,9 pour les PAC air/eau, les meilleures installations dépassant 4 et les moins bonnes plafonnant vers 1,8 <a class="cite" href="#ref-1">[1]</a> <a class="cite" href="#ref-3">[3]</a>. En Allemagne, le suivi Fraunhofer ISE de 77 pompes à chaleur dans des bâtiments anciens (construits de 1826 à 2001) donne un SPF moyen de 3,4 pour les air/eau (2,6 à 4,9) et 4,3 pour les géothermiques — sans corrélation avec l'année de construction <a class="cite" href="#ref-9">[9]</a>. La génération précédente du même institut mesurait déjà 2,1 à 3,3 (moyenne 2,6) sur l'hiver 2008-2009 dans des bâtiments peu rénovés chauffés à 50-65 °C <a class="cite" href="#ref-10">[10]</a>. En climat nordique, l'étude Nordsyn relève pour les air/air des SPF de saison de 2,2 à 2,6 (et 1,8 à 2,1 en comptant tous les auxiliaires), probablement sous-estimés car le fonctionnement à charge partielle y était mal comptabilisé <a class="cite" href="#ref-11">[11]</a>. Au Minnesota, le COP annuel mesuré toutes conditions confondues (appoint inclus) est de 1,9 pour les systèmes tout-électriques et 1,3 pour les bi-combustibles qui basculent sur le fourneau à propane sous −12 °C <a class="cite" href="#ref-8">[8]</a>.</p>
+
+<p class="finding" id="f4"><strong>F4 — L'écart entre étiquette et terrain a des causes identifiées : essais de laboratoire trop courts pour le dégivrage, déclarations de capacité à la baisse, réglages et installation défaillants.</strong></p>
+
+<p>L'étude Nordsyn montre que les essais normalisés (trois heures maximum) capturent rarement un cycle de dégivrage complet, que l'étiquette « climat froid » est rarement affichée en Suède et Norvège, et que certains fabricants déclarent leurs machines à une capacité inférieure à la capacité réelle pour gonfler le SCOP calculé <a class="cite" href="#ref-11">[11]</a>. Côté français, l'ADEME conclut qu'un tiers des installations pourraient être nettement améliorées par des réglages (loi d'eau, anti-cyclage) ou une meilleure pose ; baisser de 10 °C la température de l'eau de chauffage gagne environ un point de COP, ce qui fait des émetteurs surdimensionnés (ou d'un plancher chauffant) le premier levier, devant même l'isolation <a class="cite" href="#ref-2">[2]</a> <a class="cite" href="#ref-3">[3]</a>.</p>
+
+<p class="finding" id="f5"><strong>F5 — Le givre et l'humidité dégradent transitoirement la performance, surtout entre −12 °C et 0 °C.</strong></p>
+
+<p>Le givrage de l'échangeur extérieur est plus rapide quand l'air est humide ; les cycles de dégivrage, fréquents entre −12 °C et 0 °C au Minnesota <a class="cite" href="#ref-8">[8]</a>, peuvent au pire réduire la puissance de 29 % et le COP de 17 % pendant le cycle <a class="cite" href="#ref-7">[7]</a>. Ces pertes sont déjà incluses dans les SPF mesurés sur le terrain, mais pas toujours dans les SCOP d'étiquette : c'est une raison structurelle, pas anecdotique, de l'écart F4.</p>
+
+<p>Le tableau 1 récapitule les exigences qui définissent une machine « climat froid ».</p>
+
+<table class="data">
+<thead><tr><th>Exigence (mode chauffage)</th><th>Spécification NEEP v4.0 <a class="cite" href="#ref-5">[5]</a></th><th>Défi DOE CCHP (prototypes) <a class="cite" href="#ref-7">[7]</a></th></tr></thead><tbody>
+<tr><td>COP minimal à −15 °C</td><td>≥ 1,75 (à puissance maximale)</td><td>≥ 2,4 (7 à 14 kW) ; ≥ 2,1 au-delà</td></tr>
+<tr><td>Puissance à −15 °C</td><td>publication des données constructeur (pas de plancher imposé)</td><td>100 % de la puissance à +8 °C</td></tr>
+<tr><td>Fonctionnement garanti</td><td>jusqu'à la plus basse température cataloguée</td><td>démarrage ≤ −21 °C ; arrêt ≤ −23 °C (option ≤ −29 °C)</td></tr>
+<tr><td>Compresseur</td><td>capacité variable obligatoire</td><td>capacité variable ; fluide frigorigène GWP ≤ 750</td></tr>
+</tbody></table>
+
+<p class="tablecaption"><strong>Tableau 1.</strong> Ce que « climat froid » veut dire dans les spécifications américaines, qui structurent l'offre mondiale de modèles inverter récents. Les exigences européennes (étiquette SCOP, climat « froid » optionnel de la norme EN 14825) sont moins différenciées : l'étude Nordsyn note que l'étiquette « climat froid » est rarement revendiquée en Europe du Nord <a class="cite" href="#ref-11">[11]</a>.</p>
+
+<h2 id="q2">4. Bilan économique : installation, exploitation, facteurs</h2>
+
+<h3>4.1 Investissement et aides en France (2026)</h3>
+
+<p class="finding" id="f6"><strong>F6 — La pompe à chaleur air/eau coûte à l'achat trois à quatre fois une chaudière gaz à condensation ; les aides publiques réduisent fortement cet écart pour les PAC, alors qu'elles ont été supprimées pour le gaz.</strong></p>
+
+<p>Les fourchettes constatées en 2026, pose comprise : PAC air/eau 10 000 à 18 000 € (8 000 à 10 000 € en monobloc) <a class="cite" href="#ref-17">[17]</a> ; PAC air/air 3 000 à 14 000 € (monosplit 3 000-6 000 €, moyenne générale 6 000-9 000 €) <a class="cite" href="#ref-18">[18]</a> ; chaudière gaz à condensation 2 500 à 8 500 €, sans aucune aide directe depuis 2026 et avec une TVA à 20 % <a class="cite" href="#ref-19">[19]</a> ; chaudière à granulés 12 000 à 20 000 € <a class="cite" href="#ref-20">[20]</a> ; poêle à bûches 2 000 à 8 500 € pose comprise. La pompe à chaleur air/eau figure parmi les équipements éligibles à MaPrimeRénov' (plafond de dépense éligible de 12 000 €) ; les montants rapportés pour 2026 sont de l'ordre de 4 000 à 5 000 € selon les revenus, complétés par la prime CEE des fournisseurs d'énergie et la TVA à 5,5 % — barèmes à vérifier au moment du projet, le guichet 2026 ayant rouvert après le vote de la loi de finances <a class="cite" href="#ref-16">[16]</a>. Sur la base de sa campagne de mesure, l'ADEME évalue la rentabilité d'une PAC air/eau bien réglée à environ 2 ans avec les aides en vigueur pendant la campagne, et 6 à 8 ans sans aide <a class="cite" href="#ref-3">[3]</a>.</p>
+
+<h3>4.2 Coût du kWh utile en France, novembre 2026</h3>
+
+<p class="finding" id="f7"><strong>F7 — Aux tarifs de novembre 2026, la PAC produit la chaleur la moins chère avec le bois bûche ; l'électricité directe et le fioul sont environ trois fois plus chers.</strong></p>
+
+<p>Le tableau 2 applique les prix relevés (élec TRV 0,2001 €/kWh <a class="cite" href="#ref-21">[21]</a> ; gaz prix repère B1 0,1576 €/kWh <a class="cite" href="#ref-22">[22]</a> ; fioul 1,7587 €/L, soit 0,177 €/kWh PCI <a class="cite" href="#ref-23">[23]</a> ; granulés 388 à 466 €/t, soit 0,081 à 0,097 €/kWh <a class="cite" href="#ref-24">[24]</a>) aux rendements usuels. Calcul original, hypothèses affichées.</p>
+
+<table class="data">
+<thead><tr><th>Mode de chauffage</th><th>Prix de l'énergie</th><th>Rendement / COP retenu</th><th>Coût du kWh utile</th><th>Source des inputs</th></tr></thead><tbody>
+<tr><td>PAC air/eau (COP mesuré ADEME)</td><td>0,2001 €/kWh</td><td>2,9</td><td><strong>≈ 0,069 €</strong></td><td><a class="cite" href="#ref-21">[21]</a> <a class="cite" href="#ref-1">[1]</a></td></tr>
+<tr><td>PAC air/eau (SCOP d'étiquette 3)</td><td>0,2001 €/kWh</td><td>3,0</td><td>≈ 0,067 €</td><td><a class="cite" href="#ref-21">[21]</a> <a class="cite" href="#ref-25">[25]</a></td></tr>
+<tr><td>Bois bûche (poêle récent)</td><td>≈ 98 €/stère</td><td>82 %</td><td>≈ 0,060 €</td><td><a class="cite" href="#ref-25">[25]</a></td></tr>
+<tr><td>Granulés</td><td>388-466 €/t</td><td>85-90 %</td><td>≈ 0,095-0,114 €</td><td><a class="cite" href="#ref-24">[24]</a></td></tr>
+<tr><td>Gaz (condensation)</td><td>0,1576 €/kWh PCS</td><td>95 % (PCS)</td><td>≈ 0,166 € + abonnement</td><td><a class="cite" href="#ref-22">[22]</a></td></tr>
+<tr><td>Électricité directe</td><td>0,2001 €/kWh</td><td>100 %</td><td>0,200 €</td><td><a class="cite" href="#ref-21">[21]</a></td></tr>
+<tr><td>Fioul</td><td>1,7587 €/L</td><td>85 %</td><td>≈ 0,208 €</td><td><a class="cite" href="#ref-23">[23]</a></td></tr>
+</tbody></table>
+
+<p class="tablecaption"><strong>Tableau 2.</strong> Coût du kWh de chaleur utile en France, novembre 2026. Opérations : PAC : 0,2001 ÷ 2,9 = 0,069 ; gaz : 0,1576 ÷ 0,95 = 0,166 ; fioul : 1,7587 ÷ (9,97 kWh PCI/L × 0,85) = 0,208. Le comparateur indépendant des sources 7monÉnergie aboutit au même classement (0,067 € pour une PAC SCOP 3 ; 0,170 € pour le gaz à son relevé de septembre ; 0,211 € pour le fioul) <a class="cite" href="#ref-25">[25]</a>. Ces prix bougent : le gaz a pris +52 % en un an <a class="cite" href="#ref-22">[22]</a> — le classement PAC/gaz qui en découle n'est donc pas une loi éternelle, mais le résultat d'un rapport de prix qu'il faut re-vérifier.</p>
+
+<figure class="figure" role="figure" aria-label="Figure 2 : coût du kWh de chaleur utile en France, novembre 2026, selon le mode de chauffage. Calcul d&#x27;après les tarifs du tableau 2.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" role="img" aria-labelledby="fig2-t fig2-d">
+  <title id="fig2-t">Coût du kWh de chaleur utile par mode de chauffage, France, novembre 2026</title>
+  <desc id="fig2-d">Barres horizontales du coût en euros par kWh utile : bois bûche 0,060 ; PAC COP 2,9 : 0,069 ; PAC dégradée COP 2,0 : 0,100 ; granulés 0,095 à 0,114 ; gaz condensation 0,166 plus abonnement ; électricité directe 0,200 ; fioul 0,208.</desc>
+  <rect width="900" height="600" fill="#ffffff"/>
+  <text x="30" y="42" font-family="Georgia, 'Times New Roman', serif" font-size="21" font-weight="bold" fill="#1a1a2e">Coût du kWh de chaleur utile en France, novembre 2026</text>
+
+  <!-- gridlines -->
+  <g stroke="#d9d9d9" stroke-width="1">
+    <line x1="230" y1="70" x2="230" y2="510"/><line x1="371" y1="70" x2="371" y2="510"/>
+    <line x1="512" y1="70" x2="512" y2="510"/><line x1="653" y1="70" x2="653" y2="510"/>
+    <line x1="794" y1="70" x2="794" y2="510"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="14" fill="#333" text-anchor="middle">
+    <text x="230" y="538">0</text><text x="371" y="538">0,05</text><text x="512" y="538">0,10</text>
+    <text x="653" y="538">0,15</text><text x="794" y="538">0,20</text>
+  </g>
+  <text x="512" y="566" font-family="Arial, sans-serif" font-size="14" fill="#333" text-anchor="middle">€ par kWh de chaleur utile (TTC)</text>
+  <line x1="230" y1="510" x2="850" y2="510" stroke="#333" stroke-width="1.5"/>
+
+  <!-- bars -->
+  <g font-family="Arial, sans-serif" font-size="14.5" fill="#1a1a2e" text-anchor="end">
+    <text x="222" y="120">Bois bûche (poêle récent)</text>
+    <text x="222" y="180">PAC air/eau (COP 2,9 mesuré)</text>
+    <text x="222" y="240">PAC dégradée (COP 2,0)</text>
+    <text x="222" y="300">Granulés (poêle ou chaudière)</text>
+    <text x="222" y="360">Gaz (condensation)</text>
+    <text x="222" y="420">Électricité directe</text>
+    <text x="222" y="480">Fioul (chaudière)</text>
+  </g>
+  <rect x="230" y="102" width="169" height="28" rx="3" fill="#8a5a00"/>
+  <text x="407" y="122" font-family="Arial, sans-serif" font-size="13.5" fill="#8a5a00">0,060 €</text>
+  <rect x="230" y="162" width="194" height="28" rx="3" fill="#1a5fb4"/>
+  <text x="432" y="182" font-family="Arial, sans-serif" font-size="13.5" fill="#1a5fb4">0,069 €</text>
+  <rect x="230" y="222" width="282" height="28" rx="3" fill="#7fa8d9"/>
+  <text x="520" y="242" font-family="Arial, sans-serif" font-size="13.5" fill="#33517d">0,100 €</text>
+  <rect x="230" y="282" width="296" height="28" rx="3" fill="#a07000"/>
+  <line x1="498" y1="272" x2="551" y2="272" stroke="#5a3d00" stroke-width="2"/>
+  <line x1="498" y1="272" x2="498" y2="281" stroke="#5a3d00" stroke-width="2"/>
+  <line x1="551" y1="272" x2="551" y2="281" stroke="#5a3d00" stroke-width="2"/>
+  <text x="534" y="302" font-family="Arial, sans-serif" font-size="13.5" fill="#5a3d00">0,095-0,114 € (plage 388-466 €/t)</text>
+  <rect x="230" y="342" width="468" height="28" rx="3" fill="#555555"/>
+  <text x="706" y="362" font-family="Arial, sans-serif" font-size="13.5" fill="#333">0,166 € + abonnement</text>
+  <rect x="230" y="402" width="564" height="28" rx="3" fill="#333333"/>
+  <text x="802" y="422" font-family="Arial, sans-serif" font-size="13.5" fill="#111">0,200 €</text>
+  <rect x="230" y="462" width="586" height="28" rx="3" fill="#111111"/>
+  <text x="824" y="482" font-family="Arial, sans-serif" font-size="13.5" fill="#000">0,208 €</text>
+
+  <text x="30" y="592" font-family="Arial, sans-serif" font-size="12.5" fill="#666">Calculs d'après les tarifs relevés en novembre 2026 et les COP mesurés cités dans le texte (tableau 2) ; hypothèses et opérations détaillées dans le rapport.</text>
+</svg>
+</figure>
+
+<p class="figcaption"><strong>Figure 2.</strong> Coût du kWh utile par mode de chauffage (tableau 2). Les barres PAC montrent qu'entre un COP réel de 2,9 et une machine dégradée à 2,0 (installation défaillante), le coût reste inférieur ou égal au bois granulés et très inférieur au gaz.</p>
+
+<h3>4.3 Sensibilité : à partir de quel COP la PAC gagne-t-elle ?</h3>
+
+<p class="finding" id="f8"><strong>F8 — En France, en novembre 2026, la PAC bat le gaz dès COP ≈ 1,2 et le fioul dès COP ≈ 1,0 ; ce point de bascule est la vraie variable économique, plus que le froid lui-même.</strong></p>
+
+<p>Le raisonnement est transparent : la PAC est au niveau de coût du gaz quand Pe × ηg / Pg = COP, soit COP d'équilibre = (prix électricité ÷ prix gaz) × rendement chaudière. Avec 0,2001 €/kWh d'électricité, 0,1576 €/kWh de gaz et un rendement PCS de 95 % : 0,2001 × 0,95 ÷ 0,1576 ≈ 1,21. Contre le fioul (0,177 €/kWh PCI, rendement 85 %) : ≈ 0,96. Autrement dit, même une PAC sous-performante qui tombe à COP 1,5 en plein hiver garde, en moyenne de saison, une avance confortable sur ces énergies. Le tableau 3 montre comment ce seuil bouge avec les prix — c'est l'analyse de sensibilité demandée par la question.</p>
+
+<table class="data">
+<thead><tr><th>Scénario de prix</th><th>Électricité</th><th>Gaz (PCS)</th><th>COP d'équilibre PAC vs gaz</th><th>Lecture</th></tr></thead><tbody>
+<tr><td>France, nov. 2026</td><td>0,2001 €</td><td>0,1576 €</td><td><strong>≈ 1,2</strong></td><td>quasi tout COP saisonnier gagne</td></tr>
+<tr><td>Heures creuses</td><td>0,1589 €</td><td>0,1576 €</td><td>≈ 1,0</td><td>la PAC gagne dès COP &gt; 1</td></tr>
+<tr><td>Électricité +50 %, gaz constant</td><td>0,3002 €</td><td>0,1576 €</td><td>≈ 1,8</td><td>reste atteignable (SPF ≥ 2)</td></tr>
+<tr><td>Gaz −25 % (retour du gaz bon marché)</td><td>0,2001 €</td><td>0,1182 €</td><td>≈ 1,6</td><td>reste atteignable</td></tr>
+</tbody></table>
+
+<p class="tablecaption"><strong>Tableau 3.</strong> COP saisonnier d'égalité de coût avec une chaudière gaz à condensation (rendement 95 % PCS), sous différents scénarios de prix, calcul original d'après <a class="cite" href="#ref-21">[21]</a> <a class="cite" href="#ref-22">[22]</a>. Le contrexemple économique existe pourtant : dans le Minnesota de l'étude de terrain, face au gaz de réseau historiquement bon marché, les PAC bi-combustibles économisaient ~60 % du propane mais restaient marginales face au gaz — la rentabilité dépend donc du couple « prix relatifs + énergie remplacée » <a class="cite" href="#ref-8">[8]</a>. En Europe, la forte hausse du prix du gaz depuis 2022 (+52 % au cours de la dernière année selon les relevés cités) a mécaniquement tiré le seuil vers le bas <a class="cite" href="#ref-22">[22]</a>.</p>
+
+<p class="finding" id="f9"><strong>F9 — Les facteurs qui font varier le bilan, par ordre d'importance observée : prix relatifs des énergies, qualité de l'installation et des réglages, émetteurs basse température, température de base du site, isolation.</strong></p>
+
+<ul><li><strong>Prix relatifs</strong> : le tableau 3 ; ils dominent tout.</li><li><strong>Installation et réglages</strong> : un tiers des PAC françaises mesurées sont améliorables ; l'écart entre la meilleure et la moins bonne installation va du simple au double de COP annuel (4 à 1,8) <a class="cite" href="#ref-1">[1]</a> <a class="cite" href="#ref-3">[3]</a>. La loi d'eau calibrée basse et l'anti-cyclage sont les réglages décisifs.</li><li><strong>Émetteurs</strong> : radiateurs assez grands ou plancher chauffant permettent de fonctionner à 35-45 °C, gagnant ~1 point de COP par −10 °C d'eau <a class="cite" href="#ref-3">[3]</a>.</li><li><strong>Température de base du site</strong> : elle fixe la puissance à installer et le besoin d'appoint (section 5) ; la France va de −2 à −15 °C en plaine, jusqu'à −29 °C en montagne <a class="cite" href="#ref-26">[26]</a>.</li><li><strong>Isolation</strong> : elle réduit le besoin de chaleur et la puissance à installer (donc l'investissement), mais l'ADEME mesure que le COP d'une PAC bien posée n'est pas conditionné par l'isolation du logement <a class="cite" href="#ref-2">[2]</a> <a class="cite" href="#ref-3">[3]</a> ; en Allemagne, aucune corrélation n'apparaît entre année de construction et SPF <a class="cite" href="#ref-9">[9]</a>.</li><li><strong>Photovoltaïque</strong> : l'autoconsommation solaire améliore encore le coût et l'empreinte (22 à 37 % d'autoconsommation sans batterie, 40 à 83 % avec, sur six couplages mesurés) <a class="cite" href="#ref-9">[9]</a>.</li></ul>
+
+<h2 id="q3">5. L'appoint : quand, sous quelle forme, à quel coût</h2>
+
+<p class="finding" id="f10"><strong>F10 — L'appoint n'est pas systématique : il devient nécessaire quand la puissance de la pompe ne couvre plus la charge du logement au-dessous du point d'équilibre — ce qui dépend du dimensionnement et de la température de base, pas de la technologie seule.</strong></p>
+
+<p>Une PAC dimensionnée pour couvrir la charge à la température de base du site n'a besoin d'aucun appoint en exploitation normale ; un appoint de sécurité est quand même recommandé (panne, dégivrage prolongé). Si l'on dimensionne moins large — pour des raisons de coût ou de bruit — l'appoint comble l'écart entre la courbe de puissance et la courbe de besoin. La figure 3 illustre cette géométrie.</p>
+
+<figure class="figure" role="figure" aria-label="Figure 3 : point d&#x27;équilibre d&#x27;une pompe à chaleur. Schéma conceptuel (hypothétique) : courbe de besoin d&#x27;un logement et courbes de puissance d&#x27;une PAC standard et d&#x27;une PAC climat froid.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" role="img" aria-labelledby="fig3-t fig3-d">
+  <title id="fig3-t">Point d'équilibre : besoin de chauffage du logement et puissance restituée de la pompe à chaleur</title>
+  <desc id="fig3-d">Schéma conceptuel. Le besoin de chauffage (ligne rouge) croît quand la température extérieure baisse, d'environ 0,7 kW à +15 °C à 4 kW à −25 °C, tandis que la puissance restituée décroît. La PAC climat froid (vert) recoupe le besoin vers −14 °C ; la PAC standard (pointillés gris) vers −6 °C, et sa puissance s'annule vers −17 °C. Les zones colorées sous les points d'équilibre sont les zones où un appoint est nécessaire.</desc>
+  <rect width="900" height="600" fill="#ffffff"/>
+  <text x="30" y="42" font-family="Georgia, 'Times New Roman', serif" font-size="21" font-weight="bold" fill="#1a1a2e">Point d'équilibre : besoin de chauffage et puissance de la pompe</text>
+
+  <!-- gridlines -->
+  <g stroke="#d9d9d9" stroke-width="1">
+    <line x1="140" y1="70" x2="140" y2="480"/><line x1="227.5" y1="70" x2="227.5" y2="480"/>
+    <line x1="315" y1="70" x2="315" y2="480"/><line x1="402.5" y1="70" x2="402.5" y2="480"/>
+    <line x1="490" y1="70" x2="490" y2="480"/><line x1="577.5" y1="70" x2="577.5" y2="480"/>
+    <line x1="665" y1="70" x2="665" y2="480"/><line x1="752.5" y1="70" x2="752.5" y2="480"/>
+    <line x1="840" y1="70" x2="840" y2="480"/>
+    <line x1="140" y1="230" x2="840" y2="230"/><line x1="140" y1="280" x2="840" y2="280"/>
+    <line x1="140" y1="330" x2="840" y2="330"/><line x1="140" y1="380" x2="840" y2="380"/>
+    <line x1="140" y1="430" x2="840" y2="430"/>
+  </g>
+
+  <!-- appoint zones -->
+  <polygon points="140,280 467.4,357.2 402.5,385 315,455 283.75,480 140,480" fill="#555555" fill-opacity="0.12"/>
+  <polygon points="140,280 336,326.2 315,330 140,425" fill="#1a7a3d" fill-opacity="0.20"/>
+
+  <!-- axes -->
+  <line x1="140" y1="480" x2="840" y2="480" stroke="#333" stroke-width="1.5"/>
+  <line x1="140" y1="70" x2="140" y2="480" stroke="#333" stroke-width="1.5"/>
+  <g font-family="Arial, sans-serif" font-size="14" fill="#333" text-anchor="middle">
+    <text x="140" y="505">−25</text><text x="227.5" y="505">−20</text><text x="315" y="505">−15</text>
+    <text x="402.5" y="505">−10</text><text x="490" y="505">−5</text><text x="577.5" y="505">0</text>
+    <text x="665" y="505">+5</text><text x="752.5" y="505">+10</text><text x="840" y="505">+15</text>
+  </g>
+  <text x="490" y="538" font-family="Arial, sans-serif" font-size="14" fill="#333" text-anchor="middle">Température extérieure (°C)</text>
+  <g font-family="Arial, sans-serif" font-size="14" fill="#333" text-anchor="end">
+    <text x="128" y="484">0</text><text x="128" y="434">1</text><text x="128" y="384">2</text>
+    <text x="128" y="334">3</text><text x="128" y="284">4</text><text x="128" y="234">5</text>
+  </g>
+  <text x="62" y="275" font-family="Arial, sans-serif" font-size="14" fill="#333" text-anchor="middle" transform="rotate(-90 62 275)">Puissance (kW)</text>
+
+  <!-- curves -->
+  <path d="M140,280 L840,445" stroke="#c0392b" stroke-width="3" fill="none"/>
+  <path d="M840,235 L315,330 L140,425" stroke="#1a7a3d" stroke-width="4" fill="none"/>
+  <path d="M840,265 L577.5,310 L402.5,385 L315,455 L283.75,480" stroke="#555555" stroke-width="3" stroke-dasharray="8,6" fill="none"/>
+
+  <!-- balance points -->
+  <line x1="336" y1="326.2" x2="336" y2="480" stroke="#1a7a3d" stroke-width="1.5" stroke-dasharray="3,5"/>
+  <line x1="467.4" y1="357.2" x2="467.4" y2="480" stroke="#555555" stroke-width="1.5" stroke-dasharray="3,5"/>
+  <circle cx="336" cy="326.2" r="5.5" fill="#1a7a3d" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="467.4" cy="357.2" r="5.5" fill="#555555" stroke="#ffffff" stroke-width="1.5"/>
+  <text x="349" y="321" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1a7a3d">≈ −14 °C</text>
+  <text x="480" y="353" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#555555">≈ −6 °C</text>
+
+  <!-- zone labels -->
+  <text x="165" y="358" font-family="Arial, sans-serif" font-size="12" fill="#1a7a3d">appoint</text>
+  <text x="376" y="372" font-family="Arial, sans-serif" font-size="12" fill="#555555">appoint (standard)</text>
+
+  <!-- legend -->
+  <rect x="150" y="76" width="385" height="196" rx="6" fill="#ffffff" stroke="#999999" stroke-width="1"/>
+  <g font-family="Arial, sans-serif" font-size="14" fill="#1a1a2e">
+    <line x1="170" y1="104" x2="210" y2="104" stroke="#c0392b" stroke-width="3"/>
+    <text x="222" y="109">Besoin de chauffage du logement</text>
+    <line x1="170" y1="138" x2="210" y2="138" stroke="#1a7a3d" stroke-width="4"/>
+    <text x="222" y="143">Puissance PAC « climat froid »</text>
+    <line x1="170" y1="172" x2="210" y2="172" stroke="#555555" stroke-width="3" stroke-dasharray="8,6"/>
+    <text x="222" y="177">Puissance PAC standard</text>
+    <circle cx="190" cy="206" r="5.5" fill="#555555"/>
+    <circle cx="190" cy="206" r="5.5" fill="none"/>
+    <text x="222" y="211">Point d'équilibre (besoin = puissance)</text>
+    <rect x="170" y="232" width="40" height="14" fill="#1a7a3d" fill-opacity="0.20"/>
+    <text x="222" y="244">Zone d'appoint (climat froid)</text>
+    <rect x="170" y="260" width="40" height="14" fill="#555555" fill-opacity="0.12"/>
+    <text x="222" y="272">Zone d'appoint (standard)</text>
+  </g>
+
+  <text x="30" y="578" font-family="Arial, sans-serif" font-size="12.5" fill="#666">Schéma conceptuel, valeurs hypothétiques d'après les courbes décrites dans les sources [6, 12] : le besoin croît quand il fait plus froid, la puissance décroît ; l'intersection des deux courbes définit le point d'équilibre, en dessous duquel l'appoint comble l'écart.</text>
+</svg>
+</figure>
+
+<p class="figcaption"><strong>Figure 3.</strong> Schéma conceptuel du point d'équilibre : la charge du logement croît quand il fait plus froid, la puissance de la pompe décroît ; leur intersection définit le point d'équilibre. Une PAC « climat froid » déplace ce point vers les températures basses et réduit la zone d'appoint. Illustration hypothétique d'après les courbes décrites dans les sources <a class="cite" href="#ref-6">[6]</a> <a class="cite" href="#ref-12">[12]</a>.</p>
+
+<p>Les formes d'appoint, par coût d'installation croissant et coût d'exploitation décroissant : résistance électrique intégrée (COP = 1, quasi gratuite à installer, chère en usage) ; chaudière ou foyer existant conservé (bi-combustible) ; appoint hydraulique sur ballon. Les prototypes DOE intègrent tous une résistance électrique étagée <a class="cite" href="#ref-7">[7]</a>.</p>
+
+<p class="finding" id="f11"><strong>F11 — Bien dimensionnée, l'appoint reste marginal dans le bilan : ~1,3 % de l'électricité consommée sur les PAC air/eau allemandes suivies ; mal réglé ou nécessaire chaque hiver, il dégrade nettement le bilan.</strong></p>
+
+<p>Sur les 77 pompes à chaleur de Fraunhofer ISE (hivers relativement doux pendant la mesure), les résistances d'appoint n'ont consommé que 1,3 % de l'électricité des PAC air/eau, et presque rien pour les géothermiques <a class="cite" href="#ref-9">[9]</a>. Au Minnesota (température de base &lt; −23 °C), l'appoint est inévitable : les systèmes tout-électriques gardent un COP de cycle &gt; 1 même à −22 °C en priorisant la pompe, et les bi-combustibles basculent sur le fourneau sous −12 °C, avec une baisse de la consommation de propane d'environ 60 % ; le COP annuel tombe à 1,3 pour ces derniers, contre 1,9 aux tout-électriques <a class="cite" href="#ref-8">[8]</a>. Le coût total observé suit la même logique : économies de 30 à 56 % sur la facture des foyers du Minnesota (33 % en moyenne pour les bi-combustibles propane, 53 % pour les tout-électriques remplaçant des radiateurs) <a class="cite" href="#ref-8">[8]</a> ; en France, l'ADEME mesure une facture divisée par deux en moyenne (par trois dans les meilleurs cas) et, pour les PAC air/air remplaçant des radiateurs électriques, des consommations d'usage chauffage divisées par deux durablement, y compris pendant les vagues de froid <a class="cite" href="#ref-3">[3]</a> <a class="cite" href="#ref-4">[4]</a>.</p>
+
+<p class="finding" id="f12"><strong>F12 — En pratique française, l'appoint utile se joue au dimensionnement : taille de machine, loi d'eau, et température de base du site.</strong></p>
+
+<p>Trois conséquences pratiques découlent des preuves : (1) dans la plupart des plaines françaises (températures de base de −7 à −15 °C), une PAC « climat froid » correctement dimensionnée couvre la quasi-totalité de la saison sans appoint, ce que confirment les faibles consommations d'appoint mesurées <a class="cite" href="#ref-9">[9]</a> ; (2) en montagne ou en Alsace-Lorraine à température de base ≤ −19 °C, il faut soit surdimensionner la PAC, soit prévoir explicitement un appoint dimensionné sur le déficit de puissance à la température de base — la résistance électrique est la solution la plus simple mais son COP de 1 en fait le mode le plus cher à faire tourner ; (3) l'erreur classique à éviter n'est pas l'appoint lui-même mais sa mauvaise régulation : les systèmes qui l'appellent trop tôt (changement de source fixé trop haut, loi d'eau trop haute) paient l'appoint au prix fort <a class="cite" href="#ref-8">[8]</a> <a class="cite" href="#ref-3">[3]</a>.</p>
+
+<h2 id="q4">6. Bilan environnemental</h2>
+
+<p class="finding" id="f13"><strong>F13 — Sur les émissions de gaz à effet de serre du chauffage, la PAC réduit massivement les émissions en France, et les réduit partout ailleurs d'au moins 20 %, fuites de fluide comprises.</strong></p>
+
+<p>Trois ordres de grandeur indépendants convergent. En France : l'électricité produite affiche 19,6 gCO2éq/kWh en 2025 (minimum historique, contre 178 g dans l'Union européenne élargie) <a class="cite" href="#ref-13">[13]</a> ; avec le facteur de consommation moyen de l'ADEME (0,052 kgCO2éq/kWh, valeurs 2024) <a class="cite" href="#ref-15">[15]</a> et un COP de 2,9, une PAC émet ≈ 18 gCO2éq par kWh de chaleur utile, contre ≈ 216 g pour une chaudière gaz (0,205 kg/kWh PCS facturé ÷ 0,95) — un facteur ≈ 12, cohérent avec la position de l'ADEME d'émissions divisées par 8 à 10 par rapport aux chaudières fioul ou gaz <a class="cite" href="#ref-2">[2]</a> <a class="cite" href="#ref-3">[3]</a>. En Allemagne (mix bien plus carboné), les 77 PAC de Fraunhofer ISE émettent 57 à 68 % de moins que le chauffage gaz, calcul fait même sur les variations horaires du mix <a class="cite" href="#ref-9">[9]</a>. Au niveau mondial, l'AIE conclut que les PAC réduisent les émissions d'au moins 20 % par rapport à une chaudière gaz même sur une électricité carbonée, et jusqu'à 80 % sur un réseau propre — en tenant compte des fuites de fluides frigorigènes actuels <a class="cite" href="#ref-14">[14]</a>. En climat froid, le COP plus bas réduit le bénéfice sans l'inverser : diviser le COP par 2 double les émissions par kWh utile, ce qui laisse la PAC française et allemande très en dessous des énergies fossiles.</p>
+
+<p class="finding" id="f14"><strong>F14 — Les fuites de fluide frigorigène et le pic de demande électrique sont les deux points de vigilance.</strong></p>
+
+<p>Les fluides actuels (R-410A, R-32) ont un potentiel de réchauffement élevé ; leurs fuites amenuisent le bénéfice climatique, ce qui justifie des fluides à GWP faible (propane) ou les plafonds GWP ≤ 750 imposés par le programme DOE <a class="cite" href="#ref-7">[7]</a> <a class="cite" href="#ref-14">[14]</a>. L'autre face est le réseau : l'AIE note qu'une PAC sans travaux d'efficacité peut tripler la pointe hivernale d'un foyer, et qu'améliorer de deux classes le bâtiment divise par deux le besoin et réduit d'un tiers la croissance de pointe <a class="cite" href="#ref-14">[14]</a> — un argument de dimensionnement, cohérent avec la section 5. Enfin, sur l'électricité consommée, une PAC air/air remplaçant des radiateurs électriques divise par deux durablement la consommation du poste chauffage, vagues de froid comprises (données Linky de 88 logements) <a class="cite" href="#ref-4">[4]</a>.</p>
+
+<p>Le tableau 4 récapitule les ordres de grandeur français.</p>
+
+<table class="data">
+<thead><tr><th>Chauffage</th><th>Émissions directes et amont (gCO2éq/kWh utile, ordre de grandeur)</th><th>Base de calcul</th></tr></thead><tbody>
+<tr><td>PAC air/eau (COP 2,9, élec française)</td><td>≈ 18</td><td>0,052 ÷ 2,9 <a class="cite" href="#ref-15">[15]</a></td></tr>
+<tr><td>Chaudière gaz à condensation</td><td>≈ 216</td><td>0,205 ÷ 0,95 <a class="cite" href="#ref-15">[15]</a></td></tr>
+<tr><td>Chaudière fioul</td><td>≈ 380</td><td>3,2 kg/L ÷ (9,97 × 0,85) kWh/L <a class="cite" href="#ref-15">[15]</a></td></tr>
+<tr><td>Bois (bûche/granulés)</td><td>≈ 33-36</td><td>0,030 kg/kWh ÷ rendement <a class="cite" href="#ref-15">[15]</a></td></tr>
+</tbody></table>
+
+<p class="tablecaption"><strong>Tableau 4.</strong> Ordres de grandeur d'émissions par kWh utile en France (calculs originaux d'après les facteurs Base Empreinte 2024 relevés par <a class="cite" href="#ref-15">[15]</a>). Le bois affiche de faibles émissions « combustion » comptabilisées ainsi, au prix d'une combustion locale plus polluante (particules) non visible dans ce seul indicateur ; le chauffage bois relève aussi d'une ressource locale et d'une charge manuelle.</p>
+
+<h2 id="q0">7. Réponse à la question principale : dans quelle mesure, à quelles conditions ?</h2>
+
+<p class="question"><strong>Q0. Dans quelle mesure une pompe à chaleur constitue-t-elle un choix performant et rentable pour le chauffage d'un bâtiment résidentiel en climat froid, et à quelles conditions ?</strong></p>
+
+<p><strong>Oui, dans la mesure large où la machine est adaptée au froid, la pose soignée, l'émetteur basse température et le prix relatif de l'électricité raisonnable — avec une dégradation honnête des performances attendues sous −15 °C.</strong> Les cinq conditions qui ressortent des preuves :</p>
+
+<ol><li>1. <strong>Une machine « climat froid »</strong> (compresseur inverter, fluide GWP faible, puissance maintenue à −15 °C) : les spécifications américaines et les mesures de terrain montrent que la technologie tient ses promesses à −15 °C <a class="cite" href="#ref-5">[5]</a> <a class="cite" href="#ref-6">[6]</a> ; en dessous de −20 °C, les données indépendantes se raréfient et les affirmations constructeur ne sont plus vérifiées <a class="cite" href="#ref-7">[7]</a> <a class="cite" href="#ref-12">[12]</a>.</li><li>2. <strong>Une pose et des réglages vérifiés</strong> : loi d'eau calibrée basse, émetteurs assez grands, anti-cyclage, installateur compétent ; c'est le facteur qui sépare un COP annuel de 4 d'un COP de 1,8 <a class="cite" href="#ref-1">[1]</a> <a class="cite" href="#ref-3">[3]</a>.</li><li>3. <strong>Un dimensionnement assumé</strong> : dimensionner sur la température de base du site et décider explicitement de la stratégie d'appoint (aucune, résistance de sécurité, bi-combustible) ; l'appoint coûte peu s'il ne sert presque jamais, beaucoup s'il remplace souvent la pompe <a class="cite" href="#ref-8">[8]</a> <a class="cite" href="#ref-9">[9]</a>.</li><li>4. <strong>Un prix relatif de l'électricité qui ne s'envole pas</strong> : le point de bascule économique est un COP d'équilibre d'environ 1,2 face au gaz français de novembre 2026 ; les SPF mesurés en climat froid (1,9 à 3,4) laissent une marge, mais un doublement du prix de l'électricité face à un gaz redevenu bon marché ramènerait le seuil vers 2,2 (tableau 3).</li><li>5. <strong>Un usage compatible</strong> : le chauffage principal d'une maison occupée en hiver est le cœur de cible ; les usages très intermittents ou les logements où le bois est déjà disponible et accepté peuvent baser leur choix ailleurs (le bois bûche reste la chaleur utile la moins chère et très bas-carbone, avec sa contrainte de manutention <a class="cite" href="#ref-25">[25]</a>).</li></ol>
+
+<p>Sous ces conditions, la réponse aux prémisses à tester du périmètre est : <strong>pas de seuil de température fatidique</strong> (dégradation continue, COP 1,0-2,5 jusqu'à −30 °C) ; <strong>pas de résistance d'appoint systématique</strong> (nécessaire seulement sous le point d'équilibre, et marginale si bien dimensionnée) ; <strong>pas de dégradation systématique de la rentabilité en climat froid</strong> (le COP de saison baisse, mais l'écart de prix avec les énergies fossiles reste net en France comme dans la plupart des pays européens ; le gaz de réseau américain bon marché reste le contre-cas documenté).</p>
+
+<p>Les options conditionnelles qui en découlent, sans prescription :</p>
+
+<ul><li><strong>Remplacement d'un chauffage fioul, propane ou tout-électrique</strong> : le cas le plus favorable — facture divisée par deux à trois, émissions divisées par huit à dix, rentabilité de 2 ans avec aides à 6-8 ans sans <a class="cite" href="#ref-3">[3]</a> <a class="cite" href="#ref-8">[8]</a>.</li><li><strong>Choix face au gaz en zone desservie</strong> : l'exploitation est nettement favorable à la PAC (0,069 vs 0,166 €/kWh utile en novembre 2026), l'investissement est trois à quatre fois plus élevé sans aides côté gaz et avec aides côté PAC ; le calcul penche pour la PAC en remplacement de fin de vie de chaudière, surtout avec l'évolution récente du prix du gaz <a class="cite" href="#ref-17">[17]</a> <a class="cite" href="#ref-19">[19]</a> <a class="cite" href="#ref-22">[22]</a>.</li><li><strong>Site à température de base ≤ −19 °C (montagne, Est)</strong> : PAC climat froid avec appoint dimensionné sur le déficit de puissance, ou alternative bois-granulés dont le coût d'exploitation reste proche de la PAC <a class="cite" href="#ref-20">[20]</a> <a class="cite" href="#ref-26">[26]</a>.</li><li><strong>Budget serré ou logement petit</strong> : la PAC air/air (3 000-14 000 €) offre une partie du bénéfice sans eau chaude sanitaire ni hydraulique <a class="cite" href="#ref-18">[18]</a>.</li></ul>
+
+<h2 id="limites">8. Limites</h2>
+
+<p>Les limites de cette étude sont celles de ses preuves. <strong>En dessous de −20 °C, les mesures indépendantes sont rares</strong> : la plage 1,0-2,5 provient d'une revue de dix études, pas d'un essai unique, et les allégations constructeur à −25 °C ne sont pas vérifiées indépendamment. <strong>Le rapport ADEME complet (227 p.) n'a été consulté que via ses synthèses officielles</strong> (avis, communiqué, article) et sa table des matières ; les chiffres clés cités (COP 2,9, facture ÷2, CO2 ÷8-10, rentabilité) sont ceux de l'agence. <strong>Les SPF cités proviennent de climats différents</strong> (France, Allemagne, Nordiques, Minnesota) avec des bornes système et des hivers différents : ils se recoupent en ordre de grandeur mais ne sont pas strictement comparables. <strong>Les prix français sont un instantané du 9 novembre 2026</strong> sur des comparateurs commerciaux inspectés ; le gaz a varié de +52 % en un an, ce qui rappelle que le classement économique doit être re-vérifié au moment de la décision. <strong>Les coûts d'installation sont des fourchettes de marché</strong>, pas des devis, et excluent les cas particuliers (tubage, raccordement, émetteurs à remplacer). Enfin, <strong>aucune situation de logement précise n'a été fournie</strong> : les preuves sont pesées pour la population générale des maisons individuelles en climat froid, et un dimensionnement réel passe par un bilan thermique du bâtiment.</p>
+
+<h2 id="conclusion">9. Conclusion</h2>
+
+<p>Les preuves rassemblées désamorcent les trois doutes du départ. Les pompes à chaleur récentes conçues pour le froid fonctionnent réellement entre +7 °C et −25 °C, avec un COP qui décroît continûment — autour de 2 à −15 °C pour les meilleures machines mesurées, 1 à 2,5 au-delà — et une puissance maintenue jusqu'à −15 °C pour les modèles certifiés « climat froid ». La rentabilité en climat froid est le résultat d'un rapport de prix plus que du climat : en France, aux tarifs de novembre 2026, le point de bascule face au gaz est un COP ≈ 1,2, très en dessous des COP saisonniers mesurés ; face au fioul et à l'électricité directe, l'avance est massive. L'appoint n'est systématique que pour les sites les plus froids et reste marginal quand l'installation est bien dimensionnée. Le bilan environnemental penche sans ambiguïté pour la PAC dans le contexte électrique français, et reste favorable partout ailleurs. Les vraies conditions du choix sont techniques et locales : machine adaptée, pose soignée, émetteurs basse température, dimensionnement à la température de base, et vérification des prix et aides au moment de décider.</p>
+
+<!-- RESEARCH_BODY_END -->
+
+<h2 id="references">Références</h2>
+
+<h3 class="ref-title" id="ref-1">[1] ADEME, Enertech (DUPRET M., BRAMKAMP U.), 2025, « Performance pompes à chaleur : réalisation d'une campagne de mesure sur des pompes à chaleur en résidentiel individuel », rapport final, 227 p.</h3>
+
+<p class="refnote">Étude commanditée par l'ADEME et la DGEC ; campagne de mesure sur 100 PAC (90 air/eau, 10 eau/eau ou sol/eau) en maisons individuelles, une année complète. Consulté : table des matières et synthèses officielles <a class="cite" href="#ref-2">[2]</a> <a class="cite" href="#ref-3">[3]</a> <a class="cite" href="#ref-4">[4]</a> ; texte intégral non extrait. Miroir public : <a href="https://www.actu-environnement.com/media/pdf/news-46893-rapport-ademe-performance-pompes-chaleur.pdf">https://www.actu-environnement.com/media/pdf/news-46893-rapport-ademe-performance-pompes-chaleur.pdf</a> ; référence à la librairie ADEME.</p>
+
+<h3 class="ref-title" id="ref-2">[2] ADEME, octobre 2025, « Avis sur les performances réelles des pompes à chaleur — focus sur les PAC air/eau en maisons individuelles », Position de l'ADEME, réf. 013063, 9 p.</h3>
+
+<p class="refnote">Synthèse des études de mesure ADEME ; PDF complet derrière un formulaire de courriel (non consulté) ; page de présentation consultée. <a href="https://librairie.ademe.fr/batiment/8634-avis-sur-les-performances-reelles-des-pompes-a-chaleur.html">https://librairie.ademe.fr/batiment/8634-avis-sur-les-performances-reelles-des-pompes-a-chaleur.html</a></p>
+
+<h3 class="ref-title" id="ref-3">[3] ADEME Infos, octobre 2025, « Comment maximiser la performance de votre pompe à chaleur air/eau ? »</h3>
+
+<p class="refnote">Article de vulgarisation ADEME restituant les résultats de la campagne de mesure : COP moyen mesuré 2,9 (extrêmes ≈ 1,8 et &gt; 4), facture ÷2 à ÷3, CO2 ÷8-10, rentabilité 2 ans avec aides / 6-8 ans sans, loi d'eau (+1 point de COP par −10 °C), appoint. Consulté en intégralité. <a href="https://infos.ademe.fr/energies/2025/comment-maximiser-la-performance-de-votre-pompe-a-chaleur-air-eau/">https://infos.ademe.fr/energies/2025/comment-maximiser-la-performance-de-votre-pompe-a-chaleur-air-eau/</a></p>
+
+<h3 class="ref-title" id="ref-4">[4] ADEME, 7 octobre 2025, communiqué de presse « Les pompes à chaleur : une solution à fort potentiel » (dossier de presse).</h3>
+
+<p class="refnote">Présentation des études ADEME, dont l'étude PAC air/air sur données Linky (88 logements, usages chauffage ÷2 y compris vagues de froid). Consulté. <a href="https://www.ademe.fr/presse/communique-national/les-pompes-a-chaleur-une-solution-a-fort-potentiel/">https://www.ademe.fr/presse/communique-national/les-pompes-a-chaleur-une-solution-a-fort-potentiel/</a></p>
+
+<h3 class="ref-title" id="ref-5">[5] Northeast Energy Efficiency Partnerships (NEEP), 2023, « Cold Climate Air Source Heat Pump Specification », version 4.0, en vigueur au 1er janvier 2023.</h3>
+
+<p class="refnote">Spécification volontaire nord-américaine : COP ≥ 1,75 à −15 °C (5 °F), HSPF2 ≥ 7,7-8,5, compresseur à capacité variable, publication des données à +8 °C (47 °F), −8 °C (17 °F), −15 °C (5 °F) et à la plus basse température cataloguée ; VRF : COP ≥ 3,40 à +8 °C et ≥ 2,25 à −8 °C. Consulté en intégralité. <a href="https://neep.org/sites/default/files/media-files/cold_climate_air_source_heat_pump_specification_-_version_4.0_final_1.pdf">https://neep.org/sites/default/files/media-files/cold_climate_air_source_heat_pump_specification_-_version_4.0_final_1.pdf</a></p>
+
+<h3 class="ref-title" id="ref-6">[6] MENON V., KEENE K., ROSENBERG S., ROTONDO J.A., NWE K., YOUNG J., WIND W., GOETZLER B. (PNNL / Guidehouse), janvier 2025, « Performance Results from DOE Cold Climate Heat Pump Challenge Field Validation », PNNL-37127, U.S. Department of Energy.</h3>
+
+<p class="refnote">Validation de terrain (22 sites, États-Unis et Canada, hivers 2022-2024) des prototypes du défi DOE. Consulté : résumé exécutif et sections de résultats (COP médian 1,9 entre −18 et −15 °C ; médianes 1,6-2,7 sous −1 °C). <a href="https://www.pnnl.gov/main/publications/external/technical_reports/PNNL-37127.pdf">https://www.pnnl.gov/main/publications/external/technical_reports/PNNL-37127.pdf</a></p>
+
+<h3 class="ref-title" id="ref-7">[7] MENON V. et al. (PNNL, Guidehouse, DOE), 2024, « Rising Up to the Challenge: Cold Climate Heat Pumps in the Field », ACEEE Summer Study on Energy Efficiency in Buildings.</h3>
+
+<p class="refnote">Spécification du défi DOE (COP ≥ 2,4 à −15 °C, 100 % de puissance, cut-out ≤ −23 °C, option −29 °C, GWP ≤ 750) ; revue citée de WAN &amp; HWANG (2023) : COP 1,0-2,5 (moyenne ≈ 1,5) de −15 à −30 °C ; revue citée de KONRAD &amp; MACDONALD (2023) : 1,75-2,25 à −15 °C pour le marché ; dégivrage : jusqu'à −29 % de puissance et −17,4 % de COP (WANG et al. 2011, cité). Consulté en intégralité. <a href="https://www.aceee.org/wp-content/uploads/ssb2024/Rising%20up%20to%20the%20Challenge%20-%20Cold%20Climate%20Heat%20Pumps%20in%20the%20Field.pdf">https://www.aceee.org/wp-content/uploads/ssb2024/Rising%20up%20to%20the%20Challenge%20-%20Cold%20Climate%20Heat%20Pumps%20in%20the%20Field.pdf</a></p>
+
+<h3 class="ref-title" id="ref-8">[8] SCHOENBAUER B., BOHAC D., HAYNOR A. (Center for Energy and Environment), 2018, « Field Assessment of Ducted and Ductless Cold Climate Air Source Heat Pumps », ACEEE Summer Study on Energy Efficiency in Buildings.</h3>
+
+<p class="refnote">Étude de terrain : 8 maisons du Minnesota, 16 mois et plus, mode alterné avec le système d'origine. Consulté en intégralité : économies d'énergie 37-54 %, coût −33 % (bi-combustible) à −53 % (tout-électrique), COP annuel 1,9 vs 1,3, dégivrage fréquent entre −12 et 0 °C, COP constructeur vérifié à −8 °C. <a href="https://www.mncee.org/sites/default/files/report-files/Field-Assessment-of-Ducted-and-Ductless-Cold-Climate-Air-Source-Heat-Pumps.pdf">https://www.mncee.org/sites/default/files/report-files/Field-Assessment-of-Ducted-and-Ductless-Cold-Climate-Air-Source-Heat-Pumps.pdf</a></p>
+
+<h3 class="ref-title" id="ref-9">[9] Fraunhofer ISE, 20 novembre 2025, communiqué « Fraunhofer ISE Research Project Completed: Heat Pumps Provide Climate-Friendly Heating in Existing Buildings » (projet « WP-QS im Bestand »).</h3>
+
+<p class="refnote">77 pompes à chaleur suivies quatre ans dans des bâtiments construits de 1826 à 2001 : SPF air/eau moyen 3,4 (2,6-4,9), géothermie 4,3 (3,6-5,4) ; appoints = 1,3 % de l'électricité (air/eau) ; émissions −57 à −68 % vs gaz ; PV-batterie : 40-83 % d'autoconsommation. Consulté en intégralité. <a href="https://www.ise.fraunhofer.de/content/dam/ise/en/documents/press-releases/2025/3025_ISE_PR_Heat-Pumps-Provide-Climate-Friendly-Heating-in-Existing-Buildings.pdf">https://www.ise.fraunhofer.de/content/dam/ise/en/documents/press-releases/2025/3025_ISE_PR_Heat-Pumps-Provide-Climate-Friendly-Heating-in-Existing-Buildings.pdf</a></p>
+
+<h3 class="ref-title" id="ref-10">[10] Fraunhofer ISE, projet « WP im Bestand » (déc. 2006 - déc. 2009), page projet « Heat Pumps in the Existing Building Stock ».</h3>
+
+<p class="refnote">Suivi de 36 géothermiques et 35 air/eau dans l'existant (remplacement de chaudières fioul, 177 kWh/m²/an, radiateurs, 50-65 °C) : SPF géothermie 2,2-4,1 (moyenne 3,3), air/eau 2,1-3,3 (moyenne 2,6), 2008-2009. Consulté en intégralité. <a href="https://www.ise.fraunhofer.de/en/research-projects/wp-im-bestand-2013-waermepumpenfeldtests-in-bestehenden-wohngebaeuden.html">https://www.ise.fraunhofer.de/en/research-projects/wp-im-bestand-2013-waermepumpenfeldtests-in-bestehenden-wohngebaeuden.html</a></p>
+
+<h3 class="ref-title" id="ref-11">[11] HAGLUND STIGNOR C., WALFRIDSON T. (RISE), 2019, « Nordsyn study on air-to-air heat pumps in humid Nordic climate », TemaNord 2019:504, Conseil nordique des ministres, Copenhague. DOI 10.6027/TN2019-504.</h3>
+
+<p class="refnote">Étude nordique : SPF terrain air/air 2,2-2,6 (H2) et 1,8-2,1 (H4), essais normalisés limités à 3 h (dégivrage rarement capturé), étiquette climat froid rare, givrage plus rapide en air humide, capacités déclarées à la baisse pour gonfler le SCOP. Consulté : résumé exécutif et sections clés. <a href="https://norden.diva-portal.org/smash/get/diva2:1313699/FULLTEXT01.pdf">https://norden.diva-portal.org/smash/get/diva2:1313699/FULLTEXT01.pdf</a></p>
+
+<h3 class="ref-title" id="ref-12">[12] Mitsubishi Electric, brochure « Pompe à chaleur air/air Hyper Heating » (document commercial, date non datée, consulté le 9 nov. 2026).</h3>
+
+<p class="refnote">Allégations constructeur : 100 % de puissance jusqu'à −15 °C, fonctionnement jusqu'à −25 °C, courbe ≈ 50-75 % de puissance à −25 °C. Statut : allégation d'industrie, non vérifiée indépendamment ; citée comme telle. <a href="https://www.conforthermic-normandie.fr/wp-content/uploads/2021/11/HyperHeating_FR.pdf">https://www.conforthermic-normandie.fr/wp-content/uploads/2021/11/HyperHeating_FR.pdf</a></p>
+
+<h3 class="ref-title" id="ref-13">[13] RTE, 2026, « Bilan électrique 2025 — Émissions », analyse et données (chapitre en ligne).</h3>
+
+<p class="refnote">Intensité carbone de la production électrique française : 19,6 gCO2éq/kWh en 2025 (minimum historique ; 10,9 MtCO2éq directs) ; moyenne UE+ : 178 gCO2éq/kWh ; 47 g/kWh en moyenne 2010-2023. Consulté. <a href="https://analysesetdonnees.rte-france.com/bilan-electrique-2025/emissions">https://analysesetdonnees.rte-france.com/bilan-electrique-2025/emissions</a></p>
+
+<h3 class="ref-title" id="ref-14">[14] AIE (International Energy Agency), 2022, « The Future of Heat Pumps », World Energy Outlook Special Report, IEA, Paris (résumé exécutif consulté).</h3>
+
+<p class="refnote">Efficacité 3-5× vs chaudière gaz ; Norvège 60 % des bâtiments équipés, Suède/Finlande &gt; 40 % ; réduction des émissions ≥ 20 % vs chaudière gaz même sur électricité carbonée (fuites de F-gaz comprises), jusqu'à 80 % ; pointe hivernale triplée sans travaux d'efficacité. <a href="https://www.iea.org/reports/the-future-of-heat-pumps/executive-summary">https://www.iea.org/reports/the-future-of-heat-pumps/executive-summary</a></p>
+
+<h3 class="ref-title" id="ref-15">[15] Selectra, mis à jour 2 octobre 2026, « Calcul de l'empreinte carbone de votre énergie » (facteurs Base Empreinte ADEME, valeurs 2024).</h3>
+
+<p class="refnote">Facteurs relevés : électricité 0,052 kgCO2éq/kWh (mix moyen de consommation France) ; gaz 0,205 kg/kWh facturé (PCS ; 0,227 kg/kWh PCI) ; fioul 3,2 kg/L ; bois 0,030 kg/kWh. Consulté. <a href="https://selectra.info/energie/guides/environnement/empreinte-carbone/calcul">https://selectra.info/energie/guides/environnement/empreinte-carbone/calcul</a></p>
+
+<h3 class="ref-title" id="ref-16">[16] Anah (Agence nationale de l'habitat), février 2026, « Les aides financières en 2026 », guide des aides (édition février 2026).</h3>
+
+<p class="refnote">PAC air/eau (dont hybrides) parmi les équipements éligibles MaPrimeRénov' ; budget 2026 : 3,6 Md€ ; réouverture du guichet après la loi de finances 2026 ; plafond de dépense PAC air/eau 12 000 € (montants 2026 rapportés à ≈ 4 000-5 000 € selon revenus par les barèmes professionnels). Consulté : sommaire, liste des équipements éligibles et sections générales. <a href="https://www.anah.gouv.fr/sites/default/files/2026-02/Anah-FR-Guide_des_aides_Fev2026_WEB_20260224.pdf">https://www.anah.gouv.fr/sites/default/files/2026-02/Anah-FR-Guide_des_aides_Fev2026_WEB_20260224.pdf</a></p>
+
+<h3 class="ref-title" id="ref-17">[17] LaPrimeÉnergie, 2026, « Quel est le prix d'une pompe à chaleur air-eau en 2026 ? » (comparateur commercial, consulté le 9 nov. 2026).</h3>
+
+<p class="refnote">Fourchettes pose comprise : 10 000-18 000 € (bi-bloc), 8 000-10 000 € (monobloc), 90-130 €/m² ; 9 000-13 000 € pour 100 m². Consulté. <a href="https://www.laprimeenergie.fr/les-travaux/la-pompe-a-chaleur-air-eau/prix">https://www.laprimeenergie.fr/les-travaux/la-pompe-a-chaleur-air-eau/prix</a></p>
+
+<h3 class="ref-title" id="ref-18">[18] Travaux.com, 2026, « Prix pompe à chaleur air-air 2026 » (comparateur commercial, consulté le 9 nov. 2026).</h3>
+
+<p class="refnote">3 000-14 000 € pose comprise (moyenne 6 000-9 000 €) ; monosplit 3 000-6 000 €, multisplit 4 500-10 000 € ; non éligible MaPrimeRénov' en geste isolé, CEE et TVA 10 % ; entretien 120-250 €/an. Consulté. <a href="https://www.travaux.com/chauffage/guide-des-prix/prix-pompe-a-chaleur-aerothermique">https://www.travaux.com/chauffage/guide-des-prix/prix-pompe-a-chaleur-aerothermique</a></p>
+
+<h3 class="ref-title" id="ref-19">[19] Selectra (Climate), mis à jour 3 juillet 2026, « Prix chaudière gaz 2026 » (comparateur commercial, consulté le 9 nov. 2026).</h3>
+
+<p class="refnote">Chaudière gaz condensation 2 500-8 500 € pose comprise ; hybride 7 000-13 000 € ; aides gaz supprimées (MaPrimeRénov', CEE), TVA 20 % depuis mars 2025. Consulté. <a href="https://climate.selectra.com/fr/renovation-energetique/chaudiere/gaz/prix">https://climate.selectra.com/fr/renovation-energetique/chaudiere/gaz/prix</a></p>
+
+<h3 class="ref-title" id="ref-20">[20] Effy, 2026, « Quel est le prix d'une chaudière à granulés ? » (comparateur commercial, consulté le 9 nov. 2026).</h3>
+
+<p class="refnote">Chaudière granulés 12 000-20 000 € pose comprise (alimentation manuelle 12 000-15 000 €) ; TVA 5,5 %, MaPrimeRénov' en rénovation globale. Consulté. <a href="https://www.effy.fr/travaux-energetique/chauffage/chaudiere/prix-chaudiere-granules">https://www.effy.fr/travaux-energetique/chauffage/chaudiere/prix-chaudiere-granules</a></p>
+
+<h3 class="ref-title" id="ref-21">[21] Selectra, mis à jour 16 octobre 2026, « Prix de l'électricité : à combien est le kWh en France en novembre 2026 ? » (comparateur, grille TRV).</h3>
+
+<p class="refnote">TRV au 1er août 2026 (délibération CRE n° 2026-147) : 0,2001 €/kWh Base 6 kVA (0,1985 € dès 9 kVA) ; heures creuses 0,1589 €, heures pleines 0,2142 €. Consulté. <a href="https://selectra.info/energie/electricite/prix">https://selectra.info/energie/electricite/prix</a></p>
+
+<h3 class="ref-title" id="ref-22">[22] CRE (Commission de régulation de l'énergie), prix repère de vente de gaz naturel, novembre 2026 ; complément : Service-Public.gouv.fr, actualité A17956 (12 oct. 2026).</h3>
+
+<p class="refnote">Prix repère B1 (chauffage) : 0,15761 €/kWh TTC en novembre 2026 (hausse de 6,6 % au 1er nov. après +6,3 % en octobre ; ≈ +52 % sur un an), valeurs relevées par les comparateurs inspectés. Pages consultées. <a href="https://www.cre.fr/consommateurs/prix-reperes-et-references/prix-repere-de-vente-de-gaz-naturel-a-destination-des-clients-residentiels.html">https://www.cre.fr/consommateurs/prix-reperes-et-references/prix-repere-de-vente-de-gaz-naturel-a-destination-des-clients-residentiels.html</a> ; <a href="https://www.service-public.gouv.fr/particuliers/actualites/A17956">https://www.service-public.gouv.fr/particuliers/actualites/A17956</a></p>
+
+<h3 class="ref-title" id="ref-23">[23] Selectra, 8 novembre 2026, « Prix du fioul domestique aujourd'hui » (baromètre).</h3>
+
+<p class="refnote">1,7587 €/L TTC le 8 nov. 2026 (ordre de grandeur confirmé par les baromètres concurrents du 9 nov. : 1,75-1,79 €/L). Extrait consulté. <a href="https://selectra.info/energie/fioul">https://selectra.info/energie/fioul</a></p>
+
+<h3 class="ref-title" id="ref-24">[24] Prix-Pellets.fr, 2026, « Prix pellets novembre 2026 » (indice Propellet T2 2026) ; Selectra, 6 novembre 2026, baromètre granulés.</h3>
+
+<p class="refnote">Indice Propellet T2 2026 : 388 €/t en vrac livré (≈ 5,78 € le sac de 15 kg) ; baromètre Selectra du 6 nov. 2026 : 466 €/t en vrac, 473 €/palette. Extraits consultés. <a href="https://www.prix-pellets.fr/prix-pellets/">https://www.prix-pellets.fr/prix-pellets/</a> ; <a href="https://selectra.info/energie/bois/granules-pellets">https://selectra.info/energie/bois/granules-pellets</a></p>
+
+<h3 class="ref-title" id="ref-25">[25] 7monÉnergie, relevé du 28 septembre 2026, « Comparatif énergie chauffage 2026 : coût et classement » (comparateur indépendant, méthodologie publiée).</h3>
+
+<p class="refnote">Coût du kWh utile : bois bûche 0,060 € (≈ 98 €/stère, rendement 82 %) ; PAC air/eau 0,067 € (SCOP 3) ; granulés 0,102-0,104 € (431 €/t, 90-92 %) ; gaz 0,170 € + abonnement (condensation 95 %, 14,56 c€/kWh PCS) ; électricité 0,200 € ; fioul 0,211 €. Consulté. <a href="https://7monenergie.fr/comparatif-energie/">https://7monenergie.fr/comparatif-energie/</a></p>
+
+<h3 class="ref-title" id="ref-26">[26] ABC CLIM (site technique professionnel), mis à jour 10 mars 2025, « Température de base hiver » (tableau issu de la norme NF EN 12831).</h3>
+
+<p class="refnote">Zones A-I et tranches d'altitude : −2 °C (zone A, 0-200 m) à −15 °C (zone I, 0-200 m) ; corrections d'altitude jusqu'à −29 °C (zone G, 2 000-2 200 m) ; exemples : Le Havre −7 °C, Briançon −19 °C. Consulté ; valeurs conformes à la norme citée, présentation non officielle. <a href="https://www.abcclim.net/temperature-de-base-hiver.html">https://www.abcclim.net/temperature-de-base-hiver.html</a></p>
+
+<hr>
+
+<p class="identification">Research ID: heat-pumps-cold-climates-2026-11 · Report 1.0 · Scope: heat-pumps-cold-climates.rb.md · Protocol 1.7b.10</p>
+</div>
+</body>
+</html>

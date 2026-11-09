@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" role="img" aria-labelledby="fig2-t fig2-d">
+  <title id="fig2-t">Coût du kWh de chaleur utile par mode de chauffage, France, novembre 2026</title>
+  <desc id="fig2-d">Barres horizontales du coût en euros par kWh utile : bois bûche 0,060 ; PAC COP 2,9 : 0,069 ; PAC dégradée COP 2,0 : 0,100 ; granulés 0,095 à 0,114 ; gaz condensation 0,166 plus abonnement ; électricité directe 0,200 ; fioul 0,208.</desc>
+  <rect width="900" height="600" fill="#ffffff"/>
+  <text x="30" y="42" font-family="Georgia, 'Times New Roman', serif" font-size="21" font-weight="bold" fill="#1a1a2e">Coût du kWh de chaleur utile en France, novembre 2026</text>
+
+  <!-- gridlines -->
+  <g stroke="#d9d9d9" stroke-width="1">
+    <line x1="230" y1="70" x2="230" y2="510"/><line x1="371" y1="70" x2="371" y2="510"/>
+    <line x1="512" y1="70" x2="512" y2="510"/><line x1="653" y1="70" x2="653" y2="510"/>
+    <line x1="794" y1="70" x2="794" y2="510"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="14" fill="#333" text-anchor="middle">
+    <text x="230" y="538">0</text><text x="371" y="538">0,05</text><text x="512" y="538">0,10</text>
+    <text x="653" y="538">0,15</text><text x="794" y="538">0,20</text>
+  </g>
+  <text x="512" y="566" font-family="Arial, sans-serif" font-size="14" fill="#333" text-anchor="middle">€ par kWh de chaleur utile (TTC)</text>
+  <line x1="230" y1="510" x2="850" y2="510" stroke="#333" stroke-width="1.5"/>
+
+  <!-- bars -->
+  <g font-family="Arial, sans-serif" font-size="14.5" fill="#1a1a2e" text-anchor="end">
+    <text x="222" y="120">Bois bûche (poêle récent)</text>
+    <text x="222" y="180">PAC air/eau (COP 2,9 mesuré)</text>
+    <text x="222" y="240">PAC dégradée (COP 2,0)</text>
+    <text x="222" y="300">Granulés (poêle ou chaudière)</text>
+    <text x="222" y="360">Gaz (condensation)</text>
+    <text x="222" y="420">Électricité directe</text>
+    <text x="222" y="480">Fioul (chaudière)</text>
+  </g>
+  <rect x="230" y="102" width="169" height="28" rx="3" fill="#8a5a00"/>
+  <text x="407" y="122" font-family="Arial, sans-serif" font-size="13.5" fill="#8a5a00">0,060 €</text>
+  <rect x="230" y="162" width="194" height="28" rx="3" fill="#1a5fb4"/>
+  <text x="432" y="182" font-family="Arial, sans-serif" font-size="13.5" fill="#1a5fb4">0,069 €</text>
+  <rect x="230" y="222" width="282" height="28" rx="3" fill="#7fa8d9"/>
+  <text x="520" y="242" font-family="Arial, sans-serif" font-size="13.5" fill="#33517d">0,100 €</text>
+  <rect x="230" y="282" width="296" height="28" rx="3" fill="#a07000"/>
+  <line x1="498" y1="272" x2="551" y2="272" stroke="#5a3d00" stroke-width="2"/>
+  <line x1="498" y1="272" x2="498" y2="281" stroke="#5a3d00" stroke-width="2"/>
+  <line x1="551" y1="272" x2="551" y2="281" stroke="#5a3d00" stroke-width="2"/>
+  <text x="534" y="302" font-family="Arial, sans-serif" font-size="13.5" fill="#5a3d00">0,095-0,114 € (plage 388-466 €/t)</text>
+  <rect x="230" y="342" width="468" height="28" rx="3" fill="#555555"/>
+  <text x="706" y="362" font-family="Arial, sans-serif" font-size="13.5" fill="#333">0,166 € + abonnement</text>
+  <rect x="230" y="402" width="564" height="28" rx="3" fill="#333333"/>
+  <text x="802" y="422" font-family="Arial, sans-serif" font-size="13.5" fill="#111">0,200 €</text>
+  <rect x="230" y="462" width="586" height="28" rx="3" fill="#111111"/>
+  <text x="824" y="482" font-family="Arial, sans-serif" font-size="13.5" fill="#000">0,208 €</text>
+
+  <text x="30" y="592" font-family="Arial, sans-serif" font-size="12.5" fill="#666">Calculs d'après les tarifs relevés en novembre 2026 et les COP mesurés cités dans le texte (tableau 2) ; hypothèses et opérations détaillées dans le rapport.</text>
+</svg>

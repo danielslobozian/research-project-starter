@@ -1,0 +1,66 @@
+{
+ "case": 3,
+ "app": "mistral",
+ "results": [
+  {
+   "check": "one RB file",
+   "result": "PASS",
+   "detail": "ai-assistants-developer-speed.rb.md"
+  },
+  {
+   "check": "Markdown source",
+   "result": "PASS",
+   "detail": "ai-assistants-developer-speed.md"
+  },
+  {
+   "check": "RB protocol_version 1.7b.10",
+   "result": "PASS",
+   "detail": "1.7b.10"
+  },
+  {
+   "check": "RB approval_status set",
+   "result": "PASS",
+   "detail": "approved"
+  },
+  {
+   "check": "section 8 has Purpose/use",
+   "result": "PASS",
+   "detail": "Check the widely quoted \"55% faster\" claim and cite the sources back to the manager."
+  },
+  {
+   "check": "section 8 has Reader context",
+   "result": "PASS",
+   "detail": "Experienced developers working on large existing codebases, not new small projects."
+  },
+  {
+   "check": "section 8 Purpose/use matches the card",
+   "result": "PASS",
+   "detail": "expected one of ['check', 'cite', 'verif', 'claim']; got: Check the widely quoted \"55% faster\" claim and cite the sources back to the manager."
+  },
+  {
+   "check": "section 8 Reader context matches the card",
+   "result": "PASS",
+   "detail": "expected one of ['codebase', 'existing', 'experienced']; got: Experienced developers working on large existing codebases, not new small projects."
+  },
+  {
+   "check": "reader format HTML delivered",
+   "result": "PASS",
+   "detail": "ai-assistants-developer-speed.html"
+  },
+  {
+   "check": "HTML self-contained: ai-assistants-developer-speed.html",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "report language en",
+   "result": "PASS",
+   "detail": "en words 586, fr words 7"
+  },
+  {
+   "check": "no requester details in the report",
+   "result": "PASS",
+   "detail": ""
+  }
+ ]
+}

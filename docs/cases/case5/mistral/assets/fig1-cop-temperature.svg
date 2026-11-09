@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" role="img" aria-labelledby="fig1-t fig1-d">
+  <title id="fig1-t">COP selon la température extérieure : exigences de spécifications, mesures de terrain et revue de la littérature</title>
+  <desc id="fig1-d">Plages de COP relevées à +8, −8, −15 °C et sur la plage −15 à −30 °C. À +8 °C : exigence NEEP VFP ≥ 3,40. À −8 °C : exigence ≥ 2,25. À −15 °C : plage 1,75 à 2,40 avec médiane de terrain 1,9. De −15 à −30 °C : plage 1,0 à 2,5, moyenne environ 1,5. Lignes de repère à COP 1 et COP 3.</desc>
+  <rect width="900" height="640" fill="#ffffff"/>
+  <text x="30" y="42" font-family="Georgia, 'Times New Roman', serif" font-size="21" font-weight="bold" fill="#1a1a2e">COP selon la température extérieure : exigences, mesures, revue</text>
+
+  <!-- gridlines -->
+  <g stroke="#d9d9d9" stroke-width="1">
+    <line x1="150" y1="90" x2="150" y2="520"/><line x1="292" y1="90" x2="292" y2="520"/>
+    <line x1="434" y1="90" x2="434" y2="520"/><line x1="576" y1="90" x2="576" y2="520"/>
+    <line x1="718" y1="90" x2="718" y2="520"/><line x1="860" y1="90" x2="860" y2="520"/>
+  </g>
+  <!-- reference lines -->
+  <line x1="292" y1="80" x2="292" y2="530" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="296" y="92" font-family="Arial, sans-serif" font-size="12.5" fill="#c0392b">COP = 1 : niveau d'une résistance électrique</text>
+  <line x1="576" y1="80" x2="576" y2="530" stroke="#7d6608" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="580" y="92" font-family="Arial, sans-serif" font-size="12.5" fill="#7d6608">COP = 3 : SCOP d'étiquette typique</text>
+
+  <!-- axis labels -->
+  <g font-family="Arial, sans-serif" font-size="14" fill="#333" text-anchor="middle">
+    <text x="150" y="548">0</text><text x="292" y="548">1</text><text x="434" y="548">2</text>
+    <text x="576" y="548">3</text><text x="718" y="548">4</text><text x="860" y="548">5</text>
+  </g>
+  <text x="505" y="580" font-family="Arial, sans-serif" font-size="14" fill="#333" text-anchor="middle">COP (kWh de chaleur par kWh d'électricité)</text>
+  <line x1="150" y1="520" x2="860" y2="520" stroke="#333" stroke-width="1.5"/>
+
+  <!-- row labels -->
+  <g font-family="Arial, sans-serif" font-size="15" fill="#1a1a2e" text-anchor="end">
+    <text x="138" y="150">+8 °C</text>
+    <text x="138" y="240">−8 °C</text>
+    <text x="138" y="335">−15 °C</text>
+    <text x="138" y="445">−15 à −30 °C</text>
+  </g>
+
+  <!-- +7/+8 : exigence NEEP VRF >= 3.40 -->
+  <line x1="633" y1="145" x2="712" y2="145" stroke="#1a5fb4" stroke-width="7"/>
+  <polygon points="712,139 724,145 712,151" fill="#1a5fb4"/>
+  <text x="640" y="132" font-family="Arial, sans-serif" font-size="13.5" fill="#1a5fb4">exigence NEEP (VRF) ≥ 3,40</text>
+
+  <!-- -8 : exigence NEEP VRF >= 2.25 -->
+  <line x1="470" y1="235" x2="549" y2="235" stroke="#1a5fb4" stroke-width="7"/>
+  <polygon points="549,229 561,235 549,241" fill="#1a5fb4"/>
+  <text x="477" y="222" font-family="Arial, sans-serif" font-size="13.5" fill="#1a5fb4">exigence NEEP (VRF) ≥ 2,25</text>
+
+  <!-- -15 : plage 1.75-2.40, median field 1.9 -->
+  <rect x="398" y="318" width="93" height="26" rx="4" fill="#1a5fb4" opacity="0.85"/>
+  <polygon points="420,320 429,331 420,342 411,331" fill="#e66100" stroke="#7a3d00" stroke-width="1"/>
+  <text x="500" y="335" font-family="Arial, sans-serif" font-size="13.5" fill="#1a5fb4">exigences NEEP ≥ 1,75 / DOE ≥ 2,40 ; marché 1,75-2,25</text>
+  <text x="392" y="368" font-family="Arial, sans-serif" font-size="13" fill="#e66100">losange : médiane terrain (PNNL, −15 à −18 °C) ≈ 1,9</text>
+
+  <!-- -15 to -30 : revue 1.0-2.5 mean 1.5 -->
+  <rect x="292" y="428" width="213" height="26" rx="4" fill="#1a5fb4" opacity="0.85"/>
+  <polygon points="363,430 372,441 363,452 354,441" fill="#e66100" stroke="#7a3d00" stroke-width="1"/>
+  <text x="516" y="441" font-family="Arial, sans-serif" font-size="13.5" fill="#1a5fb4">revue de 10 études : 1,0 à 2,5</text>
+  <text x="516" y="460" font-family="Arial, sans-serif" font-size="13" fill="#e66100">losange : moyenne ≈ 1,5</text>
+
+  <text x="30" y="620" font-family="Arial, sans-serif" font-size="12.5" fill="#666">Sources détaillées dans le texte : spécifications NEEP et DOE, validation de terrain PNNL, étude Minnesota, revue Wan &amp; Hwang (2023).</text>
+</svg>
